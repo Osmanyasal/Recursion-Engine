@@ -5,8 +5,8 @@ Recursion Game Engine.
 
 ## Project Structure
 <pre>
-<name>/
-├── <name>/
+[name]/
+├── [name]/
 │   ├── headers...
 │   ├── sources...
 │   ├── modules...
@@ -24,17 +24,19 @@ lib/ (source for the application library *.cpp *.hpp)
 doc/ (doxygen or any kind of documentation)
 
 src/utils/
-     |->include/ (header files for utils)
-     |->test/  (simple test files for utils)
-     |->*.cc
+     |──foo
+     |──foo.cc
+     |──foo.test.cc
+     └── ...
 src/core/
-     |->include/ (header files for core)
-     |->test/  (simple test files for core)
-     |->*.cc
-src/gui/ 
-     |->include/  (header files for gui)
-     |->test/  (simple test files for gui)
-     |->*.cc 
+     |──bar
+     |──bar.cc
+     |──bar.test.cc
+     └── ...
+src/tests/
+    |──functional_test1
+    |──functional_test2
+    └── ...
 </pre>
 
 
