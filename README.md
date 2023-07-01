@@ -5,20 +5,36 @@ Recursion Game Engine.
 
 ## Project Structure
 <pre>
+<name>/
+├── <name>/
+│   ├── headers...
+│   ├── sources...
+│   ├── modules...
+│   └── unit tests...
+└── tests/
+    ├── functional_test1/
+    ├── functional_test2/
+    ├── integration_test1/
+    ├── integration_test2/
+    └── ...
+
+     
 src/ (source for the application)
 lib/ (source for the application library *.cpp *.hpp)
-tests/ (main.cpp for quick tests) <- use cppunit for this part
 doc/ (doxygen or any kind of documentation)
 
 src/utils/
-     \->include/ (header files for utils)
-     \->*.cc
+     |->include/ (header files for utils)
+     |->test/  (simple test files for utils)
+     |->*.cc
 src/core/
-    \->include/ (header files for core)
-    \->*.cc
+     |->include/ (header files for core)
+     |->test/  (simple test files for core)
+     |->*.cc
 src/gui/ 
-    \->include/  (header files for gui)
-    \->*.cc 
+     |->include/  (header files for gui)
+     |->test/  (simple test files for gui)
+     |->*.cc 
 </pre>
 
 
