@@ -1,0 +1,19 @@
+#ifndef RECURSION_ENGINE__SRC__CORE__RECURSION
+#define RECURSION_ENGINE__SRC__CORE__RECURSION
+
+#include <iostream>
+
+namespace Recursion
+{
+    class Engine
+    {
+    public:
+        Engine();
+        virtual ~Engine();
+
+        virtual void start() final;
+        virtual void application() = 0;
+    };
+} // namespace Recursion
+
+#endif

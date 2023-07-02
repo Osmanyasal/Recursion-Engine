@@ -1,0 +1,11 @@
+#ifndef RECURSION_ENGINE__SANDBOX__PROJ1__PROJ1
+#define RECURSION_ENGINE__SANDBOX__PROJ1__PROJ1
+
+#include <recursion>
+
+class Proj1 : public Recursion::Engine{
+    public:
+        virtual void application() override;
+};
+
+#endif
