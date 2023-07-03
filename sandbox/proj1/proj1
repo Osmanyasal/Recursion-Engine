@@ -3,7 +3,7 @@
 
 #include <recursion>
 
-class Proj1 : public Recursion::Engine{
+class Proj1 : public Recursion::core::Engine{
     public:
         virtual void application() override;
 };

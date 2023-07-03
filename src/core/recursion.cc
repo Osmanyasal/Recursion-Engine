@@ -1,22 +1,25 @@
 #include <recursion>
-
-namespace Recursion
+#include <utils>
+namespace Recursion::core
 {
     Engine::Engine()
     {
-        std::cout << "Engine Created!\n";
+        Recursion::utils::BaseLogger::init();
+        REC_CORE_INFO("Engine Created!");
+
     }
 
     Engine::~Engine()
     {
-        std::cout << "Engine Destroyed!\n";
+        REC_CORE_INFO("Engine Terminated!");
     }
 
     void Engine::start()
     {
-        std::cout << "Engine Started\n";
+        REC_CORE_INFO("Engine Started!");
         this->application();
-        while (true);
+        while (true)
+            ;
     }
 
 } // namespace Recursion

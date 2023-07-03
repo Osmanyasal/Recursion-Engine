@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace Recursion
+namespace Recursion::core
 {
     class Engine
     {

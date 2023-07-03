@@ -59,6 +59,9 @@
         "typeinfo": "cpp",
         "__nullptr": "cpp",
         "recursion": "cpp",
-        "proj1": "cpp"
+        "proj1": "cpp",
+        "charconv": "cpp",
+        "logger": "cpp",
+        "utils": "cpp"
     }
 }
