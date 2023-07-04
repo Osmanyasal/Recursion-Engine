@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 CXX := g++
 CXX_FLAGS := -Wall -std=c++11 -ggdb -fopenmp -lGL -lglfw -lGLEW
 
@@ -8,12 +9,25 @@ LIB := -Llib/spdlog/build/ -lspdlog
 INCLUDE := -I./src/core -I./src/utils -I./sandbox/proj1 -I./lib/spdlog/include/ -I./lib/spdlog/include/spdlog
 EXECUTABLE := recursion.engine
 
-all: $(BIN)/$(EXECUTABLE)
-
+all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop
+	
 ## check memory if there're any leaks.
 mem_check:
 	valgrind ./$(BIN)/$(EXECUTABLE)
-	
+
+## create a desktop file and move it to applications
+$(BIN)/recursion_engine.desktop:
+	echo -e "[Desktop Entry]\n\
+Version=1.0\n\
+Type=Application\n\
+Terminal=true\n\
+Name=Recursion Engine\n\
+Path=$(shell pwd)/bin/\n\
+Exec=$(shell pwd)/bin/recursion.engine\n\
+Icon=$(shell pwd)/logos/icon.png\n" > $(BIN)/recursion_engine.desktop
+
+	cp $(BIN)/recursion_engine.desktop ~/.local/share/applications
+
 run: all
 	@echo "🚀 Executing..."
 	./$(BIN)/$(EXECUTABLE)
