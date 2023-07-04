@@ -39,4 +39,9 @@ src/tests/
     └── ...
 </pre>
 
+To run 🚀 :<br>
+<pre>
+cd Recursion-Engine
+make run
+</pre>
 
