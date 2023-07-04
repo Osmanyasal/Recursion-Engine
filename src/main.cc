@@ -5,6 +5,6 @@
 int main(int argc, char **argv)
 {
     Proj1 proj;
-    //proj.start();
+    proj.start();
     return 0;
 }
