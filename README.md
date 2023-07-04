@@ -41,7 +41,8 @@ src/tests/
 
 To run 🚀 :<br>
 <pre>
-cd Recursion-Engine
+git clone https://github.com/Osmanyasal/Recursion-Engine.git &&
+cd ./Recursion-Engine &&
 make run
 </pre>
 
