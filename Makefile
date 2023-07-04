@@ -24,7 +24,7 @@ Terminal=true\n\
 Name=Recursion Engine\n\
 Path=$(shell pwd)/bin/\n\
 Exec=$(shell pwd)/bin/recursion.engine\n\
-Icon=$(shell pwd)/logos/icon.png\n" > $(BIN)/recursion_engine.desktop
+Icon=$(shell pwd)/icon/icon.png\n" > $(BIN)/recursion_engine.desktop
 
 	cp $(BIN)/recursion_engine.desktop ~/.local/share/applications
 
