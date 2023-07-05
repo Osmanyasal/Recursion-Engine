@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 CXX := g++
-CXX_FLAGS := -Wall -std=c++11 -ggdb -fopenmp -lGL -lglfw -lGLEW
+CXX_FLAGS := -g -Wall -std=c++11 -ggdb -fopenmp -lGL -lglfw -lGLEW
 
 BIN := bin
 SRC := src
