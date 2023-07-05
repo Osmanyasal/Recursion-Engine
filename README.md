@@ -1,13 +1,12 @@
-<table align="center">
-    <tr align="center">
-        <td>
-            <h1 align="center">Recursion Game Engine</h1> 
+<div id="user-content-toc" align=center>
+  <ul>
+    <summary><h1 style="display: inline-block;">Recursion Game Engine</h1></summary>
+  </ul>
+</div>
+<div align="center">
             <img align="center" alt="ICON" width="500" height="500" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/43181e63-15a4-49d3-98a7-c059f6e34765" /> 
-        </td>
-    </tr>
-    <tr>
-        <td> 
-            <div align="center">
+</div> 
+<div align="center">
                 <img align="center" alt="C++" width="80px" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/f79dfb8b-ec5e-43a9-b3ec-7db4555b54e0" />
                 &nbsp;&nbsp;
                 <img align="center" alt="OpenGL" width="100px" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/0564acaf-05a8-485d-b417-48a5c37729ab" />
@@ -19,10 +18,8 @@
                 <img align="center" alt="Mac" width="60px" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/a635c69d-cc34-46df-a0ed-de5771609a4d" />
                 &nbsp;&nbsp;
                 <img align="center" alt="Windows" width="60px" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/c1717d00-63d2-426f-a648-18a2d618f849" />
-            </div>
-        </td> 
-    </tr>
-</table>   
+</div>
+   
 
 ## To run 🚀 <br>
 ```console
