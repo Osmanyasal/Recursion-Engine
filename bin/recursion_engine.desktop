@@ -5,5 +5,5 @@ Terminal=true
 Name=Recursion Engine
 Path=/home/rt7/Desktop/Recursion-Engine/bin/
 Exec=/home/rt7/Desktop/Recursion-Engine/bin/recursion.engine
-Icon=/home/rt7/Desktop/Recursion-Engine/logos/icon.png
+Icon=/home/rt7/Desktop/Recursion-Engine/icon/icon.png
 

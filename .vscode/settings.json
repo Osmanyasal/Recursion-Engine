@@ -1,6 +1,6 @@
 {
     "files.associations": {
-        "proj1": "cpp",
+        "logger": "cpp",
         "recursion": "cpp"
     }
 }

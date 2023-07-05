@@ -1,6 +1,6 @@
-#include <recursion>
-#include <utils>
-#include <proj1>
+#include <recursion.hh>
+#include <proj1.hh>
+#include <utils.hh>
 
 void Proj1::application()
 {

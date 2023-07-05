@@ -43,3 +43,4 @@ $(BIN)/$(EXECUTABLE): $(shell find $(SRC) -type f -name "*.cc") $(shell find $(S
 clean:
 	@echo "🧹 Cleaning..."
 	rm -rf $(BIN)/*
+	rm -r ~/.local/share/applications/recursion_engine.desktop
