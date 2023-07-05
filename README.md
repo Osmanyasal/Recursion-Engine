@@ -14,7 +14,7 @@
                 &nbsp;&nbsp;
                 <img align="center" alt="Vulkan" width="100px" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/5272de0b-83b4-4c8a-a2a7-97d25bd1cd96" /> 
                 &nbsp;&nbsp;
-                <img align="center" alt="Linux" width="80" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/693cca66-0ecf-451f-94f8-082289456480" />
+                <img align="center" alt="Linux" width="80" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/e67369bc-582f-4d90-bd92-7765b6f2a357" />
                 &nbsp;&nbsp;
                 <img align="center" alt="Windows" width="80" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/c1717d00-63d2-426f-a648-18a2d618f849" />
                 &nbsp;&nbsp;
@@ -22,9 +22,7 @@
             </div>
         </td> 
     </tr>
-</table>  
-
-
+</table>   
 
 ## To run 🚀 <br>
 ```console
