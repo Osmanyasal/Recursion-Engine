@@ -3,6 +3,14 @@
     <img src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/43181e63-15a4-49d3-98a7-c059f6e34765" width="500" height="500">
 </p>
 
+
+## To run 🚀 <br>
+<pre>
+git clone https://github.com/Osmanyasal/Recursion-Engine.git &&
+cd ./Recursion-Engine &&
+make run
+</pre>
+
 ## Project Structure
 <pre>
 [name]/
@@ -39,10 +47,4 @@ src/tests/
     └── ...
 </pre>
 
-To run 🚀 :<br>
-<pre>
-git clone https://github.com/Osmanyasal/Recursion-Engine.git &&
-cd ./Recursion-Engine &&
-make run
-</pre>
 
