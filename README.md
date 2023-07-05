@@ -5,11 +5,11 @@
 
 
 ## To run 🚀 <br>
-<pre>
-git clone https://github.com/Osmanyasal/Recursion-Engine.git &&
-cd ./Recursion-Engine &&
-make run
-</pre>
+```console
+$ git clone https://github.com/Osmanyasal/Recursion-Engine.git
+$ cd ./Recursion-Engine
+$ make run
+```
 
 ## Project Structure
 <pre>
