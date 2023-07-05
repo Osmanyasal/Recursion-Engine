@@ -1,10 +1,10 @@
 <table align="center">
     <tr>
-        <td align="center">
+        <td>
             <h1 align="center">Recursion Game Engine</h1> 
         </td>
     </tr>
-    <tr align="center">
+    <tr>
         <td><img align="center" alt="ICON" width="500" height="500" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/43181e63-15a4-49d3-98a7-c059f6e34765" /></td>
     </tr>
     <tr>
