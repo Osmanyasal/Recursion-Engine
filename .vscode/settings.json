@@ -62,6 +62,14 @@
         "proj1": "cpp",
         "charconv": "cpp",
         "logger": "cpp",
-        "utils": "cpp"
+        "utils": "cpp",
+        "type": "cpp",
+        "codecvt": "cpp",
+        "map": "cpp",
+        "fstream": "cpp",
+        "iomanip": "cpp",
+        "span": "cpp",
+        "sstream": "cpp",
+        "variant": "cpp"
     }
 }
