@@ -32,7 +32,7 @@
         INSTANCEOF_PTR(Derived, dd) -> true
 */
 
-#define INSTANCEOF(derivedType, baseRef) (dynamic_cast<derivedType *>(&baseRef) != nullptr)
-#define INSTANCEOF_PTR(derivedType, baseRef) (dynamic_cast<derivedType *>(baseRef) != nullptr)
+#define INSTANCEOF(derivedType, baseREF) (dynamic_cast<derivedType *>(&baseREF) != nullptr)
+#define INSTANCEOF_PTR(derivedType, basePTR) (dynamic_cast<derivedType *>(basePTR) != nullptr)
 
 #endif
