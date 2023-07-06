@@ -13,7 +13,7 @@ namespace Recursion::utils
         // Set global log level to trace
         spdlog::set_level(spdlog::level::trace);
 
-        core_logger = spdlog::stdout_color_st("CORE");
-        client_logger = spdlog::stdout_color_st("CLIENT");
+        core_logger = spdlog::stdout_color_mt("CORE");
+        client_logger = spdlog::stdout_color_mt("CLIENT");
     }
 }
