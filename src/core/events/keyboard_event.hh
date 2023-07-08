@@ -49,10 +49,43 @@ namespace Recursion::core::events
     private:
         bool is_repeat;
     };
-    inline  std::ostream &operator<<(std::ostream &out, const KeyPressEvent &event)
+    inline std::ostream &operator<<(std::ostream &out, const KeyPressEvent &event)
     {
         out << (KeyEvent &)event << "KeyPressEvent("
             << "is_repeat=" << event.is_repeat << "))";
+        return out;
+    }
+
+    class KeyReleasedEvent : public KeyEvent
+    {
+    public:
+        SET_EVENT_TYPE(EventType::KeyReleased)
+        KeyReleasedEvent(short key) : KeyEvent{key}
+        {
+        }
+        virtual ~KeyReleasedEvent() {}
+
+        friend inline std::ostream &operator<<(std::ostream &out, const KeyReleasedEvent &event);
+    };
+    inline std::ostream &operator<<(std::ostream &out, const KeyReleasedEvent &event)
+    {
+        out << (KeyEvent &)event << "KeyReleasedEvent())";
+        return out;
+    }
+    class KeyTypedEvent : public KeyEvent
+    {
+    public:
+        SET_EVENT_TYPE(EventType::KeyTyped)
+        KeyTypedEvent(short key) : KeyEvent{key}
+        {
+        }
+        virtual ~KeyTypedEvent() {}
+
+        friend inline std::ostream &operator<<(std::ostream &out, const KeyTypedEvent &event);
+    };
+    inline std::ostream &operator<<(std::ostream &out, const KeyTypedEvent &event)
+    {
+        out << (KeyEvent &)event << "KeyTypedEvent())";
         return out;
     }
 }

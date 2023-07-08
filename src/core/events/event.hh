@@ -4,11 +4,12 @@
 #include <utils.hh>
 #include <sstream>
 
-#define EVENT_LOG(expression)           \
-    [&]() -> std::string {              \
-        std::ostringstream oss;         \
-        oss << expression << std::endl; \
-        return oss.str();               \
+// put your event reference, it returns the operator<< string to you regarding class hierarchy.
+#define EVENT_LOG(expression)   \
+    [&]() -> std::string {      \
+        std::ostringstream oss; \
+        oss << expression;      \
+        return oss.str();       \
     }()
 
 namespace Recursion::core::events
