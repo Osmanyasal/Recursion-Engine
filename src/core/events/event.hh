@@ -2,6 +2,15 @@
 #define RECURSION_ENGINE__SRC__CORE__EVENTS__EVENT_HH
 
 #include <utils.hh>
+#include <sstream>
+
+#define EVENT_LOG(expression)           \
+    [&]() -> std::string {              \
+        std::ostringstream oss;         \
+        oss << expression << std::endl; \
+        return oss.str();               \
+    }()
+
 namespace Recursion::core::events
 {
     enum class EventType : int
@@ -37,8 +46,8 @@ namespace Recursion::core::events
         EventCategoryMouseButton = BIT(4)
     };
 
-#define SET_EVENT_TYPE(type)                                                      \
-    virtual EventType get_event_type() const override { return EventType::type; } \
+#define SET_EVENT_TYPE(type)                                           \
+    virtual EventType get_event_type() const override { return type; } \
     virtual std::string get_name() const override { return #type; }
 
 #define SET_EVENT_CATEGORY(event_category) \
@@ -46,7 +55,6 @@ namespace Recursion::core::events
 
     class Event
     {
-
     public:
         bool is_handled;
         virtual EventType get_event_type() const = 0;
@@ -57,11 +65,19 @@ namespace Recursion::core::events
         {
             return get_category_flags() & (int)category;
         }
+        friend inline std::ostream &operator<<(std::ostream &out, const Event &event);
 
     protected:
         Event() : is_handled{false} {}
         virtual ~Event() {}
     };
+
+    inline std::ostream &operator<<(std::ostream &out, const Event &event)
+    {
+        out << "Event("
+            << "is_handled=" << event.is_handled << ", ";
+        return out;
+    }
 
 } // namespace Recursion::core::events
 
