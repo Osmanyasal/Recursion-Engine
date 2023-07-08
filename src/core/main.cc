@@ -17,13 +17,13 @@ int main(int argc, char **argv)
     REC_CORE_INFO(EVENT_LOG(key2));
     REC_CORE_INFO(EVENT_LOG(key3));
 
+    std::cout << "\n\n******\n"
+              << std::endl;
 
-    std::cout << "\n\n******\n" << std::endl;
-
-    MouseMovedEvent mouse_moved{3.3312f,12.03f};
+    MouseMovedEvent mouse_moved{3.3312f, 12.03f};
     REC_CORE_INFO(EVENT_LOG(mouse_moved));
 
-    MouseScrolledEvent scroll_event{3.33f,2.22f};
+    MouseScrolledEvent scroll_event{3.33f, 2.22f};
     REC_CORE_INFO(EVENT_LOG(scroll_event));
 
     MouseButtonPressed mouse_button_press{REC_MOUSE_BUTTON_LEFT};

@@ -6,7 +6,8 @@ BIN := bin
 SRC := src
 SANDBOX := sandbox
 LIB := -Llib/spdlog/build/ -lspdlog
-INCLUDE := -I./src/core -I./src/core/events -I./src/utils -I./sandbox/proj1 -I./lib/spdlog/include/ -I./lib/spdlog/include/spdlog
+EXTERNAL_LIBS := -I./lib/spdlog/include/  -I./lib/spdlog/include/spdlog -I./lib/spdlog/include/glew -I./lib/spdlog/include/glfw
+INCLUDE := -I./src/core -I./src/core/events -I./src/utils -I./sandbox/proj1 $(EXTERNAL_LIBS)
 EXECUTABLE := recursion.engine
 
 all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop
