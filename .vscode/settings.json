@@ -1,6 +1,30 @@
 {
     "files.associations": {
         "logger": "cpp",
-        "recursion": "cpp"
+        "recursion": "cpp",
+        "array": "cpp",
+        "charconv": "cpp",
+        "chrono": "cpp",
+        "compare": "cpp",
+        "functional": "cpp",
+        "ratio": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "variant": "cpp",
+        "__functional_base": "cpp",
+        "__functional_base_03": "cpp",
+        "__hash_table": "cpp",
+        "__tree": "cpp",
+        "__tuple": "cpp",
+        "algorithm": "cpp",
+        "filesystem": "cpp",
+        "limits": "cpp",
+        "memory": "cpp",
+        "random": "cpp",
+        "span": "cpp",
+        "system_error": "cpp",
+        "__locale": "cpp",
+        "__node_handle": "cpp"
     }
 }

@@ -5,3 +5,6 @@
 
 #include <logger.hh>
 #include <type.hh>
+
+
+#define BIT(x) (1<<x)
