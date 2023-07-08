@@ -1,9 +1,7 @@
 #include <recursion.hh>
 #include <utils.hh>
 #include <proj1.hh>
-#include <event.hh>
-#include <keyboard_event.hh>
-#include <mouse_event.hh>
+#include <event_core.hh>
 
 using namespace Recursion::core::events;
 
