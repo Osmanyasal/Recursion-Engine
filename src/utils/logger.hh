@@ -1,6 +1,7 @@
 #ifndef RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
 #define RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
 
+#include <config.hh>
 #include <string>
 #include <memory>
 #include <spdlog.h>
@@ -36,9 +37,6 @@ namespace Recursion::utils
 #define REC_CORE_ERROR(...)                                                                                                         \
     spdlog::set_pattern("[%n][%^%l%$][%Y-%m-%d %H:%M:%S.%f][" + std::string(__FILE__) + ":" + std::to_string(__LINE__) + "] [%v]"); \
     Recursion::utils::BaseLogger::get_core_logger()->error(__VA_ARGS__)
-#define REC_CORE_FATAL(...)                                                                                                         \
-    spdlog::set_pattern("[%n][%^%l%$][%Y-%m-%d %H:%M:%S.%f][" + std::string(__FILE__) + ":" + std::to_string(__LINE__) + "] [%v]"); \
-    Recursion::utils::BaseLogger::get_core_logger()->fatal(__VA_ARGS__)
 
 // CLIENT LOGGERS
 #define REC_TRACE(...)                                                                                                              \
@@ -53,8 +51,16 @@ namespace Recursion::utils
 #define REC_ERROR(...)                                                                                                              \
     spdlog::set_pattern("[%n][%^%l%$][%Y-%m-%d %H:%M:%S.%f][" + std::string(__FILE__) + ":" + std::to_string(__LINE__) + "] [%v]"); \
     Recursion::utils::BaseLogger::get_client_logger()->error(__VA_ARGS__)
-#define REC_FATAL(...)                                                                                                              \
-    spdlog::set_pattern("[%n][%^%l%$][%Y-%m-%d %H:%M:%S.%f][" + std::string(__FILE__) + ":" + std::to_string(__LINE__) + "] [%v]"); \
-    Recursion::utils::BaseLogger::get_client_logger()->fatal(__VA_ARGS__)
+
+// Get rid of things that shouldn't be on production..
+#if IS_PRODUCTION
+
+    #undef REC_CORE_TRACE
+    #undef REC_TRACE
+
+    #define REC_CORE_TRACE(...)
+    #define REC_TRACE(...)
+
+#endif
 
 #endif

@@ -5,11 +5,18 @@
     to access utils include this file
 */
 
+#include <iomanip>
+#include <random>
+#include <sstream>
+
+#include <config.hh>
 #include <logger.hh>
 #include <type.hh>
 
 // MACRO DEFINITIONS
-#define BIT(x) (1<<x)
+#define BIT(x) (1 << x)
 
+// FUNCTION DECLERATIONS
+std::string generateGUID();
 
 #endif

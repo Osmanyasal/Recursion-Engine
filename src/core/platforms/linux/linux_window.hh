@@ -3,19 +3,23 @@
 
 #include <window.hh>
 
+// TODO:set these based on the config.
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
 namespace Recursion::core::window
 {
-    class LinuxWindow //: public Window
+    class LinuxWindow : public Window
     {
     public:
-        LinuxWindow(const WindowProps &default_props = WindowProps()) : default_props{default_props}
-        {
-            REC_CORE_INFO("Linux Window Started");
-        }
-        virtual ~LinuxWindow() {}
+        LinuxWindow(const WindowProps &default_props = WindowProps());
+        virtual ~LinuxWindow() { glfwTerminate(); }
+        
+        virtual void on_update() override;
+        virtual void set_event_callback() override;
 
     private:
-        const WindowProps default_props;
+        GLFWwindow *gl_window;
     };
 }
 #endif

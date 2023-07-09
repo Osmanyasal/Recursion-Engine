@@ -8,7 +8,7 @@ using namespace Recursion::core::events;
 int main(int argc, char **argv)
 {
     Proj1 proj;
-    Recursion::core::window::LinuxWindow win;
-    //proj.start();
+    proj.start();
     return 0;
 }
+

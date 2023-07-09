@@ -5,6 +5,7 @@
 #include <utils.hh>
 #include <window.hh>
 #include <event_core.hh> 
+#include <linux_window.hh>
 
 namespace Recursion::core
 {
@@ -16,6 +17,10 @@ namespace Recursion::core
 
         virtual void start() final;
         virtual void application() = 0;
+
+    private:
+        bool is_running;
+        window::Window* window;
     };
 } // namespace Recursion
 

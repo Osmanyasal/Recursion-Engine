@@ -1,20 +1,20 @@
 SHELL := /bin/bash
 CXX := g++
-CXX_FLAGS := -g -Wall -std=c++11 -ggdb -fopenmp -lGL -lglfw -lGLEW
+CXX_FLAGS := -g -Wall -std=c++11 -ggdb -fopenmp ## -lGL -lglfw -lGLEW
 
 BIN := bin
 SRC := src
 SANDBOX := sandbox
 
-DYNAMIC := -Llib/spdlog/build/ -lspdlog -Llib/glfw/src/ -lglfw3
+DYNAMIC := -Llib/spdlog/build/ -lspdlog -Llib/glfw/src/ -lglfw3 -Llib/glew/lib/ -lGLEW -lGL
 LIB_SPD_PATH :=./lib/spdlog
-LIB_SPD := -I./lib/spdlog/include/  -I./lib/spdlog/include/spdlog -I./lib/spdlog/include/glew -I./lib/spdlog/include/glfw
+LIB_SPD := -I./lib/spdlog/include/  -I./lib/spdlog/include/spdlog 
 
 LIB_GLEW_PATH := ./lib/glew
-LIB_GLEW := -I./lib/glew/include/GL
+LIB_GLEW := -I./lib/glew/include/ -I./lib/spdlog/include/glew 
 
 LIB_GLFW_PATH := ./lib/glfw
-LIB_GLFW := -I./lib/glfw/include/GLFW
+LIB_GLFW := -I./lib/glfw/include/ -I./lib/spdlog/include/glfw
 
 INCLUDE := -I./src/core -I./src/core/events\
  						-I./src/core/window\
@@ -28,7 +28,10 @@ INCLUDE := -I./src/core -I./src/core/events\
 						-I./src/core/platforms/macos/directx\
 						-I./src/core/platforms/macos/vulkan\
 						-I./src/utils\
-						-I./sandbox/proj1 $(LIB_SPD) $(LIB_GLEW) $(LIB_GLFW)
+						-I./sandbox/proj1\
+					 	 $(LIB_SPD)\
+						 $(LIB_GLEW)\
+						 $(LIB_GLFW)
 EXECUTABLE := recursion.engine
 
 all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop $(LIB_GLEW_PATH)/include/GL/glew.h $(LIB_GLFW_PATH)/src/libglfw3.a
@@ -67,7 +70,7 @@ clean_run: clean all
 
 $(BIN)/$(EXECUTABLE): $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc")
 	@echo "🚧 Building..."
-	$(CXX) $(CXX_FLAGS) $(INCLUDE) $(DYNAMIC) $^ -o ./$(BIN)/$(EXECUTABLE)
+	$(CXX) $(CXX_FLAGS) $^ -o ./$(BIN)/$(EXECUTABLE) $(INCLUDE) $(DYNAMIC) 
 
 clean:
 	@echo "🧹 Cleaning..."
