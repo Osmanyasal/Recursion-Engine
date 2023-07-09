@@ -6,16 +6,20 @@ BIN := bin
 SRC := src
 SANDBOX := sandbox
 
-DYNAMIC := -Llib/spdlog/build/ -lspdlog
+DYNAMIC := -Llib/spdlog/build/ -lspdlog -Llib/glfw/src/ -lglfw3
 LIB_SPD_PATH :=./lib/spdlog
 LIB_SPD := -I./lib/spdlog/include/  -I./lib/spdlog/include/spdlog -I./lib/spdlog/include/glew -I./lib/spdlog/include/glfw
 
 LIB_GLEW_PATH := ./lib/glew
 LIB_GLEW := -I./lib/glew/include/GL
-INCLUDE := -I./src/core -I./src/core/events -I./src/utils -I./sandbox/proj1 $(LIB_SPD) $(LIB_GLEW)
+
+LIB_GLFW_PATH := ./lib/glfw
+LIB_GLFW := -I./lib/glfw/include/GLFW
+
+INCLUDE := -I./src/core -I./src/core/events -I./src/utils -I./sandbox/proj1 $(LIB_SPD) $(LIB_GLEW) $(LIB_GLFW)
 EXECUTABLE := recursion.engine
 
-all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop $(LIB_GLEW_PATH)/include/GL/glew.h
+all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop $(LIB_GLEW_PATH)/include/GL/glew.h $(LIB_GLFW_PATH)/src/libglfw3.a
 	
 ## check memory if there're any leaks.
 mem_check:
@@ -38,7 +42,8 @@ $(LIB_GLEW_PATH)/include/GL/glew.h:
 	cd $(LIB_GLEW_PATH)/auto && make
 	cd $(LIB_GLEW_PATH) && make && sudo make install && make clean
 
-
+$(LIB_GLFW_PATH)/src/libglfw3.a:
+	cd $(LIB_GLFW_PATH) && cmake . && make
 
 run: all
 	@echo "🚀 Executing..."
@@ -57,3 +62,4 @@ clean:
 	rm -rf $(BIN)/*
 	rm -r ~/.local/share/applications/recursion_engine.desktop ## remove dekstop icon
 	rm $(LIB_GLEW_PATH)/include/GL/glew.h ## to reinstall glew to the system and create the header file.
+	rm $(LIB_GLEW_PATH)/src/libglfw3.a

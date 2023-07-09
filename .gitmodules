@@ -4,3 +4,6 @@
 [submodule "lib/glew"]
 	path = lib/glew
 	url = https://github.com/nigels-com/glew.git
+[submodule "lib/glfw"]
+	path = lib/glfw
+	url = https://github.com/glfw/glfw.git
