@@ -23,10 +23,13 @@
 
 ## To run 🚀 <br>
 ```console
-$ git clone https://github.com/Osmanyasal/Recursion-Engine.git
+$ git clone --recurse-submodules https://github.com/Osmanyasal/Recursion-Engine.git
 $ cd ./Recursion-Engine
 $ make run
 ```
+## Currently
+ - Main support is on Linux, MacOS and Windows side-supported.
+ - Developing fundamentals; OpenGL and glfw3 are preferred, Vulkan and DirectX will be supported later.
 
 ## Project Structure
 <pre>
