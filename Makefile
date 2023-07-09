@@ -5,12 +5,17 @@ CXX_FLAGS := -g -Wall -std=c++11 -ggdb -fopenmp -lGL -lglfw -lGLEW
 BIN := bin
 SRC := src
 SANDBOX := sandbox
-LIB := -Llib/spdlog/build/ -lspdlog
-EXTERNAL_LIBS := -I./lib/spdlog/include/  -I./lib/spdlog/include/spdlog -I./lib/spdlog/include/glew -I./lib/spdlog/include/glfw
-INCLUDE := -I./src/core -I./src/core/events -I./src/utils -I./sandbox/proj1 $(EXTERNAL_LIBS)
+
+DYNAMIC := -Llib/spdlog/build/ -lspdlog
+LIB_SPD_PATH :=./lib/spdlog
+LIB_SPD := -I./lib/spdlog/include/  -I./lib/spdlog/include/spdlog -I./lib/spdlog/include/glew -I./lib/spdlog/include/glfw
+
+LIB_GLEW_PATH := ./lib/glew
+LIB_GLEW := -I./lib/glew/include/GL
+INCLUDE := -I./src/core -I./src/core/events -I./src/utils -I./sandbox/proj1 $(LIB_SPD) $(LIB_GLEW)
 EXECUTABLE := recursion.engine
 
-all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop
+all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop $(LIB_GLEW_PATH)/include/GL/glew.h
 	
 ## check memory if there're any leaks.
 mem_check:
@@ -29,6 +34,12 @@ Icon=$(shell pwd)/icon/icon.png\n" > $(BIN)/recursion_engine.desktop
 
 	cp $(BIN)/recursion_engine.desktop ~/.local/share/applications
 
+$(LIB_GLEW_PATH)/include/GL/glew.h:
+	cd $(LIB_GLEW_PATH)/auto && make
+	cd $(LIB_GLEW_PATH) && make && sudo make install && make clean
+
+
+
 run: all
 	@echo "🚀 Executing..."
 	./$(BIN)/$(EXECUTABLE)
@@ -39,9 +50,10 @@ clean_run: clean all
 
 $(BIN)/$(EXECUTABLE): $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc")
 	@echo "🚧 Building..."
-	$(CXX) $(CXX_FLAGS) $(INCLUDE) $(LIB) $^ -o ./$(BIN)/$(EXECUTABLE)
+	$(CXX) $(CXX_FLAGS) $(INCLUDE) $(DYNAMIC) $^ -o ./$(BIN)/$(EXECUTABLE)
 
 clean:
 	@echo "🧹 Cleaning..."
 	rm -rf $(BIN)/*
-	rm -r ~/.local/share/applications/recursion_engine.desktop
+	rm -r ~/.local/share/applications/recursion_engine.desktop ## remove dekstop icon
+	rm $(LIB_GLEW_PATH)/include/GL/glew.h ## to reinstall glew to the system and create the header file.

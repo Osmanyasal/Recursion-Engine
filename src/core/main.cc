@@ -2,6 +2,7 @@
 #include <utils.hh>
 #include <proj1.hh>
 #include <event_core.hh>
+#include <GL/glew.h>
 
 using namespace Recursion::core::events;
 

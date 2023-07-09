@@ -1,3 +1,6 @@
 [submodule "lib/spdlog"]
 	path = lib/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "lib/glew"]
+	path = lib/glew
+	url = https://github.com/nigels-com/glew.git
