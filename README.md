@@ -23,7 +23,7 @@
 
 ## To run 🚀 <br>
 ```console
-$ git clone --recursive https://github.com/Osmanyasal/Recursion-Engine.git
+$ git clone --recurse-submodules https://github.com/Osmanyasal/Recursion-Engine.git
 $ cd ./Recursion-Engine
 $ make run
 ```
