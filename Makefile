@@ -16,7 +16,19 @@ LIB_GLEW := -I./lib/glew/include/GL
 LIB_GLFW_PATH := ./lib/glfw
 LIB_GLFW := -I./lib/glfw/include/GLFW
 
-INCLUDE := -I./src/core -I./src/core/events -I./src/utils -I./sandbox/proj1 $(LIB_SPD) $(LIB_GLEW) $(LIB_GLFW)
+INCLUDE := -I./src/core -I./src/core/events\
+ 						-I./src/core/window\
+						-I./src/core/platforms\
+						-I./src/core/platforms/linux\
+						-I./src/core/platforms/linux/opengl\
+						-I./src/core/platforms/linux/vulkan\
+						-I./src/core/platforms/macos\
+						-I./src/core/platforms/macos/vulkan\
+						-I./src/core/platforms/windows\
+						-I./src/core/platforms/macos/directx\
+						-I./src/core/platforms/macos/vulkan\
+						-I./src/utils\
+						-I./sandbox/proj1 $(LIB_SPD) $(LIB_GLEW) $(LIB_GLFW)
 EXECUTABLE := recursion.engine
 
 all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop $(LIB_GLEW_PATH)/include/GL/glew.h $(LIB_GLFW_PATH)/src/libglfw3.a
@@ -61,5 +73,7 @@ clean:
 	@echo "🧹 Cleaning..."
 	rm -rf $(BIN)/*
 	rm -r ~/.local/share/applications/recursion_engine.desktop ## remove dekstop icon
+
+clean_all: clean
 	rm $(LIB_GLEW_PATH)/include/GL/glew.h ## to reinstall glew to the system and create the header file.
-	rm $(LIB_GLEW_PATH)/src/libglfw3.a
+	rm $(LIB_GLFW_PATH)/src/libglfw3.a
