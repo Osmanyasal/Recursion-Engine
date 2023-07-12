@@ -2,9 +2,13 @@ SHELL := /bin/bash
 CXX := g++
 CXX_FLAGS := -g -Wall -std=c++11 -ggdb -fopenmp ## -lGL -lglfw -lGLEW
 
-BIN := bin
-SRC := src
-SANDBOX := sandbox
+BIN := ./bin
+SRC := ./src
+OBJ := $(BIN)/obj
+SANDBOX := ./sandbox
+SRC_FILES := $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc")
+OBJ_FILES := $(patsubst $(SRC)/%.cc,$(OBJ)/%.o,$(SRC_FILES))
+
 
 DYNAMIC := -Llib/spdlog/build/ -lspdlog -Llib/glfw/src/ -lglfw3 -Llib/glew/lib/ -lGLEW -lGL
 LIB_SPD_PATH :=./lib/spdlog
@@ -68,14 +72,18 @@ clean_run: clean all
 	@echo "🚀 Executing..."
 	./$(BIN)/$(EXECUTABLE)
 
-$(BIN)/$(EXECUTABLE): $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc")
-	@echo "🚧 Building..."
-	$(CXX) $(CXX_FLAGS) $^ -o ./$(BIN)/$(EXECUTABLE) $(INCLUDE) $(DYNAMIC) 
+$(BIN)/$(EXECUTABLE): $(OBJ_FILES)
+	echo "🚧 Building..."
+	$(CXX) $(CXX_FLAGS) $^ -o ./$(BIN)/$(EXECUTABLE) $(INCLUDE) $(DYNAMIC)
+
+$(OBJ)/%.o: $(SRC)/%.cc
+	mkdir -p $(@D)
+	$(CXX) $(CXX_FLAGS) -c -o $@ $< $(INCLUDE)
 
 clean:
 	@echo "🧹 Cleaning..."
 	rm -rf $(BIN)/*
-	rm -r ~/.local/share/applications/recursion_engine.desktop ## remove dekstop icon
+	rm -rf ~/.local/share/applications/recursion_engine.desktop ## remove dekstop icon
 
 clean_all: clean
 	rm $(LIB_GLEW_PATH)/include/GL/glew.h ## to reinstall glew to the system and create the header file.
