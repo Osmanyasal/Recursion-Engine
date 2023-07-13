@@ -67,4 +67,21 @@ src/tests/
     └── ...
 </pre>
 
+## Naming Convention
+<pre>
+ <b>file names</b>
+  app1.hh app1.cc
+ <b>header guards</b>
+  
+ <b>namespace</b> 
+  namespace Recursion::submodule1::submodule2
+ <b>struct class</b> 
+  class ClassName
+ <b>method</b> 
+  void method_name(){}
+ <b>variables</b>
+  int variable1,second_variable;
+ 
+  
+</pre>
 
