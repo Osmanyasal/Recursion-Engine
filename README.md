@@ -48,7 +48,7 @@ $ make run
 
      
 src/ (source for the application)
-lib/ (source for the application library *.cpp *.hpp)
+lib/ (source for the application library *.{c,cc,cpp} *.{h,hh,cpp})
 doc/ (doxygen or any kind of documentation)
 
 src/utils/
