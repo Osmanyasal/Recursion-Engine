@@ -70,11 +70,12 @@ src/tests/
 ## Naming Convention
 ### file names
 <pre>
+  <b> always *.hh and *.cc</b>
   app1.hh app1.cc
 </pre>
 ### header guards
 <pre>
-  PROJECT_NAME__FOLDER__SUB_FOLDER__SUB_FOLDER_2__FILE_NAME__HH
+  <b>PROJECT_NAME__FOLDER__SUB_FOLDER__SUB_FOLDER_2__FILE_NAME__HH</b>
   
   #ifndef RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
   #define RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
@@ -83,11 +84,11 @@ src/tests/
 </pre>
 ### includes
 <pre>
-  always use <..>
-  #include<utils.hh>
-  #include<events.hh>
+  <b>always use &lt..&gt</b>
+  #include&ltutils.hh&gt
+  #include&ltevents.hh&gt
 
-  add your new header locations to header file with respect to order 
+  <b>add your new header locations to header file with respect to order</b> 
   INCLUDE := -I./[our_custom_CORE_locatıons]\
              -I./[our_custom_SANDBOX_locatıons]\#3rd party apps
               $(3rd_party_libraries) # 3rd party libraries
@@ -106,11 +107,18 @@ src/tests/
 <pre>
   namespace Recursion::submodule1::submodule2{
   
-  } // end of 
+  } // namespace Recursion::core
 </pre>
-### struct class
+### struct/class
 <pre>
-  class ClassName{...};
+  {struct,class} {Struct,Class}Name{
+    public:
+      // static & public members
+    protected:
+      // static & protected members
+    private:
+      // static & private members
+  }; 
 </pre>
  ### method
 <pre>
