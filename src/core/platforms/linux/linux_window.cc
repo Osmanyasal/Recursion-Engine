@@ -11,8 +11,8 @@ namespace Recursion::core::window
         }
 
         // Set GLFW window hints (optional)
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, REC_GLFW_CONTEXT_VERSION_MAJOR);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, REC_GLFW_CONTEXT_VERSION_MINOR);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, CONF__REC__GLFW_CONTEXT_VERSION_MAJOR);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, CONF__REC__GLFW_CONTEXT_VERSION_MAJOR);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
         // Create a GLFW window

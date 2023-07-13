@@ -32,6 +32,7 @@ INCLUDE := -I./src/core -I./src/core/events\
 						-I./src/core/platforms/macos/directx\
 						-I./src/core/platforms/macos/vulkan\
 						-I./src/utils\
+						-I./src/utils/optimizations\
 						-I./sandbox/proj1\
 					 	 $(LIB_SPD)\
 						 $(LIB_GLEW)\

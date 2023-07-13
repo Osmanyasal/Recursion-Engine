@@ -53,7 +53,7 @@ namespace Recursion::utils
     Recursion::utils::BaseLogger::get_client_logger()->error(__VA_ARGS__)
 
 // Get rid of things that shouldn't be on production..
-#if IS_PRODUCTION
+#if CONF__PORTING__IS_PRODUCTION
 
     #undef REC_CORE_TRACE
     #undef REC_TRACE

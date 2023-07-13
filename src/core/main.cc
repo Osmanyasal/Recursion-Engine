@@ -1,6 +1,5 @@
 #include <recursion.hh>
 #include <proj1.hh>
-
 #include <linux_window.hh>
 
 using namespace Recursion::core::events;
@@ -11,4 +10,3 @@ int main(int argc, char **argv)
     proj.start();
     return 0;
 }
-
