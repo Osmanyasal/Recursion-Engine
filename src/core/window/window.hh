@@ -3,12 +3,15 @@
 
 #include <config.hh>
 #include <utils.hh>
-#include <event.hh>
+#include <event_core.hh>
 #include <memory>
 
+namespace Recursion::core
+{
+    class Engine;
+}
 namespace Recursion::core::window
 {
-
     struct WindowProps
     {
         std::string guid;
@@ -19,13 +22,15 @@ namespace Recursion::core::window
         WindowProps(std::string title = "Recursion Engine", int width = 1600, int height = 900) : guid{generateGUID()}, win_title{title}, win_width{width}, win_height{height}
         {
         }
+        // global callback function..
+        bool (*engine_callback_func)(Recursion::core::events::Event &event);
     };
 
     // interface representing a window system based Linux
     class Window
     {
     public:
-        virtual void set_event_callback() = 0;
+        // map all events here!
         virtual void on_update() = 0;
 
         Window(const WindowProps &default_props = WindowProps())
@@ -51,6 +56,7 @@ namespace Recursion::core::window
         };
 
     protected:
+        virtual void set_event_callback() const = 0;
         WindowProps win_props;
     };
 

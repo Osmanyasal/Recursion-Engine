@@ -3,6 +3,7 @@ namespace Recursion::core::window
 {
     LinuxWindow::LinuxWindow(const WindowProps &default_props)
     {
+
         // Initialize GLFW
         if (!glfwInit())
         {
@@ -17,6 +18,9 @@ namespace Recursion::core::window
 
         // Create a GLFW window
         gl_window = glfwCreateWindow(default_props.win_width, default_props.win_height, default_props.win_title.c_str(), nullptr, nullptr);
+
+        // Associate your data with the GLFW window
+        glfwSetWindowUserPointer(gl_window, (void *)&default_props);
 
         /*  SET ICON
 
@@ -43,10 +47,19 @@ namespace Recursion::core::window
 
         REC_CORE_INFO("Linux Window Started (id={})", default_props.guid.substr(0, 4));
         REC_CORE_INFO("Name={}, Resoulution width={} height={}", default_props.win_title, default_props.win_width, default_props.win_height);
+
+        set_event_callback();
     }
 
-    void LinuxWindow::set_event_callback()
+    void LinuxWindow::set_event_callback() const
     {
+        glfwSetKeyCallback(gl_window, [](GLFWwindow *window, int key, int scancode, int action, int mods)
+                           {
+                               Recursion::core::events::KeyPressEvent keypress{(short)key, (bool)mods};
+                               Recursion::core::events::EventBinder event_binder{keypress};
+                               WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
+                               (retrievedData.engine_callback_func)(keypress);
+                           });
     }
 
     void LinuxWindow::on_update()

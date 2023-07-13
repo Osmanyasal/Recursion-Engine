@@ -10,7 +10,7 @@
 namespace Recursion::core
 {
     class Engine
-    {
+    { 
     public:
         Engine();
         virtual ~Engine();
@@ -18,10 +18,16 @@ namespace Recursion::core
         virtual void start() final;
         virtual void application() = 0;
 
+		bool on_event(Recursion::core::events::Event& e) const;
+
     private:
         bool is_running;
         window::Window* window;
     };
+
+
+    // global on_event function
+    bool core_on_event(Recursion::core::events::Event& e);
 } // namespace Recursion
 
 #endif
