@@ -48,16 +48,16 @@ $ make run
 
      
 src/ (source for the application)
-lib/ (source for the application library *.cpp *.hpp)
+lib/ (source for the application library *.{c,cc,cpp} *.{h,hh,cpp})
 doc/ (doxygen or any kind of documentation)
 
 src/utils/
-     |──foo
+     |──foo.hh
      |──foo.cc
      |──foo.test.cc
      └── ...
 src/core/
-     |──bar
+     |──bar.hh
      |──bar.cc
      |──bar.test.cc
      └── ...
@@ -67,4 +67,66 @@ src/tests/
     └── ...
 </pre>
 
+## Naming Convention
+### file names
+<pre>
+  <b> always *.hh and *.cc</b>
+  app1.hh app1.cc
+</pre>
+### header guards
+<pre>
+  <b>PROJECT_NAME__FOLDER__SUB_FOLDER__SUB_FOLDER_2__FILE_NAME__HH</b>
+  
+  #ifndef RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
+  #define RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
+  ....
+  #endif
+</pre>
+### includes
+<pre>
+  <b>always use &lt..&gt</b>
+  #include&ltutils.hh&gt
+  #include&ltevents.hh&gt
+
+  <b>add your new header locations to header file with respect to order</b> 
+  INCLUDE := -I./[our_custom_CORE_locatıons]\
+             -I./[our_custom_SANDBOX_locatıons]\#3rd party apps
+              $(3rd_party_libraries) # 3rd party libraries
+    
+  INCLUDE := -I./src/core -I./src/core/events\
+   						-I./src/core/window\
+               ...
+  						-I./src/utils\
+  						-I./src/utils/optimizations\
+  						-I./sandbox/proj1\
+  					 	 $(LIB_SPD)\
+  						 $(LIB_GLEW)\
+  						 $(LIB_GLFW)
+</pre>
+### namespace
+<pre>
+  namespace Recursion::submodule1::submodule2{
+  
+  } // namespace Recursion::core
+</pre>
+### struct/class
+<pre>
+  {struct,class} {Struct,Class}Name{
+    public:
+      // static & public members
+    protected:
+      // static & protected members
+    private:
+      // static & private members
+  }; 
+</pre>
+ ### method
+<pre>
+  void method_name(){}
+</pre>
+### variables
+<pre>
+  int variable1,second_variable;
+</pre>
+ 
 
