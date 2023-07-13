@@ -52,12 +52,12 @@ lib/ (source for the application library *.{c,cc,cpp} *.{h,hh,cpp})
 doc/ (doxygen or any kind of documentation)
 
 src/utils/
-     |──foo
+     |──foo.hh
      |──foo.cc
      |──foo.test.cc
      └── ...
 src/core/
-     |──bar
+     |──bar.hh
      |──bar.cc
      |──bar.test.cc
      └── ...
