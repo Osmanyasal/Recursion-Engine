@@ -80,10 +80,24 @@ src/tests/
   #endif
 
 <b>includes</b>
-  always use <..> and add your location to makefile like 
+  always use <..>
   #include<utils.hh>
   #include<events.hh>
 
+  add your new header locations to header file with respect to order 
+  INCLUDE := -I./[our_custom_CORE_locatıons]\
+             -I./[our_custom_SANDBOX_locatıons]\#3rd party apps
+              $(3rd_party_libraries) # 3rd party libraries
+    
+  INCLUDE := -I./src/core -I./src/core/events\
+   						-I./src/core/window\
+               ...
+  						-I./src/utils\
+  						-I./src/utils/optimizations\
+  						-I./sandbox/proj1\
+  					 	 $(LIB_SPD)\
+  						 $(LIB_GLEW)\
+  						 $(LIB_GLFW)
     
  <b>namespace</b> 
   namespace Recursion::submodule1::submodule2
