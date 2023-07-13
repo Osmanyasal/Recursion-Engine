@@ -68,18 +68,21 @@ src/tests/
 </pre>
 
 ## Naming Convention
+### file names
 <pre>
- <b>file names</b>
   app1.hh app1.cc
- <b>header guards</b>
+</pre>
+### header guards
+<pre>
   PROJECT_NAME__FOLDER__SUB_FOLDER__SUB_FOLDER_2__FILE_NAME__HH
   
   #ifndef RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
   #define RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
   ....
   #endif
-
-<b>includes</b>
+</pre>
+### includes
+<pre>
   always use <..>
   #include<utils.hh>
   #include<events.hh>
@@ -98,16 +101,24 @@ src/tests/
   					 	 $(LIB_SPD)\
   						 $(LIB_GLEW)\
   						 $(LIB_GLFW)
-    
- <b>namespace</b> 
-  namespace Recursion::submodule1::submodule2
- <b>struct class</b> 
-  class ClassName
- <b>method</b> 
-  void method_name(){}
- <b>variables</b>
-  int variable1,second_variable;
- 
-  
 </pre>
+### namespace
+<pre>
+  namespace Recursion::submodule1::submodule2{
+  
+  } // end of 
+</pre>
+### struct class
+<pre>
+  class ClassName{...};
+</pre>
+ ### method
+<pre>
+  void method_name(){}
+</pre>
+### variables
+<pre>
+  int variable1,second_variable;
+</pre>
+ 
 
