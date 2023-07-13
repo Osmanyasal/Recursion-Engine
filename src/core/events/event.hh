@@ -97,7 +97,7 @@ namespace Recursion::core::events
         }
 
         template <typename T>
-        bool bind(EventFunc<T> func)
+        inline bool bind(EventFunc<T> func)
         {
             if (m_event.get_event_type() == T::get_static_event_type())
             {
