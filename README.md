@@ -72,7 +72,19 @@ src/tests/
  <b>file names</b>
   app1.hh app1.cc
  <b>header guards</b>
+  PROJECT_NAME__FOLDER__SUB_FOLDER__SUB_FOLDER_2__FILE_NAME__HH
   
+  #ifndef RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
+  #define RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
+  ....
+  #endif
+
+<b>includes</b>
+  always use <..> and add your location to makefile like 
+  #include<utils.hh>
+  #include<events.hh>
+
+    
  <b>namespace</b> 
   namespace Recursion::submodule1::submodule2
  <b>struct class</b> 
