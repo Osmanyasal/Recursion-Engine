@@ -4,14 +4,6 @@
 #include <utils.hh>
 #include <sstream>
 
-// put your event reference, it returns the operator<< string to you regarding class hierarchy.
-#define EVENT_TO_STRING(expression)   \
-    [&]() -> std::string {      \
-        std::ostringstream oss; \
-        oss << expression;      \
-        return oss.str();       \
-    }()
-
 namespace Recursion::core::events
 {
     enum class EventType : int
@@ -67,24 +59,23 @@ namespace Recursion::core::events
         {
             return get_category_flags() & (int)category;
         }
-        friend inline std::ostream &operator<<(std::ostream &out, const Event &event);
+        inline virtual std::string to_string()
+        {
+            std::stringstream res;
+            res << "Event("
+                << "is_handled=" << is_handled << ")";
+            return res.str();
+        }
 
     protected:
         Event() : is_handled{false} {}
         virtual ~Event() {}
     };
 
-    inline std::ostream &operator<<(std::ostream &out, const Event &event)
-    {
-        out << "Event("
-            << "is_handled=" << event.is_handled << ", ";
-        return out;
-    }
-
     /**
      * @brief Binds event to a function that takes an event parameter T and returns boolean
-     * 
-    */
+     *
+     */
     class EventBinder
     {
         template <typename T>
@@ -99,10 +90,14 @@ namespace Recursion::core::events
         template <typename T>
         inline bool bind(EventFunc<T> func)
         {
-            if (m_event.get_event_type() == T::get_static_event_type())
+            if (OPT_LIKELY(m_event.get_event_type() == T::get_static_event_type()))
             {
                 m_event.is_handled = func(*(T *)&m_event);
                 return true;
+            }
+            else
+            {
+                REC_CORE_WARN("Event Type and Function doesn't match !");
             }
             return false;
         }

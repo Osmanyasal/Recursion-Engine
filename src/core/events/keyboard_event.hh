@@ -22,18 +22,16 @@ namespace Recursion::core::events
             return key_code;
         }
 
-        friend inline std::ostream &operator<<(std::ostream &out, const KeyEvent &event);
+        inline virtual std::string to_string() override
+        {
+            std::stringstream res;
+            res << "KeyEvent(" << Event::to_string() << "key_code=" << key_code << ")";
+            return res.str();
+        }
 
     private:
         short key_code;
     };
-
-    inline std::ostream &operator<<(std::ostream &out, const KeyEvent &event)
-    {
-        out << (Event &)event << "KeyEvent("
-            << "key_code=" << event.key_code << ", ";
-        return out;
-    }
 
     class KeyPressEvent : public KeyEvent
     {
@@ -44,17 +42,16 @@ namespace Recursion::core::events
         }
         virtual ~KeyPressEvent() {}
 
-        friend inline std::ostream &operator<<(std::ostream &out, const KeyPressEvent &event);
+        inline virtual std::string to_string() override
+        {
+            std::stringstream res;
+            res << "KeyPressEvent(" << KeyEvent::to_string() << "is_repeat=" << is_repeat << ")";
+            return res.str();
+        }
 
     private:
         bool is_repeat;
     };
-    inline std::ostream &operator<<(std::ostream &out, const KeyPressEvent &event)
-    {
-        out << (KeyEvent &)event << "KeyPressEvent("
-            << "is_repeat=" << event.is_repeat << "))";
-        return out;
-    }
 
     class KeyReleasedEvent : public KeyEvent
     {
@@ -65,13 +62,13 @@ namespace Recursion::core::events
         }
         virtual ~KeyReleasedEvent() {}
 
-        friend inline std::ostream &operator<<(std::ostream &out, const KeyReleasedEvent &event);
+        inline virtual std::string to_string() override
+        {
+            std::stringstream res;
+            res << "KeyReleasedEvent(" << KeyEvent::to_string() << ")";
+            return res.str();
+        }
     };
-    inline std::ostream &operator<<(std::ostream &out, const KeyReleasedEvent &event)
-    {
-        out << (KeyEvent &)event << "KeyReleasedEvent())";
-        return out;
-    }
     class KeyTypedEvent : public KeyEvent
     {
     public:
@@ -81,13 +78,13 @@ namespace Recursion::core::events
         }
         virtual ~KeyTypedEvent() {}
 
-        friend inline std::ostream &operator<<(std::ostream &out, const KeyTypedEvent &event);
+        inline virtual std::string to_string() override
+        {
+            std::stringstream res;
+            res << "KeyTypedEvent(" << KeyEvent::to_string() << ")";
+            return res.str();
+        }
     };
-    inline std::ostream &operator<<(std::ostream &out, const KeyTypedEvent &event)
-    {
-        out << (KeyEvent &)event << "KeyTypedEvent())";
-        return out;
-    }
 }
 
 #endif

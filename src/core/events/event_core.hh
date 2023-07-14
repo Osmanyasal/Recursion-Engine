@@ -4,5 +4,6 @@
 #include <event.hh>
 #include <mouse_event.hh>
 #include <keyboard_event.hh>
+#include <window_event.hh>
 
 #endif

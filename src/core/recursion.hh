@@ -18,7 +18,7 @@ namespace Recursion::core
         virtual void start() final;
         virtual void application() = 0;
 
-        bool on_event(Recursion::core::events::Event &e) const;
+        bool on_event(Recursion::core::events::Event &e);
 
     private:
         bool is_running;

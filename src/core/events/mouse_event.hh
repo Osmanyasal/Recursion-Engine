@@ -19,48 +19,46 @@ namespace Recursion::core::events
         inline float get_posx() { return pos_x; }
         inline float get_posy() { return pos_y; }
 
-        friend std::ostream &operator<<(std::ostream &out, const MouseMovedEvent &event);
+        inline virtual std::string to_string() override
+        {
+            std::stringstream res;
+            res << "MouseMovedEvent(" << Event::to_string() << ", "
+                << "pos_x=" << pos_x << ", "
+                << "pos_y=" << pos_y << ")";
+            return res.str();
+        }
 
     private:
         float pos_x;
         float pos_y;
     };
 
-    inline std::ostream &operator<<(std::ostream &out, const MouseMovedEvent &event)
-    {
-        out << (Event &)event << "MouseMovedEvent("
-            << "pos_x=" << event.pos_x << ", "
-            << "pos_y=" << event.pos_y << "))";
-        return out;
-    }
-
     class MouseScrolledEvent : public Event
     {
     public:
         SET_EVENT_CATEGORY((int)EventCategory::EventCategoryMouse | (int)EventCategory::EventCategoryInput)
         SET_EVENT_TYPE(EventType::MouseScrolled)
-        MouseScrolledEvent(const float offsetX, const float offsetY) : offset_x{offsetX}, offset_y{offsetY}
+        MouseScrolledEvent(const double offsetX, const double offsetY) : offset_x{offsetX}, offset_y{offsetY}
         {
         }
         virtual ~MouseScrolledEvent() {}
 
-        inline float get_offset_x() { return offset_x; }
-        inline float get_offset_y() { return offset_y; }
+        inline double get_offset_x() { return offset_x; }
+        inline double get_offset_y() { return offset_y; }
 
-        friend std::ostream &operator<<(std::ostream &out, const MouseScrolledEvent &event);
+        inline virtual std::string to_string() override
+        {
+            std::stringstream res;
+            res << "MouseScrolledEvent(" << Event::to_string() << ", "
+                << "offset_x=" << offset_x << ", "
+                << "offset_y=" << offset_y << ")";
+            return res.str();
+        }
 
     private:
-        float offset_x;
-        float offset_y;
+        double offset_x;
+        double offset_y;
     };
-
-    inline std::ostream &operator<<(std::ostream &out, const MouseScrolledEvent &event)
-    {
-        out << (Event &)event << "MouseScrolledEvent("
-            << "offset_x=" << event.offset_x << ", "
-            << "offset_y=" << event.offset_y << "))";
-        return out;
-    }
 
     class MouseButtonPressed : public Event
     {
@@ -75,18 +73,17 @@ namespace Recursion::core::events
 
         inline short get_mouse_button() { return mouse_button; }
 
-        friend std::ostream &operator<<(std::ostream &out, const MouseButtonPressed &event);
+        inline virtual std::string to_string() override
+        {
+            std::stringstream res;
+            res << "MouseButtonPressed(" << Event::to_string() << ", "
+                << "mouse_button=" << mouse_button << ")";
+            return res.str();
+        }
 
     private:
         short mouse_button;
     };
-
-    inline std::ostream &operator<<(std::ostream &out, const MouseButtonPressed &event)
-    {
-        out << (Event &)event << "MouseButtonPressed("
-            << "mouse_button=" << event.mouse_button << "))";
-        return out;
-    }
 
     class MouseButtonReleased : public Event
     {
@@ -101,18 +98,17 @@ namespace Recursion::core::events
 
         inline short get_mouse_button() { return mouse_button; }
 
-        friend std::ostream &operator<<(std::ostream &out, const MouseButtonReleased &event);
+        inline virtual std::string to_string() override
+        {
+            std::stringstream res;
+            res << "MouseButtonReleased(" << Event::to_string() << ", "
+                << "mouse_button=" << mouse_button << ")";
+            return res.str();
+        }
 
     private:
         short mouse_button;
     };
-
-    inline std::ostream &operator<<(std::ostream &out, const MouseButtonReleased &event)
-    {
-        out << (Event &)event << "MouseButtonReleased("
-            << "mouse_button=" << event.mouse_button << "))";
-        return out;
-    }
 }
 
 #endif
