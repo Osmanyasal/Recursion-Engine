@@ -2,15 +2,19 @@
 #include <utils.hh>
 namespace Recursion::core
 {   
+    Engine* engine_ptr;
 
-    bool core_on_event(Recursion::core::events::Event &e)
+    template<typename T>
+    bool core_on_event(T &e)
     {
-        REC_CORE_INFO(EVENT_TO_STRING(e));
+        if(engine_ptr != nullptr)
+            engine_ptr->on_event(e);
         return true;
     }
 
     Engine::Engine()
     {
+        engine_ptr = this;
         Recursion::utils::BaseLogger::init();
         is_running = true;
         REC_CORE_INFO("Engine Created!");
@@ -23,7 +27,7 @@ namespace Recursion::core
 
     bool Engine::on_event(Recursion::core::events::Event &e) const
     {
-        // REC_CORE_INFO(EVENT_TO_STRING(e));
+        REC_CORE_INFO("Hello from original on_event!! %s",EVENT_TO_STRING(e));
         return true;
     }
 

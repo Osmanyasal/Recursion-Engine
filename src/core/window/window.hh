@@ -22,7 +22,7 @@ namespace Recursion::core::window
         WindowProps(std::string title = "Recursion Engine", int width = 1600, int height = 900) : guid{generateGUID()}, win_title{title}, win_width{width}, win_height{height}
         {
         }
-        // global callback function..
+        // global callback function
         bool (*engine_callback_func)(Recursion::core::events::Event &event);
     };
 

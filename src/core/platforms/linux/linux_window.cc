@@ -58,8 +58,12 @@ namespace Recursion::core::window
                                Recursion::core::events::KeyPressEvent keypress{(short)key, (bool)mods};
                                Recursion::core::events::EventBinder event_binder{keypress};
                                WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
-                               (retrievedData.engine_callback_func)(keypress);
-                           });
+                               event_binder.bind<Recursion::core::events::KeyPressEvent>(retrievedData.engine_callback_func); });
+
+        glfwSetWindowCloseCallback(gl_window, [](GLFWwindow *window) {
+            
+
+        });
     }
 
     void LinuxWindow::on_update()
