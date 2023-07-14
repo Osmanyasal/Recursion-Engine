@@ -14,7 +14,7 @@ namespace Recursion::core::layer
 
 	public:
 		inline Layer(const std::string &name = "Layer") : m_DebugName{name}, id{generateGUID()}, is_active{false} {}
-		virtual ~Layer() = default;
+		virtual ~Layer() {REC_CORE_INFO("layer {} destroyed!",m_DebugName);};
 
 		virtual void on_attach() {}
 		virtual void on_detach() {}

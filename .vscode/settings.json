@@ -81,7 +81,8 @@
         "shared_mutex": "cpp",
         "cfenv": "cpp",
         "cpu_opt": "c",
-        "__split_buffer": "cpp"
+        "__split_buffer": "cpp",
+        "__bit_reference": "cpp"
     },
     "cmake.sourceDirectory": "/home/rt7/Desktop/Recursion-Engine/lib/spdlog"
 }

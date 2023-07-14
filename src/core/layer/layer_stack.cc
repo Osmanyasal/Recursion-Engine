@@ -11,6 +11,16 @@ namespace Recursion::core::layer
             REC_CORE_WARN("layer cannot be added since it is null");
         }
     }
+    const Layer* LayerStack::get_layer(const std::string &name)
+    {
+        for (auto iter = this->layers.begin(); iter != this->layers.end(); iter++)
+        {
+            if ((*iter)->get_name() == name)
+                return *iter;
+        }
+        return nullptr;
+    }
+
     bool LayerStack::remove_layer(Layer *layer)
     {
         if (OPT_UNLIKELY(layer == nullptr))
