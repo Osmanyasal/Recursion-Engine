@@ -11,13 +11,13 @@ namespace Recursion::core::events
     public:
         SET_EVENT_CATEGORY((int)EventCategory::EventCategoryMouse | (int)EventCategory::EventCategoryInput)
         SET_EVENT_TYPE(EventType::MouseMoved)
-        MouseMovedEvent(const float posX, const float posY) : pos_x{posX}, pos_y{posY}
+        MouseMovedEvent(const double posX, const double posY) : pos_x{posX}, pos_y{posY}
         {
         }
         virtual ~MouseMovedEvent() {}
 
-        inline float get_posx() { return pos_x; }
-        inline float get_posy() { return pos_y; }
+        inline double get_posx() { return pos_x; }
+        inline double get_posy() { return pos_y; }
 
         inline virtual std::string to_string() override
         {
@@ -29,8 +29,8 @@ namespace Recursion::core::events
         }
 
     private:
-        float pos_x;
-        float pos_y;
+        double pos_x;
+        double pos_y;
     };
 
     class MouseScrolledEvent : public Event

@@ -45,7 +45,7 @@ namespace Recursion::core::window
             return;
         }
 
-        REC_CORE_INFO("Linux Window Started (id={})", default_props.guid.substr(0, 4));
+        REC_CORE_INFO("Linux Window Started (id={})", default_props.guid.substr(0, CONF__LOG__PRINT_GUID_LENGTH));
         REC_CORE_INFO("Name={}, Resoulution width={} height={}", default_props.win_title, default_props.win_width, default_props.win_height);
 
         set_event_callback();
@@ -74,7 +74,7 @@ namespace Recursion::core::window
         glfwSetMouseButtonCallback(gl_window, [](GLFWwindow *window, int button, int action, int mods){
             if(action == GLFW_PRESS || action == GLFW_REPEAT){
                 WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
-                events::MouseButtonPressed mouse_press{button};
+                events::MouseButtonPressed mouse_press{(short)button};
                 events::EventBinder event_binder{mouse_press};
                 event_binder.bind<events::MouseButtonPressed>(retrievedData.engine_callback_func); 
             }else if(action == GLFW_RELEASE){

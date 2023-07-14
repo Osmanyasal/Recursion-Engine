@@ -22,6 +22,7 @@ LIB_GLFW := -I./lib/glfw/include/ -I./lib/spdlog/include/glfw
 
 INCLUDE := -I./src/core -I./src/core/events\
  						-I./src/core/window\
+						-I./src/core/layer\
 						-I./src/core/platforms\
 						-I./src/core/platforms/linux\
 						-I./src/core/platforms/linux/opengl\

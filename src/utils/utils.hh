@@ -9,6 +9,7 @@
 #include <iomanip>
 #include <random>
 #include <sstream>
+#include <algorithm>
 
 // CUSTOM HEADERS
 #include <config.hh>
