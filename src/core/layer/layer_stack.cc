@@ -40,12 +40,12 @@ namespace Recursion::core::layer
         if (OPT_UNLIKELY(layer == nullptr))
         {
             REC_CORE_WARN("layer cannot disabled since it is null");
-            return false;
         }
         else if (OPT_LIKELY(std::find(layers.begin(), layers.end(), layer) != layers.end()))
         {
             layer->set_is_active(false);
+            return true;
         }
-        return true;
+        return false;
     }
 } // namespace Recursion::core::layer

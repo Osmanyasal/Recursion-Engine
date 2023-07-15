@@ -38,9 +38,9 @@ namespace Recursion::core
         {
             if (e.is_handled)
                 break;
-            (*iter)->on_event(e);
+            if (OPT_LIKELY((*iter)->is_active()))
+                (*iter)->on_event(e);
         }
-
         if (INSTANCEOF(events::WindowCloseEvent, e))
         {
             is_running = false;

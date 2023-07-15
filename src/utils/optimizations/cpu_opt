@@ -10,7 +10,6 @@
     #define OPT_UNLIKELY(EXPR) __builtin_expect((bool)(EXPR), false)
     #define OPT_PREFETCH(address, rw, locality) __builtin_prefetch((address), (rw), (locality))
 
-
 #else // if compiler is not GNU
 
     #define OPT_LIKELY(EXPR) EXPR

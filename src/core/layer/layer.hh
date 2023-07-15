@@ -13,8 +13,8 @@ namespace Recursion::core::layer
 	{
 
 	public:
-		inline Layer(const std::string &name = "Layer") : m_DebugName{name}, id{generateGUID()}, is_active{false} {}
-		virtual ~Layer() {REC_CORE_INFO("layer {} destroyed!",m_DebugName);};
+		inline Layer(const std::string &name = "Layer") : m_DebugName{name}, id{generateGUID()}, m_is_active{false} {}
+		virtual ~Layer() { REC_CORE_INFO("layer {} destroyed!", m_DebugName); };
 
 		virtual void on_attach() {}
 		virtual void on_detach() {}
@@ -29,14 +29,16 @@ namespace Recursion::core::layer
 			return out.str();
 		}
 		const std::string &get_name() const { return m_DebugName; }
-		void set_is_active(bool is_active){
-			this->is_active = is_active;
+		inline void is_active(bool is_active)
+		{
+			this->m_is_active = is_active;
 		}
+		inline bool is_active() { return this->m_is_active; }
 
 	protected:
 		std::string m_DebugName;
 		std::string id;
-		bool is_active;
+		bool m_is_active;
 	};
 
 } // namespace Recursion::core::layer
