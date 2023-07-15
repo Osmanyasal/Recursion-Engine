@@ -44,7 +44,7 @@ all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop $(LIB_GLEW_PATH)/inclu
 	
 ## check memory if there're any leaks.
 mem_check:
-	valgrind ./$(BIN)/$(EXECUTABLE)
+	valgrind --leak-check=full --show-leak-kinds=all ./$(BIN)/$(EXECUTABLE)
 
 ## create a desktop file and move it to applications
 $(BIN)/recursion_engine.desktop:

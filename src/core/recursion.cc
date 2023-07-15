@@ -14,34 +14,46 @@ namespace Recursion::core
 
     Engine::Engine()
     {
-        engine_ptr = this;
         Recursion::utils::BaseLogger::init();
+        window = nullptr;
         is_running = true;
+        layer_stack = new layer::LayerStack{};
+        engine_ptr = this;
         REC_CORE_INFO("Engine Created!");
     }
 
     Engine::~Engine()
     {
+        delete layer_stack;
+        delete window;
         REC_CORE_INFO("Engine Terminated!");
     }
 
     bool Engine::on_event(Recursion::core::events::Event &e)
     {
         namespace events = Recursion::core::events;
-        REC_CORE_INFO("Hello from original on_event!! {}", e.to_string());
-        if (INSTANCEOF(events::WindowCloseEvent, e))
-            is_running = false;
+        REC_CORE_INFO(e.to_string());
 
+        for (auto iter = layer_stack->rbegin(); iter != layer_stack->rend(); iter++)
+        {
+            if (e.is_handled)
+                break;
+            (*iter)->on_event(e);
+        }
+
+        if (INSTANCEOF(events::WindowCloseEvent, e))
+        {
+            is_running = false;
+        }
         return true;
     }
 
     void Engine::start()
     {
         REC_CORE_INFO("Engine Started!");
+        // GENERIC CREATE_WINDOW MACRO. DEFINE YOURS IN CONFIG.HH
+        CREATE_WINDOW();
 
-        Recursion::core::window::WindowProps default_props;
-        default_props.engine_callback_func = &core_on_event;
-        window = new core::window::LinuxWindow{default_props};
         this->application();
 
         double previous_time = glfwGetTime();
@@ -58,7 +70,7 @@ namespace Recursion::core
             if (OPT_UNLIKELY(current_time - previous_time >= 1.0)) // delta time
             {
                 // Display the frame count here any way you want.
-                //REC_CORE_INFO("FPS: {}", frame_count);
+                // REC_CORE_INFO("FPS: {}", frame_count);
 
                 frame_count = 0;
                 previous_time = current_time;

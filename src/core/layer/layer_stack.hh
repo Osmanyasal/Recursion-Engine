@@ -21,7 +21,7 @@ namespace Recursion::core::layer
         void add_layer(Layer *layer);
         bool remove_layer(Layer *layer);
         const Layer* get_layer(const std::string &name);
-         bool disable_layer(Layer *layer);
+        bool disable_layer(Layer *layer);
 
         std::vector<Layer *>::iterator begin() { return layers.begin(); }
         std::vector<Layer *>::iterator end() { return layers.end(); }

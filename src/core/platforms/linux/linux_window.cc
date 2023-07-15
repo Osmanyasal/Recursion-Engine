@@ -79,7 +79,7 @@ namespace Recursion::core::window
                 event_binder.bind<events::MouseButtonPressed>(retrievedData.engine_callback_func); 
             }else if(action == GLFW_RELEASE){
                 WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
-                events::MouseButtonReleased mouse_released{button};
+                events::MouseButtonReleased mouse_released{(short)button};
                 events::EventBinder event_binder{mouse_released};
                 event_binder.bind<events::MouseButtonReleased>(retrievedData.engine_callback_func); 
             }
