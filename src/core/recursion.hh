@@ -7,6 +7,7 @@
 #include <event_core.hh>
 #include <linux_window.hh>
 #include <layer_stack.hh>
+#include <imgui_layer.hh>
 
 namespace Recursion::core
 {
@@ -24,6 +25,7 @@ namespace Recursion::core
     private:
         bool is_running;
         window::Window *window;
+        window::ImguiLayer* imgui_layer;
         layer::LayerStack* layer_stack;
     };
 

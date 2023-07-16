@@ -43,7 +43,7 @@ namespace Recursion::core::layer
         }
         else if (OPT_LIKELY(std::find(layers.begin(), layers.end(), layer) != layers.end()))
         {
-            layer->set_is_active(false);
+            layer->is_active(false);
             return true;
         }
         return false;

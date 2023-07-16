@@ -2,8 +2,6 @@
 #define RECURSION_ENGINE__SRC__PLATFORMS__LINUX__LINUX_WINDOW_HH
 
 #include <window.hh>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
 #include <event_core.hh>
 namespace Recursion::core::window
 {
@@ -13,9 +11,14 @@ namespace Recursion::core::window
         LinuxWindow(const WindowProps &default_props = WindowProps());
         inline virtual ~LinuxWindow()
         {
-            glfwTerminate(); 
+            glfwTerminate();
         }
         virtual void on_update() override;
+
+        inline GLFWwindow *get_window()
+        {
+            return this->gl_window;
+        }
 
     protected:
         virtual void set_event_callback() const override;

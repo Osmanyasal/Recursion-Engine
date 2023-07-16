@@ -1,5 +1,6 @@
 #include <recursion.hh>
 #include <utils.hh>
+#include <imgui_layer.hh>
 namespace Recursion::core
 {
     Engine *engine_ptr;
@@ -15,15 +16,22 @@ namespace Recursion::core
     Engine::Engine()
     {
         Recursion::utils::BaseLogger::init();
-        window = nullptr;
-        is_running = true;
-        layer_stack = new layer::LayerStack{};
+        // GENERIC CREATE_WINDOW MACRO. DEFINE YOURS IN CONFIG.HH
+        CREATE_WINDOW();
+
         engine_ptr = this;
+        is_running = true;
+
+        layer_stack = new layer::LayerStack{};
+        imgui_layer = new window::ImguiLayer{((window::LinuxWindow *)window)->get_window()};
+        layer_stack->add_layer(imgui_layer);
+
         REC_CORE_INFO("Engine Created!");
     }
 
     Engine::~Engine()
     {
+        delete imgui_layer;
         delete layer_stack;
         delete window;
         REC_CORE_INFO("Engine Terminated!");
@@ -51,17 +59,16 @@ namespace Recursion::core
     void Engine::start()
     {
         REC_CORE_INFO("Engine Started!");
-        // GENERIC CREATE_WINDOW MACRO. DEFINE YOURS IN CONFIG.HH
-        CREATE_WINDOW();
 
         this->application();
-
+        
         double previous_time = glfwGetTime();
         short frame_count = 0;
         while (OPT_LIKELY(is_running))
         {
             glClearColor(.6f, 0.2f, 1.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
+            imgui_layer->begin_loop();
 
             // Measure speed
             double current_time = glfwGetTime();
@@ -75,6 +82,8 @@ namespace Recursion::core
                 frame_count = 0;
                 previous_time = current_time;
             }
+
+            imgui_layer->end_loop();
             window->on_update();
         }
     }

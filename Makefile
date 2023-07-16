@@ -6,9 +6,6 @@ BIN := ./bin
 SRC := ./src
 OBJ := $(BIN)/obj
 SANDBOX := ./sandbox
-SRC_FILES := $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc")
-OBJ_FILES := $(patsubst $(SRC)/%.cc,$(OBJ)/%.o,$(SRC_FILES))
-
 
 DYNAMIC := -Llib/spdlog/build/ -lspdlog -Llib/glfw/src/ -lglfw3 -Llib/glew/lib/ -lGLEW -lGL
 LIB_SPD_PATH :=./lib/spdlog
@@ -20,6 +17,9 @@ LIB_GLEW := -I./lib/glew/include/ -I./lib/spdlog/include/glew
 LIB_GLFW_PATH := ./lib/glfw
 LIB_GLFW := -I./lib/glfw/include/ -I./lib/spdlog/include/glfw
 
+LIB_IMGUI_PATH := ./lib/imgui
+LIB_IMGUI := -I./lib/imgui/ -I./lib/imgui/backends -I./lib/imgui/docs -I./lib/imgui/examples -I./lib/imgui/mics
+ 
 INCLUDE := -I./src/core -I./src/core/events\
  						-I./src/core/window\
 						-I./src/core/layer\
@@ -37,8 +37,14 @@ INCLUDE := -I./src/core -I./src/core/events\
 						-I./sandbox/proj1\
 					 	 $(LIB_SPD)\
 						 $(LIB_GLEW)\
-						 $(LIB_GLFW)
+						 $(LIB_GLFW)\
+						 $(LIB_IMGUI)
+
 EXECUTABLE := recursion.engine
+
+SRC_FILES := $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc") $(shell find $LIB_IMGUI_PATH -type f -name "*.cpp" -not -path "$LIB_IMGUI_PATH/examples/*" -prune)
+OBJ_FILES := $(patsubst $(SRC)/%.cc,$(OBJ)/%.o,$(SRC_FILES))
+
 
 all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop $(LIB_GLEW_PATH)/include/GL/glew.h $(LIB_GLFW_PATH)/src/libglfw3.a
 	

@@ -34,6 +34,7 @@
  */
 #define CONF__REC__GLFW_CONTEXT_VERSION_MAJOR 3
 #define CONF__REC__GLFW_CONTEXT_VERSION_MINOR 3
+#define CONF__REC__GLFW_GL_VERSION "#version 330"
 
 /**
  * @brief LOGGING

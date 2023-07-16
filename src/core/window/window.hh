@@ -6,6 +6,9 @@
 #include <event_core.hh>
 #include <memory>
 
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
 namespace Recursion::core
 {
     class Engine;

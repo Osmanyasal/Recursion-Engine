@@ -22,6 +22,7 @@
 
 // MACRO DEFINITIONS
 #define BIT(x) (1 << x)
+//#define REC_BIND_EVENT_FUNC(x) std::bind(&x,this,std::placeholders::_1)
 
 // FUNCTION DECLERATIONS
 std::string generateGUID();
