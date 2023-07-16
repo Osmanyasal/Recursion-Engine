@@ -19,11 +19,16 @@ LIB_GLFW := -I./lib/glfw/include/ -I./lib/spdlog/include/glfw
 
 LIB_IMGUI_PATH := ./lib/imgui
 LIB_IMGUI := -I./lib/imgui/ -I./lib/imgui/backends -I./lib/imgui/docs -I./lib/imgui/examples -I./lib/imgui/mics
- 
+
+LIB_FONT_OPENSANS_PATH := ./lib/font_opensans
+LIB_FONT_OPENSANS := -I./lib/font_opensans/fonts/ttf
+
+
 INCLUDE := -I./src/core -I./src/core/events\
  						-I./src/core/window\
 						-I./src/core/layer\
 						-I./src/core/platforms\
+						-I./src/core/platforms/imgui_local\
 						-I./src/core/platforms/linux\
 						-I./src/core/platforms/linux/opengl\
 						-I./src/core/platforms/linux/vulkan\

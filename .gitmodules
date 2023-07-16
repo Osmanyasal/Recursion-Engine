@@ -14,3 +14,6 @@
 [submodule "lib/imgui"]
 	path = lib/imgui
 	url = https://github.com/ocornut/imgui.git
+[submodule "lib/font_opensans"]
+	path = lib/font_opensans
+	url = https://github.com/googlefonts/opensans.git
