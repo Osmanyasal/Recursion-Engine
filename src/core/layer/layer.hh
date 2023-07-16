@@ -32,6 +32,7 @@ namespace Recursion::core::layer
 		inline void is_active(bool is_active)
 		{
 			this->m_is_active = is_active;
+			REC_CORE_INFO("layer is set to active : {} !", is_active);
 		}
 		inline bool is_active() { return this->m_is_active; }
 

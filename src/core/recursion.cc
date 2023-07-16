@@ -39,8 +39,6 @@ namespace Recursion::core
     bool Engine::on_event(Recursion::core::events::Event &e)
     {
         namespace events = Recursion::core::events;
-        //REC_CORE_INFO(e.to_string());
-
         for (auto iter = layer_stack->rbegin(); iter != layer_stack->rend(); iter++)
         {
             if (e.is_handled)
@@ -48,10 +46,11 @@ namespace Recursion::core
             if (OPT_LIKELY((*iter)->is_active()))
                 (*iter)->on_event(e);
         }
-        if (INSTANCEOF(events::WindowCloseEvent, e))
-        {
+
+        // all these events, it's unlikely we close the app. this's the general approach.
+        if (OPT_UNLIKELY(INSTANCEOF(events::WindowCloseEvent, e) && !e.is_handled))
             is_running = false;
-        }
+
         return true;
     }
 

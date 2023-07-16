@@ -58,7 +58,7 @@ namespace Recursion::core::window
         glfwSetCharCallback(gl_window, [](GLFWwindow *window, unsigned int codepoint)
                             {
                 WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
-                events::CharTypedEvent char_event{(unsigned int)codepoint};
+                events::CharTypedEvent char_event{(short int)codepoint};
                 events::EventBinder event_binder{char_event};
                 event_binder.bind<events::CharTypedEvent>(retrievedData.engine_callback_func); });
 
@@ -115,9 +115,18 @@ namespace Recursion::core::window
         glfwSetWindowFocusCallback(gl_window, [](GLFWwindow *window, int focused)
                                    {
             WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
-            events::WindowFocusEvent finfocus{};
-            events::EventBinder event_binder{finfocus};
-            event_binder.bind<events::WindowFocusEvent>(retrievedData.engine_callback_func); });
+            if(focused){
+                events::WindowFocusEvent winfocus{};
+                events::EventBinder event_binder{winfocus};
+                event_binder.bind<events::WindowFocusEvent>(retrievedData.engine_callback_func); 
+            }else {
+
+                events::WindowLostFocusEvent winfocus{};
+                events::EventBinder event_binder{winfocus};
+                event_binder.bind<events::WindowLostFocusEvent>(retrievedData.engine_callback_func); 
+            }
+            
+            });
 
         glfwSetWindowSizeCallback(gl_window, [](GLFWwindow *window, int width, int height)
                                   {

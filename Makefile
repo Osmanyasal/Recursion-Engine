@@ -47,6 +47,13 @@ SRC_FILES := $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -
 OBJ_FILES := $(patsubst $(SRC)/%.cc,$(OBJ)/%.o,$(SRC_FILES))
 
 all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop $(LIB_GLEW_PATH)/include/GL/glew.h $(LIB_GLFW_PATH)/src/libglfw3.a
+	@if [ ! -d "$(BIN)/fonts" ]; then \
+        mkdir -p "$(BIN)/fonts"; \
+        cp -R ./lib/fonts/* "$(BIN)/fonts"; \
+        echo "Fonts installed successfully!"; \
+    else \
+        echo "Fonts directory already exists. Skipping installation."; \
+    fi
 	
 ## check memory if there're any leaks.
 mem_check:
@@ -74,7 +81,7 @@ $(LIB_GLFW_PATH)/src/libglfw3.a:
 
 run: all
 	@echo "🚀 Executing..."
-	./$(BIN)/$(EXECUTABLE)
+	cd $(BIN); ./$(EXECUTABLE)
 
 clean_run: clean all
 	@echo "🚀 Executing..."
