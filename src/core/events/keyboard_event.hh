@@ -69,19 +69,19 @@ namespace Recursion::core::events
             return res.str();
         }
     };
-    class KeyTypedEvent : public KeyEvent
+    class CharTypedEvent : public KeyEvent
     {
     public:
-        SET_EVENT_TYPE(EventType::KeyTyped)
-        KeyTypedEvent(short key) : KeyEvent{key}
+        SET_EVENT_TYPE(EventType::CharEvent)
+        CharTypedEvent(short key) : KeyEvent{key}
         {
         }
-        virtual ~KeyTypedEvent() {}
+        virtual ~CharTypedEvent() {}
 
         inline virtual std::string to_string() override
         {
             std::stringstream res;
-            res << "KeyTypedEvent(" << KeyEvent::to_string() << ")";
+            res << "CharTypedEvent(" << KeyEvent::to_string() << ")";
             return res.str();
         }
     };

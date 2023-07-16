@@ -13,13 +13,12 @@ namespace Recursion::core::layer
 	{
 
 	public:
-		inline Layer(const std::string &name = "Layer") : m_DebugName{name}, id{generateGUID()}, m_is_active{false} {}
+		inline Layer(const std::string &name = "Layer") : m_DebugName{name}, id{generateGUID()}, m_is_active{true} {}
 		virtual ~Layer() { REC_CORE_INFO("layer {} destroyed!", m_DebugName); };
 
 		virtual void on_attach() {}
 		virtual void on_detach() {}
 		virtual void on_update(double delta_time) {}
-		virtual void on_imgui_render() {}
 		virtual void on_event(events::Event &event) {}
 
 		virtual std::string to_string() const

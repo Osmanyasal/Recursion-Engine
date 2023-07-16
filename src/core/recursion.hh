@@ -6,8 +6,8 @@
 #include <window.hh>
 #include <event_core.hh>
 #include <linux_window.hh>
-#include <layer_stack.hh>
-#include <imgui_layer.hh>
+#include <layer_stack.hh> 
+#include <imgui_layer_glfw_opengl_impl.hh>
 
 namespace Recursion::core
 {
@@ -25,7 +25,7 @@ namespace Recursion::core
     private:
         bool is_running;
         window::Window *window;
-        window::ImguiLayer* imgui_layer;
+        window::ImguiLayer_glfw_opengl_impl* imgui_layer;
         layer::LayerStack* layer_stack;
     };
 

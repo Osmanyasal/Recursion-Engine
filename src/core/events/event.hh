@@ -21,7 +21,7 @@ namespace Recursion::core::events
 
         KeyPressed,
         KeyReleased,
-        KeyTyped,
+        CharEvent,
 
         MouseButtonPressed,
         MouseButtonReleased,
