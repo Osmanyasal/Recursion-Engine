@@ -42,9 +42,8 @@ INCLUDE := -I./src/core -I./src/core/events\
 
 EXECUTABLE := recursion.engine
 
-SRC_FILES := $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc") $(shell find $(LIB_IMGUI_PATH) -maxdepth 1 -type f -name "*.cpp") $(shell find $(LIB_IMGUI_PATH)/backends/-type f -name "*opengl*.cpp")
-OBJ_FILES := $(patsubst $(SRC)/%.cc,$(OBJ)/%.o,$(SRC_FILES)) $(patsubst $(LIB_IMGUI_PATH)/%.cpp,$(OBJ)/%.o,$(SRC_FILES))
-
+SRC_FILES := $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc")
+OBJ_FILES := $(patsubst $(SRC)/%.cc,$(OBJ)/%.o,$(SRC_FILES))
 
 all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop $(LIB_GLEW_PATH)/include/GL/glew.h $(LIB_GLFW_PATH)/src/libglfw3.a
 	
@@ -85,10 +84,6 @@ $(BIN)/$(EXECUTABLE): $(OBJ_FILES)
 	$(CXX) $(CXX_FLAGS) $^ -o ./$(BIN)/$(EXECUTABLE) $(INCLUDE) $(DYNAMIC)
 
 $(OBJ)/%.o: $(SRC)/%.cc
-	mkdir -p $(@D)
-	$(CXX) $(CXX_FLAGS) -c -o $@ $< $(INCLUDE)
-
-$(OBJ)/%.o: $(LIB_IMGUI_PATH)/%.cpp
 	mkdir -p $(@D)
 	$(CXX) $(CXX_FLAGS) -c -o $@ $< $(INCLUDE)
 

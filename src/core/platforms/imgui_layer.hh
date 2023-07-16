@@ -1,12 +1,11 @@
 #ifndef RECURSION_ENGINE__SRC__PLATFORMS__IMGUI_LAYER_HH
 #define RECURSION_ENGINE__SRC__PLATFORMS__IMGUI_LAYER_HH
 
-#include <window.hh>
-#include <layer.hh>
 #include <imgui.h>
-#include <imgui_internal.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
+#include <window.hh>
+#include <layer.hh>
 
 namespace Recursion::core::window
 {
