@@ -26,15 +26,18 @@
  *
  */
 #define CONF__PORTING__IS_PRODUCTION 0
-
+ 
 /**
- * @brief GLFW version
+ * @brief GLFW Window specs.
  *
- *  REC : Recursive Engine section
+ *  
  */
 #define CONF__REC__GLFW_CONTEXT_VERSION_MAJOR 3
 #define CONF__REC__GLFW_CONTEXT_VERSION_MINOR 3
 #define CONF__REC__GLFW_GL_VERSION "#version 330"
+
+#define CONF__REC__WINDOW_WIDTH 1920
+#define CONF__REC__WINDOW_HEIGHT 1080
 
 /**
  * @brief LOGGING

@@ -9,12 +9,13 @@ namespace Recursion::core::window
     {
     public:
         LinuxWindow(const WindowProps &default_props = WindowProps());
+        
         inline virtual ~LinuxWindow()
         {
             glfwTerminate();
         }
         virtual void on_update() override;
-
+        virtual void init_Input(GLFWwindow*) override;
         inline GLFWwindow *get_window()
         {
             return this->gl_window;

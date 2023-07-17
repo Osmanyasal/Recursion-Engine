@@ -17,7 +17,6 @@ namespace Recursion::core
         Recursion::utils::BaseLogger::init();
         // GENERIC CREATE_WINDOW MACRO. DEFINE YOURS IN CONFIG.HH
         CREATE_WINDOW();
-
         engine_ptr = this;
         is_running = true;
 

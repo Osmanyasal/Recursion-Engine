@@ -12,7 +12,7 @@ namespace Recursion::core::window
         ImGuiIO &io = ImGui::GetIO(); 
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls
-        io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;     // Enable Docking
+        // io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;     // Enable Docking
         io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;   // Enable Multi-Viewport / Platform Windows
         io.ConfigFlags |= ImGuiWindowFlags_AlwaysAutoResize;
         // io.ConfigFlags |= ImGuiConfigFlags_DpiEnableScaleViewports;
@@ -75,7 +75,7 @@ namespace Recursion::core::window
 
     void ImguiLayer_glfw_opengl_impl::on_event(events::Event &event)
     {
-        REC_CORE_TRACE("imgui::on_event executed for {}", event.to_string());
+        // REC_CORE_TRACE("imgui::on_event executed for {}", event.to_string());
         switch (event.get_event_type())
         {
         case events::EventType::WindowFocus:
@@ -202,7 +202,6 @@ namespace Recursion::core::window
 
     bool ImguiLayer_glfw_opengl_impl::on_monitor_close_call_back(events::WindowCloseEvent &event)
     {
-        REC_CORE_ERROR("on_monitor_close_call_back {}",event.to_string());
         return false;
     }
 

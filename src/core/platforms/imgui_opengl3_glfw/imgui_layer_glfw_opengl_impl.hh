@@ -49,6 +49,8 @@ namespace Recursion::core::window
     };
 } // namespace Recursion::core::window
 
+
+// conversion from Recursion engine key codes (essantialy glfw) to imgui keycodes
 static ImGuiKey ImGui_ImplREC_KeyToImGuiKey(int key)
 {
     switch (key)

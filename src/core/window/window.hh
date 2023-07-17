@@ -5,10 +5,10 @@
 #include <utils.hh>
 #include <event_core.hh>
 #include <memory>
-
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include <Input.hh>
 namespace Recursion::core
 {
     class Engine;
@@ -22,10 +22,10 @@ namespace Recursion::core::window
         int win_width;
         int win_height;
 
-        WindowProps(std::string title = "Recursion Engine", int width = 1600, int height = 900) : guid{generateGUID()}, win_title{title}, win_width{width}, win_height{height}
+        WindowProps(std::string title = "Recursion Engine", int width = CONF__REC__WINDOW_WIDTH, int height = CONF__REC__WINDOW_HEIGHT) : guid{generateGUID()}, win_title{title}, win_width{width}, win_height{height}
         {
         }
-        // global callback function
+        // global event callback function
         bool (*engine_callback_func)(Recursion::core::events::Event &event);
     };
 
@@ -35,6 +35,9 @@ namespace Recursion::core::window
     public:
         // map all events here!
         virtual void on_update() = 0;
+
+        // inits class Input that inquires if an input is pressed or not _see Input.hh
+        virtual void init_Input(GLFWwindow*) = 0;
 
         Window(const WindowProps &default_props = WindowProps())
         {

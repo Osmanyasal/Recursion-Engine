@@ -49,6 +49,7 @@ namespace Recursion::core::window
         REC_CORE_INFO("Name={}, Resoulution width={} height={}", default_props.win_title, default_props.win_width, default_props.win_height);
 
         set_event_callback();
+        init_Input(gl_window);
     }
 
     void LinuxWindow::set_event_callback() const
@@ -136,6 +137,9 @@ namespace Recursion::core::window
             events::WindowResizedEvent resize{width, height};
             events::EventBinder event_binder{resize};
             event_binder.bind<events::WindowResizedEvent>(retrievedData.engine_callback_func); });
+    }
+    void LinuxWindow::init_Input(GLFWwindow* gl_window){
+        Recursion::core::input::Input::init(gl_window);
     }
 
     void LinuxWindow::on_update()
