@@ -83,7 +83,12 @@
         "cpu_opt": "c",
         "__split_buffer": "cpp",
         "__bit_reference": "cpp",
-        "locale": "cpp"
+        "locale": "cpp",
+        "csignal": "cpp",
+        "strstream": "cpp",
+        "complex": "cpp",
+        "typeindex": "cpp",
+        "valarray": "cpp"
     },
     "cmake.sourceDirectory": "/home/rt7/Desktop/Recursion-Engine/lib/spdlog"
 }

@@ -25,6 +25,9 @@ namespace Recursion::utils
 }
 
 // ENGINE CORE LOGGERS
+#define REC_CORE_DEBUG(...)                                                                                                              \
+    spdlog::set_pattern("[%n][%^%l%$][%Y-%m-%d %H:%M:%S.%f][" + std::string(__FILE__) + ":" + std::to_string(__LINE__) + "] [%v]"); \
+    Recursion::utils::BaseLogger::get_client_logger()->debug(__VA_ARGS__)
 #define REC_CORE_TRACE(...)                                                                                                         \
     spdlog::set_pattern("[%n][%^%l%$][%Y-%m-%d %H:%M:%S.%f][" + std::string(__FILE__) + ":" + std::to_string(__LINE__) + "] [%v]"); \
     Recursion::utils::BaseLogger::get_core_logger()->trace(__VA_ARGS__)
@@ -39,6 +42,9 @@ namespace Recursion::utils
     Recursion::utils::BaseLogger::get_core_logger()->error(__VA_ARGS__)
 
 // CLIENT LOGGERS
+#define REC_DEBUG(...)                                                                                                              \
+    spdlog::set_pattern("[%n][%^%l%$][%Y-%m-%d %H:%M:%S.%f][" + std::string(__FILE__) + ":" + std::to_string(__LINE__) + "] [%v]"); \
+    Recursion::utils::BaseLogger::get_client_logger()->debug(__VA_ARGS__)
 #define REC_TRACE(...)                                                                                                              \
     spdlog::set_pattern("[%n][%^%l%$][%Y-%m-%d %H:%M:%S.%f][" + std::string(__FILE__) + ":" + std::to_string(__LINE__) + "] [%v]"); \
     Recursion::utils::BaseLogger::get_client_logger()->trace(__VA_ARGS__)
@@ -60,6 +66,16 @@ namespace Recursion::utils
 
     #define REC_CORE_TRACE(...)
     #define REC_TRACE(...)
+
+#endif
+
+#if CONF__PORTING__IS_PRODUCTION || !CONF__LOG__ENABLE_DEBUG
+
+    #undef REC_CORE_DEBUG
+    #undef REC_DEBUG
+
+    #define REC_CORE_DEBUG(...)
+    #define REC_DEBUG(...)
 
 #endif
 
