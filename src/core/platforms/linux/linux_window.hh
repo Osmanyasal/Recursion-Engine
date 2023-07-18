@@ -12,6 +12,7 @@ namespace Recursion::core::window
         
         inline virtual ~LinuxWindow()
         {
+            REC_CORE_ERROR("Linux window terminated!!");
             glfwTerminate();
         }
         virtual void on_update() override;

@@ -239,7 +239,7 @@ namespace Recursion::core::window
 
     bool ImguiLayer_glfw_opengl_impl::on_monitor_moved_call_back(events::WindowMovedEvent &event)
     {
-        // REC_CORE_INFO("on_monitor_moved_call_back {}",event.to_string());
+        REC_CORE_INFO("on_monitor_moved_call_back {}",event.to_string());
         return false;
     }
 

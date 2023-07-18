@@ -7,7 +7,7 @@
             "program": "${workspaceFolder}/bin/recursion.engine",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/bin/",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",

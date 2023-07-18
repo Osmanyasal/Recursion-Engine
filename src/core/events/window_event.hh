@@ -98,15 +98,20 @@ namespace Recursion::core::events
     {
     public:
         SET_EVENT_TYPE(EventType::WindowMoved)
-        WindowMovedEvent() {}
+        WindowMovedEvent(int x, int y) : posx{x}, posy{y} {}
         virtual ~WindowMovedEvent() {}
 
         inline virtual std::string to_string() override
         {
             std::stringstream res;
-            res << "WindowMovedEvent(" << WindowEvent::to_string() << ")";
+            res << "WindowMovedEvent(" << WindowEvent::to_string() << ","
+                << "posx=" << posx << ", "
+                << "posy=" << posy << ")";
             return res.str();
         }
+
+    private:
+        int posx, posy;
     };
 
     class AppTickEvent : public Event

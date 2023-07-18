@@ -1,7 +1,7 @@
 #include <linux_window.hh>
 namespace Recursion::core::window
 {
-    LinuxWindow::LinuxWindow(const WindowProps &default_props)
+    LinuxWindow::LinuxWindow(const WindowProps &default_props) : Window{default_props}
     {
 
         // Initialize GLFW
@@ -17,24 +17,17 @@ namespace Recursion::core::window
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
         // Create a GLFW window
-        gl_window = glfwCreateWindow(default_props.win_width, default_props.win_height, default_props.win_title.c_str(), nullptr, nullptr);
+        gl_window = glfwCreateWindow(win_props.win_width, win_props.win_height, win_props.win_title.c_str(), nullptr, nullptr);
 
-        // Associate your data with the GLFW window
-        glfwSetWindowUserPointer(gl_window, (void *)&default_props);
-
-        /*  TODO:SET ICON
-
-            GLFWimage images[1];
-            images[0].pixels = stbi_load("PATH", &images[0].width, &images[0].height, 0, 4); // rgba channels
-            glfwSetWindowIcon(gl_window, 1, images);
-            stbi_image_free(images[0].pixels);
-            glfwSetWindowIcon(window, 2, images);
-        */
         if (OPT_UNLIKELY(!gl_window))
         {
             REC_CORE_ERROR("Failed to create GLFW window");
             return;
         }
+        glfwSetWindowPos(gl_window, win_props.win_posx, win_props.win_posy);
+        // Associate your data with the GLFW window
+        // always use win_props since it copies the default_props !!
+        glfwSetWindowUserPointer(gl_window, (void *)&win_props);
         // Make the window's context current
         glfwMakeContextCurrent(gl_window);
 
@@ -45,8 +38,8 @@ namespace Recursion::core::window
             return;
         }
 
-        REC_CORE_INFO("Linux Window Started (id={})", default_props.guid.substr(0, CONF__LOG__PRINT_GUID_LENGTH));
-        REC_CORE_INFO("Name={}, Resoulution width={} height={}", default_props.win_title, default_props.win_width, default_props.win_height);
+        REC_CORE_INFO("Linux Window Started (id={})", win_props.guid.substr(0, CONF__LOG__PRINT_GUID_LENGTH));
+        REC_CORE_INFO("Name={}, Resoulution width={} height={}", win_props.win_title, win_props.win_width, win_props.win_height);
 
         set_event_callback();
         init_Input(gl_window);
@@ -115,19 +108,20 @@ namespace Recursion::core::window
 
         glfwSetWindowFocusCallback(gl_window, [](GLFWwindow *window, int focused)
                                    {
-            WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
-            if(focused){
-                events::WindowFocusEvent winfocus{};
-                events::EventBinder event_binder{winfocus};
-                event_binder.bind<events::WindowFocusEvent>(retrievedData.engine_callback_func); 
-            }else {
+                                       WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
+                                       if (focused)
+                                       {
+                                           events::WindowFocusEvent winfocus{};
+                                           events::EventBinder event_binder{winfocus};
+                                           event_binder.bind<events::WindowFocusEvent>(retrievedData.engine_callback_func);
+                                       }
+                                       else
+                                       {
 
-                events::WindowLostFocusEvent winfocus{};
-                events::EventBinder event_binder{winfocus};
-                event_binder.bind<events::WindowLostFocusEvent>(retrievedData.engine_callback_func); 
-            }
-            
-            });
+                                           events::WindowLostFocusEvent winfocus{};
+                                           events::EventBinder event_binder{winfocus};
+                                           event_binder.bind<events::WindowLostFocusEvent>(retrievedData.engine_callback_func);
+                                       } });
 
         glfwSetWindowSizeCallback(gl_window, [](GLFWwindow *window, int width, int height)
                                   {
@@ -137,8 +131,20 @@ namespace Recursion::core::window
             events::WindowResizedEvent resize{width, height};
             events::EventBinder event_binder{resize};
             event_binder.bind<events::WindowResizedEvent>(retrievedData.engine_callback_func); });
+
+        glfwSetWindowPosCallback(gl_window, [](GLFWwindow *window, int posx, int posy)
+                                 {
+            WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
+            retrievedData.win_posx = posx;
+            retrievedData.win_posy = posy;
+            events::WindowMovedEvent win_moved{retrievedData.win_posx, retrievedData.win_posy};
+            events::EventBinder event_binder{win_moved};
+            event_binder.bind<events::WindowMovedEvent>(retrievedData.engine_callback_func); });
     }
-    void LinuxWindow::init_Input(GLFWwindow* gl_window){
+
+    
+    void LinuxWindow::init_Input(GLFWwindow *gl_window)
+    {
         Recursion::core::input::Input::init(gl_window);
     }
 
