@@ -17,3 +17,6 @@
 [submodule "lib/font_opensans"]
 	path = lib/font_opensans
 	url = https://github.com/googlefonts/opensans.git
+[submodule "lib/glm"]
+	path = lib/glm
+	url = https://github.com/g-truc/glm.git

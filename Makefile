@@ -7,7 +7,6 @@ SRC := ./src
 OBJ := $(BIN)/obj
 SANDBOX := ./sandbox
 
-DYNAMIC := -Llib/spdlog/build/ -lspdlog -Llib/glfw/src/ -lglfw3 -Llib/glew/lib/ -lGLEW -lGL
 LIB_SPD_PATH :=./lib/spdlog
 LIB_SPD := -I./lib/spdlog/include/  -I./lib/spdlog/include/spdlog 
 
@@ -20,6 +19,10 @@ LIB_GLFW := -I./lib/glfw/include/ -I./lib/spdlog/include/glfw
 LIB_IMGUI_PATH := ./lib/imgui
 LIB_IMGUI := -I./lib/imgui/ -I./lib/imgui/backends -I./lib/imgui/docs -I./lib/imgui/examples -I./lib/imgui/mics
 
+LIB_GLM_PATH := ./lib/glm
+LIB_GLM := -I./lib/glm/glm -I./lib/glm/glm/detail -I./lib/glm/glm/ext -I./lib/glm/glm/gtc -I./lib/glm/gtx -I./lib/glm/simd
+
+DYNAMIC := -L$(LIB_SPD_PATH)/build/ -lspdlog -L$(LIB_GLFW_PATH)/src/ -lglfw3 -L$(LIB_GLEW_PATH)/lib/ -lGLEW -lGL
 INCLUDE := -I./src/core -I./src/core/events\
  						-I./src/core/window\
 						-I./src/core/layer\
@@ -39,7 +42,8 @@ INCLUDE := -I./src/core -I./src/core/events\
 					 	 $(LIB_SPD)\
 						 $(LIB_GLEW)\
 						 $(LIB_GLFW)\
-						 $(LIB_IMGUI)
+						 $(LIB_IMGUI)\
+						 $(LIB_GLM)
 
 EXECUTABLE := recursion.engine
 
