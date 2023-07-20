@@ -12,6 +12,12 @@
 
 namespace Recursion::core
 {
+
+    // global on_event function
+    extern Engine* engine_ptr;
+    template <typename T>
+    bool core_on_event(T &e);
+
     class Engine
     {
     public:
@@ -28,13 +34,7 @@ namespace Recursion::core
         window::Window *window; 
         window::ImguiLayer_glfw_opengl_impl* imgui_layer;
         layer::LayerStack* layer_stack;
-    };
-
-
-    // global on_event function
-    extern Engine* engine_ptr;
-    template <typename T>
-    bool core_on_event(T &e);
+    }; 
 
 } // namespace Recursion
 

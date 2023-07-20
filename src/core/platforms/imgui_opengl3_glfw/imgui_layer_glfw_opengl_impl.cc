@@ -12,13 +12,14 @@ namespace Recursion::core::window
         ImGuiIO &io = ImGui::GetIO();
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls
-        // io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;     // Enable Docking
+        io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;     // Enable Docking
         io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // Enable Multi-Viewport / Platform Windows
-        io.ConfigFlags |= ImGuiWindowFlags_AlwaysAutoResize;
+        // io.ConfigFlags |= ImGuiWindowFlags_AlwaysAutoResize;
         // io.ConfigFlags |= ImGuiConfigFlags_DpiEnableScaleViewports;
         // io.ConfigFlags |= ImGuiConfigFlags_DpiEnableScaleFonts;
         // io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
         // io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
+        
         //  Setup Platform/Renderer backends
         ImGui_ImplGlfw_InitForOpenGL(m_window, false); // Second param install_callback=true will install GLFW callbacks and chain to existing ones.
         ImGui_ImplOpenGL3_Init(CONF__REC__GLFW_GL_VERSION);
@@ -54,28 +55,7 @@ namespace Recursion::core::window
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-
-        ImGui::ShowDemoWindow();
-
-        ImGui::SetNextWindowPos(ImVec2(300, 300));
-
-        // Start a new window with the title "Custom Window"
-        
-        // Begin a new movable window
-        ImGui::Begin("Movable Window",nullptr,ImGuiWindowFlags_NoMove);
-        // Add your ImGui content here
-
-        // For example, you can add text, buttons, or any other widgets.
-        ImGui::Text("Hello, this is a custom window!");
-        
-        if (ImGui::Button("Click me!") &&  ImGui::IsItemClicked())
-        {
-            WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(m_window));
-            events::MouseButtonPressed mouse_clicked{REC_MOUSE_BUTTON_LEFT};
-            events::EventBinder binder{mouse_clicked};
-            binder.bind<events::MouseButtonPressed>(retrievedData.engine_callback_func);
-        }
-        ImGui::End();
+        ImGui::ShowDemoWindow(); 
         
     }
     void ImguiLayer_glfw_opengl_impl::end_loop()
@@ -201,7 +181,7 @@ namespace Recursion::core::window
     {
         REC_CORE_DEBUG("on_key_pressed_call_back {}",event.to_string());
         ImGuiIO &io = ImGui::GetIO();
-        ImGuiKey imgui_key = ImGui_ImplREC_KeyToImGuiKey(event.get_keycode());
+        ImGuiKey imgui_key = KEYMAP_REC_TO_IMGUI(event.get_keycode());
         io.AddKeyEvent(imgui_key, 1);
         return false;
     }
@@ -210,7 +190,7 @@ namespace Recursion::core::window
     {
         REC_CORE_DEBUG("on_key_released_call_back {}",event.to_string());
         ImGuiIO &io = ImGui::GetIO();
-        ImGuiKey imgui_key = ImGui_ImplREC_KeyToImGuiKey(event.get_keycode());
+        ImGuiKey imgui_key = KEYMAP_REC_TO_IMGUI(event.get_keycode());
         io.AddKeyEvent(imgui_key, 0);
         return false;
     }

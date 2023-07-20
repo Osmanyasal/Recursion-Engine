@@ -107,3 +107,14 @@ clean:
 clean_all: clean
 	rm $(LIB_GLEW_PATH)/include/GL/glew.h ## to reinstall glew to the system and create the header file.
 	rm $(LIB_GLFW_PATH)/src/libglfw3.a
+
+
+
+## THESE ARE FOR MONITORING
+
+CALL_STACK_METHOD := lbr
+monitor_callstack: $(BIN)/$(EXECUTABLE)
+	cd $(BIN);\
+	sudo perf record --call-graph $(CALL_STACK_METHOD) ./$(EXECUTABLE);\
+	sudo perf report;
+	

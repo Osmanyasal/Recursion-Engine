@@ -58,30 +58,22 @@ namespace Recursion::core
         REC_CORE_INFO("Engine Started!");
 
         this->application();
-
-        double previous_time = glfwGetTime();
-        short frame_count = 0;
+        
+        FPS_INIT();
+        DELTA_TIME_INIT();
         while (OPT_LIKELY(is_running))
         {
             glClearColor(.6f, 0.2f, 1.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
             imgui_layer->begin_loop();
 
-            // Measure speed
-            double current_time = glfwGetTime();
-            frame_count++;
-            // If a second has passed.
-            if (OPT_UNLIKELY(current_time - previous_time >= 1.0)) // delta time
-            {
-                // Display the frame count here any way you want.
-                // REC_CORE_INFO("FPS: {}", frame_count);
-
-                frame_count = 0;
-                previous_time = current_time;
-            }
+            DELTA_TIME_UPDATE();
+            REC_CORE_DEBUG("delta time {}",delta_time);
 
             imgui_layer->end_loop();
             window->on_update();
+
+            FPS_UPDATE();
         }
     }
 

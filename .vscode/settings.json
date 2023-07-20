@@ -88,7 +88,8 @@
         "strstream": "cpp",
         "complex": "cpp",
         "typeindex": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "rec_imgui_key_mapping": "cpp"
     },
     "cmake.sourceDirectory": "/home/rt7/Desktop/Recursion-Engine/lib/spdlog"
 }
