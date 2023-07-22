@@ -7,6 +7,28 @@ SRC := ./src
 OBJ := $(BIN)/obj
 SANDBOX := ./sandbox
 
+# CORE Directories for source and header files
+SRC_DIR := ./src
+CORE_DIR := $(SRC_DIR)/core
+EVENTS_DIR := $(CORE_DIR)/events
+WINDOW_DIR := $(CORE_DIR)/window
+LAYER_DIR := $(CORE_DIR)/layer
+PLATFORMS_DIR := $(CORE_DIR)/platforms
+IMGUI_OPENGL_DIR := $(PLATFORMS_DIR)/imgui_opengl3_glfw
+LINUX_DIR := $(PLATFORMS_DIR)/linux
+LINUX_OPENGL_DIR := $(LINUX_DIR)/opengl
+LINUX_VULKAN_DIR := $(LINUX_DIR)/vulkan
+MACOS_DIR := $(PLATFORMS_DIR)/macos
+MACOS_VULKAN_DIR := $(MACOS_DIR)/vulkan
+WINDOWS_DIR := $(PLATFORMS_DIR)/windows
+MACOS_DIRECTX_DIR := $(MACOS_DIR)/directx
+MACOS_VULKAN_DIR := $(MACOS_DIR)/vulkan
+UTILS_DIR := $(SRC_DIR)/utils
+OPTIMIZATIONS_DIR := $(UTILS_DIR)/optimizations
+SANDBOX_DIR := ./sandbox/proj1
+
+
+# LIB Directories for source and header files
 LIB_SPD_PATH :=./lib/spdlog
 LIB_SPD := -I./lib/spdlog/include/  -I./lib/spdlog/include/spdlog 
 
@@ -23,27 +45,31 @@ LIB_GLM_PATH := ./lib/glm
 LIB_GLM := -I./lib/glm/glm -I./lib/glm/glm/detail -I./lib/glm/glm/ext -I./lib/glm/glm/gtc -I./lib/glm/gtx -I./lib/glm/simd
 
 DYNAMIC := -L$(LIB_SPD_PATH)/build/ -lspdlog -L$(LIB_GLFW_PATH)/src/ -lglfw3 -L$(LIB_GLEW_PATH)/lib/ -lGLEW -lGL
-INCLUDE := -I./src/core -I./src/core/events\
- 						-I./src/core/window\
-						-I./src/core/layer\
-						-I./src/core/platforms\
-						-I./src/core/platforms/imgui_opengl3_glfw\
-						-I./src/core/platforms/linux\
-						-I./src/core/platforms/linux/opengl\
-						-I./src/core/platforms/linux/vulkan\
-						-I./src/core/platforms/macos\
-						-I./src/core/platforms/macos/vulkan\
-						-I./src/core/platforms/windows\
-						-I./src/core/platforms/macos/directx\
-						-I./src/core/platforms/macos/vulkan\
-						-I./src/utils\
-						-I./src/utils/optimizations\
-						-I./sandbox/proj1\
-					 	 $(LIB_SPD)\
-						 $(LIB_GLEW)\
-						 $(LIB_GLFW)\
-						 $(LIB_IMGUI)\
-						 $(LIB_GLM)
+
+# Include directories
+INCLUDE := -I$(SRC_DIR)\
+           -I$(CORE_DIR)\
+           -I$(EVENTS_DIR)\
+           -I$(WINDOW_DIR)\
+           -I$(LAYER_DIR)\
+           -I$(PLATFORMS_DIR)\
+           -I$(IMGUI_OPENGL_DIR)\
+           -I$(LINUX_DIR)\
+           -I$(LINUX_OPENGL_DIR)\
+           -I$(LINUX_VULKAN_DIR)\
+           -I$(MACOS_DIR)\
+           -I$(MACOS_VULKAN_DIR)\
+           -I$(WINDOWS_DIR)\
+           -I$(MACOS_DIRECTX_DIR)\
+           -I$(MACOS_VULKAN_DIR)\
+           -I$(UTILS_DIR)\
+           -I$(OPTIMIZATIONS_DIR)\
+           -I$(SANDBOX_DIR)\
+			$(LIB_SPD)\
+			$(LIB_GLEW)\
+			$(LIB_GLFW)\
+			$(LIB_IMGUI)\
+			$(LIB_GLM)
 
 EXECUTABLE := recursion.engine
 
