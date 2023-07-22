@@ -44,7 +44,7 @@ LIB_IMGUI := -I./lib/imgui/ -I./lib/imgui/backends -I./lib/imgui/docs -I./lib/im
 LIB_GLM_PATH := ./lib/glm
 LIB_GLM := -I./lib/glm/glm -I./lib/glm/glm/detail -I./lib/glm/glm/ext -I./lib/glm/glm/gtc -I./lib/glm/gtx -I./lib/glm/simd
 
-DYNAMIC := -L$(LIB_SPD_PATH)/build/ -lspdlog -L$(LIB_GLFW_PATH)/src/ -lglfw3 -L$(LIB_GLEW_PATH)/lib/ -lGLEW -lGL
+DYNAMIC := -L$(LIB_SPD_PATH)/build/ -lspdlog -L$(LIB_GLFW_PATH)/build/src/ -lglfw3 -L$(LIB_GLEW_PATH)/lib/ -lGLEW -lGL
 
 # Include directories
 INCLUDE := -I$(SRC_DIR)\
@@ -76,7 +76,7 @@ EXECUTABLE := recursion.engine
 SRC_FILES := $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc")
 OBJ_FILES := $(patsubst $(SRC)/%.cc,$(OBJ)/%.o,$(SRC_FILES))
 
-all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop $(LIB_GLEW_PATH)/lib/libGLEW.a $(LIB_GLFW_PATH)/src/libglfw3.a
+all: ${LIB_IMGUI_PATH}/build $(LIB_GLFW_PATH)/build/src/libglfw3.a $(LIB_GLEW_PATH)/lib/libGLEW.a $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop
 	@if [ ! -d "$(BIN)/fonts" ]; then \
         mkdir -p "$(BIN)/fonts"; \
         cp -R ./lib/fonts/* "$(BIN)/fonts"; \
@@ -106,8 +106,11 @@ $(LIB_GLEW_PATH)/lib/libGLEW.a:
 	cd $(LIB_GLEW_PATH) && ./install.sh
 	
 
-$(LIB_GLFW_PATH)/src/libglfw3.a:
-	cd $(LIB_GLFW_PATH) && cmake . && make
+$(LIB_GLFW_PATH)/build/src/libglfw3.a:
+	cd $(LIB_GLFW_PATH) && ./install.sh
+
+${LIB_IMGUI_PATH}/build:
+	cd ${LIB_IMGUI_PATH} && ./install.sh
 
 run: all
 	@echo "🚀 Executing..."
@@ -119,7 +122,7 @@ clean_run: clean all
 
 $(BIN)/$(EXECUTABLE): $(OBJ_FILES)
 	echo "🚧 Building..."
-	$(CXX) $(CXX_FLAGS) $^ -o ./$(BIN)/$(EXECUTABLE) $(INCLUDE) $(DYNAMIC)
+	$(CXX) $(CXX_FLAGS) $^ -o ./$(BIN)/$(EXECUTABLE) ${LIB_IMGUI_PATH}/build/*.o $(INCLUDE) $(DYNAMIC)
 
 $(OBJ)/%.o: $(SRC)/%.cc
 	mkdir -p $(@D)
@@ -131,13 +134,13 @@ clean:
 	rm -rf ~/.local/share/applications/recursion_engine.desktop ## remove dekstop icon
 
 clean_all: clean
-	rm $(LIB_GLEW_PATH)/include/GL/glew.h ## to reinstall glew to the system and create the header file.
 	cd $(LIB_GLEW_PATH) && ./install.sh clean
+	cd $(LIB_GLFW_PATH) && ./install.sh clean
+	cd ${LIB_IMGUI_PATH} && ./install.sh clean
 
 
 
 ## THESE ARE FOR MONITORING
-
 CALL_STACK_METHOD := lbr
 monitor_callstack: $(BIN)/$(EXECUTABLE)
 	cd $(BIN);\

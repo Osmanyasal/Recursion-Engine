@@ -2,19 +2,18 @@
 	path = lib/spdlog
 	url = https://github.com/gabime/spdlog.git
 	ignore = dirty
-[submodule "lib/glfw"]
-	path = lib/glfw
-	url = https://github.com/glfw/glfw.git
-	ignore = dirty
-[submodule "lib/imgui"]
-	path = lib/imgui
-	url = https://github.com/ocornut/imgui.git
 [submodule "lib/font_opensans"]
 	path = lib/font_opensans
 	url = https://github.com/googlefonts/opensans.git
-[submodule "lib/glm"]
-	path = lib/glm
-	url = https://github.com/g-truc/glm.git
 [submodule "lib/glew"]
 	path = lib/glew
 	url = https://github.com/Osmanyasal/glew.git
+[submodule "lib/glfw"]
+	path = lib/glfw
+	url = https://github.com/Osmanyasal/glfw.git
+[submodule "lib/glm"]
+	path = lib/glm
+	url = https://github.com/Osmanyasal/glm.git
+[submodule "lib/imgui"]
+	path = lib/imgui
+	url = https://github.com/Osmanyasal/imgui.git
