@@ -16,3 +16,6 @@
 [submodule "lib/spdlog"]
 	path = lib/spdlog
 	url = https://github.com/Osmanyasal/spdlog.git
+[submodule "lib/stb"]
+	path = lib/stb
+	url = https://github.com/Osmanyasal/stb.git
