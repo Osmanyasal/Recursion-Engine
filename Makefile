@@ -76,7 +76,7 @@ EXECUTABLE := recursion.engine
 SRC_FILES := $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc")
 OBJ_FILES := $(patsubst $(SRC)/%.cc,$(OBJ)/%.o,$(SRC_FILES))
 
-all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop $(LIB_GLEW_PATH)/include/GL/glew.h $(LIB_GLFW_PATH)/src/libglfw3.a
+all: $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop $(LIB_GLEW_PATH)/lib/libGLEW.a $(LIB_GLFW_PATH)/src/libglfw3.a
 	@if [ ! -d "$(BIN)/fonts" ]; then \
         mkdir -p "$(BIN)/fonts"; \
         cp -R ./lib/fonts/* "$(BIN)/fonts"; \
@@ -102,9 +102,9 @@ Icon=$(shell pwd)/icon/icon.png\n" > $(BIN)/recursion_engine.desktop
 
 	cp $(BIN)/recursion_engine.desktop ~/.local/share/applications
 
-$(LIB_GLEW_PATH)/include/GL/glew.h:
-	cd $(LIB_GLEW_PATH)/auto && make
-	cd $(LIB_GLEW_PATH) && make && sudo make install && make clean
+$(LIB_GLEW_PATH)/lib/libGLEW.a:
+	cd $(LIB_GLEW_PATH) && ./install.sh
+	
 
 $(LIB_GLFW_PATH)/src/libglfw3.a:
 	cd $(LIB_GLFW_PATH) && cmake . && make
@@ -132,7 +132,7 @@ clean:
 
 clean_all: clean
 	rm $(LIB_GLEW_PATH)/include/GL/glew.h ## to reinstall glew to the system and create the header file.
-	rm $(LIB_GLFW_PATH)/src/libglfw3.a
+	cd $(LIB_GLEW_PATH) && ./install.sh clean
 
 
 
