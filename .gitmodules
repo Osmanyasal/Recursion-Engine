@@ -1,7 +1,3 @@
-[submodule "lib/spdlog"]
-	path = lib/spdlog
-	url = https://github.com/gabime/spdlog.git
-	ignore = dirty
 [submodule "lib/font_opensans"]
 	path = lib/font_opensans
 	url = https://github.com/googlefonts/opensans.git
@@ -17,3 +13,6 @@
 [submodule "lib/imgui"]
 	path = lib/imgui
 	url = https://github.com/Osmanyasal/imgui.git
+[submodule "lib/spdlog"]
+	path = lib/spdlog
+	url = https://github.com/Osmanyasal/spdlog.git

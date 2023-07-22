@@ -7,7 +7,7 @@
 #include <event_core.hh>
 #include <linux_window.hh>
 #include <layer_stack.hh> 
-#include <imgui_layer_glfw_opengl_impl.hh>
+#include <imgui_impl.hh>
 #include <Input.hh>
 
 namespace Recursion::core

@@ -76,7 +76,7 @@ EXECUTABLE := recursion.engine
 SRC_FILES := $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc")
 OBJ_FILES := $(patsubst $(SRC)/%.cc,$(OBJ)/%.o,$(SRC_FILES))
 
-all: ${LIB_IMGUI_PATH}/build $(LIB_GLFW_PATH)/build/src/libglfw3.a $(LIB_GLEW_PATH)/lib/libGLEW.a $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop
+all: ${LIB_IMGUI_PATH}/build $(LIB_SPD_PATH)/build/libspdlog.a $(LIB_GLFW_PATH)/build/src/libglfw3.a $(LIB_GLEW_PATH)/lib/libGLEW.a $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop
 	@if [ ! -d "$(BIN)/fonts" ]; then \
         mkdir -p "$(BIN)/fonts"; \
         cp -R ./lib/fonts/* "$(BIN)/fonts"; \
@@ -105,6 +105,8 @@ Icon=$(shell pwd)/icon/icon.png\n" > $(BIN)/recursion_engine.desktop
 $(LIB_GLEW_PATH)/lib/libGLEW.a:
 	cd $(LIB_GLEW_PATH) && ./install.sh
 	
+$(LIB_SPD_PATH)/build/libspdlog.a:
+	cd $(LIB_SPD_PATH) && ./install.sh
 
 $(LIB_GLFW_PATH)/build/src/libglfw3.a:
 	cd $(LIB_GLFW_PATH) && ./install.sh
@@ -137,6 +139,7 @@ clean_all: clean
 	cd $(LIB_GLEW_PATH) && ./install.sh clean
 	cd $(LIB_GLFW_PATH) && ./install.sh clean
 	cd ${LIB_IMGUI_PATH} && ./install.sh clean
+	cd $(LIB_SPD_PATH) && ./install.sh clean
 
 
 
