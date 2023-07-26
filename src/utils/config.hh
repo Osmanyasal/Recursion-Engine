@@ -3,22 +3,22 @@
 
 // DETECT PLATFORM AND CREATE A WINDOW BASED ON IT
 #if defined(_WIN32)
-    #define CONF__OS_NAME "Windows"
-    #define CREATE_WINDOW() REC_CORE_ERROR("NO WINDOW DEFINED FOR {}",CONF__OS_NAME)
+#define CONF__OS_NAME "Windows"
+#define CREATE_WINDOW() REC_CORE_ERROR("NO WINDOW DEFINED FOR {}", CONF__OS_NAME)
 #elif defined(__linux__)
-    #define CONF__OS_NAME "Linux"
-    #define CREATE_WINDOW() \
-            Recursion::core::window::WindowProps default_props; \
-            default_props.engine_callback_func = &core_on_event; \
-            window = new core::window::LinuxWindow{default_props};
+#define CONF__OS_NAME "Linux"
+#define CREATE_WINDOW()                                  \
+    Recursion::core::window::WindowProps default_props;  \
+    default_props.engine_callback_func = &core_on_event; \
+    window = new Recursion::core::window::LinuxWindow{new Recursion::core::render::OpenGLRenderContext{default_props}};
 #elif defined(__APPLE__) && defined(__MACH__)
-    #define CONF__OS_NAME "macOS"
-    #define CREATE_WINDOW() REC_CORE_ERROR("NO WINDOW DEFINED FOR {}",CONF__OS_NAME)
+#define CONF__OS_NAME "macOS"
+#define CREATE_WINDOW() REC_CORE_ERROR("NO WINDOW DEFINED FOR {}", CONF__OS_NAME)
 #else
-    #define CONF__OS_NAME "Unknown"
-    #define CREATE_WINDOW() REC_CORE_ERROR("NO WINDOW DEFINED FOR {}",CONF__OS_NAME)
+#define CONF__OS_NAME "Unknown"
+#define CREATE_WINDOW() REC_CORE_ERROR("NO WINDOW DEFINED FOR {}", CONF__OS_NAME)
 #endif
- 
+
 // format is like CONF__[SECTION]__[YOUR CONTENT]
 /**
  * @brief Porting enviroment
@@ -26,16 +26,15 @@
  *
  */
 #define CONF__PORTING__IS_PRODUCTION 0
- 
+
 /**
  * @brief GLFW Window specs.
  *
- *  
+ *
  */
 #define CONF__REC__GLFW_CONTEXT_VERSION_MAJOR 3
 #define CONF__REC__GLFW_CONTEXT_VERSION_MINOR 3
 #define CONF__REC__GLFW_GL_VERSION "#version 330"
-
 
 #define CONF__REC__WINDOW_POSX 0
 #define CONF__REC__WINDOW_POSY 0
@@ -57,6 +56,5 @@
 #define CONF__LOG__ENABLE_INFO 1
 #define CONF__LOG__ENABLE_WARN 1
 #define CONF__LOG__ENABLE_ERROR 1
-
 
 #endif

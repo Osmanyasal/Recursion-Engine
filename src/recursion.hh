@@ -3,13 +3,12 @@
 
 #include <iostream>
 #include <utils.hh>
-#include <window.hh>
 #include <event_core.hh>
-#include <linux_window.hh>
 #include <layer_stack.hh> 
 #include <imgui_impl.hh>
 #include <Input.hh>
-
+#include <linux_window.hh>
+#include <opengl_renderer.hh>
 namespace Recursion::core
 {
 

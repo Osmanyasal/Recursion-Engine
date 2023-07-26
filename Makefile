@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 CXX := g++
-CXX_FLAGS := -g -Wall -std=c++11 -ggdb -fopenmp ## -lGL -lglfw -lGLEW
+CXX_FLAGS := -g  -Wall -std=c++11 -ggdb -fopenmp ## -lGL -lglfw -lGLEW
 
 BIN := ./bin
 SRC := ./src
@@ -11,22 +11,24 @@ SANDBOX := ./sandbox
 SRC_DIR := ./src
 CORE_DIR := $(SRC_DIR)/core
 EVENTS_DIR := $(CORE_DIR)/events
-WINDOW_DIR := $(CORE_DIR)/window
 LAYER_DIR := $(CORE_DIR)/layer
-PLATFORMS_DIR := $(CORE_DIR)/platforms
-IMGUI_OPENGL_DIR := $(PLATFORMS_DIR)/imgui_opengl3_glfw
-LINUX_DIR := $(PLATFORMS_DIR)/linux
-LINUX_OPENGL_DIR := $(LINUX_DIR)/opengl
-LINUX_VULKAN_DIR := $(LINUX_DIR)/vulkan
-MACOS_DIR := $(PLATFORMS_DIR)/macos
-MACOS_VULKAN_DIR := $(MACOS_DIR)/vulkan
-WINDOWS_DIR := $(PLATFORMS_DIR)/windows
-MACOS_DIRECTX_DIR := $(MACOS_DIR)/directx
-MACOS_VULKAN_DIR := $(MACOS_DIR)/vulkan
+WINDOW_DIR := $(CORE_DIR)/window
+RENDER_DIR := $(CORE_DIR)/render
+PLATFORMS_DIR := $(SRC_DIR)/platforms
 UTILS_DIR := $(SRC_DIR)/utils
+
+LINUX_DIR := $(PLATFORMS_DIR)/linux
+MACOS_DIR := $(PLATFORMS_DIR)/macos
+WINDOWS_DIR := $(PLATFORMS_DIR)/windows
 OPTIMIZATIONS_DIR := $(UTILS_DIR)/optimizations
 SANDBOX_DIR := ./sandbox/proj1
 
+RENDER_IMPL_DIR := $(PLATFORMS_DIR)/render
+RENDER_OPENGL_DIR := $(RENDER_IMPL_DIR)/opengl
+RENDER_VULKAN_DIR := $(RENDER_IMPL_DIR)/vulkan
+RENDER_DIRECTX_DIR := $(RENDER_IMPL_DIR)/d3d
+
+IMGUI_OPENGL_DIR := $(PLATFORMS_DIR)/imgui_opengl3_glfw
 
 # LIB Directories for source and header files
 LIB_SPD_PATH :=./lib/spdlog
@@ -49,21 +51,21 @@ DYNAMIC := -L$(LIB_SPD_PATH)/build/ -lspdlog -L$(LIB_GLFW_PATH)/build/src/ -lglf
 # Include directories
 INCLUDE := -I$(SRC_DIR)\
            -I$(CORE_DIR)\
+		   -I$(RENDER_DIR)\
            -I$(EVENTS_DIR)\
            -I$(WINDOW_DIR)\
            -I$(LAYER_DIR)\
            -I$(PLATFORMS_DIR)\
            -I$(IMGUI_OPENGL_DIR)\
            -I$(LINUX_DIR)\
-           -I$(LINUX_OPENGL_DIR)\
-           -I$(LINUX_VULKAN_DIR)\
            -I$(MACOS_DIR)\
-           -I$(MACOS_VULKAN_DIR)\
            -I$(WINDOWS_DIR)\
-           -I$(MACOS_DIRECTX_DIR)\
-           -I$(MACOS_VULKAN_DIR)\
            -I$(UTILS_DIR)\
            -I$(OPTIMIZATIONS_DIR)\
+		   -I$(RENDER_IMPL_DIR)\
+           -I$(RENDER_VULKAN_DIR)\
+           -I$(RENDER_DIRECTX_DIR)\
+           -I$(RENDER_OPENGL_DIR)\
            -I$(SANDBOX_DIR)\
 			$(LIB_SPD)\
 			$(LIB_GLEW)\
@@ -141,12 +143,18 @@ clean_all: clean
 	cd ${LIB_IMGUI_PATH} && ./install.sh clean
 	cd $(LIB_SPD_PATH) && ./install.sh clean
 
-
-
 ## THESE ARE FOR MONITORING
 CALL_STACK_METHOD := lbr
 monitor_callstack: $(BIN)/$(EXECUTABLE)
 	cd $(BIN);\
 	sudo perf record --call-graph $(CALL_STACK_METHOD) ./$(EXECUTABLE);\
+	sudo chmod a+rwx perf*;\
 	sudo perf report;
+
+tma_analysis:
+	cd ./"$(BIN)";\
+	sudo perf stat --topdown -a --td-level 0 -- taskset -c 0  ./$(EXECUTABLE);
+
+
+
 	

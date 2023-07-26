@@ -29,7 +29,7 @@ namespace Recursion::core::window
                     int posx = CONF__REC__WINDOW_POSX,
                     int posy = CONF__REC__WINDOW_POSY)
             : guid{generateGUID()}, win_title{title}, win_width{width}, win_height{height}, win_posx{posx}, win_posy{posy}
-        { 
+        {
         }
         // global event callback function
         bool (*engine_callback_func)(Recursion::core::events::Event &event);
@@ -43,11 +43,10 @@ namespace Recursion::core::window
         virtual void on_update() = 0;
 
         // inits class Input that inquires if an input is pressed or not _see Input.hh
-        virtual void init_Input(GLFWwindow *) = 0;
+        virtual void init_Input() = 0;
 
-        Window(const WindowProps &default_props)
+        Window(const WindowProps *default_props) : win_props{*default_props}
         {
-            this->win_props = default_props; // copy windowprops !
         }
         virtual ~Window()
         {
@@ -78,7 +77,7 @@ namespace Recursion::core::window
 
     protected:
         virtual void set_event_callback() const = 0;
-        WindowProps win_props;
+        const WindowProps &win_props;
     };
 
 } // namespace Recursion::core::window

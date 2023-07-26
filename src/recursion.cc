@@ -17,6 +17,7 @@ namespace Recursion::core
         Recursion::utils::BaseLogger::init();
         // GENERIC CREATE_WINDOW MACRO. DEFINE YOURS IN CONFIG.HH
         CREATE_WINDOW();
+
         engine_ptr = this;
         is_running = true;
 
@@ -58,7 +59,7 @@ namespace Recursion::core
         REC_CORE_INFO("Engine Started!");
 
         this->application();
-        
+
         FPS_INIT();
         DELTA_TIME_INIT();
         while (OPT_LIKELY(is_running))
@@ -68,7 +69,7 @@ namespace Recursion::core
             imgui_layer->begin_loop();
 
             DELTA_TIME_UPDATE();
-            REC_CORE_DEBUG("delta time {}",delta_time);
+            REC_CORE_DEBUG("delta time {}", delta_time);
 
             imgui_layer->end_loop();
             window->on_update();
