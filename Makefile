@@ -1,6 +1,14 @@
 SHELL := /bin/bash
-CXX := g++
-CXX_FLAGS := -g  -Wall -std=c++11 -ggdb -fopenmp ## -lGL -lglfw -lGLEW
+CXX := g++ 
+CXX_VERSION = -std=c++11
+CXX_DEBUG := -ggdb
+CXX_WARNINGS := -Wall
+CXX_OPT_FLAGS := -O3 -flto
+CXX_LIBS := -fopenmp
+CXX_PGO_GENERATE := -fprofile-generate
+CXX_PGO_USE := -fprofile-use
+CXX_FLAGS := $(CXX_VERSION) $(CXX_DEBUG) $(CXX_PGO_GENERATE) $(CXX_WARNINGS) $(CXX_OPT_FLAGS) $(CXX_LIBS)
+CXX_FLAGS_OPT_USE := $(CXX_VERSION) $(CXX_DEBUG) $(CXX_PGO_USE) $(CXX_WARNINGS) $(CXX_OPT_FLAGS) $(CXX_LIBS)
 
 BIN := ./bin
 SRC := ./src
@@ -87,9 +95,10 @@ all: ${LIB_IMGUI_PATH}/build $(LIB_SPD_PATH)/build/libspdlog.a $(LIB_GLFW_PATH)/
         echo "Fonts directory already exists. Skipping installation."; \
     fi
 	
+
 ## check memory if there're any leaks.
 mem_check:
-	valgrind --leak-check=full --show-leak-kinds=all ./$(BIN)/$(EXECUTABLE)
+	cd $(BIN) && valgrind --leak-check=full --show-leak-kinds=all ./$(EXECUTABLE)
 
 ## create a desktop file and move it to applications
 $(BIN)/recursion_engine.desktop:
