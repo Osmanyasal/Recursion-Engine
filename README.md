@@ -47,11 +47,11 @@ mem_check
 ## PERFORMANCE MONITORING 🔎<br>
 You can use following makefile targets to collect meaningful metrics <br>
 All targets use perf tool and valgrind, so make sure they're installed<br>
-
+```
 make tma_analiysis # makes tma anylisis unearthes how much of your application {front,back}-end bounded or bad-speculated 
 make monitor_callstack # hottest ran functions 
 mem_check # runs valgrind tool to make detailed memory analysis.
-
+```
 ## Currently
  - Main support is on Linux, MacOS and Windows side-supported.
  - Developing fundamentals; OpenGL and glfw3 are preferred, Vulkan and DirectX will be supported later.
