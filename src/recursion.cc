@@ -30,9 +30,9 @@ namespace Recursion::core
 
     Engine::~Engine()
     {
-        delete imgui_layer;
+        // delete imgui_layer;
         delete layer_stack;
-        delete window;
+        // delete window;
         REC_CORE_INFO("Engine Terminated!");
     }
 

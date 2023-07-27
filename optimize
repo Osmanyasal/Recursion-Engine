@@ -1,0 +1,111 @@
+SHELL := /bin/bash
+CXX := g++ 
+CXX_VERSION = -std=c++11
+CXX_DEBUG := -ggdb
+CXX_WARNINGS := -Wall
+CXX_OPT_FLAGS := -O3 -flto
+CXX_LIBS := -fopenmp 
+CXX_PGO_USE := -fprofile-use
+CXX_FLAGS:= $(CXX_VERSION) $(CXX_DEBUG) $(CXX_WARNINGS) $(CXX_OPT_FLAGS) $(CXX_LIBS)
+
+
+BIN := ./bin
+SRC := ./src
+OBJ := $(BIN)/obj
+SANDBOX := ./sandbox
+
+# CORE Directories for source and header files
+SRC_DIR := ./src
+CORE_DIR := $(SRC_DIR)/core
+EVENTS_DIR := $(CORE_DIR)/events
+LAYER_DIR := $(CORE_DIR)/layer
+WINDOW_DIR := $(CORE_DIR)/window
+RENDER_DIR := $(CORE_DIR)/render
+PLATFORMS_DIR := $(SRC_DIR)/platforms
+UTILS_DIR := $(SRC_DIR)/utils
+
+LINUX_DIR := $(PLATFORMS_DIR)/linux
+MACOS_DIR := $(PLATFORMS_DIR)/macos
+WINDOWS_DIR := $(PLATFORMS_DIR)/windows
+OPTIMIZATIONS_DIR := $(UTILS_DIR)/optimizations
+SANDBOX_DIR := ./sandbox/proj1
+
+RENDER_IMPL_DIR := $(PLATFORMS_DIR)/render
+RENDER_OPENGL_DIR := $(RENDER_IMPL_DIR)/opengl
+RENDER_VULKAN_DIR := $(RENDER_IMPL_DIR)/vulkan
+RENDER_DIRECTX_DIR := $(RENDER_IMPL_DIR)/d3d
+
+IMGUI_OPENGL_DIR := $(PLATFORMS_DIR)/imgui_opengl3_glfw
+
+# LIB Directories for source and header files
+LIB_SPD_PATH :=./lib/spdlog
+LIB_SPD := -I./lib/spdlog/include/  -I./lib/spdlog/include/spdlog 
+
+LIB_GLEW_PATH := ./lib/glew
+LIB_GLEW := -I./lib/glew/include/ -I./lib/spdlog/include/glew 
+
+LIB_GLFW_PATH := ./lib/glfw
+LIB_GLFW := -I./lib/glfw/include/ -I./lib/spdlog/include/glfw
+
+LIB_IMGUI_PATH := ./lib/imgui
+LIB_IMGUI := -I./lib/imgui/ -I./lib/imgui/backends -I./lib/imgui/docs -I./lib/imgui/examples -I./lib/imgui/mics
+
+LIB_GLM_PATH := ./lib/glm
+LIB_GLM := -I./lib/glm/glm -I./lib/glm/glm/detail -I./lib/glm/glm/ext -I./lib/glm/glm/gtc -I./lib/glm/gtx -I./lib/glm/simd
+
+DYNAMIC := -L$(LIB_SPD_PATH)/build/ -lspdlog -L$(LIB_GLFW_PATH)/build/src/ -lglfw3 -L$(LIB_GLEW_PATH)/lib/ -lGLEW -lGL
+
+# Include directories
+INCLUDE := -I$(SRC_DIR)\
+           -I$(CORE_DIR)\
+		   -I$(RENDER_DIR)\
+           -I$(EVENTS_DIR)\
+           -I$(WINDOW_DIR)\
+           -I$(LAYER_DIR)\
+           -I$(PLATFORMS_DIR)\
+           -I$(IMGUI_OPENGL_DIR)\
+           -I$(LINUX_DIR)\
+           -I$(MACOS_DIR)\
+           -I$(WINDOWS_DIR)\
+           -I$(UTILS_DIR)\
+           -I$(OPTIMIZATIONS_DIR)\
+		   -I$(RENDER_IMPL_DIR)\
+           -I$(RENDER_VULKAN_DIR)\
+           -I$(RENDER_DIRECTX_DIR)\
+           -I$(RENDER_OPENGL_DIR)\
+           -I$(SANDBOX_DIR)\
+			$(LIB_SPD)\
+			$(LIB_GLEW)\
+			$(LIB_GLFW)\
+			$(LIB_IMGUI)\
+			$(LIB_GLM)
+
+EXECUTABLE := recursion.engine
+
+SRC_FILES := $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc")
+OBJ_FILES := $(patsubst $(SRC)/%.cc,$(OBJ)/%.o,$(SRC_FILES))
+
+all: $(BIN)/recursion.engine-proj1.gcda clean $(BIN)/$(EXECUTABLE)
+
+$(BIN)/recursion.engine-proj1.gcda:
+	@if [ ! -f "$(BIN)/recursion.engine-proj1.gcda" ]; then \
+		echo "⚠️ Error: recursion.engine-proj1.gcda file not found. Please run 'make all' to generate it."; \
+		exit 1; \
+	fi
+	 
+run: all 
+	@echo "🚀 Executing..."
+	cd $(BIN); ./$(EXECUTABLE) 
+
+$(BIN)/$(EXECUTABLE): $(OBJ_FILES)
+	echo "🚧 Building..."
+	$(CXX) $(CXX_FLAGS) $(CXX_PGO_USE) $^ -o ./$(BIN)/$(EXECUTABLE) ${LIB_IMGUI_PATH}/build/*.o $(INCLUDE) $(DYNAMIC)
+
+$(OBJ)/%.o: $(SRC)/%.cc
+	mkdir -p $(@D)
+	$(CXX) $(CXX_FLAGS) -c -o $@ $< $(INCLUDE)
+
+clean:
+	@echo "🧹 Cleaning..."
+	rm -rf $(OBJ)/ 
+
