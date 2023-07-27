@@ -23,10 +23,35 @@
 
 ## To run 🚀 <br>
 ```console
-$ git clone --recurse-submodules https://github.com/Osmanyasal/Recursion-Engine.git
-$ cd ./Recursion-Engine
-$ make run
+git clone --recurse-submodules https://github.com/Osmanyasal/Recursion-Engine.git
+cd ./Recursion-Engine
+make run
 ```
+Makefile by default enables PGO (profiler guided optimizations) meaning it collects data as you use the engine.
+<br>
+After running the application a while on a sinlge run, you can re-compile the engine as follows
+
+```console 
+make -f optimize [run]
+[make run]
+```
+You can compare before and after performance using defined rules in Makefile.
+
+```console
+make tma_analiysis  
+make monitor_callstack  
+mem_check
+...
+```
+
+## PERFORMANCE MONITORING 🔎<br>
+You can use following makefile targets to collect meaningful metrics <br>
+All targets use perf tool and valgrind, so make sure they're installed<br>
+
+make tma_analiysis # makes tma anylisis unearthes how much of your application {front,back}-end bounded or bad-speculated 
+make monitor_callstack # hottest ran functions 
+mem_check # runs valgrind tool to make detailed memory analysis.
+
 ## Currently
  - Main support is on Linux, MacOS and Windows side-supported.
  - Developing fundamentals; OpenGL and glfw3 are preferred, Vulkan and DirectX will be supported later.
