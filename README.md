@@ -22,7 +22,7 @@
    
 
 ## To run 🚀 <br>
-```console
+```
 git clone --recurse-submodules https://github.com/Osmanyasal/Recursion-Engine.git
 cd ./Recursion-Engine
 make run
@@ -31,13 +31,13 @@ Makefile by default enables PGO (profiler guided optimizations) meaning it colle
 <br>
 After running the application a while on a sinlge run, you can re-compile the engine as follows
 
-```console 
+``` 
 make -f optimize [run]
 [make run]
 ```
 You can compare before and after performance using defined rules in Makefile.
 
-```console
+```
 make tma_analiysis  
 make monitor_callstack  
 mem_check
