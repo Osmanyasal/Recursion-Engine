@@ -82,8 +82,8 @@ INCLUDE := -I$(SRC_DIR)\
 EXECUTABLE := recursion.engine
 
 SRC_FILES := $(shell find $(SRC) -type f -name "*.cc") $(shell find $(SANDBOX) -type f -name "*.cc")
-OBJ_FILES := $(patsubst $(SRC)/%.cc,$(OBJ)/%.o,$(SRC_FILES))
-
+OBJ_FILES := $(patsubst ./%.cc,$(OBJ)/%.o,$(SRC_FILES)) 
+ 
 all: ${LIB_IMGUI_PATH}/build $(LIB_SPD_PATH)/build/libspdlog.a $(LIB_GLFW_PATH)/build/src/libglfw3.a $(LIB_GLEW_PATH)/lib/libGLEW.a $(BIN)/$(EXECUTABLE) $(BIN)/recursion_engine.desktop
 	@if [ ! -d "$(BIN)/fonts" ]; then \
         mkdir -p "$(BIN)/fonts"; \
@@ -134,9 +134,9 @@ $(BIN)/$(EXECUTABLE): $(OBJ_FILES)
 	echo "🚧 Building..."
 	$(CXX) $(CXX_FLAGS) $^ -o ./$(BIN)/$(EXECUTABLE) ${LIB_IMGUI_PATH}/build/*.o $(INCLUDE) $(DYNAMIC)
 
-$(OBJ)/%.o: $(SRC)/%.cc
+$(OBJ)/%.o: ./%.cc
 	mkdir -p $(@D)
-	$(CXX) $(CXX_FLAGS) -c -o $@ $< $(INCLUDE)
+	$(CXX) $(CXX_FLAGS) -c -o $@ $< $(INCLUDE) 
 
 clean:
 	@echo "🧹 Cleaning..."

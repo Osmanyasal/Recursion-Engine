@@ -22,7 +22,7 @@ namespace Recursion::core
     public:
         Engine();
         virtual ~Engine();
-
+        
         virtual void start() final;
         virtual void application() = 0;
 

@@ -10,11 +10,22 @@
 #include <random>
 #include <sstream>
 #include <algorithm>
+#include <fstream>
 
 // CUSTOM HEADERS
 #include <config.hh>
 #include <logger.hh>
 #include <type.hh>
+
+//TODO: Migrate this to a math wrapper.
+// INCLUDE GLM
+#include <glm/vec3.hpp>                  // glm::vec3
+#include <glm/vec4.hpp>                  // glm::vec4
+#include <glm/mat4x4.hpp>                // glm::mat4
+#include <glm/ext/matrix_transform.hpp>  // glm::translate, glm::rotate, glm::scale
+#include <glm/ext/matrix_clip_space.hpp> // glm::perspective
+#include <glm/ext/scalar_constants.hpp>  // glm::pi
+#include <glm/gtx/string_cast.hpp>
 
 // OPTIMIZATION HEADERS
 #include <cpu_opt>
@@ -53,5 +64,7 @@
 
 // FUNCTION DECLERATIONS
 std::string generateGUID();
+
+std::string read_file(std::string location);
 
 #endif

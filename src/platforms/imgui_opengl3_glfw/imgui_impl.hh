@@ -30,6 +30,7 @@ namespace Recursion::core::window
         void begin_loop();
         void end_loop();
         void set_dark_theme_colors();
+        void set_white_theme_colors();
 
         // GLFW _call_backs (individual _call_backs to call yourself if you didn't install _call_backs)
         bool on_window_focus_call_back(events::WindowFocusEvent &event);

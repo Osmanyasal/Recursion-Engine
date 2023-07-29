@@ -19,7 +19,7 @@ namespace Recursion::core::window
         // io.ConfigFlags |= ImGuiConfigFlags_DpiEnableScaleFonts;
         // io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
         // io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
-        
+
         //  Setup Platform/Renderer backends
         ImGui_ImplGlfw_InitForOpenGL(m_window, false); // Second param install_callback=true will install GLFW callbacks and chain to existing ones.
         ImGui_ImplOpenGL3_Init(CONF__REC__GLFW_GL_VERSION);
@@ -55,11 +55,10 @@ namespace Recursion::core::window
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        ImGui::ShowDemoWindow(); 
-        
+        ImGui::ShowDemoWindow();
     }
     void ImguiLayer_glfw_opengl_impl::end_loop()
-    { 
+    {
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
@@ -70,7 +69,7 @@ namespace Recursion::core::window
             ImGui::UpdatePlatformWindows();
             ImGui::RenderPlatformWindowsDefault();
             glfwMakeContextCurrent(backup_current_context);
-        } 
+        }
     }
 
     void ImguiLayer_glfw_opengl_impl::on_update(double delta_time) {}
@@ -136,42 +135,42 @@ namespace Recursion::core::window
     // GLFW _call_backs (individual _call_backs to call yourself if you didn't install _call_backs)
     bool ImguiLayer_glfw_opengl_impl::on_window_focus_call_back(events::WindowFocusEvent &event)
     {
-        REC_CORE_DEBUG("on_window_focus_call_back {}",event.to_string());
+        REC_CORE_DEBUG("on_window_focus_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         io.AddFocusEvent(true);
         return false;
     }
     bool ImguiLayer_glfw_opengl_impl::on_window_lost_focus_call_back(events::WindowLostFocusEvent &event)
     {
-        REC_CORE_DEBUG("on_window_focus_lost_call_back {}",event.to_string());
+        REC_CORE_DEBUG("on_window_focus_lost_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         io.AddFocusEvent(false);
         return false;
     }
     bool ImguiLayer_glfw_opengl_impl::on_cursor_pos_call_back(events::MouseMovedEvent &event)
     {
-        REC_CORE_DEBUG("on_cursor_pos_call_back {}",event.to_string());
+        REC_CORE_DEBUG("on_cursor_pos_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         io.MousePos = ImVec2((float)event.get_posx(), (float)event.get_posy());
         return false;
     }
     bool ImguiLayer_glfw_opengl_impl::on_mouse_button_pressed_call_back(events::MouseButtonPressed &event)
     {
-        REC_CORE_DEBUG("on_mouse_button_pressed_call_back {}",event.to_string());
+        REC_CORE_DEBUG("on_mouse_button_pressed_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         io.MouseDown[((events::MouseButtonPressed &)event).get_mouse_button()] = true;
         return false;
     }
     bool ImguiLayer_glfw_opengl_impl::on_mouse_button_released_call_back(events::MouseButtonReleased &event)
     {
-        REC_CORE_DEBUG("on_mouse_button_released_call_back {}",event.to_string());
+        REC_CORE_DEBUG("on_mouse_button_released_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         io.MouseDown[((events::MouseButtonPressed &)event).get_mouse_button()] = false;
         return false;
     }
     bool ImguiLayer_glfw_opengl_impl::on_scroll_call_back(events::MouseScrolledEvent &event)
     {
-        REC_CORE_DEBUG("on_scroll_call_back {}",event.to_string());
+        REC_CORE_DEBUG("on_scroll_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         io.MouseWheelH += event.get_offset_x();
         io.MouseWheel += event.get_offset_y();
@@ -179,7 +178,7 @@ namespace Recursion::core::window
     }
     bool ImguiLayer_glfw_opengl_impl::on_key_pressed_call_back(events::KeyPressEvent &event)
     {
-        REC_CORE_DEBUG("on_key_pressed_call_back {}",event.to_string());
+        REC_CORE_DEBUG("on_key_pressed_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         ImGuiKey imgui_key = KEYMAP_REC_TO_IMGUI(event.get_keycode());
         io.AddKeyEvent(imgui_key, 1);
@@ -188,7 +187,7 @@ namespace Recursion::core::window
 
     bool ImguiLayer_glfw_opengl_impl::on_key_released_call_back(events::KeyReleasedEvent &event)
     {
-        REC_CORE_DEBUG("on_key_released_call_back {}",event.to_string());
+        REC_CORE_DEBUG("on_key_released_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         ImGuiKey imgui_key = KEYMAP_REC_TO_IMGUI(event.get_keycode());
         io.AddKeyEvent(imgui_key, 0);
@@ -196,7 +195,7 @@ namespace Recursion::core::window
     }
     bool ImguiLayer_glfw_opengl_impl::on_key_char_call_back(events::CharTypedEvent &event)
     {
-        REC_CORE_DEBUG("on_key_char_call_back {}",event.to_string());
+        REC_CORE_DEBUG("on_key_char_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         io.AddInputCharacter(event.get_keycode());
         return false;
@@ -209,7 +208,7 @@ namespace Recursion::core::window
 
     bool ImguiLayer_glfw_opengl_impl::on_monitor_resized_call_back(events::WindowResizedEvent &event)
     {
-        REC_CORE_DEBUG("on_monitor_resized_call_back {}",event.to_string());
+        REC_CORE_DEBUG("on_monitor_resized_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         io.DisplaySize = ImVec2(event.get_width(), event.get_height());
         io.DisplayFramebufferScale = ImVec2(1.0f, 1.0f);
@@ -219,7 +218,7 @@ namespace Recursion::core::window
 
     bool ImguiLayer_glfw_opengl_impl::on_monitor_moved_call_back(events::WindowMovedEvent &event)
     {
-        REC_CORE_DEBUG("on_monitor_moved_call_back {}",event.to_string());
+        REC_CORE_DEBUG("on_monitor_moved_call_back {}", event.to_string());
         return false;
     }
 
@@ -254,5 +253,10 @@ namespace Recursion::core::window
         colors[ImGuiCol_TitleBg] = ImVec4{0.15f, 0.1505f, 0.151f, 1.0f};
         colors[ImGuiCol_TitleBgActive] = ImVec4{0.15f, 0.1505f, 0.151f, 1.0f};
         colors[ImGuiCol_TitleBgCollapsed] = ImVec4{0.15f, 0.1505f, 0.151f, 1.0f};
+    }
+
+    void ImguiLayer_glfw_opengl_impl::set_white_theme_colors()
+    {
+         
     }
 }

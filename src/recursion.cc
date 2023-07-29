@@ -58,7 +58,7 @@ namespace Recursion::core
     {
         REC_CORE_INFO("Engine Started!");
 
-        this->application();
+        
 
         FPS_INIT();
         DELTA_TIME_INIT();
@@ -70,6 +70,7 @@ namespace Recursion::core
 
             DELTA_TIME_UPDATE();
             REC_CORE_DEBUG("delta time {}", delta_time);
+            this->application();
 
             imgui_layer->end_loop();
             window->on_update();

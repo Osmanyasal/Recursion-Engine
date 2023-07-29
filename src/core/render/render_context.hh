@@ -4,6 +4,21 @@
 #include <window.hh>
 namespace Recursion::core::render
 {
+    /**
+     * @brief This class is about the window that we see that all the rendering is taking place
+     * as window technology one can use glfw (for opengl and vulkan since it supports them) or any other like metal or d3d supports
+     * we would like to have the followings
+     * 
+     *  class OpenGLRenderContext : public RenderContext<GLFWwindow>
+     *  class VulkanRenderContext : public RenderContext<GLFWwindow>
+     * 
+     * and is given to a window technology as follows
+     * 
+     * 
+     * window = new Recursion::core::window::LinuxWindow{new Recursion::core::render::OpenGLRenderContext{default_props}};
+     * 
+     * linux window can be constructed for opengl or vulkan etc.
+    */
     template <typename T>
     class RenderContext
     {
