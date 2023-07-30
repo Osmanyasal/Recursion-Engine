@@ -21,9 +21,7 @@ Proj1::Proj1(){
         glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,sizeof(float) * 3,nullptr);
 
 
-        Recursion::core::render::Shader sh("/home/rt7/Desktop/Recursion-Engine/sandbox/proj1/proj1.cc",
-                                           "/home/rt7/Desktop/Recursion-Engine/sandbox/proj1/proj1.hh");
-
+        Recursion::core::render::Shader sh{};
         sh.bind();
 
 } 

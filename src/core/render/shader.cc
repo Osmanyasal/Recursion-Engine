@@ -4,6 +4,10 @@
 namespace Recursion::core::render
 {
 
+    Shader::Shader() : Shader("../src/core/render/base_vertex.glsl", "../src/core/render/base_fragment.glsl")
+    {
+    }
+
     Shader::Shader(std::string vs_location, std::string fs_location)
     {
         // Create an empty vertex shader handle

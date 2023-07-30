@@ -11,6 +11,7 @@ namespace Recursion::core::render
     {
 
     public:
+        Shader();
         Shader(std::string vs_location, std::string fs_location);
         ~Shader();
 
