@@ -3,16 +3,16 @@
 
 #include <window.hh>
 #include <render_context.hh>
-namespace Recursion::core::render
+namespace Recursion::opengl::render
 {
-    class OpenGLRenderContext : public RenderContext<GLFWwindow>
+    class OpenGLRenderContext : public core::render::RenderContext<GLFWwindow>
     {
     public:
-        OpenGLRenderContext(const window::WindowProps &default_props = window::WindowProps());
+        OpenGLRenderContext(const core::window::WindowProps &default_props = core::window::WindowProps());
         inline virtual ~OpenGLRenderContext() {}
         virtual void swap_buffer() override;
     };
 
-} // namespace Recursion::core::render
+} // namespace Recursion::opengl::render
 
 #endif

@@ -1,26 +1,22 @@
-#ifndef RECURSION_ENGINE__SRC__CORE__RENDER__SHADER_CONTEXT_HH
-#define RECURSION_ENGINE__SRC__CORE__RENDER__SHADER_CONTEXT_HH
+#ifndef RECURSION_ENGINE__SRC__CORE__RENDER__SHADER_HH
+#define RECURSION_ENGINE__SRC__CORE__RENDER__SHADER_HH
 
 #include <utils.hh>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <bindable.hh>
 
 namespace Recursion::core::render
 {
-    class Shader
+    class Shader : public Bindable
     {
-
     public:
-        Shader();
-        Shader(std::string vs_location, std::string fs_location);
-        ~Shader();
+        Shader() {}
+        virtual ~Shader() {}
 
-        void bind();
-        void unbind();
-
-    private:
+    protected:
         unsigned int program_id;
-        void read_and_bind_shader(unsigned int &shader, std::string location);
+        virtual void read_and_bind_shader(unsigned int &shader, std::string location) = 0;
     };
 
 } // namespace Recursion::core::render

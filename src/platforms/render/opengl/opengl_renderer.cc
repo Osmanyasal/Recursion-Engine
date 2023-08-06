@@ -1,8 +1,8 @@
 #include <opengl_renderer.hh>
 
-namespace Recursion::core::render
+namespace Recursion::opengl::render
 {
-    OpenGLRenderContext::OpenGLRenderContext(const window::WindowProps &default_props)
+    OpenGLRenderContext::OpenGLRenderContext(const core::window::WindowProps &default_props) : RenderContext{core::render::RenderAPI::OPENGL}
     {
         this->set_window_props(default_props);
 
@@ -39,6 +39,9 @@ namespace Recursion::core::render
             REC_CORE_ERROR("Failed to initialize GLEW");
             return;
         }
+
+        glEnable(GL_DEPTH_TEST);
+        glDepthFunc(GL_LESS); 
 
         REC_CORE_INFO("Linux Window Started (id={})", get_window_props().guid.substr(0, CONF__LOG__PRINT_GUID_LENGTH));
         REC_CORE_INFO("Name={}, Resoulution width={} height={}", get_window_props().win_title, get_window_props().win_width, get_window_props().win_height);

@@ -57,25 +57,23 @@ namespace Recursion::core
     void Engine::start()
     {
         REC_CORE_INFO("Engine Started!");
-
-        
-
         FPS_INIT();
         DELTA_TIME_INIT();
         while (OPT_LIKELY(is_running))
         {
+            // Enable depth test 
             glClearColor(.6f, 0.2f, 1.0f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             imgui_layer->begin_loop();
 
             DELTA_TIME_UPDATE();
             REC_CORE_DEBUG("delta time {}", delta_time);
-            this->application();
 
+            this->application();
             imgui_layer->end_loop();
             window->on_update();
 
-            FPS_UPDATE();
+            FPS_UPDATE(); 
         }
     }
 

@@ -153,14 +153,11 @@ clean_all: clean
 CALL_STACK_METHOD := lbr
 monitor_callstack: $(BIN)/$(EXECUTABLE)
 	cd $(BIN);\
-	sudo perf record --call-graph $(CALL_STACK_METHOD) ./$(EXECUTABLE);\
+	sudo perf record --call-graph $(CALL_STACK_METHOD) ./$(EXECUTABLE);\ ## sampling
 	sudo chmod a+rwx perf*;\
 	sudo perf report;
 
 tma_analysis:
 	cd ./"$(BIN)";\
-	sudo perf stat --topdown -a --td-level 0 -- taskset -c 0  ./$(EXECUTABLE);
+	sudo perf stat --topdown -a --td-level 0 -- taskset -c 0  ./$(EXECUTABLE); ## counting
 
-
-
-	
