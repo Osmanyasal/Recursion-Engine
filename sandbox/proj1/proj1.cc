@@ -42,28 +42,28 @@ Proj1::Proj1()
                      render::Type::Float,
                      render::Normalized::FALSE})
         .bind_index_buffer({index, sizeof(unsigned int) * 3 * 2})
-        .build();
+        .build(); 
 
-    // data2 = new float[3 * 6]{
+    data2 = new float[3 * 6]{
 
-    //     -1.0f, 1.0f, 0.0f, .2f, 1.0f, 1.0f, // bottom
-    //     -1.0f, 0.0f, 0.0f, .2f, 1.0f, 1.0f, // left
-    //     -0.5f, 0.5f, 0.0f, .2f, 1.0f, 1.0f  // right
-    // };
+        -1.0f, 1.0f, 0.0f, .2f, 1.0f, 1.0f, // bottom
+        -1.0f, 0.0f, 0.0f, .2f, 1.0f, 1.0f, // left
+        -0.5f, 0.5f, 0.0f, .2f, 1.0f, 1.0f  // right
+    };
     
-    // VAO2.bind();
-    // VAO2.bind_vertex_buffer({data2, sizeof(float) * 3 * 6})
-    //     .add_layout({"position",
-    //                  0,
-    //                  render::Quantity::Float3,
-    //                  render::Type::Float,
-    //                  render::Normalized::FALSE})
-    //     .add_layout({"color",
-    //                  1,
-    //                  render::Quantity::Float3,
-    //                  render::Type::Float,
-    //                  render::Normalized::FALSE})
-    //     .build();
+    VAO2.bind();
+    VAO2.bind_vertex_buffer({data2, sizeof(float) * 3 * 6})
+        .add_layout({"position",
+                     0,
+                     render::Quantity::Float3,
+                     render::Type::Float,
+                     render::Normalized::FALSE})
+        .add_layout({"color",
+                     1,
+                     render::Quantity::Float3,
+                     render::Type::Float,
+                     render::Normalized::FALSE})
+        .build();
 }
 Proj1::~Proj1()
 {
@@ -75,6 +75,6 @@ void Proj1::application()
     VAO.bind();
     VAO.draw();
 
-    // VAO2.bind(); 
-    // VAO2.draw();
+    VAO2.bind(); 
+    VAO2.draw();
 }
