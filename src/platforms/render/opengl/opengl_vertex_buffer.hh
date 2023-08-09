@@ -3,6 +3,7 @@
 
 #include <buffer.hh>
 #include <GL/glew.h>
+#include <logger.hh>
 
 namespace Recursion::opengl::render
 {

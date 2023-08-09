@@ -1,5 +1,4 @@
-#include <opengl_vertex_buffer.hh>
-
+#include <opengl_vertex_buffer.hh> 
 namespace Recursion::opengl::render
 {
     VertexBuffer::VertexBuffer()
@@ -9,9 +8,12 @@ namespace Recursion::opengl::render
     
     VertexBuffer::VertexBuffer(float *data, unsigned int size_in_bytes, unsigned int draw_method) 
     {
+
         glGenBuffers(1, &VBO);
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
         glBufferData(GL_ARRAY_BUFFER, size_in_bytes, data, draw_method);
+        
+        REC_TRACE("vertex buffer created writh {} in bytes, {} draw method",size_in_bytes,draw_method);
     }
 
     VertexBuffer::~VertexBuffer()

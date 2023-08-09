@@ -1,5 +1,6 @@
 #include <opengl_vertex_array.hh>
 
+#include <logger.hh>
 #include <iostream>
 namespace Recursion::opengl::render
 {
@@ -43,6 +44,7 @@ namespace Recursion::opengl::render
     {
         stride += ((int)layout.buffer_info.quantity * OpenGLBufferLayout::get_type_size(layout.buffer_info.type));
         buffer_layouts.push_back(layout);
+        REC_TRACE("Layout added stride:{}", stride);
         return *this;
     }
 
@@ -53,16 +55,25 @@ namespace Recursion::opengl::render
         unsigned int offset = 0;
         for (auto &layout : buffer_layouts)
         {
-            glEnableVertexAttribArray(layout.buffer_info.attrib_array);
             glVertexAttribPointer(layout.buffer_info.attrib_array,
                                   (int)layout.buffer_info.quantity,
                                   (int)layout.buffer_info.type,
-                                  (bool)layout.buffer_info.normalized,
+                                  (int)layout.buffer_info.normalized,
                                   stride,
-                                  (void *)offset);
+                                  reinterpret_cast<const void*>(offset));
+
+            glEnableVertexAttribArray(layout.buffer_info.attrib_array);
+            REC_TRACE("glVertexAttribPointer({},{},{},{},{},{})", layout.buffer_info.attrib_array,
+                      (int)layout.buffer_info.quantity,
+                      (int)layout.buffer_info.type,
+                      (int)layout.buffer_info.normalized,
+                      stride,
+                      reinterpret_cast<const void*>(offset));
 
             offset += (((int)layout.buffer_info.quantity) * OpenGLBufferLayout::get_type_size(layout.buffer_info.type));
         }
+
+        bind();
     }
 
 } // namespace Recursion::core::render

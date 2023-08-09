@@ -24,7 +24,7 @@ private:
     render::OpenGLShader sh;
 
     render::VertexArray VAO;
-    float *data;
+    float *data; 
  
     render::VertexArray VAO2;
     float *data2;

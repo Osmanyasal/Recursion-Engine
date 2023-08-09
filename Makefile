@@ -1,12 +1,12 @@
 SHELL := /bin/bash
 CXX := g++ 
 CXX_VERSION = -std=c++11
-CXX_DEBUG := -ggdb
+CXX_DEBUG := -g
 CXX_WARNINGS := -Wall
-CXX_OPT_FLAGS := -O3 -flto
+CXX_OPT_FLAGS := -O0 -flto
 CXX_LIBS := -fopenmp
 CXX_PGO_GENERATE := -fprofile-generate 
-CXX_FLAGS := $(CXX_VERSION) $(CXX_DEBUG) $(CXX_PGO_GENERATE) $(CXX_WARNINGS) $(CXX_OPT_FLAGS) $(CXX_LIBS) 
+CXX_FLAGS :=  $(CXX_OPT_FLAGS) $(CXX_VERSION) $(CXX_DEBUG) $(CXX_PGO_GENERATE) $(CXX_WARNINGS) $(CXX_LIBS) 
 
 BIN := ./bin
 SRC := ./src

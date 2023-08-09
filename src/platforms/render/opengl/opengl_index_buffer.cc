@@ -1,4 +1,5 @@
 #include <opengl_index_buffer.hh>
+#include<logger.hh>
 
 namespace Recursion::opengl::render
 {
@@ -10,6 +11,8 @@ namespace Recursion::opengl::render
         glGenBuffers(1, &IBO);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, size_in_bytes, data, draw_method);
+
+        REC_TRACE("IndexBuffer Created {} in bytes {} draw methods",size_in_bytes,draw_method);
     }
 
     IndexBuffer::~IndexBuffer()

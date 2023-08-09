@@ -29,8 +29,8 @@ namespace Recursion::opengl::render
             case Type::Bool:
                 return sizeof(bool);
                 break;
-
             default:
+                return 0;
                 break;
             }
         }
