@@ -51,7 +51,6 @@ namespace Recursion::opengl::render
     void VertexArray::build()
     {
         // calculate offset and stride
-
         unsigned int offset = 0;
         for (auto &layout : buffer_layouts)
         {
@@ -60,7 +59,7 @@ namespace Recursion::opengl::render
                                   (int)layout.buffer_info.type,
                                   (int)layout.buffer_info.normalized,
                                   stride,
-                                  reinterpret_cast<const void*>(offset));
+                                  reinterpret_cast<const void *>(offset));
 
             glEnableVertexAttribArray(layout.buffer_info.attrib_array);
             REC_TRACE("glVertexAttribPointer({},{},{},{},{},{})", layout.buffer_info.attrib_array,
@@ -68,12 +67,28 @@ namespace Recursion::opengl::render
                       (int)layout.buffer_info.type,
                       (int)layout.buffer_info.normalized,
                       stride,
-                      reinterpret_cast<const void*>(offset));
+                      reinterpret_cast<const void *>(offset));
 
             offset += (((int)layout.buffer_info.quantity) * OpenGLBufferLayout::get_type_size(layout.buffer_info.type));
         }
 
-        bind();
+        // add index buffer if it doesn't exists
+        // by default add all vertices 0 to N.
+        if (this->IBO.IBO == 0)
+        {
+            REC_TRACE("THERE'S NO INDEX BUFFER ASSIGNED !!!!\n");
+            unsigned int index_size = VBO.vertex_count;
+            unsigned int arr[index_size];
+            for (unsigned int i = 0; i < index_size; i++)
+                arr[i] = i;
+
+            bind_index_buffer({arr, (unsigned int)(sizeof(unsigned int) * index_size)});
+        }
+    }
+
+    void VertexArray::draw()
+    {
+        glDrawElements(GL_TRIANGLES, this->VBO.vertex_count, GL_UNSIGNED_INT, 0);
     }
 
 } // namespace Recursion::core::render

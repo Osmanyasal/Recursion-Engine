@@ -24,6 +24,8 @@ namespace Recursion::opengl::render
         virtual VertexArray& add_layout(const OpenGLBufferLayout& layout);
         virtual void build();
 
+        virtual void draw();
+
     protected:
         unsigned int VAO;
         VertexBuffer VBO;

@@ -18,8 +18,9 @@ namespace Recursion::opengl::render
         virtual void unbind() override;
         virtual void destroy() override;
 
-    // protected:
+
         unsigned int VBO;
+        unsigned int vertex_count;
     };
 
 } // namespace Recursion::core::render

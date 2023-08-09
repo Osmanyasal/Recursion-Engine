@@ -17,7 +17,6 @@ namespace Recursion::opengl::render
         virtual void unbind() override; 
         virtual void destroy() override;
 
-    // protected:
         unsigned int IBO;
     };
 
