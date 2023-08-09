@@ -4,11 +4,15 @@
 #include <recursion.hh>
 #include <opengl_shader.hh>
 #include <opengl_vertex_buffer.hh>
+#include <opengl_index_buffer.hh>
+#include <opengl_vertex_array.hh>
+#include <opengl_buffer_layout.hh>
 #include <utils.hh>
 #include <Input.hh>
 #include <recursion.hh>
 
 namespace render = Recursion::opengl::render;
+
 class Proj1 : public Recursion::core::Engine
 {
 public:
@@ -18,14 +22,11 @@ public:
 
 private:
     render::OpenGLShader sh;
-    unsigned int vertex_array;
-    render::VertexBuffer *VB;
-    unsigned int index_buffer;
-    float *data;
 
-    unsigned int vertex_array2;
-    unsigned int vertex_buffer2;
-    unsigned int index_buffer2;
+    render::VertexArray VAO;
+    float *data;
+ 
+    render::VertexArray VAO2;
     float *data2;
 };
 

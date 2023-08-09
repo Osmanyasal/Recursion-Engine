@@ -2,17 +2,27 @@
 
 namespace Recursion::opengl::render
 {
-    VertexBuffer::VertexBuffer(float *data, unsigned int size_in_bytes) 
+    VertexBuffer::VertexBuffer()
+    {
+        VBO = 0;
+    }
+    
+    VertexBuffer::VertexBuffer(float *data, unsigned int size_in_bytes, unsigned int draw_method) 
     {
         glGenBuffers(1, &VBO);
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBufferData(GL_ARRAY_BUFFER, size_in_bytes, data, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, size_in_bytes, data, draw_method);
     }
 
     VertexBuffer::~VertexBuffer()
+    { 
+    }
+
+    void VertexBuffer::destroy()
     {
         glDeleteBuffers(1, &VBO);
     }
+
 
     void VertexBuffer::bind()
     {

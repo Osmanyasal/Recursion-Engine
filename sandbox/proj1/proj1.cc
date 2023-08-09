@@ -13,51 +13,49 @@ Proj1::Proj1()
                 in collision it draws the last one on top of it
                 here, sinde 0.2 is drawn later, it gets on top of it.
         */
-        data = new float[3 * 3]{
-            -1.0f,
-            0.0f,
-            -0.2f,
-
-            -1.0f,
-            1.0f,
-            -0.2f,
-
-            1.0f,
-            0.0f,
-            -0.2f,
-        };
-        glGenVertexArrays(1, &vertex_array);
-        glBindVertexArray(vertex_array);
-
-        VB = new render::VertexBuffer{data, sizeof(float) * 9}; 
-
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, nullptr);
-
-        data2 = new float[3 * 3]{
-            -1.0f,
-            -1.0f,
-            -0.8f,
-
-            1.0f,
-            -1.0f,
-            -0.8f,
-
-            0.0f,
-            1.0f,
-            -0.8f,
-        };
-
-        glGenVertexArrays(1, &vertex_array2);
-        glBindVertexArray(vertex_array2);
-
-        glGenBuffers(1, &vertex_buffer2);
-        glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer2);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 9, data2, GL_STATIC_DRAW);
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, nullptr);
-
         sh.bind(); // bind shader !
+
+        data = new float[3 * 6]{
+            // positions         // colors
+            0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,  // bottom right
+            -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, // bottom left
+            0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f    // top
+        };
+        unsigned int *index = new unsigned int[3 * 2]{0, 2, 1, 0, 3, 2};
+
+        VAO.bind_vertex_buffer({data, sizeof(float) * 3 * 6})
+            .add_layout({"color",
+                         0,
+                         render::Quantity::Float3,
+                         render::Type::Float,
+                         render::Normalized::FALSE})
+            .add_layout({"color",
+                         1,
+                         render::Quantity::Float3,
+                         render::Type::Float,
+                         render::Normalized::FALSE})
+            .bind_index_buffer({index, sizeof(unsigned int) * 3 * 2})
+            .build();
+
+        data2 = new float[3 * 6]{
+            // positions         // colors
+            -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, // bottom right
+            -1.0f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, // bottom left
+            0.0f, 0.5f, 0.0f, 1.0f, 0.0f, 1.0f   // top
+        };
+
+        VAO2.bind_vertex_buffer({data2, sizeof(float) * 3 * 6})
+            .add_layout({"color",
+                         0,
+                         render::Quantity::Float3,
+                         render::Type::Float,
+                         render::Normalized::FALSE})
+            .add_layout({"color",
+                         1,
+                         render::Quantity::Float3,
+                         render::Type::Float,
+                         render::Normalized::FALSE})
+            .build(); 
 }
 Proj1::~Proj1()
 {
@@ -65,10 +63,14 @@ Proj1::~Proj1()
         delete[] data2;
 }
 void Proj1::application()
-{ 
-        glBindVertexArray(vertex_array);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+{
+        VAO.bind();
+        glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, nullptr);
 
-        glBindVertexArray(vertex_array2);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        // VAO2.bind();
+        // glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, nullptr);
+
+        // glBindVertexArray(vertex_array2);
+        // glDrawArrays(GL_TRIANGLES, 0, 3);
 }

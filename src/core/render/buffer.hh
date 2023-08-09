@@ -2,6 +2,7 @@
 #define RECURSION_ENGINE__SRC__CORE__RENDER__BUFFER_HH
 
 #include <bindable.hh>
+#include <iostream>
 
 namespace Recursion::core::render
 {
@@ -12,6 +13,8 @@ namespace Recursion::core::render
         virtual ~Buffer() {}
     };
 
+
+    // MUST BE EXTENDED TO OTHER PLATFORMS
     class BufferLayout
     {
     public:

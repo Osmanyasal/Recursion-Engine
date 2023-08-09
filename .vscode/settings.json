@@ -92,7 +92,8 @@
         "rec_imgui_key_mapping": "cpp",
         "*.ipp": "cpp",
         "__config": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "__functional_03": "cpp"
     },
     "cmake.sourceDirectory": "/home/rt7/Desktop/Recursion-Engine/lib/spdlog"
 }

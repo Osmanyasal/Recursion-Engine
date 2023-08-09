@@ -8,7 +8,7 @@ namespace Recursion::opengl::render
   }
 
   OpenGLShader::OpenGLShader(std::string vs_location, std::string fs_location)
-  { 
+  {
     // Create an empty vertex shader handle
     unsigned int vs = glCreateShader(GL_VERTEX_SHADER);
     unsigned int fs = glCreateShader(GL_FRAGMENT_SHADER);
@@ -52,7 +52,7 @@ namespace Recursion::opengl::render
 
   OpenGLShader::~OpenGLShader()
   {
-    glDeleteProgram(program_id);
+    destroy();
   }
 
   void OpenGLShader::bind()
@@ -63,6 +63,11 @@ namespace Recursion::opengl::render
   void OpenGLShader::unbind()
   {
     glUseProgram(0);
+  }
+
+  void OpenGLShader::destroy()
+  {
+    glDeleteProgram(program_id);
   }
   void OpenGLShader::read_and_bind_shader(unsigned int &shader, std::string location)
   {

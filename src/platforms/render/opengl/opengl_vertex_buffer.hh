@@ -9,13 +9,15 @@ namespace Recursion::opengl::render
     class VertexBuffer : public core::render::Buffer
     {
     public:
-        VertexBuffer(float *data, unsigned int size_in_bytes);
+        VertexBuffer(); 
+        VertexBuffer(float *data, unsigned int size_in_bytes, unsigned int draw_method = GL_STATIC_DRAW);
         virtual ~VertexBuffer();
 
         virtual void bind() override;
         virtual void unbind() override;
+        virtual void destroy() override;
 
-    protected:
+    // protected:
         unsigned int VBO;
     };
 
