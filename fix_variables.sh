@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ "$1" == "help" || "$1" == "--help" || "$1" == "-help" ]]; 
+then
+    echo "This script changes integers with cstdint integers in all *.cc files inside ./src/** "
+    exit 0
+fi
+
 # Use find to generate a list of .cc files
 cc_files_list=$(find ./src/ -type f -name "*.cc")
 
