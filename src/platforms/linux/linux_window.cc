@@ -1,11 +1,12 @@
 #include <linux_window.hh>
+#include <cstdint>
 namespace Recursion::core::window
 {
 
     LinuxWindow::LinuxWindow(render::RenderContext<GLFWwindow> *render_context) : Window{&render_context->get_window_props()}, context{render_context}
     {
-        set_event_callback();
         init_Input();
+        set_event_callback();
     }
 
     void LinuxWindow::set_event_callback() const

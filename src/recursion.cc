@@ -39,12 +39,13 @@ namespace Recursion::core
     bool Engine::on_event(Recursion::core::events::Event &e)
     {
         namespace events = Recursion::core::events;
-        for (auto iter = layer_stack->rbegin(); iter != layer_stack->rend(); iter++)
-        {
+        for (auto layer = layer_stack->rbegin(); layer != layer_stack->rend(); layer++)
+        { 
+            if (OPT_LIKELY((*layer)->is_active()))
+                (*layer)->on_event(e);
+
             if (e.is_handled)
                 break;
-            if (OPT_LIKELY((*iter)->is_active()))
-                (*iter)->on_event(e);
         }
 
         // all these events, it's unlikely we close the app. this's the general approach.
