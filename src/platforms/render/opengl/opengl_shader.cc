@@ -10,8 +10,8 @@ namespace Recursion::opengl::render
   OpenGLShader::OpenGLShader(std::string vs_location, std::string fs_location)
   {
     // Create an empty vertex shader handle
-    unsigned int vs = glCreateShader(GL_VERTEX_SHADER);
-    unsigned int fs = glCreateShader(GL_FRAGMENT_SHADER);
+    uint32_t vs = glCreateShader(GL_VERTEX_SHADER);
+    uint32_t fs = glCreateShader(GL_FRAGMENT_SHADER);
 
     read_and_bind_shader(vs, vs_location);
     read_and_bind_shader(fs, fs_location);
@@ -25,7 +25,7 @@ namespace Recursion::opengl::render
 
     // Note the different functions here: glGetProgram* instead of glGetShader*.
     GLint isLinked = 0;
-    glGetProgramiv(program_id, GL_LINK_STATUS, (int *)&isLinked);
+    glGetProgramiv(program_id, GL_LINK_STATUS, (int32_t *)&isLinked);
     if (OPT_UNLIKELY(isLinked == GL_FALSE))
     {
       GLint maxLength = 0;
@@ -69,7 +69,7 @@ namespace Recursion::opengl::render
   {
     glDeleteProgram(program_id);
   }
-  void OpenGLShader::read_and_bind_shader(unsigned int &shader, std::string location)
+  void OpenGLShader::read_and_bind_shader(uint32_t &shader, std::string location)
   {
 
     std::string code = read_file(location);

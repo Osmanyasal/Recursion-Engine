@@ -13,38 +13,38 @@ namespace Recursion::core::window
     {
         namespace events = Recursion::core::events;
 
-        glfwSetCharCallback(context->get_window(), [](GLFWwindow *window, unsigned int codepoint)
+        glfwSetCharCallback(context->get_window(), [](GLFWwindow *window, uint32_t codepoint)
                             {
                 WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
-                events::CharTypedEvent char_event{(short int)codepoint};
+                events::CharTypedEvent char_event{(int16_t)codepoint};
                 events::EventBinder event_binder{char_event};
                 event_binder.bind<events::CharTypedEvent>(retrievedData.engine_callback_func); });
 
-        glfwSetKeyCallback(context->get_window(), [](GLFWwindow *window, int key, int scancode, int action, int mods)
+        glfwSetKeyCallback(context->get_window(), [](GLFWwindow *window, int32_t key, int32_t scancode, int32_t action, int32_t mods)
                            {
                 if(action == GLFW_PRESS || action == GLFW_REPEAT){
                     WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
-                    events::KeyPressEvent keypress{(short)key, (bool)mods};
+                    events::KeyPressEvent keypress{(int16_t)key, (bool)mods};
                     events::EventBinder event_binder{keypress};
                     event_binder.bind<events::KeyPressEvent>(retrievedData.engine_callback_func); 
                 }
                 else if(action == GLFW_RELEASE){
                     WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
-                    events::KeyReleasedEvent release{(short)key};
+                    events::KeyReleasedEvent release{(int16_t)key};
                     events::EventBinder event_binder{release};
                     event_binder.bind<events::KeyReleasedEvent>(retrievedData.engine_callback_func); 
                 } });
 
-        glfwSetMouseButtonCallback(context->get_window(), [](GLFWwindow *window, int button, int action, int mods)
+        glfwSetMouseButtonCallback(context->get_window(), [](GLFWwindow *window, int32_t button, int32_t action, int32_t mods)
                                    {
             if(action == GLFW_PRESS || action == GLFW_REPEAT){
                 WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
-                events::MouseButtonPressed mouse_press{(short)button};
+                events::MouseButtonPressed mouse_press{(int16_t)button};
                 events::EventBinder event_binder{mouse_press};
                 event_binder.bind<events::MouseButtonPressed>(retrievedData.engine_callback_func); 
             }else if(action == GLFW_RELEASE){
                 WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
-                events::MouseButtonReleased mouse_released{(short)button};
+                events::MouseButtonReleased mouse_released{(int16_t)button};
                 events::EventBinder event_binder{mouse_released};
                 event_binder.bind<events::MouseButtonReleased>(retrievedData.engine_callback_func); 
             } });
@@ -70,7 +70,7 @@ namespace Recursion::core::window
             events::EventBinder event_binder{winclose};
             event_binder.bind<events::WindowCloseEvent>(retrievedData.engine_callback_func); });
 
-        glfwSetWindowFocusCallback(context->get_window(), [](GLFWwindow *window, int focused)
+        glfwSetWindowFocusCallback(context->get_window(), [](GLFWwindow *window, int32_t focused)
                                    {
                                        WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
                                        if (focused)
@@ -87,7 +87,7 @@ namespace Recursion::core::window
                                            event_binder.bind<events::WindowLostFocusEvent>(retrievedData.engine_callback_func);
                                        } });
 
-        glfwSetWindowSizeCallback(context->get_window(), [](GLFWwindow *window, int width, int height)
+        glfwSetWindowSizeCallback(context->get_window(), [](GLFWwindow *window, int32_t width, int32_t height)
                                   {
             WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
             retrievedData.win_height = width;
@@ -96,7 +96,7 @@ namespace Recursion::core::window
             events::EventBinder event_binder{resize};
             event_binder.bind<events::WindowResizedEvent>(retrievedData.engine_callback_func); });
 
-        glfwSetWindowPosCallback(context->get_window(), [](GLFWwindow *window, int posx, int posy)
+        glfwSetWindowPosCallback(context->get_window(), [](GLFWwindow *window, int32_t posx, int32_t posy)
                                  {
             WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
             retrievedData.win_posx = posx;

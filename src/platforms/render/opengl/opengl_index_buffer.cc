@@ -6,7 +6,7 @@ namespace Recursion::opengl::render
     IndexBuffer::IndexBuffer(){
         IBO = 0;
     }
-    IndexBuffer::IndexBuffer(const unsigned int *data, unsigned int size_in_bytes, unsigned int draw_method)
+    IndexBuffer::IndexBuffer(const uint32_t *data, uint32_t size_in_bytes, uint32_t draw_method)
     {
         glGenBuffers(1, &IBO);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);

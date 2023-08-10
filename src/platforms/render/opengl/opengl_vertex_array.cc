@@ -42,7 +42,7 @@ namespace Recursion::opengl::render
 
     VertexArray &VertexArray::add_layout(const OpenGLBufferLayout &layout)
     {
-        stride += ((int)layout.buffer_info.quantity * OpenGLBufferLayout::get_type_size(layout.buffer_info.type));
+        stride += ((int32_t)layout.buffer_info.quantity * OpenGLBufferLayout::get_type_size(layout.buffer_info.type));
         buffer_layouts.push_back(layout);
         REC_TRACE("Layout added stride:{}", stride);
         return *this;
@@ -51,25 +51,25 @@ namespace Recursion::opengl::render
     void VertexArray::build()
     {
         // calculate offset and stride
-        unsigned int offset = 0;
+        uint32_t offset = 0;
         for (auto &layout : buffer_layouts)
         {
             glVertexAttribPointer(layout.buffer_info.attrib_array,
-                                  (int)layout.buffer_info.quantity,
-                                  (int)layout.buffer_info.type,
-                                  (int)layout.buffer_info.normalized,
+                                  (int32_t)layout.buffer_info.quantity,
+                                  (int32_t)layout.buffer_info.type,
+                                  (int32_t)layout.buffer_info.normalized,
                                   stride,
                                   reinterpret_cast<const void *>(offset));
 
             glEnableVertexAttribArray(layout.buffer_info.attrib_array);
             REC_TRACE("glVertexAttribPointer({},{},{},{},{},{})", layout.buffer_info.attrib_array,
-                      (int)layout.buffer_info.quantity,
-                      (int)layout.buffer_info.type,
-                      (int)layout.buffer_info.normalized,
+                      (int32_t)layout.buffer_info.quantity,
+                      (int32_t)layout.buffer_info.type,
+                      (int32_t)layout.buffer_info.normalized,
                       stride,
                       reinterpret_cast<const void *>(offset));
 
-            offset += (((int)layout.buffer_info.quantity) * OpenGLBufferLayout::get_type_size(layout.buffer_info.type));
+            offset += (((int32_t)layout.buffer_info.quantity) * OpenGLBufferLayout::get_type_size(layout.buffer_info.type));
         }
 
         // add index buffer if it doesn't exists
@@ -77,12 +77,12 @@ namespace Recursion::opengl::render
         if (this->IBO.IBO == 0)
         {
             REC_TRACE("THERE'S NO INDEX BUFFER ASSIGNED !!!!\n");
-            unsigned int index_size = VBO.vertex_count;
-            unsigned int arr[index_size];
-            for (unsigned int i = 0; i < index_size; i++)
+            uint32_t index_size = VBO.vertex_count;
+            uint32_t arr[index_size];
+            for (uint32_t i = 0; i < index_size; i++)
                 arr[i] = i;
 
-            bind_index_buffer({arr, (unsigned int)(sizeof(unsigned int) * index_size)});
+            bind_index_buffer({arr, (uint32_t)(sizeof(uint32_t) * index_size)});
         }
     }
 
