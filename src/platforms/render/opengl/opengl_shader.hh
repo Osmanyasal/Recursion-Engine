@@ -17,6 +17,8 @@ namespace Recursion::opengl::render
         virtual void unbind() override;
         virtual void destroy() override;
         virtual void read_and_bind_shader(unsigned int &shader, std::string location) override;
+
+        int projection_loc;
     };
 
 } // namespace Recursion::core::render

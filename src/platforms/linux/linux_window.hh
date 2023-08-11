@@ -14,7 +14,7 @@ namespace Recursion::core::window
     public:
         LinuxWindow(render::RenderContext<GLFWwindow> *render_context);
 
-        inline virtual ~LinuxWindow()
+        virtual ~LinuxWindow()
         {
             REC_CORE_ERROR("Linux window terminated!!");
             glfwTerminate();

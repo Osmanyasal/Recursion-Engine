@@ -13,7 +13,7 @@ namespace Recursion::core::events
         WindowEvent() {}
         virtual ~WindowEvent() {}
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "WindowEvent(" << Event::to_string() << ")";
@@ -35,7 +35,7 @@ namespace Recursion::core::events
         inline int get_width() { return m_width; }
         inline int get_height() { return m_height; }
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "WindowResizedEvent(" << WindowEvent::to_string() << ", "
@@ -56,7 +56,7 @@ namespace Recursion::core::events
         WindowCloseEvent() {}
         virtual ~WindowCloseEvent() {}
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "WindowCloseEvent(" << WindowEvent::to_string() << ")";
@@ -71,7 +71,7 @@ namespace Recursion::core::events
         WindowFocusEvent() {}
         virtual ~WindowFocusEvent() {}
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "WindowFocusEvent(" << WindowEvent::to_string() << ")";
@@ -86,7 +86,7 @@ namespace Recursion::core::events
         WindowLostFocusEvent() {}
         virtual ~WindowLostFocusEvent() {}
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "WindowLostFocusEvent(" << WindowEvent::to_string() << ")";
@@ -101,7 +101,7 @@ namespace Recursion::core::events
         WindowMovedEvent(int x, int y) : posx{x}, posy{y} {}
         virtual ~WindowMovedEvent() {}
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "WindowMovedEvent(" << WindowEvent::to_string() << ","
@@ -121,7 +121,7 @@ namespace Recursion::core::events
         AppTickEvent() {}
         virtual ~AppTickEvent() {}
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "AppTickEvent(" << Event::to_string() << ")";
@@ -136,7 +136,7 @@ namespace Recursion::core::events
         AppUpdateEvent() {}
         virtual ~AppUpdateEvent() {}
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "AppUpdateEvent(" << Event::to_string() << ")";
@@ -151,7 +151,7 @@ namespace Recursion::core::events
         AppRenderEvent() {}
         virtual ~AppRenderEvent() {}
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "AppRenderEvent(" << Event::to_string() << ")";

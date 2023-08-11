@@ -19,7 +19,7 @@ namespace Recursion::core::events
         inline double get_posx() { return pos_x; }
         inline double get_posy() { return pos_y; }
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "MouseMovedEvent(" << Event::to_string() << ", "
@@ -46,7 +46,7 @@ namespace Recursion::core::events
         inline double get_offset_x() { return offset_x; }
         inline double get_offset_y() { return offset_y; }
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "MouseScrolledEvent(" << Event::to_string() << ", "
@@ -73,7 +73,7 @@ namespace Recursion::core::events
 
         inline short get_mouse_button() { return mouse_button; }
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "MouseButtonPressed(" << Event::to_string() << ", "
@@ -98,7 +98,7 @@ namespace Recursion::core::events
 
         inline short get_mouse_button() { return mouse_button; }
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "MouseButtonReleased(" << Event::to_string() << ", "

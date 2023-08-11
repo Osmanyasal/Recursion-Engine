@@ -46,6 +46,8 @@ namespace Recursion::opengl::render
       // In this simple program, we'll just leave
       return;
     }
+    projection_loc = glGetUniformLocation(program_id, "mvp");
+
     glDeleteShader(vs);
     glDeleteShader(fs);
   }

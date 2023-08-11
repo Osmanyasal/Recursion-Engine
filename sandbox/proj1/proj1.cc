@@ -1,5 +1,13 @@
 #include <proj1.hh>
 
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/string_cast.hpp>
+
 Proj1::Proj1()
 {
     /*
@@ -72,7 +80,9 @@ Proj1::~Proj1()
 }
 void Proj1::application(float delta_time)
 {
-    REC_TRACE("{}",to_string(RM_VEC3(0,10,0)));
+    cam.set_rotation(cam.get_rotation() + 10); 
+    glUniformMatrix4fv(sh.projection_loc, 1, GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
+
     VAO.bind();
     VAO.draw();
 

@@ -52,25 +52,25 @@ namespace Recursion::core::window
         {
         }
 
-        inline virtual std::string get_title() const final
+        virtual std::string get_title() const final
         {
             return win_props.win_title;
         };
 
-        inline virtual int get_width() const final
+        virtual int get_width() const final
         {
             return win_props.win_width;
         };
-        inline virtual int get_height() const final
+        virtual int get_height() const final
         {
             return win_props.win_height;
         };
 
-        inline virtual int get_posx() const final
+        virtual int get_posx() const final
         {
             return win_props.win_posy;
         };
-        inline virtual int get_posy() const final
+        virtual int get_posy() const final
         {
             return win_props.win_posy;
         };

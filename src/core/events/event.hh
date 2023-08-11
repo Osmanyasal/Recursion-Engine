@@ -55,11 +55,11 @@ namespace Recursion::core::events
         virtual std::string get_name() const = 0;
         virtual int get_category_flags() const = 0;
 
-        inline virtual bool in_category(EventCategory category) final
+        virtual bool in_category(EventCategory category) final
         {
             return get_category_flags() & (int)category;
         }
-        inline virtual std::string to_string()
+        virtual std::string to_string()
         {
             std::stringstream res;
             res << "Event("

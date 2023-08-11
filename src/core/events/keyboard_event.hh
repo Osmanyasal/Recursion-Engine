@@ -22,7 +22,7 @@ namespace Recursion::core::events
             return key_code;
         }
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "KeyEvent(" << Event::to_string() << "key_code=" << key_code << ")";
@@ -42,7 +42,7 @@ namespace Recursion::core::events
         }
         virtual ~KeyPressEvent() {}
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "KeyPressEvent(" << KeyEvent::to_string() << "is_repeat=" << is_repeat << ")";
@@ -62,7 +62,7 @@ namespace Recursion::core::events
         }
         virtual ~KeyReleasedEvent() {}
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "KeyReleasedEvent(" << KeyEvent::to_string() << ")";
@@ -78,7 +78,7 @@ namespace Recursion::core::events
         }
         virtual ~CharTypedEvent() {}
 
-        inline virtual std::string to_string() override
+        virtual std::string to_string() override
         {
             std::stringstream res;
             res << "CharTypedEvent(" << KeyEvent::to_string() << ")";

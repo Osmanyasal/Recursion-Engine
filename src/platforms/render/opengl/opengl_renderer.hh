@@ -9,7 +9,7 @@ namespace Recursion::opengl::render
     {
     public:
         OpenGLRenderContext(const core::window::WindowProps &default_props = core::window::WindowProps());
-        inline virtual ~OpenGLRenderContext() {}
+        virtual ~OpenGLRenderContext() {}
         virtual void swap_buffer() override;
     };
 

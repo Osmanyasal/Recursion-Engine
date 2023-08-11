@@ -29,13 +29,13 @@ namespace Recursion::core::render
 
         virtual void swap_buffer() = 0;
 
-        inline virtual T *get_window() final { return window; }
-        inline virtual void set_window(T *window) final { this->window = window; }
+        virtual T *get_window() final { return window; }
+        virtual void set_window(T *window) final { this->window = window; }
 
-        inline virtual void set_window_props(const window::WindowProps &render_window_props) final { this->render_window_props = render_window_props; } // copy asggin
-        inline virtual const window::WindowProps &get_window_props() const final { return this->render_window_props; }
+        virtual void set_window_props(const window::WindowProps &render_window_props) final { this->render_window_props = render_window_props; } // copy asggin
+        virtual const window::WindowProps &get_window_props() const final { return this->render_window_props; }
 
-        inline virtual const RenderAPI get_render_api() const final { return this->render_api; }
+        virtual const RenderAPI get_render_api() const final { return this->render_api; }
 
     private:
         const RenderAPI render_api;

@@ -10,6 +10,7 @@
 #include <utils.hh>
 #include <Input.hh>
 #include <recursion.hh>
+#include <camera.hh>
 
 namespace render = Recursion::opengl::render;
 
@@ -28,6 +29,9 @@ private:
  
     render::VertexArray VAO2;
     float *data2;
+
+    Recursion::core::render::OrthographicCamera cam;
+
 };
 
 #endif

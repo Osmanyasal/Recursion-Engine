@@ -87,7 +87,7 @@ namespace Recursion::opengl::render
     }
 
     void VertexArray::draw()
-    {
+    { 
         glDrawElements(GL_TRIANGLES, this->VBO.vertex_count, GL_UNSIGNED_INT, 0);
     }
 
