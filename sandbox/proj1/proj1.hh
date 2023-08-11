@@ -18,7 +18,7 @@ class Proj1 : public Recursion::core::Engine
 public:
     Proj1();
     ~Proj1();
-    virtual void application() override;
+    virtual void application(float delta_time) override;
 
 private:
     render::OpenGLShader sh;

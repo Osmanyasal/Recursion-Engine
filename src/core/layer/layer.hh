@@ -18,7 +18,7 @@ namespace Recursion::core::layer
 
 		virtual void on_attach() {}
 		virtual void on_detach() {}
-		virtual void on_update(double delta_time) {}
+		virtual void on_update(float delta_time) {}
 		virtual void on_event(events::Event &event) {}
 
 		virtual std::string to_string() const

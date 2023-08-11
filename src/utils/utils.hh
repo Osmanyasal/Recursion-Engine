@@ -44,22 +44,8 @@
     current_time = glfwGetTime();               \
     delta_time = current_time - previous_time;  \
     previous_time = current_time;               \
-
-#define FPS_INIT()                              \
-    double fps_previous_time = glfwGetTime();   \
-    double fps_current_time = 0;                \
-    short frame_count = 0;                      \
-
-#define FPS_UPDATE()                                                        \
-    fps_current_time = glfwGetTime();                                       \
-    frame_count++;                                                          \
-    if (OPT_UNLIKELY(fps_current_time - fps_previous_time >= 1.0))          \
-    {                                                                       \
-        REC_CORE_INFO("FPS: {}", frame_count);                              \
-        frame_count = 0;                                                    \
-        fps_previous_time = fps_current_time;                               \
-    }
-
+ 
+#define GET_FPS() 1.0f / delta_time
 
 
 // FUNCTION DECLERATIONS

@@ -19,6 +19,7 @@ CORE_DIR := $(SRC_DIR)/core
 EVENTS_DIR := $(CORE_DIR)/events
 LAYER_DIR := $(CORE_DIR)/layer
 WINDOW_DIR := $(CORE_DIR)/window
+MATH_DIR := $(CORE_DIR)/math
 RENDER_DIR := $(CORE_DIR)/render
 PLATFORMS_DIR := $(SRC_DIR)/platforms
 UTILS_DIR := $(SRC_DIR)/utils
@@ -61,6 +62,7 @@ INCLUDE := -I$(SRC_DIR)\
            -I$(EVENTS_DIR)\
            -I$(WINDOW_DIR)\
            -I$(LAYER_DIR)\
+		   -I$(MATH_DIR)\
            -I$(PLATFORMS_DIR)\
            -I$(IMGUI_OPENGL_DIR)\
            -I$(LINUX_DIR)\

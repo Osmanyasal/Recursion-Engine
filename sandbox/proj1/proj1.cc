@@ -70,8 +70,9 @@ Proj1::~Proj1()
     delete[] data;
     delete[] data2;
 }
-void Proj1::application()
+void Proj1::application(float delta_time)
 {
+    REC_TRACE("{}",to_string(RM_VEC3(0,10,0)));
     VAO.bind();
     VAO.draw();
 

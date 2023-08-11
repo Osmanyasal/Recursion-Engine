@@ -1,5 +1,14 @@
 #ifndef RECURSION_ENGINE__SRC__UTILS__CONFIG_HH
 #define RECURSION_ENGINE__SRC__UTILS__CONFIG_HH
+// CONF FILE FOR  THE APPLICATION
+// EVERYTHING CAN BE ADJUSTED ONLY HERE, THE REST WILL CHANGE ON EACH COMPILATION ACCORDINGLY
+// FORMAT: CONF__[SECTION]__[YOUR CONTENT]
+
+// MATH LIBRARY
+#define CONF_MATH_LIB glm
+
+// PHYSICS LIBRARY
+#define CONF_PHYSICS_LIB
 
 // DETECT PLATFORM AND CREATE A WINDOW BASED ON IT
 #if defined(_WIN32)
@@ -19,7 +28,6 @@
 #define CREATE_WINDOW() REC_CORE_ERROR("NO WINDOW DEFINED FOR {}", CONF__OS_NAME)
 #endif
 
-// format is like CONF__[SECTION]__[YOUR CONTENT]
 /**
  * @brief Porting enviroment
  * when is enabled, it removes trace logs.
@@ -56,5 +64,11 @@
 #define CONF__LOG__ENABLE_INFO  1
 #define CONF__LOG__ENABLE_WARN  1
 #define CONF__LOG__ENABLE_ERROR 1
+
+
+/**
+ * @brief Graphics
+*/
+
 
 #endif

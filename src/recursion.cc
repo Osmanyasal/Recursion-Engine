@@ -40,7 +40,7 @@ namespace Recursion::core
     {
         namespace events = Recursion::core::events;
         for (auto layer = layer_stack->rbegin(); layer != layer_stack->rend(); layer++)
-        { 
+        {
             if (OPT_LIKELY((*layer)->is_active()))
                 (*layer)->on_event(e);
 
@@ -58,23 +58,21 @@ namespace Recursion::core
     void Engine::start()
     {
         REC_CORE_INFO("Engine Started!");
-        FPS_INIT();
         DELTA_TIME_INIT();
         while (OPT_LIKELY(is_running))
         {
-            // Enable depth test 
+            DELTA_TIME_UPDATE();
+            // Enable depth test
             glClearColor(.6f, 0.2f, 1.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             imgui_layer->begin_loop();
+ 
+            REC_CORE_TRACE("FPS {}", GET_FPS()); 
+            this->application(delta_time);
 
-            DELTA_TIME_UPDATE();
-            REC_CORE_DEBUG("delta time {}", delta_time);
-
-            this->application();
             imgui_layer->end_loop();
             window->on_update();
 
-            FPS_UPDATE(); 
         }
     }
 

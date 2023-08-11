@@ -24,7 +24,7 @@ namespace Recursion::core
         virtual ~Engine();
         
         virtual void start() final;
-        virtual void application() = 0;
+        virtual void application(float delta_time) = 0;
 
         bool on_event(Recursion::core::events::Event &e);
 

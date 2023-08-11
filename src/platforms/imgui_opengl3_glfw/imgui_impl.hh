@@ -24,7 +24,7 @@ namespace Recursion::core::window
 
         void on_attach() override;
         void on_detach() override;
-        void on_update(double delta_time) override;
+        void on_update(float delta_time) override;
         void on_event(events::Event &event) override;
 
         void begin_loop();

@@ -72,7 +72,8 @@ namespace Recursion::core::window
         }
     }
 
-    void ImguiLayer_glfw_opengl_impl::on_update(double delta_time) {}
+    void ImguiLayer_glfw_opengl_impl::on_update(float delta_time) {}
+
 
     void ImguiLayer_glfw_opengl_impl::on_event(events::Event &event)
     {
