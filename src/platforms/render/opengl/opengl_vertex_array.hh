@@ -27,13 +27,13 @@ namespace Recursion::opengl::render
         virtual void draw();
 
     protected:
-        unsigned int VAO;
+        uint32_t VAO;
         VertexBuffer VBO;
         IndexBuffer IBO;
         std::vector<OpenGLBufferLayout> buffer_layouts;
 
     private:
-        int stride;
+        int32_t stride;
     };
 
 } // namespace Recursion::core::render

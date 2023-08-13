@@ -19,15 +19,15 @@ namespace Recursion::core::window
     {
         std::string guid;
         std::string win_title;
-        int win_width;
-        int win_height;
-        int win_posx;
-        int win_posy;
+        int32_t win_width;
+        int32_t win_height;
+        int32_t win_posx;
+        int32_t win_posy;
         WindowProps(std::string title = "Recursion Engine",
-                    int width = CONF__REC__WINDOW_WIDTH,
-                    int height = CONF__REC__WINDOW_HEIGHT,
-                    int posx = CONF__REC__WINDOW_POSX,
-                    int posy = CONF__REC__WINDOW_POSY)
+                    int32_t width = CONF__REC__WINDOW_WIDTH,
+                    int32_t height = CONF__REC__WINDOW_HEIGHT,
+                    int32_t posx = CONF__REC__WINDOW_POSX,
+                    int32_t posy = CONF__REC__WINDOW_POSY)
             : guid{generateGUID()}, win_title{title}, win_width{width}, win_height{height}, win_posx{posx}, win_posy{posy}
         {
         }
@@ -57,20 +57,20 @@ namespace Recursion::core::window
             return win_props.win_title;
         };
 
-        virtual int get_width() const final
+        virtual int32_t get_width() const final
         {
             return win_props.win_width;
         };
-        virtual int get_height() const final
+        virtual int32_t get_height() const final
         {
             return win_props.win_height;
         };
 
-        virtual int get_posx() const final
+        virtual int32_t get_posx() const final
         {
             return win_props.win_posy;
         };
-        virtual int get_posy() const final
+        virtual int32_t get_posy() const final
         {
             return win_props.win_posy;
         };

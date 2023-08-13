@@ -7,7 +7,7 @@ then
 fi
 
 # Use find to generate a list of .cc files
-cc_files_list=$(find ./src/ -type f -name "*.cc")
+cc_files_list=$(find ./src/ -type f -name "*.cc" -o -name "*.hh" )
 
 # Iterate through the list of .cc files and process each file
 for file in $cc_files_list; do

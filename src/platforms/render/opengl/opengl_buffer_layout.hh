@@ -16,7 +16,7 @@ namespace Recursion::opengl::render
             Bool = GL_BOOL,
         };
 
-        inline static int get_type_size(Type type)
+        inline static int32_t get_type_size(Type type)
         {
             switch (type)
             {
@@ -24,7 +24,7 @@ namespace Recursion::opengl::render
                 return sizeof(float);
                 break;
             case Type::Int:
-                return sizeof(int);
+                return sizeof(int32_t);
                 break;
             case Type::Bool:
                 return sizeof(bool);
@@ -59,7 +59,7 @@ namespace Recursion::opengl::render
         struct BufferInfo
         {
             std::string name;
-            int attrib_array;
+            int32_t attrib_array;
             Type type;
             Quantity quantity;
             Normalized normalized;
@@ -69,7 +69,7 @@ namespace Recursion::opengl::render
             : buffer_info(buffer_info) {}
 
         OpenGLBufferLayout(std::string name,
-                           int attrib_array,
+                           int32_t attrib_array,
                            Quantity quantity,
                            Type type,
                            Normalized normalized)

@@ -105,4 +105,658 @@ namespace Recursion::opengl::render
       return;
     }
   }
+  void OpenGLShader::set_uniform1f(const std::string &name, float v0) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform1f(temp->second, v0);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform1f(temp->second, v0);
+      }
+    }
+  }
+  void OpenGLShader::set_uniform2f(const std::string &name, float v0, float v1) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform2f(temp->second, v0, v1);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform2f(temp->second, v0, v1);
+      }
+    }
+  }
+  void OpenGLShader::set_uniform3f(const std::string &name, float v0, float v1, float v2) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform3f(temp->second, v0, v1, v2);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform3f(temp->second, v0, v1, v2);
+      }
+    }
+  }
+  void OpenGLShader::set_uniform4f(const std::string &name, float v0, float v1, float v2, float v3) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform4f(temp->second, v0, v1, v2, v3);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform4f(temp->second, v0, v1, v2, v3);
+      }
+    }
+  }
+  void OpenGLShader::set_uniform1i(const std::string &name, int32_t v0) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform1i(temp->second, v0);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform1i(temp->second, v0);
+      }
+    }
+  }
+  void OpenGLShader::set_uniform2i(const std::string &name, int32_t v0, int32_t v1) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform2i(temp->second, v0, v1);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform2i(temp->second, v0, v1);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform3i(const std::string &name, int32_t v0, int32_t v1, int32_t v2) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform3i(temp->second, v0, v1, v2);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform3i(temp->second, v0, v1, v2);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform4i(const std::string &name, int32_t v0, int32_t v1, int32_t v2, int32_t v3) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform4i(temp->second, v0, v1, v2, v3);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform4i(temp->second, v0, v1, v2, v3);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform1ui(const std::string &name, uint32_t v0) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform1ui(temp->second, v0);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform1ui(temp->second, v0);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform2ui(const std::string &name, uint32_t v0, uint32_t v1) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform2ui(temp->second, v0, v1);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform2ui(temp->second, v0, v1);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform3ui(const std::string &name, uint32_t v0, uint32_t v1, uint32_t v2) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform3ui(temp->second, v0, v1, v2);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform3ui(temp->second, v0, v1, v2);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform4ui(const std::string &name, uint32_t v0, uint32_t v1, uint32_t v2, uint32_t v3) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform4ui(temp->second, v0, v1, v2, v3);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform4ui(temp->second, v0, v1, v2, v3);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform1fv(const std::string &name, uint32_t count, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform1fv(temp->second, count, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform1fv(temp->second, count, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform2fv(const std::string &name, uint32_t count, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform2fv(temp->second, count, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform2fv(temp->second, count, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform3fv(const std::string &name, uint32_t count, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform3fv(temp->second, count, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform3fv(temp->second, count, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform4fv(const std::string &name, uint32_t count, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform4fv(temp->second, count, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform4fv(temp->second, count, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform1iv(const std::string &name, uint32_t count, const int32_t *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform1iv(temp->second, count, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform1iv(temp->second, count, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform2iv(const std::string &name, uint32_t count, const int32_t *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform2iv(temp->second, count, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform2iv(temp->second, count, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform3iv(const std::string &name, uint32_t count, const int32_t *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform3iv(temp->second, count, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform3iv(temp->second, count, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform4iv(const std::string &name, uint32_t count, const int32_t *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform4iv(temp->second, count, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform4iv(temp->second, count, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform1uiv(const std::string &name, uint32_t count, const uint32_t *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform1uiv(temp->second, count, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform1uiv(temp->second, count, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform2uiv(const std::string &name, uint32_t count, const uint32_t *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform2uiv(temp->second, count, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform2uiv(temp->second, count, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform3uiv(const std::string &name, uint32_t count, const uint32_t *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform3uiv(temp->second, count, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform3uiv(temp->second, count, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniform4uiv(const std::string &name, uint32_t count, const uint32_t *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniform4uiv(temp->second, count, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniform4uiv(temp->second, count, value);
+      }
+    }
+  }
+  void OpenGLShader::set_uniformMatrix2fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniformMatrix2fv(temp->second, count, transpose, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniformMatrix2fv(temp->second, count, transpose, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniformMatrix3fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniformMatrix3fv(temp->second, count, transpose, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniformMatrix3fv(temp->second, count, transpose, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniformMatrix4fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniformMatrix4fv(temp->second, count, transpose, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniformMatrix4fv(temp->second, count, transpose, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniformMatrix2x3fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniformMatrix2x3fv(temp->second, count, transpose, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniformMatrix2x3fv(temp->second, count, transpose, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniformMatrix3x2fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniformMatrix3x2fv(temp->second, count, transpose, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniformMatrix3x2fv(temp->second, count, transpose, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniformMatrix2x4fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniformMatrix2x4fv(temp->second, count, transpose, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniformMatrix2x4fv(temp->second, count, transpose, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniformMatrix4x2fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniformMatrix4x2fv(temp->second, count, transpose, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniformMatrix4x2fv(temp->second, count, transpose, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniformMatrix3x4fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniformMatrix3x4fv(temp->second, count, transpose, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniformMatrix3x4fv(temp->second, count, transpose, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniformMatrix4x3fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniformMatrix4x3fv(temp->second, count, transpose, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name,uniform_location});
+        glUniformMatrix4x3fv(temp->second, count, transpose, value);
+      }
+    }
+  }
+
 } // namespace Recursion::opengl::render

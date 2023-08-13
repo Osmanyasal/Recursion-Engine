@@ -50,7 +50,7 @@ Proj1::Proj1()
                      render::Type::Float,
                      render::Normalized::FALSE})
         .bind_index_buffer({index, sizeof(unsigned int) * 3 * 2})
-        .build(); 
+        .build();
 
     data2 = new float[3 * 6]{
 
@@ -58,7 +58,7 @@ Proj1::Proj1()
         -1.0f, 0.0f, 0.0f, .2f, 1.0f, 1.0f, // left
         -0.5f, 0.5f, 0.0f, .2f, 1.0f, 1.0f  // right
     };
-    
+
     VAO2.bind();
     VAO2.bind_vertex_buffer({data2, sizeof(float) * 3 * 6})
         .add_layout({"position",
@@ -80,12 +80,13 @@ Proj1::~Proj1()
 }
 void Proj1::application(float delta_time)
 {
-    cam.set_rotation(cam.get_rotation() + 10); 
+
+    cam.set_rotation(cam.get_rotation() + 50 * delta_time);
     glUniformMatrix4fv(sh.projection_loc, 1, GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
 
     VAO.bind();
     VAO.draw();
 
-    VAO2.bind(); 
+    VAO2.bind();
     VAO2.draw();
 }

@@ -6,7 +6,7 @@
 
 namespace Recursion::core::events
 {
-    enum class EventType : int
+    enum class EventType : int32_t
     {
         None = 0,
         WindowClose,
@@ -29,7 +29,7 @@ namespace Recursion::core::events
         MouseScrolled
     };
 
-    enum class EventCategory : int
+    enum class EventCategory : int32_t
     {
         None = 0,
         EventCategoryApplication = BIT(0),
@@ -45,7 +45,7 @@ namespace Recursion::core::events
     virtual std::string get_name() const override { return #type; }
 
 #define SET_EVENT_CATEGORY(event_category) \
-    virtual int get_category_flags() const override { return event_category; }
+    virtual int32_t get_category_flags() const override { return event_category; }
 
     class Event
     {
@@ -53,11 +53,11 @@ namespace Recursion::core::events
         bool is_handled;
         virtual EventType get_event_type() const = 0;
         virtual std::string get_name() const = 0;
-        virtual int get_category_flags() const = 0;
+        virtual int32_t get_category_flags() const = 0;
 
         virtual bool in_category(EventCategory category) final
         {
-            return get_category_flags() & (int)category;
+            return get_category_flags() & (int32_t)category;
         }
         virtual std::string to_string()
         {

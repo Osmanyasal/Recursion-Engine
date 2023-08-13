@@ -8,7 +8,7 @@ namespace Recursion::core::events
     class WindowEvent : public Event
     {
     public:
-        SET_EVENT_CATEGORY((int)EventCategory::EventCategoryApplication);
+        SET_EVENT_CATEGORY((int32_t)EventCategory::EventCategoryApplication);
 
         WindowEvent() {}
         virtual ~WindowEvent() {}
@@ -26,14 +26,14 @@ namespace Recursion::core::events
 
     public:
         SET_EVENT_TYPE(EventType::WindowResize)
-        WindowResizedEvent(int width, int height)
+        WindowResizedEvent(int32_t width, int32_t height)
             : m_width{width}, m_height{m_height}
         {
         }
         virtual ~WindowResizedEvent() {}
 
-        inline int get_width() { return m_width; }
-        inline int get_height() { return m_height; }
+        inline int32_t get_width() { return m_width; }
+        inline int32_t get_height() { return m_height; }
 
         virtual std::string to_string() override
         {
@@ -45,8 +45,8 @@ namespace Recursion::core::events
         }
 
     private:
-        int m_width;
-        int m_height;
+        int32_t m_width;
+        int32_t m_height;
     };
 
     class WindowCloseEvent : public WindowEvent
@@ -98,7 +98,7 @@ namespace Recursion::core::events
     {
     public:
         SET_EVENT_TYPE(EventType::WindowMoved)
-        WindowMovedEvent(int x, int y) : posx{x}, posy{y} {}
+        WindowMovedEvent(int32_t x, int32_t y) : posx{x}, posy{y} {}
         virtual ~WindowMovedEvent() {}
 
         virtual std::string to_string() override
@@ -111,7 +111,7 @@ namespace Recursion::core::events
         }
 
     private:
-        int posx, posy;
+        int32_t posx, posy;
     };
 
     class AppTickEvent : public Event

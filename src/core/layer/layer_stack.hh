@@ -17,7 +17,7 @@ namespace Recursion::core::layer
             layers.clear();
         };
 
-        inline int get_size() { return layers.size(); }
+        inline int32_t get_size() { return layers.size(); }
         void add_layer(Layer *layer);
         bool remove_layer(Layer *layer);
         const Layer* get_layer(const std::string &name);

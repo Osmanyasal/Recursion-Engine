@@ -11,7 +11,7 @@ namespace Recursion::opengl::render
     {
     public:
         VertexBuffer(); 
-        VertexBuffer(float *data, unsigned int size_in_bytes, unsigned int draw_method = GL_STATIC_DRAW);
+        VertexBuffer(float *data, uint32_t size_in_bytes, uint32_t draw_method = GL_STATIC_DRAW);
         virtual ~VertexBuffer();
 
         virtual void bind() override;
@@ -19,8 +19,8 @@ namespace Recursion::opengl::render
         virtual void destroy() override;
 
 
-        unsigned int VBO;
-        unsigned int vertex_count;
+        uint32_t VBO;
+        uint32_t vertex_count;
     };
 
 } // namespace Recursion::core::render

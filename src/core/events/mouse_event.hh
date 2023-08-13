@@ -9,7 +9,7 @@ namespace Recursion::core::events
     class MouseMovedEvent : public Event
     {
     public:
-        SET_EVENT_CATEGORY((int)EventCategory::EventCategoryMouse | (int)EventCategory::EventCategoryInput)
+        SET_EVENT_CATEGORY((int32_t)EventCategory::EventCategoryMouse | (int32_t)EventCategory::EventCategoryInput)
         SET_EVENT_TYPE(EventType::MouseMoved)
         MouseMovedEvent(const double posX, const double posY) : pos_x{posX}, pos_y{posY}
         {
@@ -36,7 +36,7 @@ namespace Recursion::core::events
     class MouseScrolledEvent : public Event
     {
     public:
-        SET_EVENT_CATEGORY((int)EventCategory::EventCategoryMouse | (int)EventCategory::EventCategoryInput)
+        SET_EVENT_CATEGORY((int32_t)EventCategory::EventCategoryMouse | (int32_t)EventCategory::EventCategoryInput)
         SET_EVENT_TYPE(EventType::MouseScrolled)
         MouseScrolledEvent(const double offsetX, const double offsetY) : offset_x{offsetX}, offset_y{offsetY}
         {
@@ -63,15 +63,15 @@ namespace Recursion::core::events
     class MouseButtonPressed : public Event
     {
     public:
-        SET_EVENT_CATEGORY((int)EventCategory::EventCategoryMouse | (int)EventCategory::EventCategoryInput)
+        SET_EVENT_CATEGORY((int32_t)EventCategory::EventCategoryMouse | (int32_t)EventCategory::EventCategoryInput)
         SET_EVENT_TYPE(EventType::MouseButtonPressed)
 
-        MouseButtonPressed(const short mouse_button) : mouse_button{mouse_button}
+        MouseButtonPressed(const int16_t mouse_button) : mouse_button{mouse_button}
         {
         }
         virtual ~MouseButtonPressed() {}
 
-        inline short get_mouse_button() { return mouse_button; }
+        inline int16_t get_mouse_button() { return mouse_button; }
 
         virtual std::string to_string() override
         {
@@ -82,21 +82,21 @@ namespace Recursion::core::events
         }
 
     private:
-        short mouse_button;
+        int16_t mouse_button;
     };
 
     class MouseButtonReleased : public Event
     {
     public:
-        SET_EVENT_CATEGORY((int)EventCategory::EventCategoryMouse | (int)EventCategory::EventCategoryInput)
+        SET_EVENT_CATEGORY((int32_t)EventCategory::EventCategoryMouse | (int32_t)EventCategory::EventCategoryInput)
         SET_EVENT_TYPE(EventType::MouseButtonReleased)
 
-        MouseButtonReleased(const short mouse_button) : mouse_button{mouse_button}
+        MouseButtonReleased(const int16_t mouse_button) : mouse_button{mouse_button}
         {
         }
         virtual ~MouseButtonReleased() {}
 
-        inline short get_mouse_button() { return mouse_button; }
+        inline int16_t get_mouse_button() { return mouse_button; }
 
         virtual std::string to_string() override
         {
@@ -107,7 +107,7 @@ namespace Recursion::core::events
         }
 
     private:
-        short mouse_button;
+        int16_t mouse_button;
     };
 }
 

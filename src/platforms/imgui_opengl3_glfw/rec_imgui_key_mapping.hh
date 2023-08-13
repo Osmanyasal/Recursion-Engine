@@ -2,7 +2,7 @@
 #define RECURSION_ENGINE__SRC__PLATFORMS__REC_IMGUI_KEY_MAPPING_HH
 
 // conversion from Recursion engine key codes (essantialy glfw) to imgui keycodes
-inline ImGuiKey KEYMAP_REC_TO_IMGUI(int rec_key)
+inline ImGuiKey KEYMAP_REC_TO_IMGUI(int32_t rec_key)
 {
     switch (rec_key)
     {
