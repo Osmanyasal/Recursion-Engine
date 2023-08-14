@@ -40,9 +40,9 @@ namespace Recursion::core::render
     OrthographicCamera::OrthographicCamera() : OrthographicCamera(-1.0f, 1.0f, -1.0f, 1.0f) {}
     OrthographicCamera::OrthographicCamera(float left, float right, float bottom, float top)
     {
-        projection_matrix = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
+        projection_matrix = glm::ortho(left, right, bottom, top, -1.1f, 1.1f);
         view_matrix = glm::mat4{1.0f};
-        position = glm::vec3(0.1f);
+        position = glm::vec3(0,0,0.0f);
         rotation = 0.0f;
         update_camera();
 

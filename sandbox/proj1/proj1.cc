@@ -26,16 +26,16 @@ Proj1::Proj1()
     data = new float[6 * 6]{
         // positions         // colors
         // First Triangle
-        0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, // bottom left
-        0.0f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f,   // top
+         0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f,  // bottom right
+        -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, // bottom left
+         0.0f, 0.5f, 1.0f, 1.0f, 1.0f, 1.0f,   // top
 
         // Second Triangle
-        -1.0f, 1.0f, 0.0f, .2f, 1.0f, 1.0f, // bottom
-        -1.0f, 0.0f, 0.0f, .2f, 1.0f, 1.0f, // left
-        -0.5f, 0.5f, 0.0f, .2f, 1.0f, 1.0f  // right
+        0.9f, -0.5f, -1.0f, 1.0f, 0.0f, 0.0f,  // bottom right
+        -0.9f, -0.5f, -1.0f, 1.0f, 0.0f, 0.0f, // bottom left
+        0.0f, 0.5f, -1.0f, 1.0f, 0.0f, 0.0f,   // top
     };
-    unsigned int index[3 * 2] = {0, 2, 1, 0, 2, 3};
+    unsigned int index[3 * 2] = {0, 2, 1, 3, 4, 5};
 
     VAO.bind();
     VAO.bind_vertex_buffer({data, sizeof(float) * 36})
@@ -81,9 +81,8 @@ Proj1::~Proj1()
 void Proj1::application(float delta_time)
 {
 
-    cam.set_rotation(cam.get_rotation() + 50 * delta_time);
-    glUniformMatrix4fv(sh.projection_loc, 1, GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
-
+    // cam.set_rotation(cam.get_rotation() + 10 * delta_time);
+    sh.set_uniformMatrix4fv("mvp", 1, GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
     VAO.bind();
     VAO.draw();
 

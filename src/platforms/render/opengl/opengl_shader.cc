@@ -46,8 +46,6 @@ namespace Recursion::opengl::render
       // In this simple program, we'll just leave
       return;
     }
-    projection_loc = glGetUniformLocation(program_id, "mvp");
-
     glDeleteShader(vs);
     glDeleteShader(fs);
   }
@@ -120,7 +118,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform1f(temp->second, v0);
+        glUniform1f(uniform_location, v0);
       }
     }
   }
@@ -139,7 +137,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform2f(temp->second, v0, v1);
+        glUniform2f(uniform_location, v0, v1);
       }
     }
   }
@@ -158,7 +156,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform3f(temp->second, v0, v1, v2);
+        glUniform3f(uniform_location, v0, v1, v2);
       }
     }
   }
@@ -177,7 +175,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform4f(temp->second, v0, v1, v2, v3);
+        glUniform4f(uniform_location, v0, v1, v2, v3);
       }
     }
   }
@@ -196,7 +194,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform1i(temp->second, v0);
+        glUniform1i(uniform_location, v0);
       }
     }
   }
@@ -215,7 +213,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform2i(temp->second, v0, v1);
+        glUniform2i(uniform_location, v0, v1);
       }
     }
   }
@@ -235,7 +233,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform3i(temp->second, v0, v1, v2);
+        glUniform3i(uniform_location, v0, v1, v2);
       }
     }
   }
@@ -255,7 +253,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform4i(temp->second, v0, v1, v2, v3);
+        glUniform4i(uniform_location, v0, v1, v2, v3);
       }
     }
   }
@@ -275,7 +273,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform1ui(temp->second, v0);
+        glUniform1ui(uniform_location, v0);
       }
     }
   }
@@ -295,7 +293,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform2ui(temp->second, v0, v1);
+        glUniform2ui(uniform_location, v0, v1);
       }
     }
   }
@@ -315,7 +313,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform3ui(temp->second, v0, v1, v2);
+        glUniform3ui(uniform_location, v0, v1, v2);
       }
     }
   }
@@ -335,7 +333,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform4ui(temp->second, v0, v1, v2, v3);
+        glUniform4ui(uniform_location, v0, v1, v2, v3);
       }
     }
   }
@@ -355,7 +353,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform1fv(temp->second, count, value);
+        glUniform1fv(uniform_location, count, value);
       }
     }
   }
@@ -375,7 +373,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform2fv(temp->second, count, value);
+        glUniform2fv(uniform_location, count, value);
       }
     }
   }
@@ -395,7 +393,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform3fv(temp->second, count, value);
+        glUniform3fv(uniform_location, count, value);
       }
     }
   }
@@ -415,7 +413,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform4fv(temp->second, count, value);
+        glUniform4fv(uniform_location, count, value);
       }
     }
   }
@@ -435,7 +433,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform1iv(temp->second, count, value);
+        glUniform1iv(uniform_location, count, value);
       }
     }
   }
@@ -455,7 +453,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform2iv(temp->second, count, value);
+        glUniform2iv(uniform_location, count, value);
       }
     }
   }
@@ -475,7 +473,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform3iv(temp->second, count, value);
+        glUniform3iv(uniform_location, count, value);
       }
     }
   }
@@ -495,7 +493,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform4iv(temp->second, count, value);
+        glUniform4iv(uniform_location, count, value);
       }
     }
   }
@@ -515,7 +513,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform1uiv(temp->second, count, value);
+        glUniform1uiv(uniform_location, count, value);
       }
     }
   }
@@ -535,7 +533,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform2uiv(temp->second, count, value);
+        glUniform2uiv(uniform_location, count, value);
       }
     }
   }
@@ -555,7 +553,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform3uiv(temp->second, count, value);
+        glUniform3uiv(uniform_location, count, value);
       }
     }
   }
@@ -575,7 +573,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniform4uiv(temp->second, count, value);
+        glUniform4uiv(uniform_location, count, value);
       }
     }
   }
@@ -594,7 +592,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniformMatrix2fv(temp->second, count, transpose, value);
+        glUniformMatrix2fv(uniform_location, count, transpose, value);
       }
     }
   }
@@ -614,7 +612,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniformMatrix3fv(temp->second, count, transpose, value);
+        glUniformMatrix3fv(uniform_location, count, transpose, value);
       }
     }
   }
@@ -634,7 +632,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniformMatrix4fv(temp->second, count, transpose, value);
+        glUniformMatrix4fv(uniform_location, count, transpose, value);
       }
     }
   }
@@ -654,7 +652,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniformMatrix2x3fv(temp->second, count, transpose, value);
+        glUniformMatrix2x3fv(uniform_location, count, transpose, value);
       }
     }
   }
@@ -674,7 +672,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniformMatrix3x2fv(temp->second, count, transpose, value);
+        glUniformMatrix3x2fv(uniform_location, count, transpose, value);
       }
     }
   }
@@ -694,7 +692,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniformMatrix2x4fv(temp->second, count, transpose, value);
+        glUniformMatrix2x4fv(uniform_location, count, transpose, value);
       }
     }
   }
@@ -714,7 +712,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniformMatrix4x2fv(temp->second, count, transpose, value);
+        glUniformMatrix4x2fv(uniform_location, count, transpose, value);
       }
     }
   }
@@ -734,7 +732,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniformMatrix3x4fv(temp->second, count, transpose, value);
+        glUniformMatrix3x4fv(uniform_location, count, transpose, value);
       }
     }
   }
@@ -754,7 +752,7 @@ namespace Recursion::opengl::render
       else
       {
         uniform_cache.insert({name,uniform_location});
-        glUniformMatrix4x3fv(temp->second, count, transpose, value);
+        glUniformMatrix4x3fv(uniform_location, count, transpose, value);
       }
     }
   }

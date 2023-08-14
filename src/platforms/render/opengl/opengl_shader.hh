@@ -52,7 +52,6 @@ namespace Recursion::opengl::render
         virtual void set_uniformMatrix4x2fv(const std::string& name, uint32_t count, GLboolean transpose, const float *value) const override;
         virtual void set_uniformMatrix3x4fv(const std::string& name, uint32_t count, GLboolean transpose, const float *value) const override;
         virtual void set_uniformMatrix4x3fv(const std::string& name, uint32_t count, GLboolean transpose, const float *value) const override;
-        int32_t projection_loc;
     };
 
 } // namespace Recursion::core::render

@@ -28,7 +28,7 @@
 #include <glm/gtx/string_cast.hpp>
 
 // OPTIMIZATION HEADERS
-#include <cpu_opt>
+#include <cpu_opt.hh>
 
 
 // MACRO DEFINITIONS
