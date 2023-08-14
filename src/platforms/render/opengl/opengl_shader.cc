@@ -117,7 +117,7 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
+        uniform_cache.insert({name, uniform_location});
         glUniform1f(uniform_location, v0);
       }
     }
@@ -136,7 +136,7 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
+        uniform_cache.insert({name, uniform_location});
         glUniform2f(uniform_location, v0, v1);
       }
     }
@@ -155,7 +155,7 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
+        uniform_cache.insert({name, uniform_location});
         glUniform3f(uniform_location, v0, v1, v2);
       }
     }
@@ -174,7 +174,7 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
+        uniform_cache.insert({name, uniform_location});
         glUniform4f(uniform_location, v0, v1, v2, v3);
       }
     }
@@ -193,7 +193,7 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
+        uniform_cache.insert({name, uniform_location});
         glUniform1i(uniform_location, v0);
       }
     }
@@ -212,7 +212,7 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
+        uniform_cache.insert({name, uniform_location});
         glUniform2i(uniform_location, v0, v1);
       }
     }
@@ -232,7 +232,7 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
+        uniform_cache.insert({name, uniform_location});
         glUniform3i(uniform_location, v0, v1, v2);
       }
     }
@@ -252,7 +252,7 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
+        uniform_cache.insert({name, uniform_location});
         glUniform4i(uniform_location, v0, v1, v2, v3);
       }
     }
@@ -272,7 +272,7 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
+        uniform_cache.insert({name, uniform_location});
         glUniform1ui(uniform_location, v0);
       }
     }
@@ -292,7 +292,7 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
+        uniform_cache.insert({name, uniform_location});
         glUniform2ui(uniform_location, v0, v1);
       }
     }
@@ -312,7 +312,7 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
+        uniform_cache.insert({name, uniform_location});
         glUniform3ui(uniform_location, v0, v1, v2);
       }
     }
@@ -332,17 +332,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
+        uniform_cache.insert({name, uniform_location});
         glUniform4ui(uniform_location, v0, v1, v2, v3);
       }
     }
   }
 
-  void OpenGLShader::set_uniform1fv(const std::string &name, uint32_t count, const float *value) const
+  void OpenGLShader::set_uniform1fv(const std::string &name, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniform1fv(temp->second, count, value);
+      glUniform1fv(temp->second, 1, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -352,17 +352,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniform1fv(uniform_location, count, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniform1fv(uniform_location, 1, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniform2fv(const std::string &name, uint32_t count, const float *value) const
+  void OpenGLShader::set_uniform2fv(const std::string &name, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniform2fv(temp->second, count, value);
+      glUniform2fv(temp->second, 2, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -372,17 +372,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniform2fv(uniform_location, count, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniform2fv(uniform_location, 2, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniform3fv(const std::string &name, uint32_t count, const float *value) const
+  void OpenGLShader::set_uniform3fv(const std::string &name, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniform3fv(temp->second, count, value);
+      glUniform3fv(temp->second, 3, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -392,17 +392,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniform3fv(uniform_location, count, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniform3fv(uniform_location, 3, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniform4fv(const std::string &name, uint32_t count, const float *value) const
+  void OpenGLShader::set_uniform4fv(const std::string &name, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniform4fv(temp->second, count, value);
+      glUniform4fv(temp->second, 4, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -412,17 +412,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniform4fv(uniform_location, count, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniform4fv(uniform_location, 4, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniform1iv(const std::string &name, uint32_t count, const int32_t *value) const
+  void OpenGLShader::set_uniform1iv(const std::string &name, const int32_t *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniform1iv(temp->second, count, value);
+      glUniform1iv(temp->second, 1, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -432,17 +432,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniform1iv(uniform_location, count, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniform1iv(uniform_location, 1, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniform2iv(const std::string &name, uint32_t count, const int32_t *value) const
+  void OpenGLShader::set_uniform2iv(const std::string &name, const int32_t *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniform2iv(temp->second, count, value);
+      glUniform2iv(temp->second, 2, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -452,17 +452,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniform2iv(uniform_location, count, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniform2iv(uniform_location, 2, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniform3iv(const std::string &name, uint32_t count, const int32_t *value) const
+  void OpenGLShader::set_uniform3iv(const std::string &name, const int32_t *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniform3iv(temp->second, count, value);
+      glUniform3iv(temp->second, 3, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -472,17 +472,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniform3iv(uniform_location, count, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniform3iv(uniform_location, 3, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniform4iv(const std::string &name, uint32_t count, const int32_t *value) const
+  void OpenGLShader::set_uniform4iv(const std::string &name, const int32_t *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniform4iv(temp->second, count, value);
+      glUniform4iv(temp->second, 4, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -492,17 +492,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniform4iv(uniform_location, count, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniform4iv(uniform_location, 4, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniform1uiv(const std::string &name, uint32_t count, const uint32_t *value) const
+  void OpenGLShader::set_uniform1uiv(const std::string &name, const uint32_t *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniform1uiv(temp->second, count, value);
+      glUniform1uiv(temp->second, 1, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -512,17 +512,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniform1uiv(uniform_location, count, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniform1uiv(uniform_location, 1, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniform2uiv(const std::string &name, uint32_t count, const uint32_t *value) const
+  void OpenGLShader::set_uniform2uiv(const std::string &name, const uint32_t *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniform2uiv(temp->second, count, value);
+      glUniform2uiv(temp->second, 2, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -532,17 +532,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniform2uiv(uniform_location, count, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniform2uiv(uniform_location, 2, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniform3uiv(const std::string &name, uint32_t count, const uint32_t *value) const
+  void OpenGLShader::set_uniform3uiv(const std::string &name, const uint32_t *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniform3uiv(temp->second, count, value);
+      glUniform3uiv(temp->second, 3, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -552,17 +552,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniform3uiv(uniform_location, count, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniform3uiv(uniform_location, 3, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniform4uiv(const std::string &name, uint32_t count, const uint32_t *value) const
+  void OpenGLShader::set_uniform4uiv(const std::string &name, const uint32_t *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniform4uiv(temp->second, count, value);
+      glUniform4uiv(temp->second, 4, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -572,16 +572,16 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniform4uiv(uniform_location, count, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniform4uiv(uniform_location, 4, value);
       }
     }
   }
-  void OpenGLShader::set_uniformMatrix2fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix2fv(const std::string &name, GLboolean transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniformMatrix2fv(temp->second, count, transpose, value);
+      glUniformMatrix2fv(temp->second, 1, transpose, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -591,37 +591,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniformMatrix2fv(uniform_location, count, transpose, value);
-      }
-    }
-  }
-
-  void OpenGLShader::set_uniformMatrix3fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
-  {
-    auto temp = uniform_cache.find(name);
-    if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniformMatrix3fv(temp->second, count, transpose, value);
-    else
-    {
-      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
-      if (OPT_UNLIKELY(uniform_location == -1))
-      {
-        REC_CORE_ERROR("uniform name doesn't exists {}", name);
-      }
-      else
-      {
-        uniform_cache.insert({name,uniform_location});
-        glUniformMatrix3fv(uniform_location, count, transpose, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniformMatrix2fv(uniform_location, 1, transpose, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniformMatrix4fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix3fv(const std::string &name, GLboolean transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniformMatrix4fv(temp->second, count, transpose, value);
+      glUniformMatrix3fv(temp->second, 1, transpose, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -631,17 +611,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniformMatrix4fv(uniform_location, count, transpose, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniformMatrix3fv(uniform_location, 1, transpose, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniformMatrix2x3fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix4fv(const std::string &name, GLboolean transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniformMatrix2x3fv(temp->second, count, transpose, value);
+      glUniformMatrix4fv(temp->second, 1, transpose, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -651,17 +631,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniformMatrix2x3fv(uniform_location, count, transpose, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniformMatrix4fv(uniform_location, 1, transpose, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniformMatrix3x2fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix2x3fv(const std::string &name, GLboolean transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniformMatrix3x2fv(temp->second, count, transpose, value);
+      glUniformMatrix2x3fv(temp->second, 1, transpose, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -671,17 +651,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniformMatrix3x2fv(uniform_location, count, transpose, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniformMatrix2x3fv(uniform_location, 1, transpose, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniformMatrix2x4fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix3x2fv(const std::string &name, GLboolean transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniformMatrix2x4fv(temp->second, count, transpose, value);
+      glUniformMatrix3x2fv(temp->second, 1, transpose, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -691,17 +671,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniformMatrix2x4fv(uniform_location, count, transpose, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniformMatrix3x2fv(uniform_location, 1, transpose, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniformMatrix4x2fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix2x4fv(const std::string &name, GLboolean transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniformMatrix4x2fv(temp->second, count, transpose, value);
+      glUniformMatrix2x4fv(temp->second, 1, transpose, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -711,17 +691,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniformMatrix4x2fv(uniform_location, count, transpose, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniformMatrix2x4fv(uniform_location, 1, transpose, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniformMatrix3x4fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix4x2fv(const std::string &name, GLboolean transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniformMatrix3x4fv(temp->second, count, transpose, value);
+      glUniformMatrix4x2fv(temp->second, 1, transpose, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -731,17 +711,17 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniformMatrix3x4fv(uniform_location, count, transpose, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniformMatrix4x2fv(uniform_location, 1, transpose, value);
       }
     }
   }
 
-  void OpenGLShader::set_uniformMatrix4x3fv(const std::string &name, uint32_t count, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix3x4fv(const std::string &name, GLboolean transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
-      glUniformMatrix4x3fv(temp->second, count, transpose, value);
+      glUniformMatrix3x4fv(temp->second, 1, transpose, value);
     else
     {
       int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
@@ -751,8 +731,28 @@ namespace Recursion::opengl::render
       }
       else
       {
-        uniform_cache.insert({name,uniform_location});
-        glUniformMatrix4x3fv(uniform_location, count, transpose, value);
+        uniform_cache.insert({name, uniform_location});
+        glUniformMatrix3x4fv(uniform_location, 1, transpose, value);
+      }
+    }
+  }
+
+  void OpenGLShader::set_uniformMatrix4x3fv(const std::string &name, GLboolean transpose, const float *value) const
+  {
+    auto temp = uniform_cache.find(name);
+    if (OPT_LIKELY(temp != uniform_cache.end()))
+      glUniformMatrix4x3fv(temp->second, 1, transpose, value);
+    else
+    {
+      int32_t uniform_location = glGetUniformLocation(program_id, name.c_str());
+      if (OPT_UNLIKELY(uniform_location == -1))
+      {
+        REC_CORE_ERROR("uniform name doesn't exists {}", name);
+      }
+      else
+      {
+        uniform_cache.insert({name, uniform_location});
+        glUniformMatrix4x3fv(uniform_location, 1, transpose, value);
       }
     }
   }
