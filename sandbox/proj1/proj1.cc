@@ -82,7 +82,7 @@ void Proj1::application(float delta_time)
 {
 
     // cam.set_rotation(cam.get_rotation() + 10 * delta_time);
-    sh.set_uniformMatrix4fv("mvp", 1, GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
+    sh.set_uniformMatrix4fv("mvp", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
     VAO.bind();
     VAO.draw();
 

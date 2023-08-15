@@ -34,8 +34,8 @@ RENDER_IMPL_DIR := $(PLATFORMS_DIR)/render
 RENDER_OPENGL_DIR := $(RENDER_IMPL_DIR)/opengl
 RENDER_VULKAN_DIR := $(RENDER_IMPL_DIR)/vulkan
 RENDER_DIRECTX_DIR := $(RENDER_IMPL_DIR)/d3d
-
-IMGUI_OPENGL_DIR := $(PLATFORMS_DIR)/imgui_opengl3_glfw
+GUI := $(PLATFORMS_DIR)/gui
+IMGUI_OPENGL_DIR := $(GUI)/imgui_opengl3_glfw
 
 # LIB Directories for source and header files
 LIB_SPD_PATH :=./lib/spdlog

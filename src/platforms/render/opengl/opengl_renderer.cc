@@ -41,7 +41,11 @@ namespace Recursion::opengl::render
         }
 
         glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_LESS); 
+        glDepthFunc(GL_LESS);
+
+        // Standard transparency blending
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
         REC_CORE_INFO("Linux Window Started (id={})", get_window_props().guid.substr(0, CONF__LOG__PRINT_GUID_LENGTH));
         REC_CORE_INFO("Name={}, Resoulution width={} height={}", get_window_props().win_title, get_window_props().win_width, get_window_props().win_height);
