@@ -8,7 +8,7 @@
 #include <imgui_impl.hh>
 #include <Input.hh>
 #include <linux_window.hh>
-#include <opengl_renderer.hh>
+#include <opengl_render_context.hh>
 namespace Recursion::core
 {
 

@@ -1,4 +1,4 @@
-#include <opengl_renderer.hh>
+#include <opengl_render_context.hh>
 
 namespace Recursion::opengl::render
 {
@@ -40,6 +40,7 @@ namespace Recursion::opengl::render
             return;
         }
 
+        // Standard deoth test
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LESS);
 

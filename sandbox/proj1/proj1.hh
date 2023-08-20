@@ -13,7 +13,7 @@
 #include <camera.hh>
 
 namespace render = Recursion::opengl::render;
-
+namespace input = Recursion::core::input;
 class Proj1 : public Recursion::core::Engine
 {
 public:

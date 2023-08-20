@@ -3,7 +3,7 @@
 
 #include <window.hh>
 #include <event_core.hh>
-#include <opengl_renderer.hh>
+#include <opengl_render_context.hh>
 #include <memory>
 namespace Recursion::core::window
 {

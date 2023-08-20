@@ -26,9 +26,9 @@ Proj1::Proj1()
     data = new float[6 * 6]{
         // positions         // colors
         // First Triangle
-         0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f,  // bottom right
+        0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f,  // bottom right
         -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, // bottom left
-         0.0f, 0.5f, 1.0f, 1.0f, 1.0f, 1.0f,   // top
+        0.0f, 0.5f, 1.0f, 1.0f, 1.0f, 1.0f,   // top
 
         // Second Triangle
         0.9f, -0.5f, -1.0f, 1.0f, 0.0f, 0.0f,  // bottom right
@@ -80,9 +80,19 @@ Proj1::~Proj1()
 }
 void Proj1::application(float delta_time)
 {
-
+    float step = 0.05f;
     // cam.set_rotation(cam.get_rotation() + 10 * delta_time);
     sh.set_uniformMatrix4fv("mvp", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
+
+    if (input::Input::is_key_pressed(REC_KEY_A))
+        cam.set_position(glm::vec3(cam.get_position().x - step, cam.get_position().y, cam.get_position().z));
+    if (input::Input::is_key_pressed(REC_KEY_D))
+        cam.set_position(glm::vec3(cam.get_position().x + step, cam.get_position().y, cam.get_position().z));
+    if (input::Input::is_key_pressed(REC_KEY_S))
+        cam.set_position(glm::vec3(cam.get_position().x, cam.get_position().y - step, cam.get_position().z));
+    if (input::Input::is_key_pressed(REC_KEY_W))
+        cam.set_position(glm::vec3(cam.get_position().x, cam.get_position().y + step, cam.get_position().z));
+
     VAO.bind();
     VAO.draw();
 
