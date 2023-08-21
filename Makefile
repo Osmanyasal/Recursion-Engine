@@ -53,6 +53,9 @@ LIB_IMGUI := -I./lib/imgui/ -I./lib/imgui/backends -I./lib/imgui/docs -I./lib/im
 LIB_GLM_PATH := ./lib/glm
 LIB_GLM := -I./lib/glm/glm -I./lib/glm/glm/detail -I./lib/glm/glm/ext -I./lib/glm/glm/gtc -I./lib/glm/gtx -I./lib/glm/simd
 
+LIB_STB_IMAGE_PATH := ./lib/stb
+LIB_STB_IMAGE := -I./lib/stb
+
 DYNAMIC := -L$(LIB_SPD_PATH)/build/ -lspdlog -L$(LIB_GLFW_PATH)/build/src/ -lglfw3 -L$(LIB_GLEW_PATH)/lib/ -lGLEW -lGL
 
 # Include directories
@@ -79,7 +82,8 @@ INCLUDE := -I$(SRC_DIR)\
 			$(LIB_GLEW)\
 			$(LIB_GLFW)\
 			$(LIB_IMGUI)\
-			$(LIB_GLM)
+			$(LIB_GLM)\
+			$(LIB_STB_IMAGE)
 
 EXECUTABLE := recursion.engine
 
