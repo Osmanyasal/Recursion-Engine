@@ -12,9 +12,6 @@
 
 Proj1::Proj1()
 {
-
-    render::OpenGLTexture glTexture{"hello_motherfucker!!"};
-
     /*
             in this settings
 
@@ -28,22 +25,17 @@ Proj1::Proj1()
     */
     sh.bind(); // bind shader !
 
-    data = new float[6 * 6]{
-        // positions         // colors
+    data = new float[3 * 9]{
+        // positions         // colors       // texture
         // First Triangle
-        0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f,  // bottom right
-        -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, // bottom left
-        0.0f, 0.5f, 1.0f, 1.0f, 1.0f, 1.0f,   // top
-
-        // Second Triangle
-        0.9f, -0.5f, -1.0f, 1.0f, 0.0f, 0.0f,  // bottom right
-        -0.9f, -0.5f, -1.0f, 1.0f, 0.0f, 0.0f, // bottom left
-        0.0f, 0.5f, -1.0f, 1.0f, 0.0f, 0.0f,   // top
+        -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, // bottom left
+        0.0f, 0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.5f, 1.0f,     // top 
+        0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,    // bottom right
     };
-    unsigned int index[3 * 2] = {0, 2, 1, 3, 4, 5};
+    unsigned int index[3 * 1] = {0, 1, 2}; //3, 4, 5};
 
     VAO.bind();
-    VAO.bind_vertex_buffer({data, sizeof(float) * 36})
+    VAO.bind_vertex_buffer({data, sizeof(float) * 3 * 8})
         .add_layout({"position",
                      0,
                      render::Quantity::Float3,
@@ -54,7 +46,13 @@ Proj1::Proj1()
                      render::Quantity::Float3,
                      render::Type::Float,
                      render::Normalized::FALSE})
-        .bind_index_buffer({index, sizeof(unsigned int) * 3 * 2})
+        .add_layout({"texture",
+                     2,
+                     render::Quantity::Float2,
+                     render::Type::Float,
+                     render::Normalized::FALSE})
+        .bind_index_buffer({index, sizeof(unsigned int) * 3 * 1})
+        .add_texture({"/home/rt7/Desktop/glsl_learning/assets/container.png"})
         .build();
 
     data2 = new float[3 * 6]{
@@ -85,6 +83,7 @@ Proj1::~Proj1()
 }
 void Proj1::application(float delta_time)
 {
+
     float step = delta_time;
     // cam.set_rotation(cam.get_rotation() + 10 * delta_time);
 
@@ -99,8 +98,8 @@ void Proj1::application(float delta_time)
 
     sh.set_uniformMatrix4fv("mvp", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
     VAO.bind();
-    VAO.draw();
+    VAO.draw(sh);
 
     VAO2.bind();
-    VAO2.draw();
+    VAO2.draw(sh);
 }

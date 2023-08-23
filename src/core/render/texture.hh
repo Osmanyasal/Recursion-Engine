@@ -10,12 +10,16 @@ namespace Recursion::core::render
     class Texture : public Bindable
     {
     public:
-        inline Texture(const std::string& texture_path) : path{texture_path} {}
+        inline Texture(const std::string &texture_path) : path{texture_path} {}
         inline virtual ~Texture() {}
+
+    public:
+        const std::string &get_path() const { return this->path; }
+        inline uint32_t get_textureid(){return texture_id;}
 
     protected:
         uint32_t texture_id;
-        std::string path;
+        const std::string path;
     };
 }
 

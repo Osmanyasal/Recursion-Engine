@@ -4,6 +4,8 @@
 #include <opengl_index_buffer.hh>
 #include <opengl_vertex_buffer.hh>
 #include <opengl_buffer_layout.hh>
+#include <opengl_texture.hh>
+#include <opengl_shader.hh>
 #include <GL/glew.h>
 #include <vector>
 
@@ -22,14 +24,16 @@ namespace Recursion::opengl::render
         virtual VertexArray& bind_vertex_buffer(const VertexBuffer &VBO);
         virtual VertexArray& bind_index_buffer(const IndexBuffer &IBO);
         virtual VertexArray& add_layout(const OpenGLBufferLayout& layout);
+        virtual VertexArray& add_texture(const OpenGLTexture& texture);
         virtual void build();
 
-        virtual void draw();
+        virtual void draw(const OpenGLShader& shader);
 
     protected:
         uint32_t VAO;
         VertexBuffer VBO;
         IndexBuffer IBO;
+        std::vector<OpenGLTexture> texture_list;
         std::vector<OpenGLBufferLayout> buffer_layouts;
 
     private:

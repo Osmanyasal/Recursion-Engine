@@ -20,6 +20,8 @@ namespace Recursion::opengl::render
         void bind() override;
         void unbind() override;
         void destroy() override;
+
+        inline uint32_t get_unit(){return texture_unit;} 
     
     protected:
         int width;

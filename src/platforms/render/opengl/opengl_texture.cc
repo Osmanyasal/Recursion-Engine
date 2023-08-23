@@ -37,14 +37,13 @@ namespace Recursion::opengl::render
         {
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
             glGenerateMipmap(GL_TEXTURE_2D);
+            REC_CORE_TRACE("Texture {} is initialized", path);
         }
         else
         {
-            std::cout << "Failed to load texture" << std::endl;
+            REC_CORE_ERROR("Failed to load texture {}", path);
         }
         stbi_image_free(data);
-
-        REC_CORE_TRACE("Texture {} is initialized", path);
     }
 
     OpenGLTexture::~OpenGLTexture()

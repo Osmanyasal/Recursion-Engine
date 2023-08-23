@@ -16,6 +16,7 @@
 #include <config.hh>
 #include <logger.hh>
 #include <type.hh>
+#include <block_timer.hh>
 
 //TODO: Migrate this to a math wrapper.
 // INCLUDE GLM
@@ -46,6 +47,8 @@
     previous_time = current_time;               \
  
 #define GET_FPS() 1.0f / delta_time
+
+#define BLOCK_TIMER(block_name) Recursion::utils::BlockTimer block_timer{block_name}
 
 
 // FUNCTION DECLERATIONS

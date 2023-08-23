@@ -44,7 +44,14 @@ namespace Recursion::opengl::render
     {
         stride += ((int32_t)layout.buffer_info.quantity * OpenGLBufferLayout::get_type_size(layout.buffer_info.type));
         buffer_layouts.push_back(layout);
-        REC_TRACE("Layout added stride:{}", stride);
+        REC_CORE_TRACE("Layout added stride {}", stride);
+        return *this;
+    }
+
+    VertexArray &VertexArray::add_texture(const OpenGLTexture &texture)
+    {
+        texture_list.push_back(texture);
+        REC_CORE_TRACE("Texture added {}", texture.get_path());
         return *this;
     }
 
@@ -62,12 +69,12 @@ namespace Recursion::opengl::render
                                   reinterpret_cast<const void *>(offset));
 
             glEnableVertexAttribArray(layout.buffer_info.attrib_array);
-            REC_TRACE("glVertexAttribPointer({},{},{},{},{},{})", layout.buffer_info.attrib_array,
-                      (int32_t)layout.buffer_info.quantity,
-                      (int32_t)layout.buffer_info.type,
-                      (int32_t)layout.buffer_info.normalized,
-                      stride,
-                      reinterpret_cast<const void *>(offset));
+            REC_CORE_TRACE("glVertexAttribPointer({},{},{},{},{},{})", layout.buffer_info.attrib_array,
+                           (int32_t)layout.buffer_info.quantity,
+                           (int32_t)layout.buffer_info.type,
+                           (int32_t)layout.buffer_info.normalized,
+                           stride,
+                           reinterpret_cast<const void *>(offset));
 
             offset += (((int32_t)layout.buffer_info.quantity) * OpenGLBufferLayout::get_type_size(layout.buffer_info.type));
         }
@@ -76,7 +83,7 @@ namespace Recursion::opengl::render
         // by default add all vertices 0 to N.
         if (this->IBO.IBO == 0)
         {
-            REC_TRACE("THERE'S NO INDEX BUFFER ASSIGNED !!!!\n");
+            REC_CORE_TRACE("THERE'S NO INDEX BUFFER ASSIGNED !!!!\n");
             uint32_t index_size = VBO.vertex_count;
             uint32_t arr[index_size];
             for (uint32_t i = 0; i < index_size; i++)
@@ -86,8 +93,20 @@ namespace Recursion::opengl::render
         }
     }
 
-    void VertexArray::draw()
-    { 
+    void VertexArray::draw(const OpenGLShader &shader)
+    {
+        if (texture_list.size() > 0)
+        {
+            shader.set_uniform1i("texture_bound", 1);
+            for (auto iter = texture_list.begin(); iter != texture_list.end(); iter++)
+            {
+                glActiveTexture(GL_TEXTURE0 + iter->get_unit());
+                glBindTexture(GL_TEXTURE_2D, iter->get_textureid());
+                shader.set_uniform1i("ourTexture", iter->get_textureid());
+            }
+        }
+        else
+            shader.set_uniform1i("texture_bound", 0);
         glDrawElements(GL_TRIANGLES, this->VBO.vertex_count, GL_UNSIGNED_INT, 0);
     }
 
