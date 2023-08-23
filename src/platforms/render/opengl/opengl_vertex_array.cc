@@ -95,18 +95,18 @@ namespace Recursion::opengl::render
 
     void VertexArray::draw(const OpenGLShader &shader)
     {
-        if (texture_list.size() > 0)
+        if (OPT_LIKELY(texture_list.size() > 0))
         {
-            shader.set_uniform1i("texture_bound", 1);
+            shader.set_uniform1i("u_texture_bound", 1);
             for (auto iter = texture_list.begin(); iter != texture_list.end(); iter++)
             {
                 glActiveTexture(GL_TEXTURE0 + iter->get_unit());
                 glBindTexture(GL_TEXTURE_2D, iter->get_textureid());
-                shader.set_uniform1i("ourTexture", iter->get_textureid());
+                shader.set_uniform1i("u_ourTexture", iter->get_textureid());
             }
         }
         else
-            shader.set_uniform1i("texture_bound", 0);
+            shader.set_uniform1i("u_texture_bound", 0);
         glDrawElements(GL_TRIANGLES, this->VBO.vertex_count, GL_UNSIGNED_INT, 0);
     }
 

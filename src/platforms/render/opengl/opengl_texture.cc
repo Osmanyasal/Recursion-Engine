@@ -3,7 +3,6 @@
 
 namespace Recursion::opengl::render
 {
-
     uint32_t OpenGLTexture::TEXTURE_UNIT_LIMIT = []()
     {
         return (uint32_t)(GL_ACTIVE_TEXTURE - GL_TEXTURE0);
