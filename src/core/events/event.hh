@@ -72,6 +72,13 @@ namespace Recursion::core::events
         virtual ~Event() {}
     };
 
+    // Blank event indicates no-event
+    class EmptyEvent : public Event{
+        public:
+            SET_EVENT_CATEGORY((int32_t)EventCategory::None)
+            SET_EVENT_TYPE(EventType::None)
+    };
+
     /**
      * @brief Binds event to a function that takes an event parameter T and returns boolean
      *

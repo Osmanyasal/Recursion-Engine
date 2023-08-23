@@ -10,7 +10,7 @@
 
 #include <opengl_texture.hh>
 
-Proj1::Proj1()
+Proj1::Proj1() : Application{"Project1"}
 {
     /*
             in this settings
@@ -81,20 +81,17 @@ Proj1::~Proj1()
     delete[] data;
     delete[] data2;
 }
-void Proj1::application(float delta_time)
+void Proj1::application(float delta_time, events::Event &event)
 {
 
-    float step = delta_time;
-    // cam.set_rotation(cam.get_rotation() + 10 * delta_time);
-
     if (input::Input::is_key_pressed(REC_KEY_A))
-        cam.set_position(glm::vec3(cam.get_position().x - step, cam.get_position().y, cam.get_position().z));
+        cam.set_position(glm::vec3(cam.get_position().x - delta_time, cam.get_position().y, cam.get_position().z));
     if (input::Input::is_key_pressed(REC_KEY_D))
-        cam.set_position(glm::vec3(cam.get_position().x + step, cam.get_position().y, cam.get_position().z));
+        cam.set_position(glm::vec3(cam.get_position().x + delta_time, cam.get_position().y, cam.get_position().z));
     if (input::Input::is_key_pressed(REC_KEY_S))
-        cam.set_position(glm::vec3(cam.get_position().x, cam.get_position().y - step, cam.get_position().z));
+        cam.set_position(glm::vec3(cam.get_position().x, cam.get_position().y - delta_time, cam.get_position().z));
     if (input::Input::is_key_pressed(REC_KEY_W))
-        cam.set_position(glm::vec3(cam.get_position().x, cam.get_position().y + step, cam.get_position().z));
+        cam.set_position(glm::vec3(cam.get_position().x, cam.get_position().y + delta_time, cam.get_position().z));
 
     sh.set_uniformMatrix4fv("mvp", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
     VAO.bind();

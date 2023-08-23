@@ -23,9 +23,14 @@ namespace Recursion::core
 
         layer_stack = new layer::LayerStack{};
         imgui_layer = new window::ImguiLayer_glfw_opengl_impl{((window::LinuxWindow *)window)->get_window()};
-        layer_stack->add_layer(imgui_layer);
+        layer_stack->add_layer(imgui_layer); 
 
         REC_CORE_INFO("Engine Created!");
+    }
+    
+    void Engine::add_application(Application *application){
+        layer_stack->add_layer(application);
+        this->application.reset(application);
     }
 
     Engine::~Engine()
@@ -43,7 +48,6 @@ namespace Recursion::core
         {
             if (OPT_LIKELY((*layer)->is_active()))
                 (*layer)->on_event(e);
-
             if (e.is_handled)
                 break;
         }
@@ -68,7 +72,7 @@ namespace Recursion::core
             imgui_layer->begin_loop();
  
             REC_CORE_TRACE("FPS {}", GET_FPS()); 
-            this->application(delta_time);
+            application->on_update(delta_time);
 
             imgui_layer->end_loop();
             window->on_update();

@@ -14,12 +14,13 @@
 
 namespace render = Recursion::opengl::render;
 namespace input = Recursion::core::input;
-class Proj1 : public Recursion::core::Engine
+namespace events = Recursion::core::events;
+class Proj1 : public Recursion::core::Application
 {
 public:
     Proj1();
     ~Proj1();
-    virtual void application(float delta_time) override;
+    virtual void application(float delta_time, events::Event &event) override;
 
 private:
     render::OpenGLShader sh;
