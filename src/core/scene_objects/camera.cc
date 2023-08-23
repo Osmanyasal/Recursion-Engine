@@ -1,6 +1,6 @@
 #include <camera.hh>
 
-namespace Recursion::core::render
+namespace Recursion::core::scene
 {
     ////////// CAMERA CONTROLLER ///////////
     void CameraController::update(float delta_time)

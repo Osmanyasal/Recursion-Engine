@@ -15,7 +15,7 @@ namespace Recursion::opengl::render
                                  uint32_t min_filter,
                                  uint32_t mag_filter) : Texture{path}
     {
-        REC_CORE_TRACE("Texture {} is being initialized", path);
+        REC_CORE_TRACE("Texture {} is being initialized", get_path());
         texture_unit = AVAILABLE_TEXTURE_UNIT;
         if (OPT_UNLIKELY(AVAILABLE_TEXTURE_UNIT == TEXTURE_UNIT_LIMIT))
         {
@@ -31,16 +31,16 @@ namespace Recursion::opengl::render
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag_filter);
 
         stbi_set_flip_vertically_on_load(true);
-        unsigned char *data = stbi_load(path.c_str(), &width, &height, &nrChannels, 0);
+        unsigned char *data = stbi_load(get_path().c_str(), &width, &height, &nrChannels, 0);
         if (data)
         {
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
             glGenerateMipmap(GL_TEXTURE_2D);
-            REC_CORE_TRACE("Texture {} is initialized", path);
+            REC_CORE_TRACE("Texture {} is initialized", get_path());
         }
         else
         {
-            REC_CORE_ERROR("Failed to load texture {}", path);
+            REC_CORE_ERROR("Failed to load texture {}", get_path());
         }
         stbi_image_free(data);
     }
@@ -63,7 +63,7 @@ namespace Recursion::opengl::render
     void OpenGLTexture::destroy()
     {
         glDeleteTextures(1, &texture_id);
-        REC_CORE_TRACE("Texture {} is destroyed", path);
+        REC_CORE_TRACE("Texture {} is destroyed", get_path());
     }
 
 } // namespace Recursion::opengl::core

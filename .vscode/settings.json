@@ -93,7 +93,9 @@
         "*.ipp": "cpp",
         "__config": "cpp",
         "regex": "cpp",
-        "__functional_03": "cpp"
+        "__functional_03": "cpp",
+        "__mutex_base": "cpp",
+        "__debug": "cpp"
     },
     "cmake.sourceDirectory": "/home/rt7/Desktop/Recursion-Engine/lib/spdlog"
 }

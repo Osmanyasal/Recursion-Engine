@@ -55,7 +55,8 @@ namespace Recursion::core::window
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        ImGui::ShowDemoWindow();
+        create_default_layout();
+        // ImGui::ShowDemoWindow();
     }
     void ImguiLayer_glfw_opengl_impl::end_loop()
     {
@@ -73,7 +74,6 @@ namespace Recursion::core::window
     }
 
     void ImguiLayer_glfw_opengl_impl::on_update(float delta_time) {}
-
 
     void ImguiLayer_glfw_opengl_impl::on_event(events::Event &event)
     {
@@ -258,6 +258,264 @@ namespace Recursion::core::window
 
     void ImguiLayer_glfw_opengl_impl::set_white_theme_colors()
     {
-         
+        // TODO: apply white theme colors
+    }
+
+    void ImguiLayer_glfw_opengl_impl::create_default_layout(uint32_t layout_id)
+    {
+        create_dockspace();
+        create_menu();
+        // right now, ignore layout order.
+        create_menu_file();
+        create_menu_edit();
+        create_menu_window();
+        create_menu_tools();
+        create_menu_build();
+        create_menu_help();
+        create_submenu();
+        create_log_menu();
+    }
+    void ImguiLayer_glfw_opengl_impl::create_dockspace()
+    {
+        ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+    }
+    void ImguiLayer_glfw_opengl_impl::create_menu()
+    {
+        if (ImGui::BeginMainMenuBar())
+        {
+            if (ImGui::BeginMenu("File"))
+            {
+                ImGui::SeparatorText("Open");
+                if(ImGui::MenuItem("New Level", "CTRL+N", false)){}
+                if(ImGui::MenuItem("Open Level", "CTRL+O", false)){}
+                if(ImGui::MenuItem("Open Asset", "CTRL+P", false)){}
+                
+                ImGui::SeparatorText("Save");
+                if(ImGui::MenuItem("Save Current Level", "CTRL+S", false)){}
+                if(ImGui::MenuItem("Save Current Level As...", "CTRL+ALT+S", false)){}
+                if(ImGui::MenuItem("Save All", "CTRL+SHIFT+S", false)){}
+
+                ImGui::SeparatorText("Import/Export");
+                if(ImGui::MenuItem("Import Into Level", nullptr, false)){}
+                if(ImGui::MenuItem("Export All...", nullptr, false)){}
+                if(ImGui::MenuItem("Export Selected", nullptr, false)){}
+
+                ImGui::SeparatorText("Project");
+                if(ImGui::MenuItem("New Project", nullptr, false)){}
+                if(ImGui::MenuItem("Open Project...", nullptr, false)){}
+                if(ImGui::MenuItem("Zip Project", nullptr, false)){}
+                if(ImGui::MenuItem("Recent Projects", nullptr, false)){}
+
+                ImGui::SeparatorText("Exit");
+                if(ImGui::MenuItem("Exit", nullptr, false)){ exit(0);}
+
+                ImGui::EndMenu();
+            }
+
+            if (ImGui::BeginMenu("Edit"))
+            {
+                ImGui::SeparatorText("History");
+                if(ImGui::MenuItem("Undo", "CTRL+Z", false)){}
+                if(ImGui::MenuItem("Redo", "CTRL+SHIFT+Z", false)){}
+                
+                ImGui::SeparatorText("Edit");
+                if(ImGui::MenuItem("Cut", "CTRL+X", false)){}
+                if(ImGui::MenuItem("Copy", "CTRL+C", false)){}
+                if(ImGui::MenuItem("Paste", "CTRL+V", false)){}
+                if(ImGui::MenuItem("Duplicate", "CTRL+D", false)){}
+                if(ImGui::MenuItem("Delete", "DELETE", false)){}
+
+                ImGui::SeparatorText("Configuration");
+                if(ImGui::MenuItem("Editor Preferences", nullptr, false)){}
+                if(ImGui::MenuItem("Project Settings", nullptr, false)){}
+                if(ImGui::MenuItem("Plugins", nullptr, false)){}
+
+                ImGui::EndMenu();
+            }
+
+            if (ImGui::BeginMenu("Window"))
+            {
+                ImGui::SeparatorText("History");
+                if(ImGui::MenuItem("Undo", "CTRL+Z", false)){}
+                if(ImGui::MenuItem("Redo", "CTRL+SHIFT+Z", false)){}
+                
+                ImGui::EndMenu();
+            }
+            if (ImGui::BeginMenu("Tools"))
+            {
+                ImGui::SeparatorText("PROGRAMMING");
+                if(ImGui::MenuItem("New C++ Class...", nullptr, false)){}
+                if(ImGui::MenuItem("Refresh VSCode Project", nullptr, false)){}
+                if(ImGui::MenuItem("Open VSCode", nullptr, false)){}
+
+                ImGui::SeparatorText("TOOLS");
+                if(ImGui::MenuItem("Cache Statistics", nullptr, false)){}
+                if(ImGui::MenuItem("CSV to SVG", nullptr, false)){}
+
+                ImGui::SeparatorText("INSTRUMENTATION");
+                if (ImGui::BeginMenu("Debug"))
+                {
+                    if(ImGui::MenuItem("Debug", nullptr, false)){}
+                    
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Profile"))
+                {
+                    if(ImGui::MenuItem("Debug", nullptr, false)){}
+                    
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Audit"))
+                {
+                    if(ImGui::MenuItem("Debug", nullptr, false)){}
+                    
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Platforms"))
+                {
+                    if(ImGui::MenuItem("Device Manager", nullptr, false)){}
+                    if(ImGui::MenuItem("Device Profiles", nullptr, false)){}
+                    ImGui::EndMenu();
+                }
+                
+                
+                ImGui::EndMenu();
+            }
+            if (ImGui::BeginMenu("Build"))
+            {
+                ImGui::SeparatorText("History");
+                if(ImGui::MenuItem("Undo", "CTRL+Z", false)){}
+                if(ImGui::MenuItem("Redo", "CTRL+SHIFT+Z", false)){}
+                
+                ImGui::EndMenu();
+            }
+            if (ImGui::BeginMenu("Select"))
+            {
+                ImGui::SeparatorText("History");
+                if(ImGui::MenuItem("Undo", "CTRL+Z", false)){}
+                if(ImGui::MenuItem("Redo", "CTRL+SHIFT+Z", false)){}
+                
+                ImGui::EndMenu();
+            }
+            if (ImGui::BeginMenu("Actor"))
+            {
+                ImGui::SeparatorText("Asset Options");
+                if(ImGui::MenuItem("Browse To Asset", "CTRL+B", false)){}
+                if(ImGui::MenuItem("Edit", "CTRL+E", false)){}
+
+                if (ImGui::BeginMenu("Asset Tools"))
+                {
+                    ImGui::EndMenu();
+                }
+                if(ImGui::MenuItem("Copy Selected Actor(s) File Path", nullptr, false)){}
+                if(ImGui::MenuItem("Save Selected Actor(s)", nullptr, false)){}
+                if (ImGui::BeginMenu("Place Actor"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Replace Selected Actor(s) with"))
+                {
+                    ImGui::EndMenu();
+                }
+
+                ImGui::SeparatorText("Actor Options");
+                if (ImGui::BeginMenu("Edit"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Visibility"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Transform"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Snapping"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Pivot"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Group"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Attach To"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Detach"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Add Event"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Jump To Event"))
+                {
+                    ImGui::EndMenu();
+                }
+
+                ImGui::SeparatorText("UE TOOLS");
+                if (ImGui::BeginMenu("Merge Actors"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Chaos"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("Level"))
+                {
+                    ImGui::EndMenu();
+                }
+                if (ImGui::BeginMenu("UV Editor"))
+                {
+                    ImGui::EndMenu();
+                }
+
+                ImGui::EndMenu();
+            }
+            if (ImGui::BeginMenu("Help"))
+            {
+                ImGui::SeparatorText("Search");
+                if(ImGui::MenuItem("SearchBar", "CTRL+SPACE", false)){}
+
+                ImGui::SeparatorText("Documentation");
+                if(ImGui::MenuItem("Programmer", "F1", false)){}
+                ImGui::EndMenu();
+            }
+            ImGui::EndMainMenuBar();
+        }
+    }
+
+    void ImguiLayer_glfw_opengl_impl::create_menu_file()
+    {
+    }
+    void ImguiLayer_glfw_opengl_impl::create_menu_edit()
+    {
+    }
+    void ImguiLayer_glfw_opengl_impl::create_menu_window()
+    {
+    }
+    void ImguiLayer_glfw_opengl_impl::create_menu_tools()
+    {
+    }
+    void ImguiLayer_glfw_opengl_impl::create_menu_build()
+    {
+    }
+    void ImguiLayer_glfw_opengl_impl::create_menu_help()
+    {
+    }
+    void ImguiLayer_glfw_opengl_impl::create_submenu()
+    {
+    }
+    void ImguiLayer_glfw_opengl_impl::create_log_menu()
+    {
     }
 }
+

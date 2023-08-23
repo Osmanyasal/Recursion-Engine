@@ -1,5 +1,5 @@
-#ifndef RECURSION_ENGINE__SRC__CORE__RENDER__CAMERA_HH
-#define RECURSION_ENGINE__SRC__CORE__RENDER__CAMERA_HH
+#ifndef RECURSION_ENGINE__SRC__CORE__SCENE_OBJECTS__CAMERA_HH
+#define RECURSION_ENGINE__SRC__CORE__SCENE_OBJECTS__CAMERA_HH
 
 #include <utils.hh>
 
@@ -10,7 +10,7 @@
 #include <Input.hh>
 #include <event_core.hh>
 
-namespace Recursion::core::render
+namespace Recursion::core::scene
 {
     class CameraController
     {

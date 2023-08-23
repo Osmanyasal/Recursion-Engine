@@ -47,9 +47,23 @@ namespace Recursion::core::window
         bool on_monitor_moved_call_back(events::WindowMovedEvent &event);
 
     private:
+        void create_default_layout(uint32_t layout_id = 0);
+        void create_dockspace();
+        void create_menu();
+        void create_menu_file();
+        void create_menu_edit();
+        void create_menu_window();
+        void create_menu_tools();
+        void create_menu_build();
+        void create_menu_help();
+
+        void create_submenu(); // where, play, start,stop goes
+
+        void create_log_menu();
+
+    private:
         GLFWwindow *m_window;
     };
 } // namespace Recursion::core::window
-
 
 #endif

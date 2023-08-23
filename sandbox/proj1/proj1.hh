@@ -30,7 +30,7 @@ private:
     render::VertexArray VAO2;
     float *data2;
 
-    Recursion::core::render::OrthographicCamera cam;
+    Recursion::core::scene::OrthographicCamera cam;
 };
 
 #endif
