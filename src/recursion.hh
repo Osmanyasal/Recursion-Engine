@@ -27,12 +27,11 @@ namespace Recursion::core
         virtual void on_detach() override {}
         virtual void on_update(float delta_time) override
         {
-            application(delta_time, *event_to_handle);
-            event_to_handle = &empty_event;
+            application(delta_time, empty_event);
         }
         virtual void on_event(events::Event &event) override
         {
-            event_to_handle = &event;
+            application(0.0111f, event); // target fps is 90
         }
 
     protected:
@@ -42,7 +41,6 @@ namespace Recursion::core
         const std::string app_name;
 
     private:
-        core::events::Event* event_to_handle;
         core::events::EmptyEvent empty_event;
     };
 
@@ -57,7 +55,7 @@ namespace Recursion::core
         bool on_event(Recursion::core::events::Event &e);
 
     private:
-        std::unique_ptr<Application>application{nullptr};
+        std::unique_ptr<Application> application;
         bool is_running;
         window::Window *window;
         window::ImguiLayer_glfw_opengl_impl *imgui_layer;

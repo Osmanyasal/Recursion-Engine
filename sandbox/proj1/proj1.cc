@@ -83,15 +83,9 @@ Proj1::~Proj1()
 }
 void Proj1::application(float delta_time, events::Event &event)
 {
-
-    if (input::Input::is_key_pressed(REC_KEY_A))
-        cam.set_position(glm::vec3(cam.get_position().x - delta_time, cam.get_position().y, cam.get_position().z));
-    if (input::Input::is_key_pressed(REC_KEY_D))
-        cam.set_position(glm::vec3(cam.get_position().x + delta_time, cam.get_position().y, cam.get_position().z));
-    if (input::Input::is_key_pressed(REC_KEY_S))
-        cam.set_position(glm::vec3(cam.get_position().x, cam.get_position().y - delta_time, cam.get_position().z));
-    if (input::Input::is_key_pressed(REC_KEY_W))
-        cam.set_position(glm::vec3(cam.get_position().x, cam.get_position().y + delta_time, cam.get_position().z));
+    // REC_INFO("EVENT NAME {}",event.get_name());
+    cam.update(delta_time);
+     
 
     sh.set_uniformMatrix4fv("mvp", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
     VAO.bind();

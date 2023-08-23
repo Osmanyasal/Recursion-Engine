@@ -7,22 +7,39 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtx/string_cast.hpp>
+#include <Input.hh>
+#include <event_core.hh>
 
 namespace Recursion::core::render
 {
+    class CameraController
+    {
+    public:
+        CameraController(float step = 1.0f) : step{step} {}
+        virtual ~CameraController() {}
+        virtual void update(float delta_time);
+        virtual const glm::vec3 &get_position() const = 0;
+        virtual const float get_rotation() const = 0;
+        virtual void set_position(const glm::vec3 &position) = 0;
+        virtual void set_rotation(float rotation) = 0;
 
-    class Camera
+    private:
+        virtual void update_camera() = 0; 
+        float step;
+    };
+    class Camera : public CameraController
     {
     public:
         virtual const glm::mat4 &get_view_projection_matrix() const final;
         virtual const glm::mat4 &get_projection_matrix() const final;
         virtual const glm::mat4 &get_view_matrix() const final;
-        virtual const glm::vec3 &get_position() const final;
-        virtual const float get_rotation() const final;
 
-        virtual void update_camera();
-        virtual void set_position(const glm::vec3 &position) final;
-        virtual void set_rotation(float rotation) final;
+        virtual const glm::vec3 &get_position() const final override;
+        virtual const float get_rotation() const final override;
+
+        virtual void update_camera() override;
+        virtual void set_position(const glm::vec3 &position) override;
+        virtual void set_rotation(float rotation) override;
 
     protected:
         Camera();

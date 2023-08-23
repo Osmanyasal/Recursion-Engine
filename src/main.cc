@@ -4,8 +4,7 @@
 int32_t main(int32_t argc, char **argv)
 {
     Recursion::core::Engine engine;
-    Proj1* prj = new Proj1;
-    engine.add_application(prj);
+    engine.add_application(new Proj1);
     engine.start();
     return 0;
 }

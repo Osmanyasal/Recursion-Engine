@@ -50,6 +50,7 @@ namespace Recursion::core::events
     class Event
     {
     public:
+        void* additional_data;
         bool is_handled;
         virtual EventType get_event_type() const = 0;
         virtual std::string get_name() const = 0;

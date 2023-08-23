@@ -2,6 +2,21 @@
 
 namespace Recursion::core::render
 {
+    ////////// CAMERA CONTROLLER ///////////
+    void CameraController::update(float delta_time)
+    {   
+        glm::vec3 pos = get_position();
+        if (input::Input::is_key_pressed(REC_KEY_A))
+            pos.x -= step * delta_time;
+        if (input::Input::is_key_pressed(REC_KEY_D))
+            pos.x += step * delta_time;
+        if (input::Input::is_key_pressed(REC_KEY_S))
+            pos.y -= step * delta_time;
+        if (input::Input::is_key_pressed(REC_KEY_W))
+            pos.y += step * delta_time;
+        set_position(pos);
+    }
+
     ////////// CAMERA ///////////
 
     Camera::Camera() {}
@@ -42,7 +57,7 @@ namespace Recursion::core::render
     {
         projection_matrix = glm::ortho(left, right, bottom, top, -1.1f, 1.1f);
         view_matrix = glm::mat4{1.0f};
-        position = glm::vec3(0,0,0.0f);
+        position = glm::vec3(0, 0, 0.0f);
         rotation = 0.0f;
         update_camera();
 
@@ -52,7 +67,7 @@ namespace Recursion::core::render
         REC_TRACE("rotation: {}", rotation);
         REC_TRACE("view_projection: {}", to_string(view_projection_matrix));
     }
-    OrthographicCamera::~OrthographicCamera(){}
+    OrthographicCamera::~OrthographicCamera() {}
 
     ////////// PERSPECTIVE CAMERA ///////////
     PerspectiveCamera::PerspectiveCamera() { update_camera(); }

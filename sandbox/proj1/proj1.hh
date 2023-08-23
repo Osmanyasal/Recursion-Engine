@@ -7,8 +7,7 @@
 #include <opengl_index_buffer.hh>
 #include <opengl_vertex_array.hh>
 #include <opengl_buffer_layout.hh>
-#include <utils.hh>
-#include <Input.hh>
+#include <utils.hh> 
 #include <recursion.hh>
 #include <camera.hh>
 
