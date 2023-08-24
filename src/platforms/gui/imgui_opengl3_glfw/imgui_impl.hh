@@ -2,6 +2,7 @@
 #define RECURSION_ENGINE__SRC__PLATFORMS__IMGUI_LAYER_GLFW_OPENGL_IMPL_HH
 
 #include <imgui.h>
+#include <imgui_internal.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 #include <window.hh>
@@ -48,13 +49,15 @@ namespace Recursion::core::window
 
     private:
         void create_default_layout(uint32_t layout_id = 0);
-        void create_dockspace();
+        uint32_t create_dockspace();
         void create_menu();
         void create_menu_file();
         void create_menu_edit();
         void create_menu_window();
         void create_menu_tools();
         void create_menu_build();
+        void create_menu_select();
+        void create_menu_actor();
         void create_menu_help();
 
         void create_submenu(); // where, play, start,stop goes
