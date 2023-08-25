@@ -27,7 +27,7 @@ namespace Recursion::core::window
         float xscale, yscale;
         glfwGetWindowContentScale(m_window, &xscale, &yscale);
         io.Fonts->Clear();
-        io.Fonts->AddFontFromFileTTF("./fonts/font_opensans/fonts/ttf/OpenSans-Regular.ttf", xscale * 16.0f);
+        io.Fonts->AddFontFromFileTTF("./fonts/font_opensans/fonts/ttf/OpenSans-Regular.ttf", xscale * CONF_IDE_TEXT_SIZE);
         io.Fonts->Build();
         ImGui_ImplOpenGL3_DestroyFontsTexture();
         ImGui_ImplOpenGL3_CreateFontsTexture();
@@ -284,7 +284,7 @@ namespace Recursion::core::window
             create_menu_actor();
             create_menu_help();
             create_submenu();
-            create_log_menu();
+            create_log_window();
 
             ImGui::EndMainMenuBar();
         }
@@ -621,7 +621,13 @@ namespace Recursion::core::window
     void ImguiLayer_glfw_opengl_impl::create_submenu()
     {
     }
-    void ImguiLayer_glfw_opengl_impl::create_log_menu()
+
+    void ImguiLayer_glfw_opengl_impl::create_log_window()
+    {
+
+    }
+
+    void ImguiLayer_glfw_opengl_impl::create_env_window()
     {
     }
 }

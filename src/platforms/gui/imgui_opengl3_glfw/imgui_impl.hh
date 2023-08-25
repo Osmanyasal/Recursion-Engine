@@ -1,6 +1,7 @@
 #ifndef RECURSION_ENGINE__SRC__PLATFORMS__IMGUI_LAYER_GLFW_OPENGL_IMPL_HH
 #define RECURSION_ENGINE__SRC__PLATFORMS__IMGUI_LAYER_GLFW_OPENGL_IMPL_HH
 
+#include <config.hh>
 #include <imgui.h>
 #include <imgui_internal.h>
 #include <imgui_impl_glfw.h>
@@ -62,7 +63,8 @@ namespace Recursion::core::window
 
         void create_submenu(); // where, play, start,stop goes
 
-        void create_log_menu();
+        void create_log_window();
+        void create_env_window();
 
     private:
         GLFWwindow *m_window;

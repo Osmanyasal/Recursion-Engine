@@ -71,4 +71,12 @@
 */
 
 
+
+
+/**
+ * @brief IDE Features
+ * 
+*/
+#define CONF_IDE_TEXT_SIZE 20
+
 #endif
