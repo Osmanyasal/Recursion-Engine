@@ -27,7 +27,7 @@ namespace Recursion::core::events
     public:
         SET_EVENT_TYPE(EventType::WindowResize)
         WindowResizedEvent(int32_t width, int32_t height)
-            : m_width{width}, m_height{m_height}
+            : m_width{width}, m_height{height}
         {
         }
         virtual ~WindowResizedEvent() {}

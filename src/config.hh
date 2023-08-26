@@ -47,8 +47,8 @@
 #define CONF__REC__WINDOW_POSX 0
 #define CONF__REC__WINDOW_POSY 0
 
-#define CONF__REC__WINDOW_WIDTH 2560
-#define CONF__REC__WINDOW_HEIGHT 1440
+#define CONF__REC__WINDOW_WIDTH 2560.0
+#define CONF__REC__WINDOW_HEIGHT 1440.0
 
 /**
  * @brief LOGGING
@@ -77,6 +77,9 @@
  * @brief IDE Features
  * 
 */
-#define CONF_IDE_TEXT_SIZE 20
+#define CONF__IDE__TEXT_SIZE 18
+#define CONF__IDE__ZOOM_STEP 0.25
+#define CONF__IDE__MIN_DISTANCE 0.10
+#define CONF__IDE__MAX_DISTANCE 20.0
 
 #endif

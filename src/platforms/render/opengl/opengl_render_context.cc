@@ -19,7 +19,7 @@ namespace Recursion::opengl::render
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
         // Create a GLFW window
-        auto window = glfwCreateWindow(get_window_props().win_width, get_window_props().win_height, get_window_props().win_title.c_str(), nullptr, nullptr);
+        GLFWwindow *window = glfwCreateWindow(get_window_props().win_width, get_window_props().win_height, get_window_props().win_title.c_str(), nullptr, nullptr);
         this->set_window(window);
 
         if (OPT_UNLIKELY(!this->get_window()))

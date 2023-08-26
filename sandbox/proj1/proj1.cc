@@ -84,6 +84,7 @@ Proj1::~Proj1()
 void Proj1::application(float delta_time, events::Event &event)
 {
     // REC_INFO("EVENT NAME {}",event.get_name());
+    cam.on_event(event);
     cam.update(delta_time);
      
 

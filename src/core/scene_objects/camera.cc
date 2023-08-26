@@ -4,7 +4,7 @@ namespace Recursion::core::scene
 {
     ////////// CAMERA CONTROLLER ///////////
     void CameraController::update(float delta_time)
-    {   
+    {
         glm::vec3 pos = get_position();
         if (input::Input::is_key_pressed(REC_KEY_A))
             pos.x -= step * delta_time;
@@ -19,14 +19,34 @@ namespace Recursion::core::scene
 
     ////////// CAMERA ///////////
 
-    Camera::Camera() {}
+    Camera::Camera()
+    {
+        this->zoom_level = 1.0f;
+    }
     Camera::~Camera() {}
 
+    void Camera::on_event(events::Event &event)
+    {
+        switch (event.get_event_type())
+        {
+        case events::EventType::MouseScrolled:
+            event.is_handled = on_scroll_call_back((events::MouseScrolledEvent &)event);
+            break;
+
+        case events::EventType::WindowResize:
+            event.is_handled = on_monitor_resized_call_back((events::WindowResizedEvent &)event);
+            break;
+
+        default:
+            break;
+        }
+    }
     const glm::mat4 &Camera::get_view_projection_matrix() const { return view_projection_matrix; }
     const glm::mat4 &Camera::get_projection_matrix() const { return projection_matrix; }
     const glm::mat4 &Camera::get_view_matrix() const { return view_matrix; }
     const glm::vec3 &Camera::get_position() const { return position; }
-    const float Camera::get_rotation() const { return rotation; }
+    float Camera::get_rotation() const { return rotation; }
+    float Camera::get_aspect_ratio() const { return aspect_ratio; }
 
     void Camera::update_camera()
     {
@@ -52,7 +72,11 @@ namespace Recursion::core::scene
     }
 
     ////////// ORTHOGRAPHIC CAMERA ///////////
-    OrthographicCamera::OrthographicCamera() : OrthographicCamera(-1.0f, 1.0f, -1.0f, 1.0f) {}
+    OrthographicCamera::OrthographicCamera(float aspect_ratio) : OrthographicCamera(-aspect_ratio, aspect_ratio, -aspect_ratio, aspect_ratio)
+    {
+        this->aspect_ratio = aspect_ratio;
+    }
+
     OrthographicCamera::OrthographicCamera(float left, float right, float bottom, float top)
     {
         projection_matrix = glm::ortho(left, right, bottom, top, -1.1f, 1.1f);
@@ -67,10 +91,46 @@ namespace Recursion::core::scene
         REC_TRACE("rotation: {}", rotation);
         REC_TRACE("view_projection: {}", to_string(view_projection_matrix));
     }
+
+    bool OrthographicCamera::on_scroll_call_back(events::MouseScrolledEvent &event)
+    {
+        zoom_level = std::max(zoom_level + event.get_offset_y() * CONF__IDE__ZOOM_STEP, CONF__IDE__MIN_DISTANCE);
+        zoom_level = std::min((double)zoom_level, CONF__IDE__MAX_DISTANCE);
+        float borders = aspect_ratio * zoom_level;
+        this->projection_matrix = glm::ortho(-borders, borders, -borders, borders);
+
+        return true;
+    }
+    bool OrthographicCamera::on_monitor_resized_call_back(events::WindowResizedEvent &event)
+    {
+        float _width = event.get_width();
+        float _height = event.get_height();
+        aspect_ratio = _width / _height;
+        float borders = aspect_ratio * zoom_level;
+        this->projection_matrix = glm::ortho(-borders, borders, -borders, borders);
+        return true;
+    }
+
     OrthographicCamera::~OrthographicCamera() {}
 
     ////////// PERSPECTIVE CAMERA ///////////
-    PerspectiveCamera::PerspectiveCamera() { update_camera(); }
+    // TODO:Implement Perspective Camera
+    PerspectiveCamera::PerspectiveCamera(float aspect_ratio)
+    {
+        this->aspect_ratio = aspect_ratio;
+        update_camera();
+    }
     PerspectiveCamera::~PerspectiveCamera() {}
+
+    bool PerspectiveCamera::on_scroll_call_back(events::MouseScrolledEvent &event)
+    {
+
+        return true;
+    }
+    bool PerspectiveCamera::on_monitor_resized_call_back(events::WindowResizedEvent &event)
+    {
+
+        return true;
+    }
 
 } // namespace Recursion::core::render

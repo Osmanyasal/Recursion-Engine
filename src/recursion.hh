@@ -27,11 +27,12 @@ namespace Recursion::core
         virtual void on_detach() override {}
         virtual void on_update(float delta_time) override
         {
+            last_delta_time = delta_time;
             application(delta_time, empty_event);
         }
         virtual void on_event(events::Event &event) override
         {
-            application(0.0111f, event); // target fps is 90
+            application(last_delta_time, event);  
         }
 
     protected:
@@ -42,6 +43,7 @@ namespace Recursion::core
 
     private:
         core::events::EmptyEvent empty_event;
+        float last_delta_time;        
     };
 
     class Engine

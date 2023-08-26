@@ -89,6 +89,8 @@ namespace Recursion::core::window
 
         glfwSetWindowSizeCallback(context->get_window(), [](GLFWwindow *window, int32_t width, int32_t height)
                                   {
+
+            glViewport(0, 0, width, height); 
             WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
             retrievedData.win_height = width;
             retrievedData.win_height = height;
@@ -100,7 +102,7 @@ namespace Recursion::core::window
                                  {
             WindowProps &retrievedData = *(WindowProps *)(glfwGetWindowUserPointer(window));
             retrievedData.win_posx = posx;
-            retrievedData.win_posy = posy;
+            retrievedData.win_posy = posy; 
             events::WindowMovedEvent win_moved{retrievedData.win_posx, retrievedData.win_posy};
             events::EventBinder event_binder{win_moved};
             event_binder.bind<events::WindowMovedEvent>(retrievedData.engine_callback_func); });
