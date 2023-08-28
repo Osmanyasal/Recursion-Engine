@@ -15,12 +15,12 @@ Proj1::Proj1() : Application{"Project1"}
     sh.bind(); // bind shader !
     renderer = Renderer2D::init((Recursion::core::render::Shader &)sh);
 
-    data = new float[3 * 9]{
+    data = new float[3 * 8]{
         // positions         // colors       // texture
         // First Triangle
-        -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, // bottom left
-        0.0f, 0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.5f, 1.0f,   // top
-        0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,  // bottom right
+        -0.5f, -0.5f, .5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, // bottom left
+        0.0f, 0.5f, .5f, 1.0f, 1.0f, 1.0f, 0.5f, 1.0f,   // top
+        0.5f, -0.5f, .5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,  // bottom right
     };
     unsigned int index[3 * 1] = {0, 1, 2}; // 3, 4, 5};
 
@@ -43,6 +43,35 @@ Proj1::Proj1() : Application{"Project1"}
                      render::Normalized::FALSE})
         .bind_index_buffer({index, sizeof(unsigned int) * 3 * 1})
         .add_texture({"/home/rt7/Desktop/glsl_learning/assets/container.png"})
+        .build();
+
+
+    data3 = new float[3 * 8]{
+        // positions         // colors       // texture
+        // First Triangle
+        0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, // bottom left
+        0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.5f, 1.0f,   // top
+        1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,  // bottom right
+    };
+
+    VAO3.bind();
+    VAO3.bind_vertex_buffer({data3, sizeof(float) * 3 * 8})
+        .add_layout({"position",
+                     0,
+                     render::Quantity::Float3,
+                     render::Type::Float,
+                     render::Normalized::FALSE})
+        .add_layout({"color",
+                     1,
+                     render::Quantity::Float3,
+                     render::Type::Float,
+                     render::Normalized::FALSE})
+        .add_layout({"texture",
+                     2,
+                     render::Quantity::Float2,
+                     render::Type::Float,
+                     render::Normalized::FALSE})
+        .add_texture({"/home/rt7/Desktop/glsl_learning/assets/container_specular.png"})
         .build();
 
     data2 = new float[3 * 8]{
@@ -76,6 +105,7 @@ Proj1::~Proj1()
 {
     delete[] data;
     delete[] data2;
+    delete[] data3;
 }
 void Proj1::application(float delta_time, events::Event &event)
 {
@@ -84,6 +114,7 @@ void Proj1::application(float delta_time, events::Event &event)
 
     renderer.submit(VAO);
     renderer.submit(VAO2);
+    renderer.submit(VAO3);
 
     renderer.end_scene();
 }
