@@ -16,7 +16,7 @@ namespace Recursion::opengl::render
                       uint32_t min_filter = GL_LINEAR_MIPMAP_LINEAR,
                       uint32_t mag_filter = GL_LINEAR);
 
-        OpenGLTexture(uint32_t width, uint32_t height, uint32_t value, uint32_t wrap_s = GL_REPEAT,
+        OpenGLTexture(uint32_t width = 1, uint32_t height = 1, uint32_t value = 0xFFFFFF, uint32_t wrap_s = GL_REPEAT,
                       uint32_t wrap_t = GL_REPEAT,
                       uint32_t min_filter = GL_LINEAR_MIPMAP_LINEAR,
                       uint32_t mag_filter = GL_LINEAR);

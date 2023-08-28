@@ -59,7 +59,7 @@ namespace Recursion::opengl::render
     {
         if (OPT_UNLIKELY(texture_list.size() == 0))
         {
-            OpenGLTexture blank_texture{10, 10, 0xFFFFFF};
+            OpenGLTexture blank_texture;
             texture_list.push_back(blank_texture);
         }
         OpenGLTexture::AVAILABLE_TEXTURE_UNIT = 0; // reset texture_units for next VertexArray's textures.
