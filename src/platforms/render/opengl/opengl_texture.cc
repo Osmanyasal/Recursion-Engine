@@ -25,6 +25,7 @@ namespace Recursion::opengl::render
         AVAILABLE_TEXTURE_UNIT += 1;
 
         glGenTextures(1, &texture_id);
+        glBindTexture(GL_TEXTURE_2D, texture_id);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrap_s);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrap_t);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min_filter);
@@ -43,6 +44,39 @@ namespace Recursion::opengl::render
             REC_CORE_ERROR("Failed to load texture {}", get_path());
         }
         stbi_image_free(data);
+    }
+
+    OpenGLTexture::OpenGLTexture(uint32_t width, uint32_t height, uint32_t value, uint32_t wrap_s,
+                                 uint32_t wrap_t,
+                                 uint32_t min_filter,
+                                 uint32_t mag_filter) : Texture{""}
+    {
+        texture_unit = AVAILABLE_TEXTURE_UNIT;
+        if (OPT_UNLIKELY(AVAILABLE_TEXTURE_UNIT == TEXTURE_UNIT_LIMIT))
+        {
+            REC_CORE_WARN("All texture slots are occupied, returning texture 0 as next location");
+            AVAILABLE_TEXTURE_UNIT = -1;
+        }
+        AVAILABLE_TEXTURE_UNIT += 1;
+
+        glGenTextures(1, &texture_id);
+        glBindTexture(GL_TEXTURE_2D, texture_id);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrap_s);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrap_t);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min_filter);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag_filter);
+
+        uint32_t data[width][height];
+        for (uint32_t i = 0; i < width; i++)
+            for (uint32_t j = 0; j < height; j++)
+            {
+                data[i][j] = value;
+            }
+
+        // Allocate storage for the texture
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+
+        glGenerateMipmap(GL_TEXTURE_2D);
     }
 
     OpenGLTexture::~OpenGLTexture()

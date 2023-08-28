@@ -13,7 +13,7 @@
 Proj1::Proj1() : Application{"Project1"}
 {
     sh.bind(); // bind shader !
-    renderer = Renderer2D::init((Recursion::core::render::Shader&)sh);
+    renderer = Renderer2D::init((Recursion::core::render::Shader &)sh);
 
     data = new float[3 * 9]{
         // positions         // colors       // texture
@@ -45,15 +45,15 @@ Proj1::Proj1() : Application{"Project1"}
         .add_texture({"/home/rt7/Desktop/glsl_learning/assets/container.png"})
         .build();
 
-    data2 = new float[3 * 6]{
+    data2 = new float[3 * 8]{
 
-        -1.0f, 1.0f, 0.0f, .2f, 1.0f, 1.0f, // bottom
-        -1.0f, 0.0f, 0.0f, .2f, 1.0f, 1.0f, // left
-        -0.5f, 0.5f, 0.0f, .2f, 1.0f, 1.0f  // right
+        -1.0f, 1.0f, 0.0f, .2f, 1.0f, 1.0f, 1.0f, 1.0f, // bottom
+        -1.0f, 0.0f, 0.0f, .2f, 1.0f, 1.0f, 1.0f, 1.0f, // left
+        -0.5f, 0.5f, 0.0f, .2f, 1.0f, 1.0f, 1.0f, 1.0f  // right
     };
 
     VAO2.bind();
-    VAO2.bind_vertex_buffer({data2, sizeof(float) * 3 * 6})
+    VAO2.bind_vertex_buffer({data2, sizeof(float) * 3 * 8})
         .add_layout({"position",
                      0,
                      render::Quantity::Float3,
@@ -62,6 +62,12 @@ Proj1::Proj1() : Application{"Project1"}
         .add_layout({"color",
                      1,
                      render::Quantity::Float3,
+                     render::Type::Float,
+                     render::Normalized::FALSE})
+
+        .add_layout({"texture",
+                     2,
+                     render::Quantity::Float2,
                      render::Type::Float,
                      render::Normalized::FALSE})
         .build();
@@ -78,7 +84,6 @@ void Proj1::application(float delta_time, events::Event &event)
 
     renderer.submit(VAO);
     renderer.submit(VAO2);
-
 
     renderer.end_scene();
 }

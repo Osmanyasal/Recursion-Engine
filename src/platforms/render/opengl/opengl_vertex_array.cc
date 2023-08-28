@@ -57,6 +57,13 @@ namespace Recursion::opengl::render
 
     void VertexArray::build()
     {
+        if (OPT_UNLIKELY(texture_list.size() == 0))
+        {
+            OpenGLTexture blank_texture{10, 10, 0xFFFFFF};
+            texture_list.push_back(blank_texture);
+        }
+        OpenGLTexture::AVAILABLE_TEXTURE_UNIT = 0; // reset texture_units for next VertexArray's textures.
+        
         // calculate offset and stride
         uint32_t offset = 0;
         for (auto &layout : buffer_layouts)
@@ -95,19 +102,13 @@ namespace Recursion::opengl::render
 
     void VertexArray::draw(core::render::Shader &shader)
     {
-        if (OPT_LIKELY(texture_list.size() > 0))
+        for (auto iter = texture_list.begin(); iter != texture_list.end(); iter++)
         {
-            shader.set_uniform1i("u_texture_bound", 1);
-            for (auto iter = texture_list.begin(); iter != texture_list.end(); iter++)
-            {
-                glActiveTexture(GL_TEXTURE0 + iter->get_unit());
-                glBindTexture(GL_TEXTURE_2D, iter->get_textureid());
-                shader.set_uniform1i("u_ourTexture", iter->get_textureid());
-            }
+            iter->bind(); // bind the texture
+            shader.set_uniform1i("u_ourTexture", iter->get_unit()); // set texture unit.
         }
-        else
-            shader.set_uniform1i("u_texture_bound", 0);
         glDrawElements(GL_TRIANGLES, this->VBO.vertex_count, GL_UNSIGNED_INT, 0);
+        // glDisable(GL_TEXTURE_2D);
     }
 
 } // namespace Recursion::core::render

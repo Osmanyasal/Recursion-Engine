@@ -15,23 +15,31 @@ namespace Recursion::opengl::render
                       uint32_t wrap_t = GL_REPEAT,
                       uint32_t min_filter = GL_LINEAR_MIPMAP_LINEAR,
                       uint32_t mag_filter = GL_LINEAR);
+
+        OpenGLTexture(uint32_t width, uint32_t height, uint32_t value, uint32_t wrap_s = GL_REPEAT,
+                      uint32_t wrap_t = GL_REPEAT,
+                      uint32_t min_filter = GL_LINEAR_MIPMAP_LINEAR,
+                      uint32_t mag_filter = GL_LINEAR);
+
         virtual ~OpenGLTexture();
 
         void bind() override;
         void unbind() override;
         void destroy() override;
 
-        inline uint32_t get_unit(){return texture_unit;} 
-    
+        inline uint32_t get_unit() { return texture_unit; }
+
+    public:
+        static uint32_t TEXTURE_UNIT_LIMIT;
+        static uint32_t AVAILABLE_TEXTURE_UNIT;
+
     protected:
         int width;
         int height;
         int nrChannels;
 
     private:
-        static uint32_t TEXTURE_UNIT_LIMIT;
-        static uint32_t AVAILABLE_TEXTURE_UNIT;
-        uint32_t texture_unit;        
+        uint32_t texture_unit;
     };
 
 } // namespace Recursion::opengl::render
