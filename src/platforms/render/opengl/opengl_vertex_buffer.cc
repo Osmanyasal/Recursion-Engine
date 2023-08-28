@@ -7,7 +7,7 @@ namespace Recursion::opengl::render
         vertex_count = 0;
     }
 
-    VertexBuffer::VertexBuffer(float *data, uint32_t size_in_bytes, uint32_t draw_method): vertex_count{size_in_bytes / sizeof(float)}
+    VertexBuffer::VertexBuffer(float *data, uint32_t size_in_bytes, uint32_t draw_method): vertex_count{(int32_t)((float)size_in_bytes / sizeof(float))}
     {
         glGenBuffers(1, &VBO);
         glBindBuffer(GL_ARRAY_BUFFER, VBO);

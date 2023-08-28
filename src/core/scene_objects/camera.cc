@@ -2,21 +2,6 @@
 
 namespace Recursion::core::scene
 {
-    ////////// CAMERA CONTROLLER ///////////
-    void CameraController::update(float delta_time)
-    {
-        glm::vec3 pos = get_position();
-        if (input::Input::is_key_pressed(REC_KEY_A))
-            pos.x -= step * delta_time;
-        if (input::Input::is_key_pressed(REC_KEY_D))
-            pos.x += step * delta_time;
-        if (input::Input::is_key_pressed(REC_KEY_S))
-            pos.y -= step * delta_time;
-        if (input::Input::is_key_pressed(REC_KEY_W))
-            pos.y += step * delta_time;
-        set_position(pos);
-    }
-
     ////////// CAMERA ///////////
 
     Camera::Camera()
@@ -25,7 +10,7 @@ namespace Recursion::core::scene
     }
     Camera::~Camera() {}
 
-    void Camera::on_event(events::Event &event)
+    Camera &Camera::on_event(events::Event &event)
     {
         switch (event.get_event_type())
         {
@@ -40,7 +25,26 @@ namespace Recursion::core::scene
         default:
             break;
         }
+
+        return *this;
     }
+    
+    Camera &Camera::update(float delta_time)
+    {
+        glm::vec3 pos = get_position();
+        if (input::Input::is_key_pressed(REC_KEY_A))
+            pos.x -= step * delta_time;
+        if (input::Input::is_key_pressed(REC_KEY_D))
+            pos.x += step * delta_time;
+        if (input::Input::is_key_pressed(REC_KEY_S))
+            pos.y -= step * delta_time;
+        if (input::Input::is_key_pressed(REC_KEY_W))
+            pos.y += step * delta_time;
+        set_position(pos);
+
+        return *this;
+    }
+
     const glm::mat4 &Camera::get_view_projection_matrix() const { return view_projection_matrix; }
     const glm::mat4 &Camera::get_projection_matrix() const { return projection_matrix; }
     const glm::mat4 &Camera::get_view_matrix() const { return view_matrix; }

@@ -1,8 +1,9 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__RENDER__BUFFER_HH
 #define RECURSION_ENGINE__SRC__CORE__RENDER__BUFFER_HH
 
-#include <bindable.hh>
 #include <iostream>
+#include <bindable.hh>
+#include <shader.hh>
 
 namespace Recursion::core::render
 {
@@ -13,6 +14,14 @@ namespace Recursion::core::render
         virtual ~Buffer() {}
     };
 
+    class Drawable : public Buffer
+    {
+    public:
+        Drawable() {}
+        virtual ~Drawable() {}
+
+        virtual void draw(Shader &shader) = 0;
+    };
 
     // MUST BE EXTENDED TO OTHER PLATFORMS
     class BufferLayout

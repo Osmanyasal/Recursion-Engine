@@ -3,7 +3,10 @@
 
 #include <utils.hh>
 #include <camera.hh>
-#include <bindable.hh>
+#include <buffer.hh>
+#include <memory>
+#include <shader.hh>
+
 // TODO: Remove this, make vertex-array and buffer objects generic!
 namespace Recursion::core::render
 {
@@ -14,13 +17,18 @@ namespace Recursion::core::render
         inline virtual ~Renderer() {}
 
         // set up your scene
-        virtual Renderer& begin_scene(core::scene::Camera&) = 0;
+        virtual Renderer &begin_scene(core::scene::Camera &) = 0;
 
         // submit items to your scene
-        virtual Renderer& submit(const Bindable&) = 0;
+        virtual Renderer &submit(Drawable &) = 0;
 
         // wrap up the scene (remember all these are in a loop)
         virtual void end_scene() = 0;
+
+        void set_shader_program(Shader* shader);
+        
+    protected:
+        std::shared_ptr<Shader> _shader;
     };
 
     class Renderer2D : public Renderer
@@ -29,16 +37,17 @@ namespace Recursion::core::render
         inline Renderer2D() {}
         inline virtual ~Renderer2D() {}
 
-        const static Renderer2D &Get();
+        const static Renderer2D &init(Shader &shader);
 
         // set up your scene
-        virtual Renderer& begin_scene(core::scene::Camera&) override;
+        virtual Renderer &begin_scene(core::scene::Camera &) override;
 
         // submit items to your scene
-        virtual Renderer& submit(const Bindable&) override;
+        virtual Renderer &submit(Drawable &) override;
 
         // wrap up the scene (remember all these are in a loop)
-        virtual void end_scene() override; 
+        virtual void end_scene() override;
+ 
     };
 
     class Renderer3D : public Renderer
@@ -47,13 +56,13 @@ namespace Recursion::core::render
         inline Renderer3D() {}
         inline virtual ~Renderer3D() {}
 
-        const static Renderer3D &Get();
+        const static Renderer3D &init(Shader &shader);
 
         // set up your scene
-        virtual Renderer& begin_scene(core::scene::Camera&) override;
+        virtual Renderer &begin_scene(core::scene::Camera &) override;
 
         // submit items to your scene
-        virtual Renderer& submit(const Bindable&) override;
+        virtual Renderer &submit(Drawable &) override;
 
         // wrap up the scene (remember all these are in a loop)
         virtual void end_scene() override;

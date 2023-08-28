@@ -10,11 +10,11 @@ namespace Recursion::opengl::render
     {
     public:
         IndexBuffer();
-        IndexBuffer(const uint32_t *data, uint32_t size_in_bytes,uint32_t draw_method = GL_STATIC_DRAW);
+        IndexBuffer(const uint32_t *data, uint32_t size_in_bytes, uint32_t draw_method = GL_STATIC_DRAW);
         virtual ~IndexBuffer();
 
         virtual void bind() override;
-        virtual void unbind() override; 
+        virtual void unbind() override;
         virtual void destroy() override;
 
         uint32_t IBO;

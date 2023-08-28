@@ -16,22 +16,22 @@ namespace Recursion::core::scene
     {
     public:
         CameraController(float step = 1.0f) : step{step} {}
-        virtual ~CameraController() {}
-        virtual void update(float delta_time);
+        virtual ~CameraController() {} 
         virtual const glm::vec3 &get_position() const = 0;
         virtual float get_rotation() const = 0;
         virtual float get_aspect_ratio() const = 0;
         virtual void set_position(const glm::vec3 &position) = 0;
         virtual void set_rotation(float rotation) = 0;
 
-    private:
+    protected:
         virtual void update_camera() = 0;
         float step;
     };
     class Camera : public CameraController
     {
     public:
-        void on_event(events::Event &event); 
+        Camera& on_event(events::Event &event); 
+        Camera&  update(float delta_time);
 
         virtual const glm::mat4 &get_view_projection_matrix() const final;
         virtual const glm::mat4 &get_projection_matrix() const final;

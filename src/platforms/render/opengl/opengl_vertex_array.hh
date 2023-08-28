@@ -11,7 +11,7 @@
 
 namespace Recursion::opengl::render
 {
-    class VertexArray : public core::render::Buffer
+    class VertexArray : public core::render::Drawable
     {
     public:
         VertexArray();
@@ -21,13 +21,13 @@ namespace Recursion::opengl::render
         virtual void unbind() override;
         virtual void destroy() override;
 
-        virtual VertexArray& bind_vertex_buffer(const VertexBuffer &VBO);
-        virtual VertexArray& bind_index_buffer(const IndexBuffer &IBO);
-        virtual VertexArray& add_layout(const OpenGLBufferLayout& layout);
-        virtual VertexArray& add_texture(const OpenGLTexture& texture);
+        virtual VertexArray &bind_vertex_buffer(const VertexBuffer &VBO);
+        virtual VertexArray &bind_index_buffer(const IndexBuffer &IBO);
+        virtual VertexArray &add_layout(const OpenGLBufferLayout &layout);
+        virtual VertexArray &add_texture(const OpenGLTexture &texture);
         virtual void build();
 
-        virtual void draw(const OpenGLShader& shader);
+        virtual void draw(core::render::Shader &shader) override;
 
     protected:
         uint32_t VAO;

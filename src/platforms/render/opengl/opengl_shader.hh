@@ -4,10 +4,12 @@
 #include <window.hh>
 #include <render_context.hh>
 #include <shader.hh>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include <algorithm>
 namespace Recursion::opengl::render
 {
-    class OpenGLShader : core::render::Shader
+    class OpenGLShader : public core::render::Shader
     {
     public:
         OpenGLShader();
@@ -43,15 +45,15 @@ namespace Recursion::opengl::render
         virtual void set_uniform2uiv(const std::string &name, const uint32_t *value) const override;
         virtual void set_uniform3uiv(const std::string &name, const uint32_t *value) const override;
         virtual void set_uniform4uiv(const std::string &name, const uint32_t *value) const override;
-        virtual void set_uniformMatrix2fv(const std::string &name, GLboolean transpose, const float *value) const override;
-        virtual void set_uniformMatrix3fv(const std::string &name, GLboolean transpose, const float *value) const override;
-        virtual void set_uniformMatrix4fv(const std::string &name, GLboolean transpose, const float *value) const override;
-        virtual void set_uniformMatrix2x3fv(const std::string &name, GLboolean transpose, const float *value) const override;
-        virtual void set_uniformMatrix3x2fv(const std::string &name, GLboolean transpose, const float *value) const override;
-        virtual void set_uniformMatrix2x4fv(const std::string &name, GLboolean transpose, const float *value) const override;
-        virtual void set_uniformMatrix4x2fv(const std::string &name, GLboolean transpose, const float *value) const override;
-        virtual void set_uniformMatrix3x4fv(const std::string &name, GLboolean transpose, const float *value) const override;
-        virtual void set_uniformMatrix4x3fv(const std::string &name, GLboolean transpose, const float *value) const override;
+        virtual void set_uniformMatrix2fv(const std::string &name, unsigned char transpose, const float *value) const override;
+        virtual void set_uniformMatrix3fv(const std::string &name, unsigned char transpose, const float *value) const override;
+        virtual void set_uniformMatrix4fv(const std::string &name, unsigned char transpose, const float *value) const override;
+        virtual void set_uniformMatrix2x3fv(const std::string &name, unsigned char transpose, const float *value) const override;
+        virtual void set_uniformMatrix3x2fv(const std::string &name, unsigned char transpose, const float *value) const override;
+        virtual void set_uniformMatrix2x4fv(const std::string &name, unsigned char transpose, const float *value) const override;
+        virtual void set_uniformMatrix4x2fv(const std::string &name, unsigned char transpose, const float *value) const override;
+        virtual void set_uniformMatrix3x4fv(const std::string &name, unsigned char transpose, const float *value) const override;
+        virtual void set_uniformMatrix4x3fv(const std::string &name, unsigned char transpose, const float *value) const override;
     };
 
 } // namespace Recursion::core::render

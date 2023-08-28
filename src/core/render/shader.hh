@@ -1,11 +1,9 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__RENDER__SHADER_HH
 #define RECURSION_ENGINE__SRC__CORE__RENDER__SHADER_HH
 
-#include <utils.hh>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <bindable.hh>
+#include <utils.hh> 
 #include <unordered_map>
+#include <bindable.hh>
 
 namespace Recursion::core::render
 {
@@ -19,7 +17,7 @@ namespace Recursion::core::render
         uint32_t program_id;
         mutable std::unordered_map<std::string, int32_t> uniform_cache;
 
-    protected:
+    public:
         virtual void read_and_bind_shader(uint32_t &shader, std::string location) = 0;
 
         // UNIFORM SETTERS
@@ -47,15 +45,15 @@ namespace Recursion::core::render
         virtual void set_uniform2uiv(const std::string &name, const uint32_t *value) const = 0;
         virtual void set_uniform3uiv(const std::string &name, const uint32_t *value) const = 0;
         virtual void set_uniform4uiv(const std::string &name, const uint32_t *value) const = 0;
-        virtual void set_uniformMatrix2fv(const std::string &name, GLboolean transpose, const float *value) const = 0;
-        virtual void set_uniformMatrix3fv(const std::string &name, GLboolean transpose, const float *value) const = 0;
-        virtual void set_uniformMatrix4fv(const std::string &name, GLboolean transpose, const float *value) const = 0;
-        virtual void set_uniformMatrix2x3fv(const std::string &name, GLboolean transpose, const float *value) const = 0;
-        virtual void set_uniformMatrix3x2fv(const std::string &name, GLboolean transpose, const float *value) const = 0;
-        virtual void set_uniformMatrix2x4fv(const std::string &name, GLboolean transpose, const float *value) const = 0;
-        virtual void set_uniformMatrix4x2fv(const std::string &name, GLboolean transpose, const float *value) const = 0;
-        virtual void set_uniformMatrix3x4fv(const std::string &name, GLboolean transpose, const float *value) const = 0;
-        virtual void set_uniformMatrix4x3fv(const std::string &name, GLboolean transpose, const float *value) const = 0;
+        virtual void set_uniformMatrix2fv(const std::string &name, unsigned char transpose, const float *value) const = 0;
+        virtual void set_uniformMatrix3fv(const std::string &name, unsigned char transpose, const float *value) const = 0;
+        virtual void set_uniformMatrix4fv(const std::string &name, unsigned char transpose, const float *value) const = 0;
+        virtual void set_uniformMatrix2x3fv(const std::string &name, unsigned char transpose, const float *value) const = 0;
+        virtual void set_uniformMatrix3x2fv(const std::string &name, unsigned char transpose, const float *value) const = 0;
+        virtual void set_uniformMatrix2x4fv(const std::string &name, unsigned char transpose, const float *value) const = 0;
+        virtual void set_uniformMatrix4x2fv(const std::string &name, unsigned char transpose, const float *value) const = 0;
+        virtual void set_uniformMatrix3x4fv(const std::string &name, unsigned char transpose, const float *value) const = 0;
+        virtual void set_uniformMatrix4x3fv(const std::string &name, unsigned char transpose, const float *value) const = 0;
     };
 
 } // namespace Recursion::core::render

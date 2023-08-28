@@ -93,7 +93,7 @@ namespace Recursion::opengl::render
         }
     }
 
-    void VertexArray::draw(const OpenGLShader &shader)
+    void VertexArray::draw(core::render::Shader &shader)
     {
         if (OPT_LIKELY(texture_list.size() > 0))
         {

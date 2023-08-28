@@ -12,27 +12,17 @@
 
 Proj1::Proj1() : Application{"Project1"}
 {
-    /*
-            in this settings
-
-            glEnable(GL_DEPTH_TEST);
-            glDepthFunc(GL_LESS);
-
-            By default, based on my expierments
-            it starts drawing + to -
-            in collision it draws the last one on top of it
-            here, sinde 0.2 is drawn later, it gets on top of it.
-    */
     sh.bind(); // bind shader !
+    renderer = Renderer2D::init((Recursion::core::render::Shader&)sh);
 
     data = new float[3 * 9]{
         // positions         // colors       // texture
         // First Triangle
         -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, // bottom left
-        0.0f, 0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.5f, 1.0f,     // top 
-        0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,    // bottom right
+        0.0f, 0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.5f, 1.0f,   // top
+        0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,  // bottom right
     };
-    unsigned int index[3 * 1] = {0, 1, 2}; //3, 4, 5};
+    unsigned int index[3 * 1] = {0, 1, 2}; // 3, 4, 5};
 
     VAO.bind();
     VAO.bind_vertex_buffer({data, sizeof(float) * 3 * 8})
@@ -83,15 +73,12 @@ Proj1::~Proj1()
 }
 void Proj1::application(float delta_time, events::Event &event)
 {
-    // REC_INFO("EVENT NAME {}",event.get_name());
-    cam.on_event(event);
-    cam.update(delta_time);
-     
-
+    renderer.begin_scene(cam.on_event(event).update(delta_time));
     sh.set_uniformMatrix4fv("mvp", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
-    VAO.bind();
-    VAO.draw(sh);
 
-    VAO2.bind();
-    VAO2.draw(sh);
+    renderer.submit(VAO);
+    renderer.submit(VAO2);
+
+
+    renderer.end_scene();
 }

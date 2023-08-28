@@ -10,10 +10,14 @@
 #include <utils.hh> 
 #include <recursion.hh>
 #include <camera.hh>
+#include <renderer.hh>
 
 namespace render = Recursion::opengl::render;
 namespace input = Recursion::core::input;
 namespace events = Recursion::core::events;
+namespace core_render = Recursion::core::render;
+
+using Recursion::core::render::Renderer2D;
 class Proj1 : public Recursion::core::Application
 {
 public:
@@ -23,7 +27,9 @@ public:
 
 private:
     render::OpenGLShader sh;
-
+    
+    Renderer2D renderer;
+    
     render::VertexArray VAO;
     float *data;
 
