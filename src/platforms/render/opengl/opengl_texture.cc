@@ -10,11 +10,13 @@ namespace Recursion::opengl::render
 
     uint32_t OpenGLTexture::AVAILABLE_TEXTURE_UNIT = 0;
 
-    OpenGLTexture::OpenGLTexture(const std::string &path, uint32_t wrap_s,
+    OpenGLTexture::OpenGLTexture(const std::string &path, uint32_t tile_factor, uint32_t wrap_s,
                                  uint32_t wrap_t,
                                  uint32_t min_filter,
-                                 uint32_t mag_filter) : Texture{path}
+                                 uint32_t mag_filter) : Texture{path}, tile_factor{tile_factor}
     {
+        REC_CORE_PROFILE_FUNCTION();
+
         REC_CORE_TRACE("Texture {} is being initialized", get_path());
         texture_unit = AVAILABLE_TEXTURE_UNIT;
         if (OPT_UNLIKELY(AVAILABLE_TEXTURE_UNIT == TEXTURE_UNIT_LIMIT))
@@ -32,7 +34,7 @@ namespace Recursion::opengl::render
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag_filter);
 
         stbi_set_flip_vertically_on_load(true);
-        unsigned char *data = stbi_load(get_path().c_str(), &width, &height, &nrChannels, 0);
+        uint8_t *data = stbi_load(get_path().c_str(), &width, &height, &nrChannels, 0);
         if (data)
         {
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
@@ -51,6 +53,8 @@ namespace Recursion::opengl::render
                                  uint32_t min_filter,
                                  uint32_t mag_filter) : Texture{""}
     {
+        REC_CORE_PROFILE_FUNCTION();
+
         texture_unit = AVAILABLE_TEXTURE_UNIT;
         if (OPT_UNLIKELY(AVAILABLE_TEXTURE_UNIT == TEXTURE_UNIT_LIMIT))
         {
@@ -85,6 +89,8 @@ namespace Recursion::opengl::render
 
     void OpenGLTexture::bind()
     {
+        REC_CORE_PROFILE_FUNCTION();
+
         glActiveTexture(GL_TEXTURE0 + texture_unit);
         glBindTexture(GL_TEXTURE_2D, texture_id);
     }

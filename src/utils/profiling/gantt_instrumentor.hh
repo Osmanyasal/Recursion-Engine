@@ -223,34 +223,38 @@ namespace Recursion::utils
 #if REC_CORE_PROFILE
 	#define REC_CORE_PROFILE_BEGIN_SESSION(name, filepath) Recursion::utils::Instrumentor::Get().BeginSession(name, filepath)
 	#define REC_CORE_PROFILE_END_SESSION() Recursion::utils::Instrumentor::Get().EndSession()
-	#define REC_CORE_PROFILE_SCOPE_LINE2(name, line)                                                             \
-		Recursion::utils::InstrumentationTimer timer##line(name)
+	#define REC_CORE_PROFILE_SCOPE_LINE2(name, line) Recursion::utils::InstrumentationTimer timer##line(name)
 	#define REC_CORE_PROFILE_SCOPE_LINE(name, line) REC_PROFILE_SCOPE_LINE2(name, line)
 	#define REC_CORE_PROFILE_SCOPE(name) REC_PROFILE_SCOPE_LINE(name, __LINE__)
 	#define REC_CORE_PROFILE_FUNCTION() REC_PROFILE_SCOPE(REC_FUNC_SIG)
-#else
-	#define REC_CORE_PROFILE_BEGIN_SESSION(name, filepath)
-	#define REC_CORE_PROFILE_END_SESSION()
-	#define REC_CORE_PROFILE_SCOPE(name)
-	#define REC_CORE_PROFILE_FUNCTION()
+ 
 #endif
 
 
 #if REC_PROFILE
 	#define REC_PROFILE_BEGIN_SESSION(name, filepath) Recursion::utils::Instrumentor::Get().BeginSession(name, filepath)
 	#define REC_PROFILE_END_SESSION() Recursion::utils::Instrumentor::Get().EndSession()
-	#define REC_PROFILE_SCOPE_LINE2(name, line)                                                             \
-		Recursion::utils::InstrumentationTimer timer##line(name)
+	#define REC_PROFILE_SCOPE_LINE2(name, line) Recursion::utils::InstrumentationTimer timer##line(name)
 	#define REC_PROFILE_SCOPE_LINE(name, line) REC_PROFILE_SCOPE_LINE2(name, line)
 	#define REC_PROFILE_SCOPE(name) REC_PROFILE_SCOPE_LINE(name, __LINE__)
-	#define REC_PROFILE_FUNCTION() REC_PROFILE_SCOPE(REC_FUNC_SIG)
-#else
+	#define REC_PROFILE_FUNCTION() REC_PROFILE_SCOPE(REC_FUNC_SIG)	 
+#endif
+
+#endif
+
+
+#if !REC_PROFILE
 	#define REC_PROFILE_BEGIN_SESSION(name, filepath)
 	#define REC_PROFILE_END_SESSION()
 	#define REC_PROFILE_SCOPE(name)
 	#define REC_PROFILE_FUNCTION()
 #endif
 
+#if !REC_CORE_PROFILE
+	#define REC_CORE_PROFILE_BEGIN_SESSION(name, filepath)
+	#define REC_CORE_PROFILE_END_SESSION()
+	#define REC_CORE_PROFILE_SCOPE(name)
+	#define REC_CORE_PROFILE_FUNCTION()
 #endif
 
 #endif // end

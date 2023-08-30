@@ -4,6 +4,8 @@ namespace Recursion::opengl::render
 {
     OpenGLRenderContext::OpenGLRenderContext(const core::window::WindowProps &default_props) : RenderContext{core::render::RenderAPI::OPENGL}
     {
+        REC_CORE_PROFILE_FUNCTION();
+        
         this->set_window_props(default_props);
 
         // Initialize GLFW

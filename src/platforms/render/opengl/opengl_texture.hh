@@ -11,7 +11,7 @@ namespace Recursion::opengl::render
     class OpenGLTexture : public core::render::Texture
     {
     public:
-        OpenGLTexture(const std::string &path, uint32_t wrap_s = GL_REPEAT,
+        OpenGLTexture(const std::string &path, uint32_t tile_factor = 1, uint32_t wrap_s = GL_REPEAT,
                       uint32_t wrap_t = GL_REPEAT,
                       uint32_t min_filter = GL_LINEAR_MIPMAP_LINEAR,
                       uint32_t mag_filter = GL_LINEAR);
@@ -34,9 +34,10 @@ namespace Recursion::opengl::render
         static uint32_t AVAILABLE_TEXTURE_UNIT;
 
     protected:
-        int width;
-        int height;
-        int nrChannels;
+        int32_t width;
+        int32_t height;
+        int32_t nrChannels;
+        int32_t tile_factor;
 
     private:
         uint32_t texture_unit;

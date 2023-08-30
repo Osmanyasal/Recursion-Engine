@@ -71,7 +71,8 @@ namespace Recursion::opengl::render
   }
   void OpenGLShader::read_and_bind_shader(uint32_t &shader, std::string location)
   {
-
+    REC_CORE_PROFILE_FUNCTION();
+    
     std::string code = read_file(location);
     REC_CORE_DEBUG("vs code -> \n{}", code);
 
@@ -577,7 +578,7 @@ namespace Recursion::opengl::render
       }
     }
   }
-  void OpenGLShader::set_uniformMatrix2fv(const std::string &name, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix2fv(const std::string &name, uint8_t transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
@@ -597,7 +598,7 @@ namespace Recursion::opengl::render
     }
   }
 
-  void OpenGLShader::set_uniformMatrix3fv(const std::string &name, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix3fv(const std::string &name, uint8_t transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
@@ -617,7 +618,7 @@ namespace Recursion::opengl::render
     }
   }
 
-  void OpenGLShader::set_uniformMatrix4fv(const std::string &name, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix4fv(const std::string &name, uint8_t transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
@@ -637,7 +638,7 @@ namespace Recursion::opengl::render
     }
   }
 
-  void OpenGLShader::set_uniformMatrix2x3fv(const std::string &name, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix2x3fv(const std::string &name, uint8_t transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
@@ -657,7 +658,7 @@ namespace Recursion::opengl::render
     }
   }
 
-  void OpenGLShader::set_uniformMatrix3x2fv(const std::string &name, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix3x2fv(const std::string &name, uint8_t transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
@@ -677,7 +678,7 @@ namespace Recursion::opengl::render
     }
   }
 
-  void OpenGLShader::set_uniformMatrix2x4fv(const std::string &name, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix2x4fv(const std::string &name, uint8_t transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
@@ -697,7 +698,7 @@ namespace Recursion::opengl::render
     }
   }
 
-  void OpenGLShader::set_uniformMatrix4x2fv(const std::string &name, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix4x2fv(const std::string &name, uint8_t transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
@@ -717,7 +718,7 @@ namespace Recursion::opengl::render
     }
   }
 
-  void OpenGLShader::set_uniformMatrix3x4fv(const std::string &name, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix3x4fv(const std::string &name, uint8_t transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
@@ -737,7 +738,7 @@ namespace Recursion::opengl::render
     }
   }
 
-  void OpenGLShader::set_uniformMatrix4x3fv(const std::string &name, GLboolean transpose, const float *value) const
+  void OpenGLShader::set_uniformMatrix4x3fv(const std::string &name, uint8_t transpose, const float *value) const
   {
     auto temp = uniform_cache.find(name);
     if (OPT_LIKELY(temp != uniform_cache.end()))
