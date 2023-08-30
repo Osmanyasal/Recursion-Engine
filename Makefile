@@ -29,6 +29,7 @@ LINUX_DIR := $(PLATFORMS_DIR)/linux
 MACOS_DIR := $(PLATFORMS_DIR)/macos
 WINDOWS_DIR := $(PLATFORMS_DIR)/windows
 OPTIMIZATIONS_DIR := $(UTILS_DIR)/optimizations
+PROFILING_DIR := $(UTILS_DIR)/profiling
 SANDBOX_DIR := ./sandbox/proj1
 
 RENDER_IMPL_DIR := $(PLATFORMS_DIR)/render
@@ -74,6 +75,7 @@ INCLUDE := -I$(SRC_DIR)\
            -I$(MACOS_DIR)\
            -I$(WINDOWS_DIR)\
            -I$(UTILS_DIR)\
+		   -I$(PROFILING_DIR)\
            -I$(OPTIMIZATIONS_DIR)\
 		   -I$(RENDER_IMPL_DIR)\
            -I$(RENDER_VULKAN_DIR)\

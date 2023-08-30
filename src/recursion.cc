@@ -9,7 +9,7 @@ namespace Recursion::core
     {
         if (OPT_LIKELY(engine_ptr != nullptr))
             engine_ptr->on_event(e);
-        return true;
+        return true; // at this point, event is handled
     }
 
     Engine::Engine()
@@ -23,12 +23,13 @@ namespace Recursion::core
 
         layer_stack = new layer::LayerStack{};
         imgui_layer = new window::ImguiLayer_glfw_opengl_impl{((window::LinuxWindow *)window)->get_window()};
-        layer_stack->add_layer(imgui_layer); 
+        layer_stack->add_layer(imgui_layer);
 
         REC_CORE_INFO("Engine Created!");
     }
-    
-    void Engine::add_application(Application *application){
+
+    void Engine::add_application(Application *application)
+    {
         layer_stack->add_layer(application);
         this->application.reset(application);
     }
@@ -59,6 +60,8 @@ namespace Recursion::core
 
     void Engine::start()
     {
+        REC_CORE_PROFILE_FUNCTION();
+
         REC_CORE_INFO("Engine Started!");
         DELTA_TIME_INIT();
         while (OPT_LIKELY(is_running))
@@ -68,13 +71,12 @@ namespace Recursion::core
             glClearColor(.6f, 0.2f, 1.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             imgui_layer->begin_loop();
- 
-            REC_CORE_TRACE("FPS {}", GET_FPS()); 
+
+            REC_CORE_TRACE("FPS {}", GET_FPS());
             application->on_update(delta_time);
 
             imgui_layer->end_loop();
             window->on_update();
-
         }
     }
 

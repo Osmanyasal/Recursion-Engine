@@ -115,6 +115,7 @@ namespace Recursion::core::window
 
     void LinuxWindow::on_update()
     {
+        REC_CORE_PROFILE_FUNCTION();
         context->swap_buffer();
     };
 

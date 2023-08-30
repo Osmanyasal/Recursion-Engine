@@ -83,3 +83,13 @@
 #define CONF__IDE__MAX_DISTANCE 20.0
 
 #endif
+
+
+
+
+/**
+ * @brief GANTT INSTRUMENTATION
+*/
+
+#define REC_CORE_PROFILE 1
+#define REC_PROFILE 1

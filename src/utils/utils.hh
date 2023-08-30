@@ -16,7 +16,6 @@
 #include <config.hh>
 #include <logger.hh>
 #include <type.hh>
-#include <block_timer.hh>
 
 //TODO: Migrate this to a math wrapper.
 // INCLUDE GLM
@@ -30,6 +29,10 @@
 
 // OPTIMIZATION HEADERS
 #include <cpu_opt.hh>
+
+// PROFILING HEADERS
+#include <block_timer.hh>
+#include <gantt_instrumentor.hh>
 
 
 // MACRO DEFINITIONS

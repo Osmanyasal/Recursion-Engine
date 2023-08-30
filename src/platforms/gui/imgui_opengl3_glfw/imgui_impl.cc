@@ -52,6 +52,8 @@ namespace Recursion::core::window
 
     void ImguiLayer_glfw_opengl_impl::begin_loop()
     {
+        REC_CORE_PROFILE_FUNCTION();
+        
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
@@ -60,6 +62,8 @@ namespace Recursion::core::window
     }
     void ImguiLayer_glfw_opengl_impl::end_loop()
     {
+        REC_CORE_PROFILE_FUNCTION();
+        
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
@@ -624,7 +628,6 @@ namespace Recursion::core::window
 
     void ImguiLayer_glfw_opengl_impl::create_log_window()
     {
-
     }
 
     void ImguiLayer_glfw_opengl_impl::create_env_window()

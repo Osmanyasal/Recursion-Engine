@@ -27,12 +27,14 @@ namespace Recursion::core
         virtual void on_detach() override {}
         virtual void on_update(float delta_time) override
         {
+            REC_CORE_PROFILE_FUNCTION();
             last_delta_time = delta_time;
             application(delta_time, empty_event);
         }
         virtual void on_event(events::Event &event) override
         {
-            application(last_delta_time, event);  
+            REC_CORE_PROFILE_FUNCTION();
+            application(last_delta_time, event);
         }
 
     protected:
@@ -43,7 +45,7 @@ namespace Recursion::core
 
     private:
         core::events::EmptyEvent empty_event;
-        float last_delta_time;        
+        float last_delta_time;
     };
 
     class Engine
