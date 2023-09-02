@@ -26,8 +26,10 @@ namespace Recursion::opengl::render
         virtual VertexArray &add_layout(const OpenGLBufferLayout &layout);
         virtual VertexArray &add_texture(const OpenGLTexture &texture);
         virtual void build();
+        virtual void build_batch();
 
         virtual void draw(core::render::Shader &shader) override;
+        virtual bool is_transparent() override;
 
     protected:
         uint32_t VAO;
@@ -38,6 +40,7 @@ namespace Recursion::opengl::render
 
     private:
         int32_t stride;
+        bool transparent;
     };
 
 } // namespace Recursion::core::render

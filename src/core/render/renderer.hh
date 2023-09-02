@@ -6,6 +6,7 @@
 #include <buffer.hh>
 #include <memory>
 #include <shader.hh>
+#include <map>
 
 // TODO: Remove this, make vertex-array and buffer objects generic!
 namespace Recursion::core::render
@@ -22,6 +23,9 @@ namespace Recursion::core::render
         // submit items to your scene
         virtual Renderer &submit(Drawable &) = 0;
 
+        // draw scene
+        virtual Renderer& draw_scene() = 0;
+
         // wrap up the scene (remember all these are in a loop)
         virtual void end_scene() = 0;
 
@@ -29,6 +33,9 @@ namespace Recursion::core::render
         
     protected:
         std::shared_ptr<Shader> _shader;
+        core::scene::Camera* camera;
+        std::vector<Drawable*> opaque;
+        std::map<float,Drawable*> transparent;
     };
 
     class Renderer2D : public Renderer
@@ -41,9 +48,12 @@ namespace Recursion::core::render
 
         // set up your scene
         virtual Renderer &begin_scene(core::scene::Camera &) override;
-
+  
         // submit items to your scene
         virtual Renderer &submit(Drawable &) override;
+
+        // draw scene
+        virtual Renderer& draw_scene() override;
 
         // wrap up the scene (remember all these are in a loop)
         virtual void end_scene() override;
@@ -63,6 +73,9 @@ namespace Recursion::core::render
 
         // submit items to your scene
         virtual Renderer &submit(Drawable &) override;
+
+        // draw scene
+        virtual Renderer& draw_scene() override;
 
         // wrap up the scene (remember all these are in a loop)
         virtual void end_scene() override;

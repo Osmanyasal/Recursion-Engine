@@ -62,6 +62,7 @@ namespace Recursion::opengl::render
             int32_t attrib_array;
             Type type;
             Quantity quantity;
+            int32_t repeat;
             Normalized normalized;
         };
 
@@ -71,9 +72,10 @@ namespace Recursion::opengl::render
         OpenGLBufferLayout(std::string name,
                            int32_t attrib_array,
                            Quantity quantity,
+                           int32_t repeat,
                            Type type,
                            Normalized normalized)
-            : buffer_info({name, attrib_array, type, quantity, normalized}) {}
+            : buffer_info({name, attrib_array, type, quantity,repeat, normalized}) {}
 
         virtual ~OpenGLBufferLayout() {}
 

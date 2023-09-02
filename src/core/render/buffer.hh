@@ -21,6 +21,7 @@ namespace Recursion::core::render
         virtual ~Drawable() {}
 
         virtual void draw(Shader &shader) = 0;
+        inline virtual bool is_transparent() { return false; }
     };
 
     // MUST BE EXTENDED TO OTHER PLATFORMS

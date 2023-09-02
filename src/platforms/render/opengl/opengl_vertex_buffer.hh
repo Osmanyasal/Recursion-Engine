@@ -10,7 +10,12 @@ namespace Recursion::opengl::render
     class VertexBuffer : public core::render::Buffer
     {
     public:
-        VertexBuffer(); 
+        VertexBuffer() // empty caller.
+        {
+            VBO = 0;
+            vertex_count = 0;
+        }
+        VertexBuffer(uint32_t size_in_bytes, uint32_t draw_method = GL_STATIC_DRAW);
         VertexBuffer(float *data, uint32_t size_in_bytes, uint32_t draw_method = GL_STATIC_DRAW);
         virtual ~VertexBuffer();
 
@@ -18,9 +23,16 @@ namespace Recursion::opengl::render
         virtual void unbind() override;
         virtual void destroy() override;
 
+        VertexBuffer &add_positions(float *data, uint32_t size_in_bytes);
+        VertexBuffer &add_normals(float *data, uint32_t size_in_bytes);
+        VertexBuffer &add_colors(float *data, uint32_t size_in_bytes);
+        VertexBuffer &add_texture_coordinates(float *data, uint32_t size_in_bytes);
 
         uint32_t VBO;
         uint32_t vertex_count;
+
+    private:
+        uint32_t offset;
     };
 
 } // namespace Recursion::core::render

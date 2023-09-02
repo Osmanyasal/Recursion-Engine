@@ -19,3 +19,6 @@
 [submodule "lib/stb"]
 	path = lib/stb
 	url = https://github.com/Osmanyasal/stb.git
+[submodule "lib/pmu-tools"]
+	path = lib/pmu-tools
+	url = https://github.com/andikleen/pmu-tools

@@ -10,10 +10,10 @@ namespace Recursion::opengl::render
 
     uint32_t OpenGLTexture::AVAILABLE_TEXTURE_UNIT = 0;
 
-    OpenGLTexture::OpenGLTexture(const std::string &path, uint32_t tile_factor, uint32_t wrap_s,
+    OpenGLTexture::OpenGLTexture(const std::string &path, uint32_t tile_factor, bool is_transparent, uint32_t wrap_s,
                                  uint32_t wrap_t,
                                  uint32_t min_filter,
-                                 uint32_t mag_filter) : Texture{path}, tile_factor{tile_factor}
+                                 uint32_t mag_filter) : Texture{path}, is_transparent{is_transparent}, tile_factor{tile_factor}
     {
         REC_CORE_PROFILE_FUNCTION();
 
@@ -48,10 +48,10 @@ namespace Recursion::opengl::render
         stbi_image_free(data);
     }
 
-    OpenGLTexture::OpenGLTexture(uint32_t width, uint32_t height, uint32_t value, uint32_t wrap_s,
+    OpenGLTexture::OpenGLTexture(uint32_t width, bool is_transparent, uint32_t height, uint32_t value, uint32_t wrap_s,
                                  uint32_t wrap_t,
                                  uint32_t min_filter,
-                                 uint32_t mag_filter) : Texture{""}
+                                 uint32_t mag_filter) : Texture{""}, is_transparent{is_transparent}
     {
         REC_CORE_PROFILE_FUNCTION();
 
