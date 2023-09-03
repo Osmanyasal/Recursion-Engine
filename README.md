@@ -23,7 +23,7 @@
 ## About <br>
 * Cross Platform Game Engine mainly developed for Linux and Unix environments later will be ported to Windows. <br>
 * Developed with C++ and Make/Bash scripts, allows other scripting languages in development ```Python, Lua, C# ``` <br>
-* The Engine itself contains many profiling tools ```(Perf, Valgrind, Intel Vtune, Advisor...)``` and binary instrumentations ```(chrome://tracing)``` allowing the user to write high-performant code and monitor pre-written code.
+* The Engine itself contains many profiling tools ```(Perf, Valgrind, Intel Vtune, Advisor...)``` and binary instrumentations ```(chrome://tracing)``` allowing the user to write high-performant code and monitor and optimize the pre-written code.
 
 ## To run 🚀 <br>
 ```
