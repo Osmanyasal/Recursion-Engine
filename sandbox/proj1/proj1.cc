@@ -1,15 +1,5 @@
 #include <proj1.hh>
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-#include <glm/gtx/string_cast.hpp>
-
-#include <opengl_texture.hh>
-
 Proj1::Proj1() : Application{"Project1"}
 {
     sh.bind(); // bind shader !
@@ -56,9 +46,10 @@ Proj1::Proj1() : Application{"Project1"}
         1.0f, 0.0f, // bottom right
     };
 
-    auto vb = render::VertexBuffer(sizeof(pos) + sizeof(colors) + sizeof(textures));
-    vb.add_positions(pos, sizeof(pos)).add_colors(colors, sizeof(colors)).add_texture_coordinates(textures, sizeof(textures));
-
+    auto vb = render::VertexBuffer(sizeof(pos) + sizeof(colors) + sizeof(textures))
+                  .add_positions(pos, sizeof(pos))
+                  .add_colors(colors, sizeof(colors))
+                  .add_texture_coordinates(textures, sizeof(textures));
     VAO.bind();
     VAO.bind_vertex_buffer(vb)
         .add_layout({"position",
@@ -79,7 +70,6 @@ Proj1::Proj1() : Application{"Project1"}
         // .bind_index_buffer({index, sizeof(unsigned int) * 3 * 1})
         .add_texture({"/home/rt7/Desktop/glsl_learning/assets/container.png"})
         .build_batch();
-        // exit(0);
 
     data3 = new float[3 * 8]{
         // positions         // colors       // texture
@@ -144,19 +134,27 @@ Proj1::~Proj1()
 }
 void Proj1::application(float delta_time, events::Event &event)
 {
-    renderer.begin_scene(cam.on_event(event).update(delta_time));
-    sh.set_uniformMatrix4fv("u_view_projection", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
-    sh.set_uniformMatrix4fv("u_model", GL_FALSE, glm::value_ptr(glm::scale(glm::mat4{1}, glm::vec3(10, 10, 1))));
+    // renderer.begin_scene(cam.on_event(event).update(delta_time));
+    // sh.set_uniformMatrix4fv("u_view_projection", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
+    // sh.set_uniformMatrix4fv("u_model", GL_FALSE, glm::value_ptr(glm::scale(glm::mat4{1}, glm::vec3(10, 10, 1))));
 
-    // REC_CORE_ERROR("vert1 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
-    // REC_CORE_ERROR("vert2 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
-    // REC_CORE_ERROR("vert3 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
+    // // REC_CORE_ERROR("vert1 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
+    // // REC_CORE_ERROR("vert2 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
+    // // REC_CORE_ERROR("vert3 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
 
-    renderer.submit(VAO);
-    renderer.submit(VAO2);
-    renderer.submit(VAO3);
-    renderer.draw_scene();
+    // renderer.submit(VAO);
+    // renderer.submit(VAO2);
+    // renderer.submit(VAO3);
+    // renderer.draw_scene();
 
-    renderer.end_scene();
-    // exit(0);
+    // renderer.end_scene();
+
+    scene::GameObject obj;
+    obj.add_component(std::make_shared<scene::Component>());
+    obj.add_component(std::make_shared<scene::TransformComponent>());
+
+    std::cout << obj.get_component<scene::Component>().to_string() << std::endl;
+    std::cout << obj.get_component<scene::TransformComponent>().to_string() << std::endl;
+
+    exit(0);
 }

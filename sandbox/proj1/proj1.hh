@@ -12,10 +12,20 @@
 #include <camera.hh>
 #include <renderer.hh>
 
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/string_cast.hpp>
+#include <opengl_texture.hh>
+#include<game_object.hh>
+
 namespace render = Recursion::opengl::render;
 namespace input = Recursion::core::input;
 namespace events = Recursion::core::events;
 namespace core_render = Recursion::core::render;
+namespace scene = Recursion::core::scene;
 
 using Recursion::core::render::Renderer2D;
 class Proj1 : public Recursion::core::Application

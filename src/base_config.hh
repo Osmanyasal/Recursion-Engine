@@ -67,9 +67,10 @@
 
 
 /**
- * @brief Graphics
+ * @brief RENDERING
 */
 
+#define CONF__CAMERA_CONTROLLER__STEP 10.0f
 
 
 
@@ -83,8 +84,6 @@
 #define CONF__IDE__MAX_DISTANCE 20.0
 
 #endif
-
-
 
 
 /**

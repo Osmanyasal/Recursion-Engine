@@ -1,7 +1,7 @@
 #ifndef RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
 #define RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
 
-#include <config.hh>
+#include <base_config.hh>
 #include <string>
 #include <memory>
 #include <spdlog.h>

@@ -3,7 +3,7 @@ CXX := g++
 CXX_VERSION = -std=c++11
 CXX_DEBUG := -g
 CXX_WARNINGS := -Wall
-CXX_OPT_FLAGS := -O3 -flto
+CXX_OPT_FLAGS := -O0 -flto
 CXX_LIBS := -fopenmp
 CXX_PGO_GENERATE := -fprofile-generate 
 CXX_FLAGS :=  $(CXX_OPT_FLAGS) $(CXX_VERSION) $(CXX_DEBUG) $(CXX_PGO_GENERATE) $(CXX_WARNINGS) $(CXX_LIBS) 
@@ -19,7 +19,11 @@ CORE_DIR := $(SRC_DIR)/core
 EVENTS_DIR := $(CORE_DIR)/events
 LAYER_DIR := $(CORE_DIR)/layer
 RENDER_DIR := $(CORE_DIR)/render
+
 SCENE_DIR := $(CORE_DIR)/scene_objects
+COMPONENT_DIR := $(SCENE_DIR)/components
+TILE_MAPS_DIR := $(SCENE_DIR)/tile_maps
+
 WINDOW_DIR := $(CORE_DIR)/window
 MATH_DIR := $(CORE_DIR)/math
 PLATFORMS_DIR := $(SRC_DIR)/platforms
@@ -68,6 +72,8 @@ INCLUDE := -I$(SRC_DIR)\
            -I$(WINDOW_DIR)\
            -I$(LAYER_DIR)\
 		   -I$(SCENE_DIR)\
+		   -I$(COMPONENT_DIR)\
+		   -I$(TILE_MAPS_DIR)\
 		   -I$(MATH_DIR)\
            -I$(PLATFORMS_DIR)\
            -I$(IMGUI_OPENGL_DIR)\

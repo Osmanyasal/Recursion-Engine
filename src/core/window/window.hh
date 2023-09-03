@@ -1,7 +1,7 @@
 #ifndef RECURSION_ENGINE__SRC__UTILS__WINDOW_HH
 #define RECURSION_ENGINE__SRC__UTILS__WINDOW_HH
 
-#include <config.hh>
+#include <base_config.hh>
 #include <utils.hh>
 #include <event_core.hh>
 #include <memory>

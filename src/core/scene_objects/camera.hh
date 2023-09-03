@@ -15,7 +15,7 @@ namespace Recursion::core::scene
     class CameraController
     {
     public:
-        CameraController(float step = 1.0f) : step{step} {}
+        CameraController(float step = CONF__CAMERA_CONTROLLER__STEP) : step{step} {}
         virtual ~CameraController() {} 
         virtual const glm::vec3 &get_position() const = 0;
         virtual float get_rotation() const = 0;

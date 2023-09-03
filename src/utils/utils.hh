@@ -11,9 +11,10 @@
 #include <sstream>
 #include <algorithm>
 #include <fstream>
+#include <memory>
 
 // CUSTOM HEADERS
-#include <config.hh>
+#include <base_config.hh>
 #include <logger.hh>
 #include <type.hh>
 
