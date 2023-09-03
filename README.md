@@ -19,7 +19,11 @@
                 &nbsp;&nbsp;
                 <img align="center" alt="Windows" width="60px" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/c1717d00-63d2-426f-a648-18a2d618f849" />
 </div>
-   
+
+## About <br>
+* Cross Platform Game Engine mainly developed for Linux and Unix environments later will be ported to Windows. <br>
+* Developed with C++ and Make/Bash scripts, allows other scripting languages in development ```Python, Lua, C# ``` <br>
+* The Engine itself contains many profiling tools ```(Perf, Valgrind, Intel Vtune, Advisor...)``` and binary instrumentations ```(chrome://tracing)``` allowing the user to write high-performant code and monitor pre-written code.
 
 ## To run 🚀 <br>
 ```
@@ -27,9 +31,9 @@ git clone --recurse-submodules https://github.com/Osmanyasal/Recursion-Engine.gi
 cd ./Recursion-Engine
 make run
 ```
-Makefile by default enables PGO (profiler guided optimizations) meaning it collects data as you use the engine.
+Makefile by default enables PGO (profiler-guided optimizations) meaning it collects data as you use the engine.
 <br>
-After running the application a while on a sinlge run, you can re-compile the engine as follows
+After running the application for a while on a single run, you can re-compile the engine as follows
 
 ``` 
 make -f optimize [run]
@@ -45,12 +49,12 @@ mem_check
 ```
 
 ## PERFORMANCE MONITORING 🔎<br>
-You can use following makefile targets to collect meaningful metrics <br>
-All targets use perf tool and valgrind, so make sure they're installed<br>
+You can use the following makefile targets to collect meaningful metrics <br>
+All targets use perf tool and Valgrind, so make sure they're installed<br>
 ```
-make tma_analiysis # makes tma anylisis unearthes how much of your application {front,back}-end bounded or bad-speculated 
+make tma_analiysis # makes tma analysis unearths how much of your application {front,back}-end bounded or bad-speculated 
 make monitor_callstack # hottest ran functions 
-mem_check # runs valgrind tool to make detailed memory analysis.
+mem_check # runs the Valgrind tool to make a detailed memory analysis.
 ```
 ## Currently
  - Main support is on Linux, MacOS and Windows side-supported.
