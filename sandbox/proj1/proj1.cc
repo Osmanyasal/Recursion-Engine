@@ -134,20 +134,20 @@ Proj1::~Proj1()
 }
 void Proj1::application(float delta_time, events::Event &event)
 {
-    // renderer.begin_scene(cam.on_event(event).update(delta_time));
-    // sh.set_uniformMatrix4fv("u_view_projection", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
-    // sh.set_uniformMatrix4fv("u_model", GL_FALSE, glm::value_ptr(glm::scale(glm::mat4{1}, glm::vec3(10, 10, 1))));
+    renderer.begin_scene(cam.on_event(event).update(delta_time));
+    sh.set_uniformMatrix4fv("u_view_projection", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
+    sh.set_uniformMatrix4fv("u_model", GL_FALSE, glm::value_ptr(glm::scale(glm::mat4{1}, glm::vec3(10, 10, 1))));
 
-    // // REC_CORE_ERROR("vert1 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
-    // // REC_CORE_ERROR("vert2 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
-    // // REC_CORE_ERROR("vert3 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
+    // REC_CORE_ERROR("vert1 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
+    // REC_CORE_ERROR("vert2 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
+    // REC_CORE_ERROR("vert3 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
 
-    // renderer.submit(VAO);
-    // renderer.submit(VAO2);
-    // renderer.submit(VAO3);
-    // renderer.draw_scene();
+    renderer.submit(VAO);
+    renderer.submit(VAO2);
+    renderer.submit(VAO3);
+    renderer.draw_scene();
 
-    // renderer.end_scene();
+    renderer.end_scene();
 
     scene::GameObject obj;
     obj.add_component(std::make_shared<scene::Component>());
@@ -156,5 +156,4 @@ void Proj1::application(float delta_time, events::Event &event)
     std::cout << obj.get_component<scene::Component>().to_string() << std::endl;
     std::cout << obj.get_component<scene::TransformComponent>().to_string() << std::endl;
 
-    exit(0);
 }

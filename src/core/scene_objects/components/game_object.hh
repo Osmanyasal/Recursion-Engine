@@ -5,13 +5,27 @@
 #include <unordered_map>
 #include <components.hh>
 #include <logger.hh>
+#include <buffer.hh>
+#include <memory>
 namespace Recursion::core::scene
 {
-    class GameObject
+    // TODO: Fix VertexArray thing, get buffer instead
+    class GameObject : public core::render::Drawable
     {
     public:
-        GameObject(const std::string name, const std::string &tag = "") id{generateGUID()}, name{name}, tag{tag} {}
+        GameObject(const std::string name = "") : id{generateGUID()}, name{name} {}
+        GameObject(std::shared_ptr<core::render::Drawable> drawable_obj, const std::string name = "") : id{generateGUID()}, name{name}, drawable_obj{drawable_obj} {}
         virtual ~GameObject() {}
+
+        void set_drawable_object(std::shared_ptr<core::render::Drawable> drawable_object)
+        {
+            this->drawable_obj = drawable_object;
+        }
+
+        virtual void bind() override{};
+        virtual void unbind() override{};
+        virtual void destroy() override{};
+        virtual void draw(core::render::Shader &shader) override{};
 
         template <typename T>
         T &get_component()
@@ -25,7 +39,7 @@ namespace Recursion::core::scene
                 return component;
             }
 
-            std::cerr << "Component " << component_name << " not found or type mismatch" << std::endl;
+            REC_CORE_ERROR("Component {} not found or type mismatch", component_name);
             throw std::runtime_error("Component not found or type mismatch");
         }
 
@@ -38,7 +52,7 @@ namespace Recursion::core::scene
         std::unordered_map<std::string, std::shared_ptr<Component>> component_list;
         std::string id;
         std::string name;
-        std::string tag;
+        std::shared_ptr<core::render::Drawable> drawable_obj;
     };
 }
 

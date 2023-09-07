@@ -16,7 +16,9 @@ namespace Recursion::core::scene
         virtual std::string to_string()
         {
             std::stringstream res;
-            res << "Component(" << "id=" << id.substr(0,CONF__LOG__PRINT_GUID_LENGTH) << ", " << "name=" << name << ")";
+            res << "Component("
+                << "id=" << id.substr(0, CONF__LOG__PRINT_GUID_LENGTH) << ", "
+                << "name=" << name << ")";
             return res.str();
         }
         virtual const std::string &get_name() const final { return name; }
@@ -50,10 +52,15 @@ namespace Recursion::core::scene
         }
         virtual ~TransformComponent() {}
 
+        glm::mat4 get_transform()
+        {
+            return glm::translate(glm::mat4(1.0f), translation) * glm::toMat4(glm::quat(rotation)) * glm::scale(glm::mat4(1.0f), scale);
+        }
         virtual std::string to_string() override
         {
             std::stringstream res;
-            res << "TransformComponent(" << Component::to_string() << ", " << glm::to_string(translation) << ", " << glm::to_string(rotation) << ", " << glm::to_string(scale) << ")";
+            res << "TransformComponent(" << Component::to_string() << ", "
+                << "transform=" << glm::to_string(get_transform()) << ")";
             return res.str();
         }
 
