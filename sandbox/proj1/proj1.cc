@@ -118,12 +118,45 @@ Proj1::Proj1() : Application{"Project1"}
                      render::Quantity::Float3, 1,
                      render::Type::Float,
                      render::Normalized::FALSE})
-
         .add_layout({"texture",
                      2,
                      render::Quantity::Float2, 1,
                      render::Type::Float,
                      render::Normalized::FALSE})
+        .build();
+
+    float vertices[] = {
+        // Positions (x, y)
+        0.5f, 0.5f, -0.0f, 1, 1, 1, 10, 10, // Top right
+        0.5f, -0.5f, -0.0f, 1, 1, 1, 10, 0, // Bottom right
+        -0.5f, -0.5f, -0.0f, 1, 1, 1, 0, 0, // Bottom left
+        -0.5f, 0.5f, -0.0f, 1, 1, 1, 0, 10, // Top left
+    };
+
+    uint32_t indices[] = {
+        0, 3, 2, // First triangle
+        0, 1, 2  // Second triangle
+    };
+
+    VAO4.bind();
+    VAO4.bind_vertex_buffer({vertices, sizeof(float) * 8 * 4})
+        .add_layout({"position",
+                     0,
+                     render::Quantity::Float3, 1,
+                     render::Type::Float,
+                     render::Normalized::FALSE})
+        .add_layout({"color",
+                     1,
+                     render::Quantity::Float3, 1,
+                     render::Type::Float,
+                     render::Normalized::FALSE})
+        .add_layout({"texture",
+                     2,
+                     render::Quantity::Float2, 1,
+                     render::Type::Float,
+                     render::Normalized::FALSE})
+        .add_texture({"/home/rt7/Desktop/Recursion-Engine/src/core/scene_objects/tile_maps/brick.png",1,false,GL_REPEAT,GL_REPEAT,GL_LINEAR_MIPMAP_NEAREST,GL_NEAREST})
+        .bind_index_buffer({indices, sizeof(uint32_t) * 3 * 2})
         .build();
 }
 Proj1::~Proj1()
@@ -142,9 +175,10 @@ void Proj1::application(float delta_time, events::Event &event)
     // REC_CORE_ERROR("vert2 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
     // REC_CORE_ERROR("vert3 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
 
-    renderer.submit(VAO);
-    renderer.submit(VAO2);
-    renderer.submit(VAO3);
+    // renderer.submit(VAO);
+    // renderer.submit(VAO2);
+    // renderer.submit(VAO3);
+    renderer.submit(VAO4);
     renderer.draw_scene();
 
     renderer.end_scene();
@@ -155,5 +189,4 @@ void Proj1::application(float delta_time, events::Event &event)
 
     std::cout << obj.get_component<scene::Component>().to_string() << std::endl;
     std::cout << obj.get_component<scene::TransformComponent>().to_string() << std::endl;
-
 }

@@ -37,7 +37,19 @@ namespace Recursion::opengl::render
         uint8_t *data = stbi_load(get_path().c_str(), &width, &height, &nrChannels, 0);
         if (data)
         {
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+            if (nrChannels == 4)
+            {
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+            }
+            else if (nrChannels == 3)
+            {
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+            }
+            else
+            {
+                REC_CORE_ERROR("Unknown format image {}",get_path());
+                exit(-1);
+            }
             glGenerateMipmap(GL_TEXTURE_2D);
             REC_CORE_TRACE("Texture {} is initialized", get_path());
         }

@@ -49,6 +49,9 @@ private:
     render::VertexArray VAO3;
     float *data3;
 
+
+    render::VertexArray VAO4;
+
     Recursion::core::scene::OrthographicCamera cam{CONF__REC__WINDOW_WIDTH / CONF__REC__WINDOW_HEIGHT};
 };
 

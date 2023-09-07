@@ -83,7 +83,7 @@ namespace Recursion::core::scene
 
     OrthographicCamera::OrthographicCamera(float left, float right, float bottom, float top)
     {
-        projection_matrix = glm::ortho(left, right, bottom, top, -1.1f, 1.1f); // depth: -1 to 1 (inclusive).
+        projection_matrix = glm::ortho(left, right, bottom, top, -1.1f, 1.2f); // depth: -1 to 1 (inclusive).
         view_matrix = glm::mat4{1.0f};
         position = glm::vec3(0, 0, 0.0f);
         rotation = 0.0f;
