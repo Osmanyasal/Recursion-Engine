@@ -47,7 +47,6 @@ namespace Recursion::core::render
 
     Renderer &Renderer2D::draw_scene()
     {
-
         // DRAW OPAQUE
         for (Drawable *iter : opaque)
         {

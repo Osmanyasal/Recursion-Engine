@@ -175,9 +175,12 @@ void Proj1::application(float delta_time, events::Event &event)
     // REC_CORE_ERROR("vert2 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
     // REC_CORE_ERROR("vert3 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
 
-    // renderer.submit(VAO);
-    // renderer.submit(VAO2);
-    // renderer.submit(VAO3);
+    renderer.submit(VAO);
+    renderer.submit(VAO2);
+    renderer.submit(VAO3);
+    renderer.draw_scene();
+    
+    sh.set_uniformMatrix4fv("u_model", GL_FALSE, glm::value_ptr(glm::scale(glm::mat4{1}, glm::vec3(100, 100, 1))));
     renderer.submit(VAO4);
     renderer.draw_scene();
 
