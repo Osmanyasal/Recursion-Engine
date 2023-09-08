@@ -4,11 +4,11 @@ namespace Recursion::core::scene
 {
     GameObject::GameObject(const std::string name) : id{generateGUID()}, name{name}, drawable_obj{nullptr}
     {
-        add_component(std::make_shared<scene::TransformComponent>(glm::vec3{0}, glm::vec3{1,0,0}, 0, glm::vec3{100,100,1}));
+        add_component(std::make_shared<scene::TransformComponent>());
     }
     GameObject::GameObject(core::render::Drawable *drawable_obj, const std::string name) : id{generateGUID()}, name{name}, drawable_obj{drawable_obj}
     {
-        add_component(std::make_shared<scene::TransformComponent>(glm::vec3{0}, glm::vec3{1,0,0}, 0, glm::vec3{100,100,1}));
+        add_component(std::make_shared<scene::TransformComponent>());
     }
     void GameObject::set_drawable_object(core::render::Drawable *drawable_object)
     {
@@ -20,9 +20,7 @@ namespace Recursion::core::scene
     void GameObject::destroy() { drawable_obj.get()->destroy(); }
     void GameObject::draw(core::render::Shader &shader)
     {
-        scene::TransformComponent &transform_component = get_component<scene::TransformComponent>();
-        auto transform_matrix = transform_component.get_transform();
-        shader.set_uniformMatrix4fv("u_model", false, glm::value_ptr(transform_matrix));  
+        shader.set_uniformMatrix4fv("u_model", false, glm::value_ptr(get_component<scene::TransformComponent>().get_transform()));
         drawable_obj.get()->draw(shader);
     }
 

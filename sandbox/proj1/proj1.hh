@@ -52,7 +52,8 @@ private:
     render::VertexArray VAO3;
     float *data3;
 
-    scene::GameObject obj;
+    scene::GameObject container;
+    scene::GameObject tile_map;
 
     Recursion::core::scene::OrthographicCamera cam{CONF__REC__WINDOW_WIDTH / CONF__REC__WINDOW_HEIGHT};
 };

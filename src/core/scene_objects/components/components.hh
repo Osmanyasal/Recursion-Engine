@@ -53,8 +53,37 @@ namespace Recursion::core::scene
         }
         inline virtual ~TransformComponent() {}
 
+        void set_translation(const glm::vec3 &translation)
+        {
+            this->translation = translation;
+        }
+        void set_rotation(const glm::vec3 &rotation)
+        {
+            if (OPT_UNLIKELY(rotation == glm::vec3{0}))
+                this->rotation = glm::vec3{1, 0, 0};
+            else
+                this->rotation = rotation;
+        }
+        void set_scale(const glm::vec3 &scale)
+        {
+            this->scale = scale;
+        }
+
+        glm::vec3 &get_translation()
+        {
+            return this->translation;
+        }
+        glm::vec3 &get_rotation()
+        {
+            return this->rotation;
+        }
+        glm::vec3 &get_scale()
+        {
+            return this->scale;
+        }
+
         inline glm::mat4 get_transform()
-        { 
+        {
             glm::mat4 transform{1.0f};
             transform = glm::translate(transform, translation);
             transform = glm::rotate(transform, glm::radians(rotation_degree), rotation);

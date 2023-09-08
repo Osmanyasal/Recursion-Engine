@@ -138,7 +138,9 @@ Proj1::Proj1() : Application{"Project1"}
         0, 1, 2  // Second triangle
     };
 
-    obj.set_drawable_object(opengl_scene::OpenGLShapes::rectangle2D({1, 1, -0.9f}, 1 , 10).release()); 
+    container.set_drawable_object(opengl_scene::OpenGLShapes::triangle2D({1, 1, 0}, "/home/rt7/Desktop/glsl_learning/assets/container.png",1,10).release());
+    container.get_component<scene::TransformComponent>().set_translation({0, -15, 0});
+    tile_map.set_drawable_object(opengl_scene::OpenGLShapes::tilemap2D({10, 10, -0.9f}, 1, 10).release());
 }
 Proj1::~Proj1()
 {
@@ -150,16 +152,13 @@ void Proj1::application(float delta_time, events::Event &event)
 {
     renderer.begin_scene(cam.on_event(event).update(delta_time));
     sh.set_uniformMatrix4fv("u_view_projection", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
-    // sh.set_uniformMatrix4fv("u_model", GL_FALSE, glm::value_ptr(glm::scale(glm::mat4{1}, glm::vec3(10, 10, 1))));
+    sh.set_uniformMatrix4fv("u_model", GL_FALSE, glm::value_ptr(glm::scale(glm::mat4{1}, glm::vec3(10, 10, 1))));
 
-    // REC_CORE_ERROR("vert1 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
-    // REC_CORE_ERROR("vert2 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
-    // REC_CORE_ERROR("vert3 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
-
-    // renderer.submit(VAO);
-    // renderer.submit(VAO2);
-    // renderer.submit(VAO3);
-    renderer.submit(obj);
+    renderer.submit(VAO);
+    renderer.submit(VAO2);
+    renderer.submit(VAO3);
+    renderer.submit(tile_map);
+    renderer.submit(container);
 
     renderer.draw_scene();
     renderer.end_scene();

@@ -14,9 +14,8 @@ namespace Recursion::core::scene
         static std::vector<float> get_colors(float color = 1);
         static std::vector<float> get_normals();
         static std::vector<float> get_texture_coordinates(float tile_factor = 1.0f);
-
         static std::vector<uint32_t> get_index_buffer();
-
+        
     private:
         Rectangle2D(/* args */);
         ~Rectangle2D();

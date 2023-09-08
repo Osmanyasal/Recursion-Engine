@@ -1,5 +1,5 @@
 
-#include <square.hh>
+#include <rectangle.hh>
 
 namespace Recursion::core::scene
 {

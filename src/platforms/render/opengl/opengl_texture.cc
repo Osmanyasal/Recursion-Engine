@@ -10,7 +10,7 @@ namespace Recursion::opengl::render
 
     uint32_t OpenGLTexture::AVAILABLE_TEXTURE_UNIT = 0;
 
-    OpenGLTexture::OpenGLTexture(const std::string &path, uint32_t tile_factor, bool is_transparent, uint32_t wrap_s,
+    OpenGLTexture::OpenGLTexture(const std::string &path, float tile_factor, bool is_transparent, uint32_t wrap_s,
                                  uint32_t wrap_t,
                                  uint32_t min_filter,
                                  uint32_t mag_filter) : Texture{path}, is_transparent{is_transparent}, tile_factor{tile_factor}
