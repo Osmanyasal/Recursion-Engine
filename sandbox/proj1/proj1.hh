@@ -53,7 +53,6 @@ private:
     float *data3;
 
     scene::GameObject obj;
-    render::VertexArray* VAO4;
 
     Recursion::core::scene::OrthographicCamera cam{CONF__REC__WINDOW_WIDTH / CONF__REC__WINDOW_HEIGHT};
 };

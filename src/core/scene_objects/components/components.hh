@@ -10,10 +10,11 @@ namespace Recursion::core::scene
     public:
         static const std::string get_class_name() { return "Component"; }
 
-        Component() : id{generateGUID()}, name{"Component"} {}
-        virtual ~Component() {}
+        inline Component() : id{generateGUID()}, name{"Component"} {}
+        inline virtual ~Component() {}
 
-        virtual std::string to_string()
+        inline virtual const std::string &get_name() const final { return name; }
+        inline virtual std::string to_string()
         {
             std::stringstream res;
             res << "Component("
@@ -21,7 +22,6 @@ namespace Recursion::core::scene
                 << "name=" << name << ")";
             return res.str();
         }
-        virtual const std::string &get_name() const final { return name; }
 
     private:
         std::string id;
@@ -36,27 +36,32 @@ namespace Recursion::core::scene
     public:
         static const std::string get_class_name() { return "TransformComponent"; }
 
-        TransformComponent()
+        inline TransformComponent()
         {
             name = "TransformComponent";
             translation = {0.0f, 0.0f, 0.0f};
-            rotation = {0.0f, 0.0f, 0.0f};
+            rotation = {1.0f, 0.0f, 0.0f};
             scale = {1.0f, 1.0f, 1.0f};
+            rotation_degree = 0;
         }
-        TransformComponent(const glm::vec3 &translation,
-                           const glm::vec3 &rotation,
-                           const glm::vec3 &scale)
-            : translation{translation}, rotation{rotation}, scale{scale}
+        inline TransformComponent(const glm::vec3 &translation,
+                                  const glm::vec3 &rotation, float rotation_degree,
+                                  const glm::vec3 &scale)
+            : translation{translation}, rotation{rotation}, rotation_degree{rotation_degree}, scale{scale}
         {
             name = "TransformComponent";
         }
-        virtual ~TransformComponent() {}
+        inline virtual ~TransformComponent() {}
 
-        glm::mat4 get_transform()
-        {
-            return glm::translate(glm::mat4(1.0f), translation) * glm::toMat4(glm::quat(rotation)) * glm::scale(glm::mat4(1.0f), scale);
+        inline glm::mat4 get_transform()
+        { 
+            glm::mat4 transform{1.0f};
+            transform = glm::translate(transform, translation);
+            transform = glm::rotate(transform, glm::radians(rotation_degree), rotation);
+            transform = glm::scale(transform, scale);
+            return transform;
         }
-        virtual std::string to_string() override
+        inline virtual std::string to_string() override
         {
             std::stringstream res;
             res << "TransformComponent(" << Component::to_string() << ", "
@@ -67,6 +72,7 @@ namespace Recursion::core::scene
     protected:
         glm::vec3 translation;
         glm::vec3 rotation;
+        float rotation_degree;
         glm::vec3 scale;
     };
 }

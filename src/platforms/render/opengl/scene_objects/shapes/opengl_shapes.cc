@@ -2,11 +2,11 @@
 
 namespace Recursion::opengl::scene
 {
-    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::rectangle2D(float x, float y, float z, float color, float tile_factor)
+    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::rectangle2D(const glm::vec3 &size, float color, float tile_factor)
     {
         std::unique_ptr<opengl::render::VertexArray> result;
         auto indices = core_scene::Rectangle2D::get_index_buffer();
-        auto position = core_scene::Rectangle2D::get_positions(x, y, z);
+        auto position = core_scene::Rectangle2D::get_positions(size);
         auto colors = core_scene::Rectangle2D::get_colors(color);
         auto normals = core_scene::Rectangle2D::get_normals();
         auto texture_position = core_scene::Rectangle2D::get_texture_coordinates(tile_factor);

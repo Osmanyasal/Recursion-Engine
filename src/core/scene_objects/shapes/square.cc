@@ -4,13 +4,13 @@
 namespace Recursion::core::scene
 {
 
-    std::vector<float> Rectangle2D::get_positions(float x, float y, float z)
+    std::vector<float> Rectangle2D::get_positions(const glm::vec3 &size)
     {
         std::vector<float> positions = {
-            x, y, z,   // Top right     0
-            x, -y, z,  // Bottom right  1
-            -x, -y, z, // Bottom left   2
-            -x, y, z,  // Top left      3
+            size.x, size.y, size.z,   // Top right     0
+            size.x, -size.y, size.z,  // Bottom right  1
+            -size.x, -size.y, size.z, // Bottom left   2
+            -size.x, size.y, size.z,  // Top left      3
         };
         return positions;
     }
@@ -19,7 +19,7 @@ namespace Recursion::core::scene
     {
         std::vector<uint32_t> indices{
             0, 3, 2, // First triangle   upper left half
-            // 0, 1, 2  // Second triangle  bottom right half
+            0, 1, 2  // Second triangle  bottom right half
         };
         return indices;
     }

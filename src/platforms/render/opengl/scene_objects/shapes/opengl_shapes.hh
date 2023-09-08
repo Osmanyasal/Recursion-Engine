@@ -10,7 +10,9 @@ namespace Recursion::opengl::scene
     class OpenGLShapes
     {
     public:
-        static std::unique_ptr<opengl::render::VertexArray> rectangle2D(float x = 1, float y = 1, float z = 0, float color = 1, float tile_factor = 1);
+        static std::unique_ptr<opengl::render::VertexArray> rectangle2D(const glm::vec3 &size, float color = 1, float tile_factor = 1);
+        static std::unique_ptr<opengl::render::VertexArray> triangle2D(const glm::vec3 &size, float color = 1, float tile_factor = 1);
+        static std::unique_ptr<opengl::render::VertexArray> circle2D(const glm::vec3 &size, float color = 1, float tile_factor = 1);
 
     private:
         OpenGLShapes();

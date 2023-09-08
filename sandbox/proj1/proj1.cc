@@ -137,31 +137,8 @@ Proj1::Proj1() : Application{"Project1"}
         0, 3, 2, // First triangle
         0, 1, 2  // Second triangle
     };
-    VAO4 = new render::VertexArray{};
-    VAO4->bind();
-    VAO4->bind_vertex_buffer({vertices, sizeof(float) * 8 * 4})
-        .add_layout({"position",
-                     0,
-                     render::Quantity::Float3, 1,
-                     render::Type::Float,
-                     render::Normalized::FALSE})
-        .add_layout({"color",
-                     1,
-                     render::Quantity::Float3, 1,
-                     render::Type::Float,
-                     render::Normalized::FALSE})
-        .add_layout({"texture",
-                     2,
-                     render::Quantity::Float2, 1,
-                     render::Type::Float,
-                     render::Normalized::FALSE})
-        .add_texture({"/home/rt7/Desktop/Recursion-Engine/src/core/scene_objects/tile_maps/brick.png", 1, false, GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_NEAREST, GL_NEAREST})
-        .bind_index_buffer({indices, sizeof(uint32_t) * 3 * 2})
-        .build();
 
-    obj.set_drawable_object(opengl_scene::OpenGLShapes::rectangle2D(1, 1, -0.9f, 1, 1).release());
-    obj.add_component(std::make_shared<scene::Component>());
-    obj.add_component(std::make_shared<scene::TransformComponent>());
+    obj.set_drawable_object(opengl_scene::OpenGLShapes::rectangle2D({1, 1, -0.9f}, 1 , 10).release()); 
 }
 Proj1::~Proj1()
 {
@@ -173,24 +150,17 @@ void Proj1::application(float delta_time, events::Event &event)
 {
     renderer.begin_scene(cam.on_event(event).update(delta_time));
     sh.set_uniformMatrix4fv("u_view_projection", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
-    sh.set_uniformMatrix4fv("u_model", GL_FALSE, glm::value_ptr(glm::scale(glm::mat4{1}, glm::vec3(10, 10, 1))));
+    // sh.set_uniformMatrix4fv("u_model", GL_FALSE, glm::value_ptr(glm::scale(glm::mat4{1}, glm::vec3(10, 10, 1))));
 
     // REC_CORE_ERROR("vert1 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
     // REC_CORE_ERROR("vert2 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
     // REC_CORE_ERROR("vert3 -> {}", glm::to_string(cam.get_view_projection_matrix() * glm::scale(glm::mat4{1}, glm::vec3(10.0f)) * glm::vec4(-0.5f, -0.5f, .5f, 1.0f)));
 
-    renderer.submit(VAO);
-    renderer.submit(VAO2);
-    renderer.submit(VAO3);
-    renderer.draw_scene();
-
-    sh.set_uniformMatrix4fv("u_model", GL_FALSE, glm::value_ptr(glm::scale(glm::mat4{1}, glm::vec3(100, 100, 1))));
+    // renderer.submit(VAO);
+    // renderer.submit(VAO2);
+    // renderer.submit(VAO3);
     renderer.submit(obj);
 
-    // renderer.draw_scene();
-
+    renderer.draw_scene();
     renderer.end_scene();
-
-    std::cout << obj.get_component<scene::Component>().to_string() << std::endl;
-    std::cout << obj.get_component<scene::TransformComponent>().to_string() << std::endl;
 }

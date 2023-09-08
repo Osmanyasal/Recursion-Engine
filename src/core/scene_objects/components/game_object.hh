@@ -4,49 +4,26 @@
 #include <string>
 #include <unordered_map>
 #include <components.hh>
-#include <logger.hh>
 #include <buffer.hh>
-#include <memory>
 namespace Recursion::core::scene
 {
     // TODO: Fix VertexArray thing, get buffer instead
     class GameObject : public core::render::Drawable
     {
     public:
-        GameObject(const std::string name = "") : id{generateGUID()}, name{name} {}
-        GameObject(core::render::Drawable *drawable_obj, const std::string name = "") : id{generateGUID()}, name{name}, drawable_obj{drawable_obj} {}
+        GameObject(const std::string name = "");
+        GameObject(core::render::Drawable *drawable_obj, const std::string name = "");
         virtual ~GameObject() {}
 
-        void set_drawable_object(core::render::Drawable *drawable_object)
-        {
-            this->drawable_obj.reset(drawable_object);
-        }
-
-        virtual void bind() override { drawable_obj.get()->bind(); };
-        virtual void unbind() override { drawable_obj.get()->unbind(); };
-        virtual void destroy() override { drawable_obj.get()->destroy(); };
-        virtual void draw(core::render::Shader &shader) override { drawable_obj.get()->draw(shader); };
+        void set_drawable_object(core::render::Drawable *drawable_object);
+        virtual void bind() override;
+        virtual void unbind() override;
+        virtual void destroy() override;
+        virtual void draw(core::render::Shader &shader) override;
+        void add_component(const std::shared_ptr<Component> &component);
 
         template <typename T>
-        T &get_component()
-        {
-            const std::string &component_name = T::get_class_name();
-            auto it = component_list.find(component_name);
-
-            if (it != component_list.end())
-            {
-                T &component = dynamic_cast<T &>(*it->second);
-                return component;
-            }
-
-            REC_CORE_ERROR("Component {} not found or type mismatch", component_name);
-            throw std::runtime_error("Component not found or type mismatch");
-        }
-
-        void add_component(const std::shared_ptr<Component> &component)
-        {
-            component_list[component->get_name()] = component;
-        }
+        T &get_component();
 
     private:
         std::unordered_map<std::string, std::shared_ptr<Component>> component_list;
