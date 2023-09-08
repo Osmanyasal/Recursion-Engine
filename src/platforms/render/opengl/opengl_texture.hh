@@ -33,12 +33,12 @@ namespace Recursion::opengl::render
         static uint32_t TEXTURE_UNIT_LIMIT;
         static uint32_t AVAILABLE_TEXTURE_UNIT;
         bool is_transparent;
+        int32_t tile_factor;
 
     protected:
         int32_t width;
         int32_t height;
         int32_t nrChannels;
-        int32_t tile_factor;
 
     private:
         uint32_t texture_unit;

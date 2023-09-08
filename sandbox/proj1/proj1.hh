@@ -19,9 +19,12 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtx/string_cast.hpp>
 #include <opengl_texture.hh>
-#include<game_object.hh>
+#include <game_object.hh>
+#include <opengl_shapes.hh>
 
 namespace render = Recursion::opengl::render;
+namespace opengl_scene = Recursion::opengl::scene;
+
 namespace input = Recursion::core::input;
 namespace events = Recursion::core::events;
 namespace core_render = Recursion::core::render;
@@ -49,8 +52,8 @@ private:
     render::VertexArray VAO3;
     float *data3;
 
-
-    render::VertexArray VAO4;
+    scene::GameObject obj;
+    render::VertexArray* VAO4;
 
     Recursion::core::scene::OrthographicCamera cam{CONF__REC__WINDOW_WIDTH / CONF__REC__WINDOW_HEIGHT};
 };

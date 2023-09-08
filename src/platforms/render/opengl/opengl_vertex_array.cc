@@ -154,6 +154,7 @@ namespace Recursion::opengl::render
     {
         for (auto iter = texture_list.begin(); iter != texture_list.end(); iter++)
         {
+            //TODO:Add support for multiple textures and mixing.
             iter->bind();                                           // bind the texture
             shader.set_uniform1i("u_ourTexture", iter->get_unit()); // set texture unit.
         }

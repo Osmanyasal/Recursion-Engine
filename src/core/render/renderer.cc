@@ -36,7 +36,6 @@ namespace Recursion::core::render
                 Sort all the transparent objects.
                 Draw all the transparent objects in sorted order.
             */
-           
         }
         else
         {

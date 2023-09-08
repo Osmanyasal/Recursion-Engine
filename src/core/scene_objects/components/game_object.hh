@@ -14,18 +14,18 @@ namespace Recursion::core::scene
     {
     public:
         GameObject(const std::string name = "") : id{generateGUID()}, name{name} {}
-        GameObject(std::shared_ptr<core::render::Drawable> drawable_obj, const std::string name = "") : id{generateGUID()}, name{name}, drawable_obj{drawable_obj} {}
+        GameObject(core::render::Drawable *drawable_obj, const std::string name = "") : id{generateGUID()}, name{name}, drawable_obj{drawable_obj} {}
         virtual ~GameObject() {}
 
-        void set_drawable_object(std::shared_ptr<core::render::Drawable> drawable_object)
+        void set_drawable_object(core::render::Drawable *drawable_object)
         {
-            this->drawable_obj = drawable_object;
+            this->drawable_obj.reset(drawable_object);
         }
 
-        virtual void bind() override{};
-        virtual void unbind() override{};
-        virtual void destroy() override{};
-        virtual void draw(core::render::Shader &shader) override{};
+        virtual void bind() override { drawable_obj.get()->bind(); };
+        virtual void unbind() override { drawable_obj.get()->unbind(); };
+        virtual void destroy() override { drawable_obj.get()->destroy(); };
+        virtual void draw(core::render::Shader &shader) override { drawable_obj.get()->draw(shader); };
 
         template <typename T>
         T &get_component()
@@ -52,7 +52,7 @@ namespace Recursion::core::scene
         std::unordered_map<std::string, std::shared_ptr<Component>> component_list;
         std::string id;
         std::string name;
-        std::shared_ptr<core::render::Drawable> drawable_obj;
+        std::unique_ptr<core::render::Drawable> drawable_obj;
     };
 }
 
