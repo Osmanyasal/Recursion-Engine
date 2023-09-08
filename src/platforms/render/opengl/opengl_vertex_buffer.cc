@@ -38,28 +38,28 @@ namespace Recursion::opengl::render
     VertexBuffer &VertexBuffer::add_positions(float *data, uint32_t size_in_bytes)
     {
         glBufferSubData(GL_ARRAY_BUFFER, offset, size_in_bytes, data);
-        REC_CORE_TRACE("glBufferSubData(GL_ARRAY_BUFFER, {}, {}, data);",offset,size_in_bytes);
+        REC_CORE_TRACE("glBufferSubData(GL_ARRAY_BUFFER, {}, {}, data);", offset, size_in_bytes);
         offset += size_in_bytes;
         return *this;
     }
     VertexBuffer &VertexBuffer::add_colors(float *data, uint32_t size_in_bytes)
     {
         glBufferSubData(GL_ARRAY_BUFFER, offset, size_in_bytes, data);
-        REC_CORE_TRACE("glBufferSubData(GL_ARRAY_BUFFER, {}, {}, data);",offset,size_in_bytes);
+        REC_CORE_TRACE("glBufferSubData(GL_ARRAY_BUFFER, {}, {}, data);", offset, size_in_bytes);
         offset += size_in_bytes;
         return *this;
     }
     VertexBuffer &VertexBuffer::add_normals(float *data, uint32_t size_in_bytes)
     {
         glBufferSubData(GL_ARRAY_BUFFER, offset, size_in_bytes, data);
-        REC_CORE_TRACE("glBufferSubData(GL_ARRAY_BUFFER, {}, {}, data);",offset,size_in_bytes);
+        REC_CORE_TRACE("glBufferSubData(GL_ARRAY_BUFFER, {}, {}, data);", offset, size_in_bytes);
         offset += size_in_bytes;
         return *this;
     }
     VertexBuffer &VertexBuffer::add_texture_coordinates(float *data, uint32_t size_in_bytes)
     {
         glBufferSubData(GL_ARRAY_BUFFER, offset, size_in_bytes, data);
-        REC_CORE_TRACE("glBufferSubData(GL_ARRAY_BUFFER, {}, {}, data);",offset,size_in_bytes);
+        REC_CORE_TRACE("glBufferSubData(GL_ARRAY_BUFFER, {}, {}, data);", offset, size_in_bytes);
         offset += size_in_bytes;
         return *this;
     }
