@@ -3,5 +3,6 @@
 
 #include <rectangle.hh>
 #include <triangle.hh>
+#include <circle.hh>
 
 #endif

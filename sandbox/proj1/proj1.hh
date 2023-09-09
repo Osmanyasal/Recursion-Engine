@@ -41,20 +41,11 @@ public:
 private:
     render::OpenGLShader sh;
     
-    Renderer2D renderer;
+    Renderer2D renderer; 
     
-    render::VertexArray VAO;
-    float *data;
-
-    render::VertexArray VAO2;
-    float *data2;
-
-    render::VertexArray VAO3;
-    float *data3;
-
     scene::GameObject container;
-    scene::GameObject tile_map;
-
+    scene::GameObject container_specular;
+    scene::GameObject tile_map; 
     Recursion::core::scene::OrthographicCamera cam{CONF__REC__WINDOW_WIDTH / CONF__REC__WINDOW_HEIGHT};
 };
 
