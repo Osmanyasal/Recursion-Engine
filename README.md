@@ -99,7 +99,7 @@ src/tests/
 ## Naming Convention
 ### file names
 <pre>
-  <b> always *.hh and *.cc</b>
+  <b>always *.hh and *.cc</b>
   app1.hh app1.cc
 </pre>
 ### header guards
