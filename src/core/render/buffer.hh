@@ -1,7 +1,6 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__RENDER__BUFFER_HH
 #define RECURSION_ENGINE__SRC__CORE__RENDER__BUFFER_HH
 
-#include <iostream>
 #include <bindable.hh>
 #include <shader.hh>
 

@@ -2,7 +2,6 @@
 #define RECURSION_ENGINE__SRC__PLATFORMS__LINUX__LINUX_WINDOW_HH
 
 #include <window.hh>
-#include <event_core.hh>
 #include <opengl_render_context.hh>
 #include <memory>
 namespace Recursion::core::window

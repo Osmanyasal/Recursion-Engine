@@ -1,8 +1,8 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__EVENTS__EVENT_HH
 #define RECURSION_ENGINE__SRC__CORE__EVENTS__EVENT_HH
 
-#include <utils.hh>
 #include <sstream>
+#include <utils.hh>
 
 namespace Recursion::core::events
 {
@@ -50,7 +50,7 @@ namespace Recursion::core::events
     class Event
     {
     public:
-        void* additional_data;
+        void *additional_data;
         bool is_handled;
         virtual EventType get_event_type() const = 0;
         virtual std::string get_name() const = 0;
@@ -74,10 +74,11 @@ namespace Recursion::core::events
     };
 
     // Blank event indicates no-event
-    class EmptyEvent : public Event{
-        public:
-            SET_EVENT_CATEGORY((int32_t)EventCategory::None)
-            SET_EVENT_TYPE(EventType::None)
+    class EmptyEvent : public Event
+    {
+    public:
+        SET_EVENT_CATEGORY((int32_t)EventCategory::None)
+        SET_EVENT_TYPE(EventType::None)
     };
 
     /**

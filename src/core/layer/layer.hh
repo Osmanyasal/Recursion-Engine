@@ -1,10 +1,8 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__LAYER__LAYER_HH
 #define RECURSION_ENGINE__SRC__CORE__LAYER__LAYER_HH
 
-#include <iostream>
-#include <event_core.hh>
 #include <utils.hh>
-#include <sstream>
+#include <core_events.hh>
 
 namespace Recursion::core::layer
 {

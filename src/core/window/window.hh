@@ -1,14 +1,13 @@
 #ifndef RECURSION_ENGINE__SRC__UTILS__WINDOW_HH
 #define RECURSION_ENGINE__SRC__UTILS__WINDOW_HH
 
-#include <base_config.hh>
-#include <utils.hh>
-#include <event_core.hh>
-#include <memory>
+#include <string>
+#include <memory> 
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-
-#include <Input.hh>
+#include <base_config.hh>
+#include <core_events.hh>
 namespace Recursion::core
 {
     class Engine;

@@ -1,12 +1,13 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__RENDER__RENDERER_HH
 #define RECURSION_ENGINE__SRC__CORE__RENDER__RENDERER_HH
 
+#include <memory>
+#include <map>
+
 #include <utils.hh>
 #include <camera.hh>
-#include <buffer.hh>
-#include <memory>
 #include <shader.hh>
-#include <map>
+#include <buffer.hh>
 
 // TODO: Remove this, make vertex-array and buffer objects generic!
 namespace Recursion::core::render

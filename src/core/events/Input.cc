@@ -16,10 +16,10 @@ namespace Recursion::core::input
     }
     bool Input::is_mouse_button_pressed(int32_t mouse_button_code)
     {
-        return glfwGetMouseButton(Input::gl_window,mouse_button_code) == GLFW_PRESS;
+        return glfwGetMouseButton(Input::gl_window, mouse_button_code) == GLFW_PRESS;
     }
-    void Input::get_cursor_pos(double* xpos, double* ypos)
+    void Input::get_cursor_pos(double *xpos, double *ypos)
     {
-        return glfwGetCursorPos(Input::gl_window,xpos,ypos);
+        return glfwGetCursorPos(Input::gl_window, xpos, ypos);
     }
 }

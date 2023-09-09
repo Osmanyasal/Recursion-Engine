@@ -1,4 +1,6 @@
+
 #include <renderer.hh>
+
 namespace Recursion::core::render
 {
 

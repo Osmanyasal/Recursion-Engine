@@ -1,7 +1,7 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__RENDER__SHADER_HH
 #define RECURSION_ENGINE__SRC__CORE__RENDER__SHADER_HH
 
-#include <utils.hh> 
+#include <string>
 #include <unordered_map>
 #include <bindable.hh>
 

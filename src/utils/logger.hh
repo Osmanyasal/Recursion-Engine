@@ -1,11 +1,11 @@
 #ifndef RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
 #define RECURSION_ENGINE__SRC__UTILS__LOGGER_HH
 
-#include <base_config.hh>
 #include <string>
 #include <memory>
 #include <spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
+#include <base_config.hh>
 namespace Recursion::utils
 {
     class BaseLogger final

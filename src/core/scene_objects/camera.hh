@@ -2,13 +2,7 @@
 #define RECURSION_ENGINE__SRC__CORE__SCENE_OBJECTS__CAMERA_HH
 
 #include <utils.hh>
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-#include <glm/gtx/string_cast.hpp>
-#include <Input.hh>
-#include <event_core.hh>
+#include <core_events.hh>
 
 namespace Recursion::core::scene
 {

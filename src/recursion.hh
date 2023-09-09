@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <utils.hh>
-#include <event_core.hh>
-#include <layer_stack.hh>
+#include <core_events.hh>
+#include <core_layers.hh>
 #include <imgui_impl.hh>
 #include <Input.hh>
 #include <linux_window.hh>

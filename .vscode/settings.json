@@ -98,7 +98,8 @@
         "__debug": "cpp",
         "__string": "cpp",
         "queue": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "unordered_set": "cpp"
     },
     "cmake.sourceDirectory": "/home/rt7/Desktop/Recursion-Engine/lib/spdlog"
 }

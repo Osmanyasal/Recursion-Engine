@@ -2,7 +2,6 @@
 #define RECURSION_ENGINE__SRC__CORE__LAYER__LAYER_STACK_HH
 
 #include <layer.hh>
-#include <utils.hh>
 #include <vector>
 namespace Recursion::core::layer
 {
@@ -20,7 +19,7 @@ namespace Recursion::core::layer
         inline int32_t get_size() { return layers.size(); }
         void add_layer(Layer *layer);
         bool remove_layer(Layer *layer);
-        const Layer* get_layer(const std::string &name);
+        const Layer *get_layer(const std::string &name);
         bool disable_layer(Layer *layer);
 
         std::vector<Layer *>::iterator begin() { return layers.begin(); }

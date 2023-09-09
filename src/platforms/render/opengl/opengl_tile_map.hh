@@ -2,9 +2,9 @@
 #define RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__TILE_MAP_HH
 
 #include <string>
-#include <layer.hh>
+#include <core_layers.hh>
 #include <opengl_vertex_array.hh>
-#include <event_core.hh>
+#include <core_events.hh>
 
 namespace Recursion::opengl::render
 {

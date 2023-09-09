@@ -1,7 +1,6 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__RENDER__TEXTURE_HH
 #define RECURSION_ENGINE__SRC__CORE__RENDER__TEXTURE_HH
 
-#include <iostream>
 #include <string>
 #include <bindable.hh>
 

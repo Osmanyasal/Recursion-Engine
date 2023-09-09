@@ -1,8 +1,8 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__EVENTS__INPUT_HH
 #define RECURSION_ENGINE__SRC__CORE__EVENTS__INPUT_HH
 
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <utils.hh>
 
 namespace Recursion::core::input
 {
