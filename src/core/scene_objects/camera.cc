@@ -33,15 +33,15 @@ namespace Recursion::core::scene
     {
         glm::vec3 pos = get_position();
         if (input::Input::is_key_pressed(REC_KEY_A))
-            pos.x -= step * delta_time;
+            pos.x -= zoom_level * step * delta_time;
         if (input::Input::is_key_pressed(REC_KEY_D))
-            pos.x += step * delta_time;
+            pos.x += zoom_level * step * delta_time;
         if (input::Input::is_key_pressed(REC_KEY_S))
-            pos.y -= step * delta_time;
+            pos.y -= zoom_level * step * delta_time;
         if (input::Input::is_key_pressed(REC_KEY_W))
-            pos.y += step * delta_time;
+            pos.y += zoom_level * step * delta_time;
         set_position(pos);
-
+    
         return *this;
     }
 

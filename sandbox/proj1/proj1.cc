@@ -4,7 +4,7 @@ Proj1::Proj1() : Application{"Project1"}
 {
     sh.bind(); // bind shader !
     renderer = Renderer2D::init((Recursion::core::render::Shader &)sh);
-    container.set_drawable_object(opengl_scene::OpenGLShapes::circle2D(1, 0, "", 90, .5, 1).release()); // "/home/rt7/Desktop/glsl_learning/assets/container.png"
+    container.set_drawable_object(opengl_scene::OpenGLShapes::circle2D(1, 0, "/home/rt7/Desktop/glsl_learning/assets/container.png",1,1,10).release()); // 
     container_specular.set_drawable_object(opengl_scene::OpenGLShapes::triangle2D({1, 1, 0}, "/home/rt7/Desktop/glsl_learning/assets/container.png", 1, 1).release());
     container.get_component<scene::TransformComponent>().set_scale({1, 1, 1});
     container_specular.get_component<scene::TransformComponent>().set_translation({5, 0, 0}).set_scale({1, 1, 1});

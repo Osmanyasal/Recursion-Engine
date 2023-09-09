@@ -70,7 +70,7 @@
  * @brief RENDERING
 */
 
-#define CONF__CAMERA_CONTROLLER__STEP 10.0f
+#define CONF__CAMERA_CONTROLLER__STEP 2.0f
 
 
 

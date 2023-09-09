@@ -29,7 +29,6 @@
 #include <block_timer.hh>
 #include <gantt_instrumentor.hh>
 
-
 // MACRO DEFINITIONS
 #define BIT(x) (1 << x)
 //#define REC_BIND_EVENT_FUNC(x) std::bind(&x,this,std::placeholders::_1)

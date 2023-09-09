@@ -29,7 +29,7 @@ namespace Recursion::core::scene
         uint32_t vcount = (360.0f / unit_angle) + 1;
         std::vector<uint32_t> indices;
 
-        for (uint32_t i = 0; i < vcount -2; i++)
+        for (uint32_t i = 0; i < vcount - 2; i++)
         {
             indices.push_back(0);
             indices.push_back(i + 1);
@@ -71,14 +71,22 @@ namespace Recursion::core::scene
 
     std::vector<float> Circle2D::get_texture_coordinates(float tile_factor, float unit_angle)
     {
-        uint32_t vcount = (360.0f / unit_angle) + 1;
+        float steps = 360.0f / unit_angle;
         std::vector<float> texture_coordinates;
-        // Calculate texture coordinates based on the unit_angle.
-        for (uint32_t i = 0; i < vcount; i += 1)
+
+        // The center of the circle (0.5) is the center of the opengl texture.
+        texture_coordinates.push_back(0.5f); 
+        texture_coordinates.push_back(0.5f); 
+
+        // Calculate the positions for the circle based on the given radius (tile_factor) and number of unit_angle (segments).
+        for (int32_t i = 0; i <= steps; i += 1)
         {
-            float s = static_cast<float>(i) / 360.0f;
-            texture_coordinates.push_back(s * tile_factor);
-            texture_coordinates.push_back(0.0f);
+            float radians = glm::radians(i * unit_angle);
+            float x = 0.5f + 0.5f * tile_factor * std::cos(radians); // Map [-tile_factor, tile_factor] to [0, 1]
+            float y = 0.5f + 0.5f * tile_factor * std::sin(radians); // Map [-tile_factor, tile_factor] to [0, 1]
+
+            texture_coordinates.push_back(x);
+            texture_coordinates.push_back(y);
         }
         return texture_coordinates;
     }
