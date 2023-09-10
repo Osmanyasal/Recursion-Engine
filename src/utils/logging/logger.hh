@@ -7,7 +7,6 @@
 #include <memory>
 #include <spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
-#include <app_config.hh>
 namespace Recursion::utils::logger
 {
     class BaseLogger final

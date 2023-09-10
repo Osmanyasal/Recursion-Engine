@@ -109,7 +109,7 @@ namespace Recursion::platforms::linux::window
 
     void LinuxWindow::init_Input()
     {
-        Recursion::core::input::Input::init(context->get_window());
+        input = &(core::input::InputFactory::create(context->get_render_api(), context->get_window()));
     }
 
     void LinuxWindow::on_update()

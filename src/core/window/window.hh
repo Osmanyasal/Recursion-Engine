@@ -3,7 +3,7 @@
 
 #include <window_config.hh>
 #include <string>
-#include <memory> 
+#include <memory>
 #include <core_events.hh>
 namespace Recursion::core
 {
@@ -70,6 +70,9 @@ namespace Recursion::core::window
         {
             return win_props.win_posy;
         };
+
+    public:
+        core::input::BaseInput* input;
 
     protected:
         virtual void set_event_callback() const = 0;
