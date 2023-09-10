@@ -1,9 +1,9 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__WINDOW__WINDOW_HH
 #define RECURSION_ENGINE__SRC__CORE__WINDOW__WINDOW_HH
 
+#include <window_config.hh>
 #include <string>
 #include <memory> 
-#include <base_config.hh>
 #include <core_events.hh>
 namespace Recursion::core
 {

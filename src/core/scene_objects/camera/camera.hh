@@ -1,6 +1,7 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__SCENE_OBJECTS__CAMERA_HH
 #define RECURSION_ENGINE__SRC__CORE__SCENE_OBJECTS__CAMERA_HH
 
+#include <camera_config.hh>
 #include <utils.hh>
 #include <core_events.hh>
 

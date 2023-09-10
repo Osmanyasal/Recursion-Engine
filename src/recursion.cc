@@ -13,8 +13,8 @@ namespace Recursion::core
     }
 
     Engine::Engine()
-    {
-        Recursion::utils::BaseLogger::init();
+    {   
+        Recursion::utils::logger::BaseLogger::init();
         // GENERIC CREATE_WINDOW MACRO. DEFINE YOURS IN CONFIG.HH
         CREATE_WINDOW();
 

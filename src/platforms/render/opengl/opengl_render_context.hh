@@ -1,6 +1,7 @@
 #ifndef RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_RENDER_CONTEXT_HH
 #define RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_RENDER_CONTEXT_HH
 
+#include <gui_config.hh>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <render_context.hh>

@@ -1,6 +1,6 @@
 #include <logger.hh>
 
-namespace Recursion::utils
+namespace Recursion::utils::logger
 {
     std::shared_ptr<spdlog::logger> BaseLogger::core_logger;
     std::shared_ptr<spdlog::logger> BaseLogger::client_logger;

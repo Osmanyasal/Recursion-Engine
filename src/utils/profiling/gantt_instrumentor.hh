@@ -1,7 +1,7 @@
 #ifndef RECURSION_ENGINE__SRC__UTILS__PROFILING__BLOCK_TIMING_HH
 #define RECURSION_ENGINE__SRC__UTILS__PROFILING__BLOCK_TIMING_HH
 
-#include <base_config.hh>
+#include <profiling_config.hh>
 #include <logger.hh>
 #include <algorithm>
 #include <chrono>

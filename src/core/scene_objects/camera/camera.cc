@@ -98,8 +98,8 @@ namespace Recursion::core::scene
 
     bool OrthographicCamera::on_scroll_call_back(events::MouseScrolledEvent &event)
     {
-        zoom_level = std::max(zoom_level + event.get_offset_y() * CONF__IDE__ZOOM_STEP, CONF__IDE__MIN_DISTANCE);
-        zoom_level = std::min((double)zoom_level, CONF__IDE__MAX_DISTANCE);
+        zoom_level = std::max(zoom_level + event.get_offset_y() * CONF__IDE__ZOOM_STEP2D, CONF__IDE__MIN_DISTANCE2D);
+        zoom_level = std::min((double)zoom_level, CONF__IDE__MAX_DISTANCE2D);
         float borders = aspect_ratio * zoom_level;
         this->projection_matrix = glm::ortho(-borders, borders, -borders, borders);
 

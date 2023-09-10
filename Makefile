@@ -22,6 +22,7 @@ RENDER_DIR := $(CORE_DIR)/render
 
 SCENE_DIR := $(CORE_DIR)/scene_objects
 COMPONENT_DIR := $(SCENE_DIR)/components
+CAMERA_DIR := $(SCENE_DIR)/camera
 SHAPE_DIR := $(SCENE_DIR)/shapes
 LIGHT_DIR := $(SCENE_DIR)/lights
 TILE_MAPS_DIR := $(SCENE_DIR)/tile_maps
@@ -36,6 +37,15 @@ MACOS_DIR := $(PLATFORMS_DIR)/macos
 WINDOWS_DIR := $(PLATFORMS_DIR)/windows
 OPTIMIZATIONS_DIR := $(UTILS_DIR)/optimizations
 PROFILING_DIR := $(UTILS_DIR)/profiling
+LOGGING_DIR := $(UTILS_DIR)/logging
+
+DEPLOYMENT_DIR := $(UTILS_DIR)/deployment
+DEPLOYMENT_LINUX_DIR := $(DEPLOYMENT_DIR)/linux
+DEPLOYMENT_MACOS_DIR := $(DEPLOYMENT_DIR)/macos
+DEPLOYMENT_ANDROID_DIR := $(DEPLOYMENT_DIR)/android
+DEPLOYMENT_IOS_DIR := $(DEPLOYMENT_DIR)/ios
+DEPLOYMENT_WINDOWS_DIR := $(DEPLOYMENT_DIR)/windows
+
 SANDBOX_DIR := ./sandbox/proj1
 
 RENDER_IMPL_DIR := $(PLATFORMS_DIR)/render
@@ -78,6 +88,7 @@ INCLUDE := -I$(SRC_DIR)\
            -I$(LAYER_DIR)\
 		   -I$(SCENE_DIR)\
 		   -I$(COMPONENT_DIR)\
+		   -I$(CAMERA_DIR)\
 		   -I$(TILE_MAPS_DIR)\
 		   -I$(MATH_DIR)\
            -I$(PLATFORMS_DIR)\
@@ -87,7 +98,14 @@ INCLUDE := -I$(SRC_DIR)\
            -I$(MACOS_DIR)\
            -I$(WINDOWS_DIR)\
            -I$(UTILS_DIR)\
+		   -I$(DEPLOYMENT_DIR)\
+		   -I$(DEPLOYMENT_LINUX_DIR)\
+		   -I$(DEPLOYMENT_MACOS_DIR)\
+		   -I$(DEPLOYMENT_WINDOWS_DIR)\
+		   -I$(DEPLOYMENT_IOS_DIR)\
+		   -I$(DEPLOYMENT_ANDROID_DIR)\
 		   -I$(PROFILING_DIR)\
+		   -I$(LOGGING_DIR)\
            -I$(OPTIMIZATIONS_DIR)\
 		   -I$(RENDER_IMPL_DIR)\
            -I$(RENDER_VULKAN_DIR)\

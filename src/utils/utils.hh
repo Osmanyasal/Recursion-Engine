@@ -7,7 +7,6 @@
 #include <random>
 
 // CUSTOM HEADERS
-#include <base_config.hh>
 #include <logger.hh>
 #include <type.hh>
 
