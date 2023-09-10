@@ -81,6 +81,7 @@ INCLUDE := -I$(SRC_DIR)\
 		   -I$(TILE_MAPS_DIR)\
 		   -I$(MATH_DIR)\
            -I$(PLATFORMS_DIR)\
+		   -I$(GUI)\
            -I$(IMGUI_OPENGL_DIR)\
            -I$(LINUX_DIR)\
            -I$(MACOS_DIR)\

@@ -5,7 +5,7 @@
 #include <core_shapes.hh>
 #include <opengl_vertex_array.hh>
 
-namespace Recursion::opengl::scene
+namespace Recursion::platforms::opengl::scene
 {
     class OpenGLShapes
     {

@@ -1,6 +1,6 @@
 #include <opengl_shader.hh>
 
-namespace Recursion::opengl::render
+namespace Recursion::platforms::opengl::render
 {
 
   OpenGLShader::OpenGLShader() : OpenGLShader("../src/core/render/default_vertex.glsl", "../src/core/render/default_fragment.glsl")

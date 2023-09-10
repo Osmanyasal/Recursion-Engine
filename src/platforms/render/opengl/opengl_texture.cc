@@ -1,7 +1,7 @@
 
 #include <opengl_texture.hh>
 
-namespace Recursion::opengl::render
+namespace Recursion::platforms::opengl::render
 {
     uint32_t OpenGLTexture::TEXTURE_UNIT_LIMIT = []()
     {

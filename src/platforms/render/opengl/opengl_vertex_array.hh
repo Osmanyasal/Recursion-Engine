@@ -1,15 +1,13 @@
 #ifndef RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_VAO_HH
 #define RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_VAO_HH
 
+#include <opengl_shader.hh> 
 #include <opengl_index_buffer.hh>
 #include <opengl_vertex_buffer.hh>
 #include <opengl_buffer_layout.hh>
-#include <opengl_texture.hh>
-#include <opengl_shader.hh>
-#include <GL/glew.h>
-#include <vector>
+#include <opengl_texture.hh> 
 
-namespace Recursion::opengl::render
+namespace Recursion::platforms::opengl::render
 {
     class VertexArray : public core::render::Drawable
     {

@@ -6,7 +6,6 @@
 
 namespace Recursion::core::layer
 {
-	namespace events = Recursion::core::events;
 	class Layer
 	{
 

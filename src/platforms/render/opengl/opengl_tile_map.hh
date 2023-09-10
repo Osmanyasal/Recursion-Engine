@@ -3,10 +3,10 @@
 
 #include <string>
 #include <core_layers.hh>
-#include <opengl_vertex_array.hh>
 #include <core_events.hh>
+#include <opengl_vertex_array.hh>
 
-namespace Recursion::opengl::render
+namespace Recursion::platforms::opengl::render
 {
     class TileMap : public Recursion::core::layer::Layer
     {

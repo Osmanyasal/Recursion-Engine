@@ -2,7 +2,7 @@
 
 #include <logger.hh>
 #include <iostream>
-namespace Recursion::opengl::render
+namespace Recursion::platforms::opengl::render
 {
 
     VertexArray::VertexArray() : stride{0}, transparent{false}

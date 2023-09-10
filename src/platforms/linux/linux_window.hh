@@ -4,14 +4,12 @@
 #include <window.hh>
 #include <opengl_render_context.hh>
 #include <memory>
-namespace Recursion::core::window
+namespace Recursion::platforms::linux::window
 {
-    namespace render = Recursion::core::render;
-
-    class LinuxWindow : public Window
+    class LinuxWindow : public core::window::Window
     {
     public:
-        LinuxWindow(render::RenderContext<GLFWwindow> *render_context);
+        LinuxWindow(core::render::RenderContext<GLFWwindow> *render_context);
 
         virtual ~LinuxWindow()
         {
@@ -22,7 +20,7 @@ namespace Recursion::core::window
         virtual void on_update() override;
         virtual void init_Input() override;
 
-        inline const render::RenderContext<GLFWwindow> *get_context()
+        inline const core::render::RenderContext<GLFWwindow> *get_context()
         {
             return context.get();
         }
@@ -35,7 +33,7 @@ namespace Recursion::core::window
         virtual void set_event_callback() const override;
 
     private:
-        std::unique_ptr<render::RenderContext<GLFWwindow>> context;
+        std::unique_ptr<core::render::RenderContext<GLFWwindow>> context;
     };
 }
 #endif

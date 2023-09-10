@@ -22,5 +22,4 @@ namespace Recursion::core::scene
     };
 } // namespace Recursion::core::scene
 
-namespace core_scene = Recursion::core::scene;
 #endif

@@ -1,11 +1,11 @@
 #ifndef RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_VBO_HH
 #define RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_VBO_HH
 
-#include <buffer.hh>
 #include <GL/glew.h>
+#include <buffer.hh>
 #include <logger.hh>
 
-namespace Recursion::opengl::render
+namespace Recursion::platforms::opengl::render
 {
     class VertexBuffer : public core::render::Buffer
     {

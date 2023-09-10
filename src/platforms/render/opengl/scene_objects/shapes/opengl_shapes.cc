@@ -1,6 +1,6 @@
 #include <opengl_shapes.hh>
 
-namespace Recursion::opengl::scene
+namespace Recursion::platforms::opengl::scene
 {
     std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::tilemap2D(const glm::vec3 &size, float color, float tile_factor)
     {
@@ -10,11 +10,11 @@ namespace Recursion::opengl::scene
     std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::rectangle2D(const glm::vec3 &size, const std::string &texture, float color, float tile_factor)
     {
         std::unique_ptr<opengl::render::VertexArray> result;
-        auto indices = core_scene::Rectangle2D::get_index_buffer();
-        auto position = core_scene::Rectangle2D::get_positions(size);
-        auto colors = core_scene::Rectangle2D::get_colors(color);
-        auto normals = core_scene::Rectangle2D::get_normals();
-        auto texture_position = core_scene::Rectangle2D::get_texture_coordinates(tile_factor);
+        auto indices = core::scene::Rectangle2D::get_index_buffer();
+        auto position = core::scene::Rectangle2D::get_positions(size);
+        auto colors = core::scene::Rectangle2D::get_colors(color);
+        auto normals = core::scene::Rectangle2D::get_normals();
+        auto texture_position = core::scene::Rectangle2D::get_texture_coordinates(tile_factor);
 
         render::VertexBuffer VBO{sizeof(float) * position.size() + sizeof(float) * colors.size() + sizeof(float) * normals.size() + sizeof(float) * texture_position.size()};
         VBO.add_positions(position.data(), position.size() * sizeof(float));
@@ -56,11 +56,11 @@ namespace Recursion::opengl::scene
     std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::triangle2D(const glm::vec3 &size, const std::string &texture, float color, float tile_factor)
     {
         std::unique_ptr<opengl::render::VertexArray> result;
-        auto indices = core_scene::Triangle2D::get_index_buffer();
-        auto position = core_scene::Triangle2D::get_positions(size);
-        auto colors = core_scene::Triangle2D::get_colors(color);
-        auto normals = core_scene::Triangle2D::get_normals();
-        auto texture_position = core_scene::Triangle2D::get_texture_coordinates(tile_factor);
+        auto indices = core::scene::Triangle2D::get_index_buffer();
+        auto position = core::scene::Triangle2D::get_positions(size);
+        auto colors = core::scene::Triangle2D::get_colors(color);
+        auto normals = core::scene::Triangle2D::get_normals();
+        auto texture_position = core::scene::Triangle2D::get_texture_coordinates(tile_factor);
 
         render::VertexBuffer VBO{sizeof(float) * position.size() + sizeof(float) * colors.size() + sizeof(float) * normals.size() + sizeof(float) * texture_position.size()};
         VBO.add_positions(position.data(), position.size() * sizeof(float));
@@ -102,11 +102,11 @@ namespace Recursion::opengl::scene
     std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::circle2D(float radius, float z, const std::string &texture, float unit_angle, float color, float tile_factor)
     {
         std::unique_ptr<opengl::render::VertexArray> result;
-        auto indices = core_scene::Circle2D::get_index_buffer(unit_angle);
-        auto position = core_scene::Circle2D::get_positions(radius, z, unit_angle);
-        auto colors = core_scene::Circle2D::get_colors(color, unit_angle);
-        auto normals = core_scene::Circle2D::get_normals(unit_angle);
-        auto texture_position = core_scene::Circle2D::get_texture_coordinates(tile_factor, unit_angle);
+        auto indices = core::scene::Circle2D::get_index_buffer(unit_angle);
+        auto position = core::scene::Circle2D::get_positions(radius, z, unit_angle);
+        auto colors = core::scene::Circle2D::get_colors(color, unit_angle);
+        auto normals = core::scene::Circle2D::get_normals(unit_angle);
+        auto texture_position = core::scene::Circle2D::get_texture_coordinates(tile_factor, unit_angle);
 
         render::VertexBuffer VBO{sizeof(float) * position.size() + sizeof(float) * colors.size() + sizeof(float) * normals.size() + sizeof(float) * texture_position.size()};
         VBO.add_positions(position.data(), position.size() * sizeof(float));

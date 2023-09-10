@@ -19,7 +19,7 @@
 #define CREATE_WINDOW()                                  \
     Recursion::core::window::WindowProps default_props;  \
     default_props.engine_callback_func = &core_on_event; \
-    window = new Recursion::core::window::LinuxWindow{new Recursion::opengl::render::OpenGLRenderContext{default_props}};
+    window = new Recursion::platforms::linux::window::LinuxWindow{new Recursion::platforms::opengl::render::OpenGLRenderContext{default_props}};
 #elif defined(__APPLE__) && defined(__MACH__)
 #define CONF__OS_NAME "macOS"
 #define CREATE_WINDOW() REC_CORE_ERROR("NO WINDOW DEFINED FOR {}", CONF__OS_NAME) 

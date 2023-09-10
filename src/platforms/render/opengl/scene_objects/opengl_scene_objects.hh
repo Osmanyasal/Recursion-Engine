@@ -1,0 +1,7 @@
+#ifndef RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__SCENE_OBJECTS_HH
+#define RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__SCENE_OBJECTS_HH
+
+#include <opengl_lights.hh>
+#include <opengl_shapes.hh>
+
+#endif

@@ -1,14 +1,8 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__RECURSION_HH
 #define RECURSION_ENGINE__SRC__CORE__RECURSION_HH
 
-#include <iostream>
-#include <utils.hh>
-#include <core_events.hh>
-#include <core_layers.hh>
-#include <imgui_impl.hh>
-#include <Input.hh>
-#include <linux_window.hh>
-#include <opengl_render_context.hh>
+#include <core_modules.hh>
+#include <platform_impl.hh> 
 namespace Recursion::core
 {
 
@@ -62,7 +56,7 @@ namespace Recursion::core
         std::unique_ptr<Application> application;
         bool is_running;
         window::Window *window;
-        window::ImguiLayer_glfw_opengl_impl *imgui_layer;
+        platforms::imgui::window::ImguiLayer_glfw_opengl_impl *imgui_layer;
         layer::LayerStack *layer_stack;
     };
 

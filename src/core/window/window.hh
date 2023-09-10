@@ -1,11 +1,8 @@
-#ifndef RECURSION_ENGINE__SRC__UTILS__WINDOW_HH
-#define RECURSION_ENGINE__SRC__UTILS__WINDOW_HH
+#ifndef RECURSION_ENGINE__SRC__CORE__WINDOW__WINDOW_HH
+#define RECURSION_ENGINE__SRC__CORE__WINDOW__WINDOW_HH
 
 #include <string>
 #include <memory> 
-
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
 #include <base_config.hh>
 #include <core_events.hh>
 namespace Recursion::core

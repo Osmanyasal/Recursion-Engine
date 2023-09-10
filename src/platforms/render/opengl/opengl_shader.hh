@@ -1,13 +1,10 @@
 #ifndef RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_SHADER_HH
 #define RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_SHADER_HH
 
-#include <window.hh>
 #include <render_context.hh>
-#include <shader.hh>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <algorithm>
-namespace Recursion::opengl::render
+#include <shader.hh> 
+#include <vector>
+namespace Recursion::platforms::opengl::render
 {
     class OpenGLShader : public core::render::Shader
     {

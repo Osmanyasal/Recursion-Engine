@@ -2,11 +2,11 @@
 #define RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_TEXTURE_HH
 
 #include <utils.hh>
-#include <texture.hh>
 #include <GL/glew.h>
+#include <texture.hh> 
 #include <stb_image.h>
 
-namespace Recursion::opengl::render
+namespace Recursion::platforms::opengl::render
 {
     class OpenGLTexture : public core::render::Texture
     {

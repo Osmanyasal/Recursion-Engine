@@ -1,10 +1,11 @@
 #ifndef RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_IBO_HH
 #define RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_IBO_HH
 
+#include <logger.hh>
 #include <buffer.hh>
 #include <GL/glew.h>
 
-namespace Recursion::opengl::render
+namespace Recursion::platforms::opengl::render
 {
     class IndexBuffer : public core::render::Buffer
     {

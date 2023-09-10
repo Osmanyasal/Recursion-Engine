@@ -1,9 +1,10 @@
 #ifndef RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_RENDER_CONTEXT_HH
 #define RECURSION_ENGINE__SRC__PLATFORMS__RENDER__OPENGL__OPENGL_RENDER_CONTEXT_HH
 
-#include <window.hh>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include <render_context.hh>
-namespace Recursion::opengl::render
+namespace Recursion::platforms::opengl::render
 {
     class OpenGLRenderContext : public core::render::RenderContext<GLFWwindow>
     {

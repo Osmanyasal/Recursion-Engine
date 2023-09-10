@@ -3,7 +3,7 @@
 
 #include <buffer.hh>
 
-namespace Recursion::opengl::render
+namespace Recursion::platforms::opengl::render
 {
     class OpenGLBufferLayout : public core::render::BufferLayout
     {

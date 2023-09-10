@@ -1,7 +1,7 @@
 
 #include <imgui_impl.hh>
 
-namespace Recursion::core::window
+namespace Recursion::platforms::imgui::window
 {
     void ImguiLayer_glfw_opengl_impl::on_attach()
     {
@@ -79,57 +79,57 @@ namespace Recursion::core::window
 
     void ImguiLayer_glfw_opengl_impl::on_update(float delta_time) {}
 
-    void ImguiLayer_glfw_opengl_impl::on_event(events::Event &event)
+    void ImguiLayer_glfw_opengl_impl::on_event(core::events::Event &event)
     {
         // REC_CORE_TRACE("imgui::on_event executed for {}", event.to_string());
         switch (event.get_event_type())
         {
-        case events::EventType::WindowFocus:
-            on_window_focus_call_back((events::WindowFocusEvent &)event);
+        case core::events::EventType::WindowFocus:
+            on_window_focus_call_back((core::events::WindowFocusEvent &)event);
             break;
 
-        case events::EventType::WindowLostFocus:
-            on_window_lost_focus_call_back((events::WindowLostFocusEvent &)event);
+        case core::events::EventType::WindowLostFocus:
+            on_window_lost_focus_call_back((core::events::WindowLostFocusEvent &)event);
             break;
 
-        case events::EventType::MouseMoved:
-            on_cursor_pos_call_back((events::MouseMovedEvent &)event);
+        case core::events::EventType::MouseMoved:
+            on_cursor_pos_call_back((core::events::MouseMovedEvent &)event);
             break;
 
-        case events::EventType::MouseButtonPressed:
-            on_mouse_button_pressed_call_back((events::MouseButtonPressed &)event);
+        case core::events::EventType::MouseButtonPressed:
+            on_mouse_button_pressed_call_back((core::events::MouseButtonPressed &)event);
             break;
 
-        case events::EventType::MouseButtonReleased:
-            on_mouse_button_released_call_back((events::MouseButtonReleased &)event);
+        case core::events::EventType::MouseButtonReleased:
+            on_mouse_button_released_call_back((core::events::MouseButtonReleased &)event);
             break;
 
-        case events::EventType::MouseScrolled:
-            on_scroll_call_back((events::MouseScrolledEvent &)event);
+        case core::events::EventType::MouseScrolled:
+            on_scroll_call_back((core::events::MouseScrolledEvent &)event);
             break;
 
-        case events::EventType::KeyPressed:
-            on_key_pressed_call_back((events::KeyPressEvent &)event);
+        case core::events::EventType::KeyPressed:
+            on_key_pressed_call_back((core::events::KeyPressEvent &)event);
             break;
 
-        case events::EventType::KeyReleased:
-            on_key_released_call_back((events::KeyReleasedEvent &)event);
+        case core::events::EventType::KeyReleased:
+            on_key_released_call_back((core::events::KeyReleasedEvent &)event);
             break;
 
-        case events::EventType::CharEvent:
-            on_key_char_call_back((events::CharTypedEvent &)event);
+        case core::events::EventType::CharEvent:
+            on_key_char_call_back((core::events::CharTypedEvent &)event);
             break;
 
-        case events::EventType::WindowClose:
-            on_monitor_close_call_back((events::WindowCloseEvent &)event);
+        case core::events::EventType::WindowClose:
+            on_monitor_close_call_back((core::events::WindowCloseEvent &)event);
             break;
 
-        case events::EventType::WindowResize:
-            on_monitor_resized_call_back((events::WindowResizedEvent &)event);
+        case core::events::EventType::WindowResize:
+            on_monitor_resized_call_back((core::events::WindowResizedEvent &)event);
             break;
 
-        case events::EventType::WindowMoved:
-            on_monitor_moved_call_back((events::WindowMovedEvent &)event);
+        case core::events::EventType::WindowMoved:
+            on_monitor_moved_call_back((core::events::WindowMovedEvent &)event);
             break;
 
         default:
@@ -138,42 +138,42 @@ namespace Recursion::core::window
     }
 
     // GLFW _call_backs (individual _call_backs to call yourself if you didn't install _call_backs)
-    bool ImguiLayer_glfw_opengl_impl::on_window_focus_call_back(events::WindowFocusEvent &event)
+    bool ImguiLayer_glfw_opengl_impl::on_window_focus_call_back(core::events::WindowFocusEvent &event)
     {
         REC_CORE_DEBUG("on_window_focus_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         io.AddFocusEvent(true);
         return false;
     }
-    bool ImguiLayer_glfw_opengl_impl::on_window_lost_focus_call_back(events::WindowLostFocusEvent &event)
+    bool ImguiLayer_glfw_opengl_impl::on_window_lost_focus_call_back(core::events::WindowLostFocusEvent &event)
     {
         REC_CORE_DEBUG("on_window_focus_lost_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         io.AddFocusEvent(false);
         return false;
     }
-    bool ImguiLayer_glfw_opengl_impl::on_cursor_pos_call_back(events::MouseMovedEvent &event)
+    bool ImguiLayer_glfw_opengl_impl::on_cursor_pos_call_back(core::events::MouseMovedEvent &event)
     {
         REC_CORE_DEBUG("on_cursor_pos_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
         io.MousePos = ImVec2((float)event.get_posx(), (float)event.get_posy());
         return false;
     }
-    bool ImguiLayer_glfw_opengl_impl::on_mouse_button_pressed_call_back(events::MouseButtonPressed &event)
+    bool ImguiLayer_glfw_opengl_impl::on_mouse_button_pressed_call_back(core::events::MouseButtonPressed &event)
     {
         REC_CORE_DEBUG("on_mouse_button_pressed_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
-        io.MouseDown[((events::MouseButtonPressed &)event).get_mouse_button()] = true;
+        io.MouseDown[((core::events::MouseButtonPressed &)event).get_mouse_button()] = true;
         return false;
     }
-    bool ImguiLayer_glfw_opengl_impl::on_mouse_button_released_call_back(events::MouseButtonReleased &event)
+    bool ImguiLayer_glfw_opengl_impl::on_mouse_button_released_call_back(core::events::MouseButtonReleased &event)
     {
         REC_CORE_DEBUG("on_mouse_button_released_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
-        io.MouseDown[((events::MouseButtonPressed &)event).get_mouse_button()] = false;
+        io.MouseDown[((core::events::MouseButtonPressed &)event).get_mouse_button()] = false;
         return false;
     }
-    bool ImguiLayer_glfw_opengl_impl::on_scroll_call_back(events::MouseScrolledEvent &event)
+    bool ImguiLayer_glfw_opengl_impl::on_scroll_call_back(core::events::MouseScrolledEvent &event)
     {
         REC_CORE_DEBUG("on_scroll_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
@@ -181,7 +181,7 @@ namespace Recursion::core::window
         io.MouseWheel += event.get_offset_y();
         return false;
     }
-    bool ImguiLayer_glfw_opengl_impl::on_key_pressed_call_back(events::KeyPressEvent &event)
+    bool ImguiLayer_glfw_opengl_impl::on_key_pressed_call_back(core::events::KeyPressEvent &event)
     {
         REC_CORE_DEBUG("on_key_pressed_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
@@ -190,7 +190,7 @@ namespace Recursion::core::window
         return false;
     }
 
-    bool ImguiLayer_glfw_opengl_impl::on_key_released_call_back(events::KeyReleasedEvent &event)
+    bool ImguiLayer_glfw_opengl_impl::on_key_released_call_back(core::events::KeyReleasedEvent &event)
     {
         REC_CORE_DEBUG("on_key_released_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
@@ -198,7 +198,7 @@ namespace Recursion::core::window
         io.AddKeyEvent(imgui_key, 0);
         return false;
     }
-    bool ImguiLayer_glfw_opengl_impl::on_key_char_call_back(events::CharTypedEvent &event)
+    bool ImguiLayer_glfw_opengl_impl::on_key_char_call_back(core::events::CharTypedEvent &event)
     {
         REC_CORE_DEBUG("on_key_char_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
@@ -206,12 +206,12 @@ namespace Recursion::core::window
         return false;
     }
 
-    bool ImguiLayer_glfw_opengl_impl::on_monitor_close_call_back(events::WindowCloseEvent &event)
+    bool ImguiLayer_glfw_opengl_impl::on_monitor_close_call_back(core::events::WindowCloseEvent &event)
     {
         return false;
     }
 
-    bool ImguiLayer_glfw_opengl_impl::on_monitor_resized_call_back(events::WindowResizedEvent &event)
+    bool ImguiLayer_glfw_opengl_impl::on_monitor_resized_call_back(core::events::WindowResizedEvent &event)
     {
         REC_CORE_DEBUG("on_monitor_resized_call_back {}", event.to_string());
         ImGuiIO &io = ImGui::GetIO();
@@ -221,7 +221,7 @@ namespace Recursion::core::window
         return false;
     }
 
-    bool ImguiLayer_glfw_opengl_impl::on_monitor_moved_call_back(events::WindowMovedEvent &event)
+    bool ImguiLayer_glfw_opengl_impl::on_monitor_moved_call_back(core::events::WindowMovedEvent &event)
     {
         REC_CORE_DEBUG("on_monitor_moved_call_back {}", event.to_string());
         return false;

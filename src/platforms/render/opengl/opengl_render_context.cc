@@ -1,6 +1,6 @@
 #include <opengl_render_context.hh>
 
-namespace Recursion::opengl::render
+namespace Recursion::platforms::opengl::render
 {
     OpenGLRenderContext::OpenGLRenderContext(const core::window::WindowProps &default_props) : RenderContext{core::render::RenderAPI::OPENGL}
     {

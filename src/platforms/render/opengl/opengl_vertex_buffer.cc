@@ -1,5 +1,5 @@
 #include <opengl_vertex_buffer.hh>
-namespace Recursion::opengl::render
+namespace Recursion::platforms::opengl::render
 {
     VertexBuffer::VertexBuffer(uint32_t size_in_bytes, uint32_t draw_method) : vertex_count{(int32_t)((float)size_in_bytes / sizeof(float))}, offset{0}
     {

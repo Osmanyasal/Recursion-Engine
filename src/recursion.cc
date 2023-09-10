@@ -1,5 +1,5 @@
 #include <recursion.hh>
-#include <utils.hh>
+
 namespace Recursion::core
 {
     Engine *engine_ptr;
@@ -22,7 +22,7 @@ namespace Recursion::core
         is_running = true;
 
         layer_stack = new layer::LayerStack{};
-        imgui_layer = new window::ImguiLayer_glfw_opengl_impl{((window::LinuxWindow *)window)->get_window()};
+        imgui_layer = new platforms::imgui::window::ImguiLayer_glfw_opengl_impl{((platforms::linux::window::LinuxWindow *)window)->get_window()};
         layer_stack->add_layer(imgui_layer);
 
         REC_CORE_INFO("Engine Created!");
@@ -42,7 +42,6 @@ namespace Recursion::core
 
     bool Engine::on_event(Recursion::core::events::Event &e)
     {
-        namespace events = Recursion::core::events;
         for (auto layer = layer_stack->rbegin(); layer != layer_stack->rend(); layer++)
         {
             if (OPT_LIKELY((*layer)->is_active()))
