@@ -57,8 +57,8 @@ namespace Recursion::core
         std::unique_ptr<Application> application;
         bool is_running;
         window::Window *window; 
-        platforms::imgui::window::ImguiLayer_glfw_opengl_impl *imgui_layer;
         layer::LayerStack *layer_stack;
+        platforms::imgui::window::ImguiLayer_glfw_opengl_impl *imgui_layer;
     };
 
 } // namespace Recursion

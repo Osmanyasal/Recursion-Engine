@@ -21,9 +21,9 @@ namespace Recursion::core::scene
     std::vector<float> Triangle2D::get_colors(float color)
     {
         std::vector<float> colors = {
-            color, color, color, // Top
-            color, color, color, // Left
-            color, color, color, // Right
+            color, color, color,0.5f, // Top
+            color, color, color,0.5f, // Left
+            color, color, color,0.5f, // Right
         };
         return colors;
     }

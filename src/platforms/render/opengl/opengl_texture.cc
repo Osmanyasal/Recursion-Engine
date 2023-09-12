@@ -7,8 +7,8 @@ namespace Recursion::platforms::opengl::render
     {
         return (uint32_t)(GL_ACTIVE_TEXTURE - GL_TEXTURE0);
     }(); // Immediately invoked lambda to set the limit
-
-    uint32_t OpenGLTexture::AVAILABLE_TEXTURE_UNIT = 0;
+ 
+    uint32_t OpenGLTexture::AVAILABLE_TEXTURE_UNIT = 0; 
 
     OpenGLTexture::OpenGLTexture(const std::string &path, float tile_factor, bool is_transparent, uint32_t wrap_s,
                                  uint32_t wrap_t,
@@ -17,7 +17,7 @@ namespace Recursion::platforms::opengl::render
     {
         REC_CORE_PROFILE_FUNCTION();
 
-        REC_CORE_TRACE("Texture {} is being initialized", get_path());
+        REC_CORE_TRACE("Texture {} is being initialized", meta.path);
         texture_unit = AVAILABLE_TEXTURE_UNIT;
         if (OPT_UNLIKELY(AVAILABLE_TEXTURE_UNIT == TEXTURE_UNIT_LIMIT))
         {
@@ -26,15 +26,15 @@ namespace Recursion::platforms::opengl::render
         }
         AVAILABLE_TEXTURE_UNIT += 1;
 
-        glGenTextures(1, &texture_id);
-        glBindTexture(GL_TEXTURE_2D, texture_id);
+        glGenTextures(1, &meta.texture_id);
+        glBindTexture(GL_TEXTURE_2D, meta.texture_id);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrap_s);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrap_t);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min_filter);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag_filter);
 
         stbi_set_flip_vertically_on_load(true);
-        uint8_t *data = stbi_load(get_path().c_str(), &width, &height, &nrChannels, 0);
+        uint8_t *data = stbi_load(meta.path.c_str(), &width, &height, &nrChannels, 0);
         if (data)
         {
             if (nrChannels == 4)
@@ -47,15 +47,15 @@ namespace Recursion::platforms::opengl::render
             }
             else
             {
-                REC_CORE_ERROR("Unknown format image {}",get_path());
+                REC_CORE_ERROR("Unknown format image {}", meta.path);
                 exit(-1);
             }
             glGenerateMipmap(GL_TEXTURE_2D);
-            REC_CORE_TRACE("Texture {} is initialized", get_path());
+            REC_CORE_TRACE("Texture {} is initialized", meta.path);
         }
         else
         {
-            REC_CORE_ERROR("Failed to load texture {}", get_path());
+            REC_CORE_ERROR("Failed to load texture {}", meta.path);
         }
         stbi_image_free(data);
     }
@@ -75,8 +75,8 @@ namespace Recursion::platforms::opengl::render
         }
         AVAILABLE_TEXTURE_UNIT += 1;
 
-        glGenTextures(1, &texture_id);
-        glBindTexture(GL_TEXTURE_2D, texture_id);
+        glGenTextures(1, &meta.texture_id);
+        glBindTexture(GL_TEXTURE_2D, meta.texture_id);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrap_s);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrap_t);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min_filter);
@@ -104,7 +104,7 @@ namespace Recursion::platforms::opengl::render
         REC_CORE_PROFILE_FUNCTION();
 
         glActiveTexture(GL_TEXTURE0 + texture_unit);
-        glBindTexture(GL_TEXTURE_2D, texture_id);
+        glBindTexture(GL_TEXTURE_2D, meta.texture_id);
     }
 
     void OpenGLTexture::unbind()
@@ -114,8 +114,8 @@ namespace Recursion::platforms::opengl::render
 
     void OpenGLTexture::destroy()
     {
-        glDeleteTextures(1, &texture_id);
-        REC_CORE_TRACE("Texture {} is destroyed", get_path());
+        glDeleteTextures(1, &meta.texture_id);
+        REC_CORE_TRACE("Texture {} is destroyed", meta.path);
     }
 
 } // namespace Recursion::opengl::core

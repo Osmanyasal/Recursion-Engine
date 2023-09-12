@@ -26,10 +26,10 @@ namespace Recursion::core::scene
     std::vector<float> Rectangle2D::get_colors(float color)
     {
         std::vector<float> colors = {
-            color, color, color, // Top right
-            color, color, color, // Bottom right
-            color, color, color, // Bottom left
-            color, color, color, // Top left
+            color, color, color, 1.0f, // Top right
+            color, color, color, 1.0f, // Bottom right
+            color, color, color, 1.0f, // Bottom left
+            color, color, color, 1.0f  // Top left
         };
         return colors;
     }

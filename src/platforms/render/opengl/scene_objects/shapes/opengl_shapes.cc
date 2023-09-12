@@ -32,7 +32,7 @@ namespace Recursion::platforms::opengl::scene
                          render::Normalized::FALSE})
             .add_layout({"color",
                          1,
-                         render::Quantity::Float3, colors.size() / (int)render::Quantity::Float3,
+                         render::Quantity::Float4, colors.size() / (int)render::Quantity::Float4,
                          render::Type::Float,
                          render::Normalized::FALSE})
             .add_layout({"texture",
@@ -78,7 +78,7 @@ namespace Recursion::platforms::opengl::scene
                          render::Normalized::FALSE})
             .add_layout({"color",
                          1,
-                         render::Quantity::Float3, colors.size() / (int)render::Quantity::Float3,
+                         render::Quantity::Float4, colors.size() / (int)render::Quantity::Float4,
                          render::Type::Float,
                          render::Normalized::FALSE})
             .add_layout({"texture",
@@ -124,7 +124,7 @@ namespace Recursion::platforms::opengl::scene
                          render::Normalized::FALSE})
             .add_layout({"color",
                          1,
-                         render::Quantity::Float3, colors.size() / (uint32_t)render::Quantity::Float3,
+                         render::Quantity::Float4, colors.size() / (uint32_t)render::Quantity::Float4,
                          render::Type::Float,
                          render::Normalized::FALSE})
             .add_layout({"texture",

@@ -28,16 +28,13 @@ namespace Recursion::core::render
     }
 
     // submit items to your scene
-    Renderer &Renderer2D::submit(Drawable &drawable_item)
+    Renderer &Renderer2D::submit(core::scene::GameObject &drawable_item)
     {
         REC_CORE_PROFILE_FUNCTION();
         if (OPT_LIKELY(drawable_item.is_transparent()))
-        {
-            /*TODO: implement transparent drawing according to
-                Draw all opaque objects first.
-                Sort all the transparent objects.
-                Draw all the transparent objects in sorted order.
-            */
+        { 
+            float distance_from_camera = glm::distance(this->camera->get_position(), drawable_item.translation());
+            transparent[distance_from_camera] = &drawable_item;
         }
         else
         {
@@ -49,7 +46,7 @@ namespace Recursion::core::render
     Renderer &Renderer2D::draw_scene()
     {
         // DRAW OPAQUE
-        for (Drawable *iter : opaque)
+        for (core::scene::GameObject *iter : opaque)
         {
             iter->bind();
             iter->draw(*_shader);
@@ -59,7 +56,7 @@ namespace Recursion::core::render
         for (const auto &entry : transparent)
         {
             float transparency = entry.first;
-            Drawable *drawable = entry.second;
+            core::scene::GameObject *drawable = entry.second;
 
             drawable->bind();
             drawable->draw(*_shader);
@@ -92,7 +89,7 @@ namespace Recursion::core::render
     }
 
     // submit items to your scene
-    Renderer &Renderer3D::submit(Drawable &drawable_item)
+    Renderer &Renderer3D::submit(core::scene::GameObject &drawable_item)
     {
         REC_CORE_PROFILE_FUNCTION();
         return *this;

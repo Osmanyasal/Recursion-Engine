@@ -52,7 +52,7 @@ namespace Recursion::platforms::opengl::render
     {
         this->transparent = texture.is_transparent;
         texture_list.push_back(texture);
-        REC_CORE_TRACE("Texture added {}", texture.get_path());
+        REC_CORE_TRACE("Texture added {}", texture.meta.path);
         return *this;
     }
 
@@ -60,6 +60,7 @@ namespace Recursion::platforms::opengl::render
     {
         return this->transparent;
     }
+ 
 
     void VertexArray::build()
     {

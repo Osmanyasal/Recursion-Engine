@@ -7,7 +7,7 @@
 #include <utils.hh>
 #include <camera.hh>
 #include <shader.hh>
-#include <buffer.hh>
+#include <game_object.hh>
 
 // TODO: Remove this, make vertex-array and buffer objects generic!
 namespace Recursion::core::render
@@ -22,21 +22,26 @@ namespace Recursion::core::render
         virtual Renderer &begin_scene(core::scene::Camera &) = 0;
 
         // submit items to your scene
-        virtual Renderer &submit(Drawable &) = 0;
+        virtual Renderer &submit(core::scene::GameObject &) = 0;
 
         // draw scene
-        virtual Renderer& draw_scene() = 0;
+        /*  implement transparent drawing according to
+            Draw all opaque objects first.
+            Sort all the transparent objects.
+            Draw all the transparent objects in sorted order.
+        */
+        virtual Renderer &draw_scene() = 0;
 
         // wrap up the scene (remember all these are in a loop)
         virtual void end_scene() = 0;
 
-        void set_shader_program(Shader* shader);
-        
+        void set_shader_program(Shader *shader);
+
     protected:
         std::shared_ptr<Shader> _shader;
-        core::scene::Camera* camera;
-        std::vector<Drawable*> opaque;
-        std::map<float,Drawable*> transparent;
+        core::scene::Camera *camera;
+        std::vector<core::scene::GameObject *> opaque;
+        std::map<float, core::scene::GameObject *> transparent;
     };
 
     class Renderer2D : public Renderer
@@ -49,16 +54,15 @@ namespace Recursion::core::render
 
         // set up your scene
         virtual Renderer &begin_scene(core::scene::Camera &) override;
-  
+
         // submit items to your scene
-        virtual Renderer &submit(Drawable &) override;
+        virtual Renderer &submit(core::scene::GameObject &) override;
 
         // draw scene
-        virtual Renderer& draw_scene() override;
+        virtual Renderer &draw_scene() override;
 
         // wrap up the scene (remember all these are in a loop)
         virtual void end_scene() override;
- 
     };
 
     class Renderer3D : public Renderer
@@ -73,10 +77,10 @@ namespace Recursion::core::render
         virtual Renderer &begin_scene(core::scene::Camera &) override;
 
         // submit items to your scene
-        virtual Renderer &submit(Drawable &) override;
+        virtual Renderer &submit(core::scene::GameObject &) override;
 
         // draw scene
-        virtual Renderer& draw_scene() override;
+        virtual Renderer &draw_scene() override;
 
         // wrap up the scene (remember all these are in a loop)
         virtual void end_scene() override;

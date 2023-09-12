@@ -51,6 +51,7 @@ namespace Recursion::core::scene
             colors.push_back(color);
             colors.push_back(color);
             colors.push_back(color);
+            colors.push_back(1.0f);
         }
         return colors;
     }

@@ -6,18 +6,21 @@
 
 namespace Recursion::core::render
 {
+
+    struct TextureMetaData
+    {
+        const std::string &path;
+        uint32_t texture_id;
+    };
     class Texture : public Bindable
     {
     public:
-        inline Texture(const std::string &texture_path) : path{texture_path} {}
+        inline Texture(const std::string &texture_path) : meta{texture_path, 0} {}
+        inline Texture(const TextureMetaData &meta) : meta{meta} {}
         inline virtual ~Texture() {}
 
-        const std::string &get_path() const { return this->path; }
-        inline const uint32_t get_textureid() const { return texture_id; } 
-
-    protected:
-        const std::string path;
-        uint32_t texture_id;
+    public:
+        TextureMetaData meta;
     };
 }
 

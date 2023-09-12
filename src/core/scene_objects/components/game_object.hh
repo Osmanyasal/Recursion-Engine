@@ -7,7 +7,6 @@
 #include <buffer.hh>
 namespace Recursion::core::scene
 {
-    // TODO: Fix VertexArray thing, get buffer instead
     class GameObject : public core::render::Drawable
     {
     public:
@@ -24,6 +23,14 @@ namespace Recursion::core::scene
 
         template <typename T>
         T &get_component();
+
+        inline virtual bool is_transparent() override { return drawable_obj->is_transparent(); }
+        
+    public:
+    
+        inline virtual glm::vec3& translation() { return get_component<TransformComponent>().get_translation(); }
+        inline virtual glm::vec3& rotation() { return get_component<TransformComponent>().get_rotation(); }
+        inline virtual glm::vec3& scale() { return get_component<TransformComponent>().get_scale(); }
 
     private:
         std::unordered_map<std::string, std::shared_ptr<Component>> component_list;

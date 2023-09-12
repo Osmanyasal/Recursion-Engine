@@ -27,7 +27,8 @@ namespace Recursion::platforms::opengl::render
         virtual void build_batch();
 
         virtual void draw(core::render::Shader &shader) override;
-        virtual bool is_transparent() override;
+ 
+        bool is_transparent(); 
 
     protected:
         uint32_t VAO;

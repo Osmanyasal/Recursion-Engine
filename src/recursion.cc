@@ -12,19 +12,14 @@ namespace Recursion::core
         return true; // at this point, event is handled
     }
 
-    Engine::Engine()
-    {   
-        Recursion::utils::logger::BaseLogger::init();
-        // GENERIC CREATE_WINDOW MACRO. DEFINE YOURS IN CONFIG.HH
-        CREATE_WINDOW();
+    Engine::Engine() : is_running{true},
+                       layer_stack{new layer::LayerStack{}}
 
+    {
         engine_ptr = this;
-        is_running = true;
-
-        layer_stack = new layer::LayerStack{};
+        CREATE_WINDOW(); // GENERIC CREATE_WINDOW MACRO. DEFINE YOURS IN CONFIG.HH
         imgui_layer = new platforms::imgui::window::ImguiLayer_glfw_opengl_impl{((platforms::linux::window::LinuxWindow *)window)->get_window()};
         layer_stack->add_layer(imgui_layer);
-
         REC_CORE_INFO("Engine Created!");
     }
 

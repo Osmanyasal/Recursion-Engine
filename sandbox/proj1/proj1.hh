@@ -18,7 +18,7 @@ private:
     core::scene::GameObject container;
     core::scene::GameObject container_specular;
     core::scene::GameObject tile_map;
-    Recursion::core::scene::OrthographicCamera cam{CONF__REC__WINDOW_WIDTH / CONF__REC__WINDOW_HEIGHT};
+    core::scene::OrthographicCamera cam{CONF__REC__WINDOW_WIDTH / CONF__REC__WINDOW_HEIGHT};
 };
 
 #endif
