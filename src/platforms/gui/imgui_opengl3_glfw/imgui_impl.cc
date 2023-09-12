@@ -53,17 +53,17 @@ namespace Recursion::platforms::imgui::window
     void ImguiLayer_glfw_opengl_impl::begin_loop()
     {
         REC_CORE_PROFILE_FUNCTION();
-        
+
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        // create_default_layout();
+        create_default_layout();
         ImGui::ShowDemoWindow();
     }
     void ImguiLayer_glfw_opengl_impl::end_loop()
     {
         REC_CORE_PROFILE_FUNCTION();
-        
+
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
@@ -269,6 +269,34 @@ namespace Recursion::platforms::imgui::window
     {
         uint32_t dockspace_id = create_dockspace();
         create_menu();
+        
+        // Retrieve the dockspace's node ID
+        ImGuiDockNode *dockspace_node_id = ImGui::DockBuilderGetCentralNode(dockspace_id);
+        if (dockspace_node_id->ID)
+        {
+            // Dock a new window within the dockspace
+            ImGui::DockBuilderDockWindow("Scene", dockspace_node_id->ID);
+        }
+        // Begin your window
+        if (ImGui::Begin("Scene"))
+        {
+
+            const float window_width = ImGui::GetContentRegionAvail().x;
+            const float window_height = ImGui::GetContentRegionAvail().y;
+
+            fb->rescale_framebuffer(window_width, window_height);
+            glViewport(0, 0, window_width, window_height);
+
+            ImVec2 pos = ImGui::GetCursorScreenPos();
+            ImGui::GetWindowDrawList()->AddImage(
+                (void *)fb->texture.meta.texture_id,
+                ImVec2(pos.x, pos.y),
+                ImVec2(pos.x + window_width, pos.y + window_height),
+                ImVec2(0, 1),
+                ImVec2(1, 0));
+
+            ImGui::End();
+        }
     }
     uint32_t ImguiLayer_glfw_opengl_impl::create_dockspace()
     {

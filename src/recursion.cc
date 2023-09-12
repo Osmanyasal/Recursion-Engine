@@ -18,15 +18,16 @@ namespace Recursion::core
     {
         engine_ptr = this;
         CREATE_WINDOW(); // GENERIC CREATE_WINDOW MACRO. DEFINE YOURS IN CONFIG.HH
-        imgui_layer = new platforms::imgui::window::ImguiLayer_glfw_opengl_impl{((platforms::linux::window::LinuxWindow *)window)->get_window()};
-        layer_stack->add_layer(imgui_layer);
         REC_CORE_INFO("Engine Created!");
     }
 
     void Engine::add_application(Application *application)
     {
-        layer_stack->add_layer(application);
+        layer_stack->add_layer((Recursion::core::layer::Layer *)application);
+        imgui_layer = new platforms::imgui::window::ImguiLayer_glfw_opengl_impl{((platforms::linux::window::LinuxWindow *)window)->get_window(), &application->framebuffer};
+        layer_stack->add_layer(imgui_layer);
         this->application.reset(application);
+        REC_CORE_INFO("Application Added!");
     }
 
     Engine::~Engine()
@@ -61,16 +62,21 @@ namespace Recursion::core
         while (OPT_LIKELY(is_running))
         {
             DELTA_TIME_UPDATE();
+            
+            application->framebuffer.bind();
             // Enable depth test
             glClearColor(.6f, 0.2f, 1.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
             imgui_layer->begin_loop();
 
             REC_CORE_TRACE("FPS {}", GET_FPS());
             application->on_update(delta_time);
 
             imgui_layer->end_loop();
+
             window->on_update();
+            application->framebuffer.unbind();
         }
     }
 

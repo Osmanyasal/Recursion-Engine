@@ -14,7 +14,7 @@ public:
 private:
     platforms::opengl::render::OpenGLShader sh;
     Renderer2D renderer;
-    
+
     core::scene::GameObject container;
     core::scene::GameObject container_specular;
     core::scene::GameObject tile_map;

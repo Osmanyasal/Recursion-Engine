@@ -10,6 +10,7 @@
 #include <window.hh>
 #include <core_layers.hh>
 #include <rec_imgui_key_mapping.hh>
+#include <opengl_frame_buffer.hh>
 
 namespace Recursion::platforms::imgui::window
 {
@@ -17,8 +18,8 @@ namespace Recursion::platforms::imgui::window
     class ImguiLayer_glfw_opengl_impl : public core::layer::Layer
     {
     public:
-        ImguiLayer_glfw_opengl_impl(GLFWwindow *gl_window)
-            : core::layer::Layer{"imgui_layer"}, m_window{gl_window}
+        ImguiLayer_glfw_opengl_impl(GLFWwindow *gl_window, opengl::render::OpenGLFrameBuffer *fb)
+            : core::layer::Layer{"imgui_layer"}, m_window{gl_window}, fb{fb}
         {
             on_attach();
         }
@@ -68,6 +69,7 @@ namespace Recursion::platforms::imgui::window
 
     private:
         GLFWwindow *m_window;
+        opengl::render::OpenGLFrameBuffer *fb;
     };
 } // namespace Recursion::core::window
 

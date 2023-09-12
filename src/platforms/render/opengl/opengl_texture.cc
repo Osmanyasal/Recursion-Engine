@@ -7,8 +7,8 @@ namespace Recursion::platforms::opengl::render
     {
         return (uint32_t)(GL_ACTIVE_TEXTURE - GL_TEXTURE0);
     }(); // Immediately invoked lambda to set the limit
- 
-    uint32_t OpenGLTexture::AVAILABLE_TEXTURE_UNIT = 0; 
+
+    uint32_t OpenGLTexture::AVAILABLE_TEXTURE_UNIT = 0;
 
     OpenGLTexture::OpenGLTexture(const std::string &path, float tile_factor, bool is_transparent, uint32_t wrap_s,
                                  uint32_t wrap_t,
@@ -60,7 +60,7 @@ namespace Recursion::platforms::opengl::render
         stbi_image_free(data);
     }
 
-    OpenGLTexture::OpenGLTexture(uint32_t width, bool is_transparent, uint32_t height, uint32_t value, uint32_t wrap_s,
+    OpenGLTexture::OpenGLTexture(uint32_t width, uint32_t height, bool is_transparent, uint32_t value, uint32_t wrap_s,
                                  uint32_t wrap_t,
                                  uint32_t min_filter,
                                  uint32_t mag_filter) : Texture{""}, is_transparent{is_transparent}
@@ -82,17 +82,15 @@ namespace Recursion::platforms::opengl::render
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min_filter);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag_filter);
 
-        uint32_t data[width][height];
-        for (uint32_t i = 0; i < width; i++)
-            for (uint32_t j = 0; j < height; j++)
-            {
-                data[i][j] = value;
-            }
-
+        uint32_t *data = new uint32_t[width * height];
+        for (uint32_t i = 0; i < height * width; i++)
+        {
+            data[i] = value;
+        }
         // Allocate storage for the texture
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-
-        glGenerateMipmap(GL_TEXTURE_2D);
+        // glGenerateMipmap(GL_TEXTURE_2D);
+        delete[] data;
     }
 
     OpenGLTexture::~OpenGLTexture()
