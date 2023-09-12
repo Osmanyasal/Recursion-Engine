@@ -62,21 +62,17 @@ namespace Recursion::core
         while (OPT_LIKELY(is_running))
         {
             DELTA_TIME_UPDATE();
-            
-            application->framebuffer.bind();
-            // Enable depth test
-            glClearColor(.6f, 0.2f, 1.0f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
             imgui_layer->begin_loop();
+            application->framebuffer.bind();
 
             REC_CORE_TRACE("FPS {}", GET_FPS());
             application->on_update(delta_time);
 
-            imgui_layer->end_loop();
-
-            window->on_update();
             application->framebuffer.unbind();
+
+            imgui_layer->end_loop();
+            window->on_update();
         }
     }
 
