@@ -18,12 +18,12 @@ namespace Recursion::core::scene
         std::vector<uint32_t> indices{0, 1, 2};
         return indices;
     }
-    std::vector<float> Triangle2D::get_colors(float color)
+    std::vector<float> Triangle2D::get_colors(const glm::vec4& color)
     {
         std::vector<float> colors = {
-            color, color, color,0.5f, // Top
-            color, color, color,0.5f, // Left
-            color, color, color,0.5f, // Right
+            color.r, color.g, color.b, color.a, // Top
+            color.r, color.g, color.b, color.a, // Left
+            color.r, color.g, color.b, color.a, // Right
         };
         return colors;
     }

@@ -2,12 +2,12 @@
 
 namespace Recursion::platforms::opengl::scene
 {
-    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::tilemap2D(const glm::vec3 &size, float color, float tile_factor)
+    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::tilemap2D(const glm::vec3 &size, const glm::vec4 &color, float tile_factor)
     {
         return OpenGLShapes::rectangle2D(size, "../src/core/scene_objects/tile_maps/brick.png", color, tile_factor);
     }
 
-    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::rectangle2D(const glm::vec3 &size, const std::string &texture, float color, float tile_factor)
+    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::rectangle2D(const glm::vec3 &size, const std::string &texture, const glm::vec4 &color, float tile_factor)
     {
         std::unique_ptr<opengl::render::VertexArray> result;
         auto indices = core::scene::Rectangle2D::get_index_buffer();
@@ -53,7 +53,7 @@ namespace Recursion::platforms::opengl::scene
         return result;
     }
 
-    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::triangle2D(const glm::vec3 &size, const std::string &texture, float color, float tile_factor)
+    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::triangle2D(const glm::vec3 &size, const std::string &texture, const glm::vec4 &color, float tile_factor)
     {
         std::unique_ptr<opengl::render::VertexArray> result;
         auto indices = core::scene::Triangle2D::get_index_buffer();
@@ -99,7 +99,7 @@ namespace Recursion::platforms::opengl::scene
         return result;
     }
 
-    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::circle2D(float radius, float z, const std::string &texture, float unit_angle, float color, float tile_factor)
+    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::circle2D(float radius, float z, const std::string &texture, float unit_angle, const glm::vec4 &color, float tile_factor)
     {
         std::unique_ptr<opengl::render::VertexArray> result;
         auto indices = core::scene::Circle2D::get_index_buffer(unit_angle);

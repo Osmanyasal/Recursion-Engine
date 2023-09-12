@@ -41,17 +41,17 @@ namespace Recursion::core::scene
         return indices;
     }
 
-    std::vector<float> Circle2D::get_colors(float color, float unit_angle)
+    std::vector<float> Circle2D::get_colors(const glm::vec4& color, float unit_angle)
     {
         uint32_t vcount = 360.0f / unit_angle + 1;
         std::vector<float> colors;
         // Assign the same color to all vertices of the circle.
         for (uint32_t i = 0; i < vcount; i += 1)
         {
-            colors.push_back(color);
-            colors.push_back(color);
-            colors.push_back(color);
-            colors.push_back(1.0f);
+            colors.push_back(color.r);
+            colors.push_back(color.g);
+            colors.push_back(color.b);
+            colors.push_back(color.a);
         }
         return colors;
     }

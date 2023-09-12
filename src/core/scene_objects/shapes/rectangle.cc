@@ -23,13 +23,13 @@ namespace Recursion::core::scene
         };
         return indices;
     }
-    std::vector<float> Rectangle2D::get_colors(float color)
+    std::vector<float> Rectangle2D::get_colors(const glm::vec4& color)
     {
         std::vector<float> colors = {
-            color, color, color, 1.0f, // Top right
-            color, color, color, 1.0f, // Bottom right
-            color, color, color, 1.0f, // Bottom left
-            color, color, color, 1.0f  // Top left
+            color.r, color.g, color.b, color.a, // Top right
+            color.r, color.g, color.b, color.a, // Bottom right
+            color.r, color.g, color.b, color.a, // Bottom left
+            color.r, color.g, color.b, color.a  // Top left
         };
         return colors;
     }
