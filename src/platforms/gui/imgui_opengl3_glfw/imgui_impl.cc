@@ -294,8 +294,8 @@ namespace Recursion::platforms::imgui::window
         // Start the "Scene" window
         if (ImGui::Begin("Scene"))
         {
-            const float window_width = ImGui::GetContentRegionAvail().x;
-            const float window_height = ImGui::GetContentRegionAvail().y;
+            const float window_width = ImGui::GetMainViewport()->Size.x; //  ImGui::GetContentRegionAvail() for current small window
+            const float window_height = ImGui::GetMainViewport()->Size.y;
 
             fb->rescale_framebuffer(window_width, window_height);
             glViewport(0, 0, window_width, window_height);
