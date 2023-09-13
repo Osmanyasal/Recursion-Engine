@@ -1,6 +1,8 @@
 #ifndef RECURSION_ENGINE__SRC__PLATFORMS__IMGUI_LAYER_GLFW_OPENGL_IMPL_HH
 #define RECURSION_ENGINE__SRC__PLATFORMS__IMGUI_LAYER_GLFW_OPENGL_IMPL_HH
 
+#define IMGUI_DEFINE_MATH_OPERATORS 
+ 
 #include <utils.hh>
 #include <gui_config.hh>
 #include <imgui.h>
@@ -11,6 +13,7 @@
 #include <core_layers.hh>
 #include <rec_imgui_key_mapping.hh>
 #include <opengl_frame_buffer.hh>
+
 
 namespace Recursion::platforms::imgui::window
 {
