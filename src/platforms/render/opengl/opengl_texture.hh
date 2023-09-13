@@ -5,6 +5,7 @@
 #include <GL/glew.h>
 #include <texture.hh> 
 #include <stb_image.h>
+#include <unordered_map>
 
 namespace Recursion::platforms::opengl::render
 {
@@ -25,23 +26,11 @@ namespace Recursion::platforms::opengl::render
 
         void bind() override;
         void unbind() override;
-        void destroy() override;
-
-        inline uint32_t get_unit() { return texture_unit; }
-
+        void destroy() override; 
+        
     public:
         static uint32_t TEXTURE_UNIT_LIMIT;
         static uint32_t AVAILABLE_TEXTURE_UNIT;
-        bool is_transparent;
-        float tile_factor;
-
-    protected:
-        int32_t width;
-        int32_t height;
-        int32_t nrChannels;
-
-    private:
-        uint32_t texture_unit;
     };
 
 } // namespace Recursion::opengl::render

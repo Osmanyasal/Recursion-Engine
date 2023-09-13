@@ -4,8 +4,8 @@ Proj1::Proj1() : Application{"Project1"}
 {
     sh.bind(); // bind shader !
     renderer = Renderer2D::init((core::render::Shader &)sh);
-    container.set_drawable_object(platforms::opengl::scene::OpenGLShapes::circle2D(1, 0, "/home/rt7/Desktop/glsl_learning/assets/container.png", 1, glm::vec4{1.0f}, 10).release()); //
-    container_specular.set_drawable_object(platforms::opengl::scene::OpenGLShapes::triangle2D({1, 1, 0}, "/home/rt7/Desktop/glsl_learning/assets/container.png", glm::vec4{1.0f}, 1).release());
+    container.set_drawable_object(platforms::opengl::scene::OpenGLShapes::rectangle2D({1, 1, 0},"/home/rt7/Desktop/pixel_adventure_sheet.png", platforms::opengl::scene::SubTexture{38, 0, 14}, glm::vec4{1.0f}, 1).release()); //
+    container_specular.set_drawable_object(platforms::opengl::scene::OpenGLShapes::triangle2D({1, 1, 0}, "/home/rt7/Desktop/glsl_learning/assets/container.png", {}, glm::vec4{1.0f}, 1).release());
 
     container.scale() = glm::vec3{1, 1, 1};
     container_specular.scale() = glm::vec3{1, 1, 1};
@@ -28,7 +28,6 @@ void Proj1::application(float delta_time, core::events::Event &event)
     // }
 
     sh.set_uniformMatrix4fv("u_view_projection", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
-    sh.set_uniformMatrix4fv("u_model", GL_FALSE, glm::value_ptr(glm::scale(glm::mat4{1}, glm::vec3(10, 10, 1))));
 
     renderer.submit(tile_map);
     renderer.submit(container);

@@ -23,7 +23,7 @@ namespace Recursion::core::scene
         };
         return indices;
     }
-    std::vector<float> Rectangle2D::get_colors(const glm::vec4& color)
+    std::vector<float> Rectangle2D::get_colors(const glm::vec4 &color)
     {
         std::vector<float> colors = {
             color.r, color.g, color.b, color.a, // Top right
@@ -50,6 +50,17 @@ namespace Recursion::core::scene
             tile_factor, 0,           // Bottom right
             0, 0,                     // Bottom left
             0, tile_factor,           // Top left
+        };
+        return texture_coordinates;
+    }
+
+    std::vector<float> Rectangle2D::get_texture_coordinates(uint32_t subtext_size, uint32_t x, uint32_t y)
+    {
+        std::vector<float> texture_coordinates{
+            subtext_size * (x + 1) / 1856.0f, (y + 1) * subtext_size / 679.0f, // Bottom right
+            subtext_size * (x + 1) / 1856.0f, y * subtext_size / 679.0f,       // Top right
+            subtext_size * x / 1856.0f, y * subtext_size / 679.0f,             // Top left
+            subtext_size * x / 1856.0f, (y + 1) * subtext_size / 679.0f,       // Bottom left
         };
         return texture_coordinates;
     }

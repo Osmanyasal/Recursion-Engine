@@ -20,7 +20,7 @@ namespace Recursion::platforms::opengl::render
 
         if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
         {
-            REC_CORE_ERROR("ERROR::FRAMEBUFFER:: Framebuffer is not complete!\n");
+            REC_CORE_ERROR("ERROR::FRAMEBUFFER:: Framebuffer is not complete!");
             exit(-1);
         }
 
@@ -28,7 +28,7 @@ namespace Recursion::platforms::opengl::render
         glBindTexture(GL_TEXTURE_2D, 0);
         glBindRenderbuffer(GL_RENDERBUFFER, 0);
 
-        REC_CORE_INFO("Framebuffer Created!\n");
+        REC_CORE_INFO("Framebuffer Created!");
     }
 
     void OpenGLFrameBuffer::rescale_framebuffer(float width, float height)

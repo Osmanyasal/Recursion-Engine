@@ -13,12 +13,22 @@ namespace Recursion::core::scene
         return positions;
     }
 
+    std::vector<float> Triangle2D::get_positions(uint32_t subtext_size,
+                                                 uint32_t x,
+                                                 uint32_t y)
+    {
+        std::vector<float> positions = {
+            
+        };
+        return positions;
+    }
+
     std::vector<uint32_t> Triangle2D::get_index_buffer()
     {
         std::vector<uint32_t> indices{0, 1, 2};
         return indices;
     }
-    std::vector<float> Triangle2D::get_colors(const glm::vec4& color)
+    std::vector<float> Triangle2D::get_colors(const glm::vec4 &color)
     {
         std::vector<float> colors = {
             color.r, color.g, color.b, color.a, // Top

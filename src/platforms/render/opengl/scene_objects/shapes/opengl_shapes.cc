@@ -4,17 +4,21 @@ namespace Recursion::platforms::opengl::scene
 {
     std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::tilemap2D(const glm::vec3 &size, const glm::vec4 &color, float tile_factor)
     {
-        return OpenGLShapes::rectangle2D(size, "../src/core/scene_objects/tile_maps/brick.png", color, tile_factor);
+        return OpenGLShapes::rectangle2D(size, "../src/core/scene_objects/tile_maps/brick.png", {}, color, tile_factor); // ../src/core/scene_objects/tile_maps/brick.png
     }
 
-    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::rectangle2D(const glm::vec3 &size, const std::string &texture, const glm::vec4 &color, float tile_factor)
+    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::rectangle2D(const glm::vec3 &size, const std::string &texture, const SubTexture &subtexture, const glm::vec4 &color, float tile_factor)
     {
         std::unique_ptr<opengl::render::VertexArray> result;
         auto indices = core::scene::Rectangle2D::get_index_buffer();
         auto position = core::scene::Rectangle2D::get_positions(size);
         auto colors = core::scene::Rectangle2D::get_colors(color);
         auto normals = core::scene::Rectangle2D::get_normals();
-        auto texture_position = core::scene::Rectangle2D::get_texture_coordinates(tile_factor);
+
+        std::vector<float> texture_position;
+        if(subtexture.is_active)
+            texture_position = core::scene::Rectangle2D::get_texture_coordinates(subtexture.subtext_size,subtexture.x,subtexture.y);
+        else texture_position = core::scene::Rectangle2D::get_texture_coordinates(tile_factor);
 
         render::VertexBuffer VBO{sizeof(float) * position.size() + sizeof(float) * colors.size() + sizeof(float) * normals.size() + sizeof(float) * texture_position.size()};
         VBO.add_positions(position.data(), position.size() * sizeof(float));
@@ -53,7 +57,7 @@ namespace Recursion::platforms::opengl::scene
         return result;
     }
 
-    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::triangle2D(const glm::vec3 &size, const std::string &texture, const glm::vec4 &color, float tile_factor)
+    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::triangle2D(const glm::vec3 &size, const std::string &texture, const SubTexture &subtexture, const glm::vec4 &color, float tile_factor)
     {
         std::unique_ptr<opengl::render::VertexArray> result;
         auto indices = core::scene::Triangle2D::get_index_buffer();

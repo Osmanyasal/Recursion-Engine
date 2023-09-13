@@ -50,7 +50,7 @@ namespace Recursion::platforms::opengl::render
 
     VertexArray &VertexArray::add_texture(const OpenGLTexture &texture)
     {
-        this->transparent = texture.is_transparent;
+        this->transparent = texture.meta.is_transparent;
         texture_list.push_back(texture);
         REC_CORE_TRACE("Texture added {}", texture.meta.path);
         return *this;
@@ -157,7 +157,7 @@ namespace Recursion::platforms::opengl::render
         {
             //TODO:Add support for multiple textures and mixing.
             iter->bind();                                           // bind the texture
-            shader.set_uniform1i("u_ourTexture", iter->get_unit()); // set texture unit.
+            shader.set_uniform1i("u_ourTexture", iter->meta.texture_unit); // set texture unit.
         }
         glDrawElements(GL_TRIANGLES, this->VBO.vertex_count, GL_UNSIGNED_INT, 0);
         // glDisable(GL_TEXTURE_2D);

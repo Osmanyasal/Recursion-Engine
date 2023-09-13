@@ -58,21 +58,21 @@ namespace Recursion::core::scene
                               glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0, 0, 1));
         view_matrix = glm::inverse(transform);
         view_projection_matrix = projection_matrix * view_matrix;
-        REC_TRACE("view_projection: {}", to_string(view_projection_matrix));
+        REC_CORE_DEBUG("view_projection: {}", to_string(view_projection_matrix));
     }
 
     void Camera::set_position(const glm::vec3 &position)
     {
         this->position = position;
         update_camera();
-        REC_TRACE("posisiton: {}", to_string(position));
+        REC_CORE_DEBUG("posisiton: {}", to_string(position));
     }
 
     void Camera::set_rotation(float rotation)
     {
         this->rotation = rotation;
         update_camera();
-        REC_TRACE("rotation: {}", rotation);
+        REC_CORE_DEBUG("rotation: {}", rotation);
     }
 
     ////////// ORTHOGRAPHIC CAMERA ///////////
@@ -89,11 +89,11 @@ namespace Recursion::core::scene
         rotation = 0.0f;
         update_camera();
 
-        REC_TRACE("projection: {}", to_string(projection_matrix));
-        REC_TRACE("view: {}", to_string(view_matrix));
-        REC_TRACE("posisiton: {}", to_string(position));
-        REC_TRACE("rotation: {}", rotation);
-        REC_TRACE("view_projection: {}", to_string(view_projection_matrix));
+        REC_CORE_DEBUG("projection: {}", to_string(projection_matrix));
+        REC_CORE_DEBUG("view: {}", to_string(view_matrix));
+        REC_CORE_DEBUG("posisiton: {}", to_string(position));
+        REC_CORE_DEBUG("rotation: {}", rotation);
+        REC_CORE_DEBUG("view_projection: {}", to_string(view_projection_matrix));
     }
 
     bool OrthographicCamera::on_scroll_call_back(events::MouseScrolledEvent &event)

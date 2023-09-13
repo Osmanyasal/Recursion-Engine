@@ -1,2 +1,2 @@
-[2023-09-08 12:54:02.692] [multi_sink] [warning] this should appear in both console and file
-[2023-09-08 12:54:02.692] [multi_sink] [info] this message should not appear in the console, only in the file
+[2023-09-13 23:11:20.462] [multi_sink] [warning] this should appear in both console and file
+[2023-09-13 23:11:20.462] [multi_sink] [info] this message should not appear in the console, only in the file
