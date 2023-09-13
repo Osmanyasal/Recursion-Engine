@@ -14,7 +14,7 @@ namespace Recursion::platforms::imgui::window
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls
         io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;     // Enable Docking
         // io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // Enable Multi-Viewport / Platform Windows
-        // io.ConfigFlags |= ImGuiWindowFlags_AlwaysAutoResize;
+        io.ConfigFlags |= ImGuiWindowFlags_AlwaysAutoResize;
         // io.ConfigFlags |= ImGuiConfigFlags_DpiEnableScaleViewports;
         // io.ConfigFlags |= ImGuiConfigFlags_DpiEnableScaleFonts;
         // io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
@@ -58,7 +58,7 @@ namespace Recursion::platforms::imgui::window
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
         create_default_layout();
-        ImGui::ShowDemoWindow();
+        // ImGui::ShowDemoWindow();
     }
     void ImguiLayer_glfw_opengl_impl::end_loop()
     {
@@ -269,18 +269,33 @@ namespace Recursion::platforms::imgui::window
     {
         uint32_t dockspace_id = create_dockspace();
         create_menu();
-        
+
         // Retrieve the dockspace's node ID
-        ImGuiDockNode *dockspace_node_id = ImGui::DockBuilderGetCentralNode(dockspace_id);
-        if (dockspace_node_id->ID)
+        // Use DockBuilderSplitNode to create a simple layout
+
+        static bool sFirstFrame = true;
+        if (sFirstFrame)
         {
-            // Dock a new window within the dockspace
-            ImGui::DockBuilderDockWindow("Scene", dockspace_node_id->ID);
+            sFirstFrame = false;
+            ImGuiDockNode *dockspace_node_id = ImGui::DockBuilderGetCentralNode(dockspace_id);
+            ImGuiID scene_node_id;
+            ImGuiID inspector_node_id;
+            ImGuiID game_object_node_id;
+            ImGuiID log_node_id;
+            ImGui::DockBuilderSplitNode(dockspace_node_id->ID, ImGuiDir_Right, 0.25f, &inspector_node_id, &scene_node_id);
+            ImGui::DockBuilderSplitNode(scene_node_id, ImGuiDir_Left, 0.25f, &game_object_node_id, &scene_node_id);
+            ImGui::DockBuilderSplitNode(scene_node_id, ImGuiDir_Down, 0.25f, &log_node_id, &scene_node_id);
+            ImGui::DockBuilderDockWindow("Scene", scene_node_id);
+            ImGui::DockBuilderDockWindow("Inspector Window", inspector_node_id);
+            ImGui::DockBuilderDockWindow("Object Window", game_object_node_id);
+            ImGui::DockBuilderDockWindow("Log Window", log_node_id);
+            ImGui::DockBuilderFinish(dockspace_node_id->ID);
         }
-        // Begin your window
+
+        // Start the "Scene" window
         if (ImGui::Begin("Scene"))
         {
-
+            REC_CORE_ERROR("DRAW SCENE !!\n");
             const float window_width = ImGui::GetContentRegionAvail().x;
             const float window_height = ImGui::GetContentRegionAvail().y;
 
@@ -294,10 +309,29 @@ namespace Recursion::platforms::imgui::window
                 ImVec2(pos.x + window_width, pos.y + window_height),
                 ImVec2(0, 1),
                 ImVec2(1, 0));
-
-            ImGui::End();
         }
+        ImGui::End();
+
+        // Start the "Right Window"
+        if (ImGui::Begin("Inspector Window"))
+        {
+            ImGui::Text("Inspector comes here!");
+        }
+        ImGui::End();
+
+        if (ImGui::Begin("Log Window"))
+        {
+            ImGui::Text("Logs comes here!");
+        }
+        ImGui::End();
+
+        if (ImGui::Begin("Object Window"))
+        {
+            ImGui::Text("Objects comes here!");
+        }
+        ImGui::End();
     }
+
     uint32_t ImguiLayer_glfw_opengl_impl::create_dockspace()
     {
         uint32_t dockspace_id = ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
