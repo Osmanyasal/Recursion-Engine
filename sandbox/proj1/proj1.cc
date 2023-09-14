@@ -1,9 +1,7 @@
 #include <proj1.hh>
 
 Proj1::Proj1() : Application{"Project1"}
-{
-    sh.bind(); // bind shader !
-    renderer = Renderer2D::init((core::render::Shader &)sh);
+{ 
     container.set_drawable_object(platforms::opengl::scene::OpenGLShapes::rectangle2D({1, 1, 0}, "/home/rt7/Desktop/texture.png", core::render::SubTexture{2048, 548, 32, 1628, 0}, glm::vec4{1.0f}, 1).release()); //
     container_specular.set_drawable_object(platforms::opengl::scene::OpenGLShapes::triangle2D({1, 1, 0}, "", {}, glm::vec4{1.0f}, 1).release());
 
@@ -18,21 +16,16 @@ Proj1::Proj1() : Application{"Project1"}
 Proj1::~Proj1() {}
 
 void Proj1::application(float delta_time, core::events::Event &event)
-{
-    renderer.begin_scene(cam.on_event(event).update(delta_time));
+{ 
 
     // if (INSTANCEOF(core::events::KeyPressEvent, event))
     // {
     //     REC_WARN("KEY {} PRESSED!!!", ((core::events::KeyPressEvent &)event).get_keycode());
     //     exit(0);
     // }
-
-    sh.set_uniformMatrix4fv("u_view_projection", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
-
+ 
     renderer.submit(tile_map);
     renderer.submit(container);
     // renderer.submit(container_specular);
-
-    renderer.draw_scene();
-    renderer.end_scene();
+ 
 }

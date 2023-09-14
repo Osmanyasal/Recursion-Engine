@@ -52,7 +52,7 @@ namespace Recursion::core::render
         SubTexture() : is_active{false}
         {
         }
-        SubTexture(uint32_t atlas_width, uint32_t altas_height, uint32_t subtext_size, uint32_t xloc, uint32_t yloc) : is_active{true},
+        SubTexture(uint32_t atlas_width, uint32_t altas_height, float subtext_size, float xloc, float yloc) : is_active{true},
                                                                                                                        atlas_width{atlas_width},
                                                                                                                        altas_height{altas_height},
                                                                                                                        subtext_size{subtext_size},

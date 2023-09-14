@@ -11,14 +11,10 @@ public:
     ~Proj1();
     virtual void application(float delta_time, core::events::Event &event) override;
 
-private:
-    platforms::opengl::render::OpenGLShader sh;
-    Renderer2D renderer;
-
-    core::scene::GameObject container;
-    core::scene::GameObject container_specular;
-    core::scene::GameObject tile_map;
-    core::scene::OrthographicCamera cam{CONF__REC__WINDOW_WIDTH / CONF__REC__WINDOW_HEIGHT};
+private: 
+    GameObject container;
+    GameObject container_specular;
+    GameObject tile_map;
 };
 
 #endif

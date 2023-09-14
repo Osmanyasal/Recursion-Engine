@@ -1,10 +1,6 @@
 #ifndef RECURSION_ENGINE__SRC__CORE__RECURSION_HH
 #define RECURSION_ENGINE__SRC__CORE__RECURSION_HH
-
-#include <app_config.hh>
-#include <core_modules.hh>
-#include <platform_impl.hh>
-
+ 
 #include <application.hh>
 namespace Recursion::core
 {
