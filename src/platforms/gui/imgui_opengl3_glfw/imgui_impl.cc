@@ -283,12 +283,13 @@ namespace Recursion::platforms::imgui::window
             ImGuiID game_object_node_id;
             ImGuiID log_node_id;
             ImGui::DockBuilderSplitNode(dockspace_node_id->ID, ImGuiDir_Right, 0.25f, &inspector_node_id, &scene_node_id);
+            ImGui::DockBuilderSplitNode(scene_node_id, ImGuiDir_Down, 0.40f, &log_node_id, &scene_node_id);
             ImGui::DockBuilderSplitNode(scene_node_id, ImGuiDir_Left, 0.25f, &game_object_node_id, &scene_node_id);
-            ImGui::DockBuilderSplitNode(scene_node_id, ImGuiDir_Down, 0.25f, &log_node_id, &scene_node_id);
             ImGui::DockBuilderDockWindow("Scene", scene_node_id);
             ImGui::DockBuilderDockWindow("Inspector Window", inspector_node_id);
             ImGui::DockBuilderDockWindow("Object Window", game_object_node_id);
             ImGui::DockBuilderDockWindow("Log Window", log_node_id);
+            ImGui::DockBuilderDockWindow("Project Window", log_node_id);
             ImGui::DockBuilderFinish(dockspace_node_id->ID);
         }
         // Start the "Scene" window
@@ -314,6 +315,17 @@ namespace Recursion::platforms::imgui::window
         if (ImGui::Begin("Inspector Window"))
         {
             ImGui::Text("Inspector comes here!");
+        }
+        ImGui::End();
+
+        if (ImGui::Begin("Object Window"))
+        {
+            ImGui::Text("Objects comes here!");
+        }
+        ImGui::End();
+
+        if (ImGui::Begin("Project Window"))
+        {
         }
         ImGui::End();
 
@@ -385,13 +397,7 @@ namespace Recursion::platforms::imgui::window
             ImGui::EndChild();
         }
         ImGui::End();
-
-        if (ImGui::Begin("Object Window"))
-        {
-            ImGui::Text("Objects comes here!");
-        }
-        ImGui::End();
-    }
+     }
 
     uint32_t ImguiLayer_glfw_opengl_impl::create_dockspace()
     {
@@ -414,7 +420,6 @@ namespace Recursion::platforms::imgui::window
             create_menu_actor();
             create_menu_help();
             create_submenu();
-            create_log_window();
         }
         ImGui::GetStyle().FramePadding.y = original_padding;
         ImGui::EndMainMenuBar();
@@ -756,14 +761,6 @@ namespace Recursion::platforms::imgui::window
     }
 
     void ImguiLayer_glfw_opengl_impl::create_submenu()
-    {
-    }
-
-    void ImguiLayer_glfw_opengl_impl::create_log_window()
-    {
-    }
-
-    void ImguiLayer_glfw_opengl_impl::create_env_window()
     {
     }
 }
