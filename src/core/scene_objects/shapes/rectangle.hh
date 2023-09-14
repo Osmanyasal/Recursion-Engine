@@ -4,6 +4,7 @@
 #include <inttypes.h>
 #include <vector>
 #include <glm_utils.hh>
+#include <texture.hh>
 
 namespace Recursion::core::scene
 {
@@ -14,7 +15,7 @@ namespace Recursion::core::scene
         static std::vector<float> get_colors(const glm::vec4 &color = glm::vec4{1.0f});
         static std::vector<float> get_normals();
         static std::vector<float> get_texture_coordinates(float tile_factor = 1.0f);
-        static std::vector<float> get_texture_coordinates(uint32_t subtext_size, uint32_t x, uint32_t y);
+        static std::vector<float> get_texture_coordinates(const render::SubTexture&);
         static std::vector<uint32_t> get_index_buffer();
 
     private:

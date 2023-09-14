@@ -54,13 +54,13 @@ namespace Recursion::core::scene
         return texture_coordinates;
     }
 
-    std::vector<float> Rectangle2D::get_texture_coordinates(uint32_t subtext_size, uint32_t x, uint32_t y)
+    std::vector<float> Rectangle2D::get_texture_coordinates(const render::SubTexture &subtexture)
     {
         std::vector<float> texture_coordinates{
-            (x + subtext_size) / 2048.0f, (548 - y) / 548.0f,                // Top right
-            (x + subtext_size) / 2048.0f, (548 - y - subtext_size) / 548.0f, // Bottom right
-            (x) / 2048.0f, (548 - y - subtext_size) / 548.0f,                // Bottom left
-            (x) / 2048.0f, (548 - y) / 548.0f,                               // Top left
+            (subtexture.xloc + subtexture.subtext_size) / subtexture.atlas_width, (subtexture.altas_height - subtexture.yloc) / subtexture.altas_height,                           // Top right
+            (subtexture.xloc + subtexture.subtext_size) / subtexture.atlas_width, (subtexture.altas_height - subtexture.yloc - subtexture.subtext_size) / subtexture.altas_height, // Bottom right
+            (subtexture.xloc) / subtexture.atlas_width, (subtexture.altas_height - subtexture.yloc - subtexture.subtext_size) / subtexture.altas_height,                           // Bottom left
+            (subtexture.xloc) / subtexture.atlas_width, (subtexture.altas_height - subtexture.yloc) / subtexture.altas_height,                                                     // Top left
         };
         return texture_coordinates;
     }
