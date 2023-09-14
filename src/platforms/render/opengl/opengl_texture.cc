@@ -74,21 +74,23 @@ namespace Recursion::platforms::opengl::render
         }
     }
 
-    OpenGLTexture::OpenGLTexture(uint32_t width, uint32_t height, bool is_transparent, uint32_t value, uint32_t wrap_s,
+    OpenGLTexture::OpenGLTexture(uint32_t width, uint32_t height, const std::string &tag, bool is_transparent, uint32_t value, uint32_t wrap_s,
                                  uint32_t wrap_t,
                                  uint32_t min_filter,
-                                 uint32_t mag_filter) : Texture{" "}
+                                 uint32_t mag_filter) : Texture{tag}
     {
         REC_CORE_PROFILE_FUNCTION();
 
         // check here if created already
-        if (OPT_LIKELY(core::render::CACHE_TEXTURE_METADATA.find("default") != core::render::CACHE_TEXTURE_METADATA.end()))
+        if (OPT_LIKELY(core::render::CACHE_TEXTURE_METADATA.find(tag) != core::render::CACHE_TEXTURE_METADATA.end()))
         {
-            this->meta = core::render::CACHE_TEXTURE_METADATA["default"];
+            this->meta = core::render::CACHE_TEXTURE_METADATA[tag];
             REC_CORE_INFO("Loading from texture cache : {}", meta.to_string());
         }
         else
         {
+            meta.width = width;
+            meta.height = height;
             meta.is_transparent = is_transparent;
             meta.tile_factor = 1.0f;
             meta.texture_unit = AVAILABLE_TEXTURE_UNIT;
@@ -117,7 +119,7 @@ namespace Recursion::platforms::opengl::render
             delete[] data;
 
             REC_CORE_INFO("Adding to texture cache : {}", meta.to_string());
-            core::render::CACHE_TEXTURE_METADATA["default"] = meta; // add to the cache
+            core::render::CACHE_TEXTURE_METADATA[tag] = meta; // add to the cache
         }
     }
 

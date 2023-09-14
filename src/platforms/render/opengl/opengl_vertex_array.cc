@@ -60,13 +60,12 @@ namespace Recursion::platforms::opengl::render
     {
         return this->transparent;
     }
- 
 
     void VertexArray::build()
     {
         if (OPT_UNLIKELY(texture_list.size() == 0))
         {
-            OpenGLTexture blank_texture;
+            OpenGLTexture blank_texture{1, 1, "blank_texture"};
             texture_list.push_back(blank_texture);
         }
         OpenGLTexture::AVAILABLE_TEXTURE_UNIT = 0; // reset texture_units for next VertexArray's textures.
@@ -111,7 +110,7 @@ namespace Recursion::platforms::opengl::render
     {
         if (OPT_UNLIKELY(texture_list.size() == 0))
         {
-            OpenGLTexture blank_texture;
+            OpenGLTexture blank_texture{1, 1, "blank_texture"};
             texture_list.push_back(blank_texture);
         }
         OpenGLTexture::AVAILABLE_TEXTURE_UNIT = 0; // reset texture_units for next VertexArray's textures.
@@ -155,8 +154,8 @@ namespace Recursion::platforms::opengl::render
     {
         for (auto iter = texture_list.begin(); iter != texture_list.end(); iter++)
         {
-            //TODO:Add support for multiple textures and mixing.
-            iter->bind();                                           // bind the texture
+            // TODO:Add support for multiple textures and mixing.
+            iter->bind();                                                  // bind the texture
             shader.set_uniform1i("u_ourTexture", iter->meta.texture_unit); // set texture unit.
         }
         glDrawElements(GL_TRIANGLES, this->VBO.vertex_count, GL_UNSIGNED_INT, 0);

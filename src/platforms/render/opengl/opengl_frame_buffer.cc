@@ -3,7 +3,7 @@
 
 namespace Recursion::platforms::opengl::render
 {
-    OpenGLFrameBuffer::OpenGLFrameBuffer(float width, float height) : OpenGLFrameBuffer{width, height, OpenGLTexture{}}
+    OpenGLFrameBuffer::OpenGLFrameBuffer(float width, float height) : OpenGLFrameBuffer{width, height, OpenGLTexture{width, height, "frame_buffer_0"}}
     {
     }
 
@@ -51,7 +51,7 @@ namespace Recursion::platforms::opengl::render
     void OpenGLFrameBuffer::bind()
     {
         glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-        
+
         glClearColor(.6f, 0.2f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
