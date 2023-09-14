@@ -422,7 +422,7 @@ namespace Recursion::platforms::imgui::window
 
     void ImguiLayer_glfw_opengl_impl::create_menu_icon()
     {
-        static opengl::render::OpenGLTexture icon{"/home/rt7/Desktop/Recursion-Engine/icon/icon.png"};
+        static opengl::render::OpenGLTexture icon{"../icon/icon.png"};
         static ImVec2 imageSize(82, 82);
         ImGui::Image((void *)icon.meta.texture_id, imageSize);
     }
