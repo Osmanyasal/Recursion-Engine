@@ -32,14 +32,14 @@ namespace Recursion::core::scene
     Camera &Camera::update(float delta_time)
     {
         glm::vec3 pos = get_position();
-        if (input::Input->is_key_pressed(REC_KEY_A))
-            pos.x -= zoom_level * step * delta_time;
-        if (input::Input->is_key_pressed(REC_KEY_D))
-            pos.x += zoom_level * step * delta_time;
-        if (input::Input->is_key_pressed(REC_KEY_S))
-            pos.y -= zoom_level * step * delta_time;
-        if (input::Input->is_key_pressed(REC_KEY_W))
-            pos.y += zoom_level * step * delta_time;
+        // if (input::Input->is_key_pressed(REC_KEY_A))
+        //     pos.x -= zoom_level * step * delta_time;
+        // if (input::Input->is_key_pressed(REC_KEY_D))
+        //     pos.x += zoom_level * step * delta_time;
+        // if (input::Input->is_key_pressed(REC_KEY_S))
+        //     pos.y -= zoom_level * step * delta_time;
+        // if (input::Input->is_key_pressed(REC_KEY_W))
+        //     pos.y += zoom_level * step * delta_time;
         set_position(pos);
 
         return *this;

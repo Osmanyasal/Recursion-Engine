@@ -5,7 +5,7 @@ namespace Recursion::platforms::opengl::render
     OpenGLRenderContext::OpenGLRenderContext(const core::window::WindowProps &default_props) : RenderContext{core::render::RenderAPI::OPENGL}
     {
         REC_CORE_PROFILE_FUNCTION();
-        
+
         this->set_window_props(default_props);
 
         // Initialize GLFW
@@ -42,6 +42,8 @@ namespace Recursion::platforms::opengl::render
             return;
         }
 
+        glfwSwapInterval(1); // 1 enables VSync, 0 disables it
+
         // Standard deoth test
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LESS);
@@ -56,10 +58,10 @@ namespace Recursion::platforms::opengl::render
 
     void OpenGLRenderContext::swap_buffer()
     {
-        // Process events
-        glfwPollEvents();
-
         // Swap buffers
         glfwSwapBuffers(get_window());
+        
+        // Process events
+        glfwPollEvents();
     }
 } // namespace Recursion::core::render

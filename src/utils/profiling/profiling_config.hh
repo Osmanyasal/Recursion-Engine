@@ -6,6 +6,6 @@
 */
 
 #define REC_CORE_PROFILE 0
-#define REC_PROFILE 1
+#define REC_PROFILE 0
 
 #endif
