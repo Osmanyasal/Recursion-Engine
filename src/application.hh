@@ -18,7 +18,7 @@ namespace Recursion::core
         virtual void on_event(core::events::Event &event) override;
 
     protected:
-        virtual void application(float delta_time, core::events::Event &event) = 0;
+        virtual void application(float delta_time) = 0;
         shader sh;
         core::render::Renderer2D renderer;
         OrthographicCamera cam{CONF__REC__WINDOW_WIDTH / CONF__REC__WINDOW_HEIGHT};
@@ -28,7 +28,6 @@ namespace Recursion::core
         OpenGLFrameBuffer framebuffer{CONF__REC__WINDOW_WIDTH, CONF__REC__WINDOW_HEIGHT};
 
     private:
-        events::EmptyEvent empty_event;
         float last_delta_time;
     };
 }

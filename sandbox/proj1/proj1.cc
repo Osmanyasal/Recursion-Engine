@@ -15,25 +15,25 @@ Proj1::Proj1() : Application{"Project1"}
 }
 Proj1::~Proj1() {}
 
-void Proj1::application(float delta_time, core::events::Event &event)
+void Proj1::application(float delta_time)
 {
     if (Input->is_key_pressed(REC_KEY_A))
     {
-        container.translation().x -= .7 * delta_time;
+        container.translation().x -= 1 * delta_time;
     }
     if (Input->is_key_pressed(REC_KEY_D))
     {
-        container.translation().x += .7 * delta_time;
+        container.translation().x += 1 * delta_time;
     }
     if (Input->is_key_pressed(REC_KEY_W))
     {
-        container.translation().y += .7 * delta_time;
+        container.translation().y += 1 * delta_time;
     }
     if (Input->is_key_pressed(REC_KEY_S))
     {
-        container.translation().y -= .7 * delta_time;
+        container.translation().y -= 1 * delta_time;
     }
-    // renderer.submit(tile_map);
+    renderer.submit(tile_map);
     renderer.submit(container);
     // renderer.submit(container_specular);
 }

@@ -9,7 +9,7 @@ class Proj1 : public Recursion::core::Application
 public:
     Proj1();
     ~Proj1();
-    virtual void application(float delta_time, core::events::Event &event) override;
+    virtual void application(float delta_time) override;
 
 private: 
     GameObject container;
