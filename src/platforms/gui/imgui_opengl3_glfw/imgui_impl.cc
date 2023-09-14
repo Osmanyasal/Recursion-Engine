@@ -400,8 +400,11 @@ namespace Recursion::platforms::imgui::window
     }
     void ImguiLayer_glfw_opengl_impl::create_menu()
     {
+        static float original_padding = ImGui::GetStyle().FramePadding.y;
+        ImGui::GetStyle().FramePadding.y = 30;
         if (ImGui::BeginMainMenuBar())
         {
+            create_menu_icon();
             create_menu_file();
             create_menu_edit();
             create_menu_window();
@@ -412,9 +415,16 @@ namespace Recursion::platforms::imgui::window
             create_menu_help();
             create_submenu();
             create_log_window();
-
-            ImGui::EndMainMenuBar();
         }
+        ImGui::GetStyle().FramePadding.y = original_padding;
+        ImGui::EndMainMenuBar();
+    }
+
+    void ImguiLayer_glfw_opengl_impl::create_menu_icon()
+    {
+        static opengl::render::OpenGLTexture icon{"/home/rt7/Desktop/Recursion-Engine/icon/icon.png"};
+        static ImVec2 imageSize(82, 82);
+        ImGui::Image((void *)icon.meta.texture_id, imageSize);
     }
 
     void ImguiLayer_glfw_opengl_impl::create_menu_file()

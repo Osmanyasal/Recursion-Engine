@@ -13,7 +13,7 @@
 #include <core_layers.hh>
 #include <rec_imgui_key_mapping.hh>
 #include <opengl_frame_buffer.hh>
-
+#include <opengl_texture.hh>
 
 namespace Recursion::platforms::imgui::window
 {
@@ -56,6 +56,7 @@ namespace Recursion::platforms::imgui::window
         void create_default_layout(uint32_t layout_id = 0);
         uint32_t create_dockspace();
         void create_menu();
+        void create_menu_icon();
         void create_menu_file();
         void create_menu_edit();
         void create_menu_window();
