@@ -19,6 +19,7 @@ namespace Recursion::platforms::opengl::scene
         uint32_t subtext_size;
         uint32_t x;
         uint32_t y;
+        
     };
 
     // TODO: get texture parameter as a texture? maybe not idk

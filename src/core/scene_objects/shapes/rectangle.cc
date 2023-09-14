@@ -57,10 +57,10 @@ namespace Recursion::core::scene
     std::vector<float> Rectangle2D::get_texture_coordinates(uint32_t subtext_size, uint32_t x, uint32_t y)
     {
         std::vector<float> texture_coordinates{
-            subtext_size * (x + 1) / 1856.0f, (y + 1) * subtext_size / 679.0f, // Bottom right
-            subtext_size * (x + 1) / 1856.0f, y * subtext_size / 679.0f,       // Top right
-            subtext_size * x / 1856.0f, y * subtext_size / 679.0f,             // Top left
-            subtext_size * x / 1856.0f, (y + 1) * subtext_size / 679.0f,       // Bottom left
+            (x + subtext_size) / 2048.0f, (548 - y) / 548.0f,                // Top right
+            (x + subtext_size) / 2048.0f, (548 - y - subtext_size) / 548.0f, // Bottom right
+            (x) / 2048.0f, (548 - y - subtext_size) / 548.0f,                // Bottom left
+            (x) / 2048.0f, (548 - y) / 548.0f,                               // Top left
         };
         return texture_coordinates;
     }
