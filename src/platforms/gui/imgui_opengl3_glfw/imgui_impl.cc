@@ -429,7 +429,7 @@ namespace Recursion::platforms::imgui::window
     {
         static opengl::render::OpenGLTexture icon{"../icon/icon.png"};
         static ImVec2 imageSize(82, 82);
-        ImGui::Image((void *)icon.meta.texture_id, imageSize);
+        ImGui::Image((void *)icon.meta.texture_id, imageSize,ImVec2(0,1),ImVec2(1,0));
     }
 
     void ImguiLayer_glfw_opengl_impl::create_menu_file()

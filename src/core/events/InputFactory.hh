@@ -32,6 +32,7 @@ namespace Recursion::core::input
                 break;
 
             default:
+                return glfw_opengl_input;
                 break;
             }
         }

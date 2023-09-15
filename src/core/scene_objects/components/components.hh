@@ -10,7 +10,11 @@ namespace Recursion::core::scene
     public:
         static const std::string get_class_name() { return "Component"; }
 
-        inline Component() : id{generateGUID()}, name{"Component"} {}
+        inline Component() : name{"Component"}
+        {
+            static uint32_t next_id = 1;
+            id = next_id++;
+        }
         inline virtual ~Component() {}
 
         inline virtual const std::string &get_name() const final { return name; }
@@ -18,16 +22,15 @@ namespace Recursion::core::scene
         {
             std::stringstream res;
             res << "Component("
-                << "id=" << id.substr(0, CONF__LOG__PRINT_GUID_LENGTH) << ", "
+                << "id=" << id << ", "
                 << "name=" << name << ")";
             return res.str();
         }
 
-    private:
-        std::string id;
-
     protected:
         std::string name;
+    private:
+        std::uint32_t id;
     };
 
     /////////// TransformComponent ///////////
@@ -53,12 +56,12 @@ namespace Recursion::core::scene
         }
         inline virtual ~TransformComponent() {}
 
-        TransformComponent& set_translation(const glm::vec3 &translation)
+        TransformComponent &set_translation(const glm::vec3 &translation)
         {
             this->translation = translation;
             return *this;
         }
-        TransformComponent& set_rotation(const glm::vec3 &rotation)
+        TransformComponent &set_rotation(const glm::vec3 &rotation)
         {
             if (OPT_UNLIKELY(rotation == glm::vec3{0}))
                 this->rotation = glm::vec3{1, 0, 0};
@@ -67,7 +70,7 @@ namespace Recursion::core::scene
 
             return *this;
         }
-        TransformComponent& set_scale(const glm::vec3 &scale)
+        TransformComponent &set_scale(const glm::vec3 &scale)
         {
             this->scale = scale;
             return *this;

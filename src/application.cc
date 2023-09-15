@@ -5,7 +5,7 @@ namespace Recursion::core
     Application::Application(const std::string &app_name) : app_name{app_name}
     {
         sh.bind(); // bind shader !
-        renderer = core::render::Renderer2D::init((core::render::Shader &)sh);
+        renderer = core::render::Renderer2D::init((core::render::Shader &)sh, platforms::opengl::render::OpenGLTexture::TEXTURE_UNIT_LIMIT);
     }
     Application::~Application() {}
 

@@ -11,10 +11,11 @@ namespace Recursion::core::render
     }
 
     ////////// RENDERER 2D //////////
-    const Renderer2D &Renderer2D::init(Shader &shader)
+    const Renderer2D &Renderer2D::init(Shader &shader,uint32_t object_treshold)
     {
         REC_CORE_PROFILE_FUNCTION();
         static Renderer2D renderer2d;
+        renderer2d.object_treshold = object_treshold;
         renderer2d.set_shader_program(&shader);
         shader.bind();
         return renderer2d;
@@ -32,7 +33,7 @@ namespace Recursion::core::render
     {
         REC_CORE_PROFILE_FUNCTION();
         if (OPT_LIKELY(drawable_item.is_transparent()))
-        { 
+        {
             float distance_from_camera = glm::distance(this->camera->get_position(), drawable_item.translation());
             transparent[distance_from_camera] = &drawable_item;
         }
@@ -40,6 +41,13 @@ namespace Recursion::core::render
         {
             opaque.push_back(&drawable_item);
         }
+
+        if (OPT_UNLIKELY(++submitted_objects > object_treshold))
+        {
+            draw_scene();
+            submitted_objects = 0;
+        }
+
         return *this;
     }
 
@@ -75,9 +83,10 @@ namespace Recursion::core::render
     }
 
     ////////// RENDERER 3D //////////
-    const Renderer3D &Renderer3D::init(Shader &shader)
+    const Renderer3D &Renderer3D::init(Shader &shader,uint32_t object_treshold)
     {
         static Renderer3D renderer3d;
+        renderer3d.object_treshold = object_treshold;
         renderer3d.set_shader_program(&shader);
         return renderer3d;
     }

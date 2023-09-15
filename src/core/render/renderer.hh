@@ -15,7 +15,7 @@ namespace Recursion::core::render
     class Renderer
     {
     public:
-        inline Renderer() {}
+        inline Renderer() : submitted_objects{0}, object_treshold{1} {}
         inline virtual ~Renderer() {}
 
         // set up your scene
@@ -38,6 +38,8 @@ namespace Recursion::core::render
         void set_shader_program(Shader *shader);
 
     protected:
+        uint16_t submitted_objects;
+        uint32_t object_treshold;
         std::shared_ptr<Shader> _shader;
         core::scene::Camera *camera;
         std::vector<core::scene::GameObject *> opaque;
@@ -47,10 +49,10 @@ namespace Recursion::core::render
     class Renderer2D : public Renderer
     {
     public:
-        inline Renderer2D() {}
+        inline Renderer2D(){}
         inline virtual ~Renderer2D() {}
 
-        const static Renderer2D &init(Shader &shader);
+        const static Renderer2D &init(Shader &shader,uint32_t object_treshold);
 
         // set up your scene
         virtual Renderer &begin_scene(core::scene::Camera &) override;
@@ -71,7 +73,7 @@ namespace Recursion::core::render
         inline Renderer3D() {}
         inline virtual ~Renderer3D() {}
 
-        const static Renderer3D &init(Shader &shader);
+        const static Renderer3D &init(Shader &shader,uint32_t object_treshold);
 
         // set up your scene
         virtual Renderer &begin_scene(core::scene::Camera &) override;
