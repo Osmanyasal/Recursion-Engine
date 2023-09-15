@@ -66,8 +66,7 @@ namespace Recursion::platforms::imgui::window
         void create_menu_actor();
         void create_menu_help();
 
-        void create_submenu(); // where, play, start,stop goes
-
+        
     private:
         GLFWwindow *m_window;
         opengl::render::OpenGLFrameBuffer *fb;

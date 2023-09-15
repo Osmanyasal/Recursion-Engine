@@ -268,6 +268,7 @@ namespace Recursion::platforms::imgui::window
     void ImguiLayer_glfw_opengl_impl::create_default_layout(uint32_t layout_id)
     {
         uint32_t dockspace_id = create_dockspace();
+        static ImGuiDockNode *dockspace_node_id = ImGui::DockBuilderGetCentralNode(dockspace_id);
         create_menu();
 
         // Retrieve the dockspace's node ID
@@ -277,21 +278,70 @@ namespace Recursion::platforms::imgui::window
         if (sFirstFrame)
         {
             sFirstFrame = false;
-            ImGuiDockNode *dockspace_node_id = ImGui::DockBuilderGetCentralNode(dockspace_id);
+            ImGuiID toolbar_node_id;
             ImGuiID scene_node_id;
             ImGuiID inspector_node_id;
             ImGuiID game_object_node_id;
             ImGuiID log_node_id;
-            ImGui::DockBuilderSplitNode(dockspace_node_id->ID, ImGuiDir_Right, 0.25f, &inspector_node_id, &scene_node_id);
-            ImGui::DockBuilderSplitNode(scene_node_id, ImGuiDir_Down, 0.40f, &log_node_id, &scene_node_id);
+            ImGui::DockBuilderSplitNode(dockspace_node_id->ID, ImGuiDir_Up, 0.05f, &toolbar_node_id, &scene_node_id);
+            ImGui::DockBuilderSplitNode(scene_node_id, ImGuiDir_Right, 0.25f, &inspector_node_id, &scene_node_id);
+            ImGui::DockBuilderSplitNode(scene_node_id, ImGuiDir_Down, 0.35f, &log_node_id, &scene_node_id);
             ImGui::DockBuilderSplitNode(scene_node_id, ImGuiDir_Left, 0.25f, &game_object_node_id, &scene_node_id);
+            ImGui::DockBuilderDockWindow("###toolbar", toolbar_node_id);
             ImGui::DockBuilderDockWindow("Scene", scene_node_id);
             ImGui::DockBuilderDockWindow("Inspector Window", inspector_node_id);
             ImGui::DockBuilderDockWindow("Object Window", game_object_node_id);
             ImGui::DockBuilderDockWindow("Log Window", log_node_id);
             ImGui::DockBuilderDockWindow("Project Window", log_node_id);
             ImGui::DockBuilderFinish(dockspace_node_id->ID);
+            
+            ImGuiDockNode* toolbar_node = ImGui::DockBuilderGetNode(toolbar_node_id);
+            toolbar_node->LocalFlags |=  ImGuiDockNodeFlags_NoTabBar | ImGuiDockNodeFlags_NoSplit | ImGuiDockNodeFlags_NoResize;
+
         }
+
+        if (ImGui::Begin("###toolbar", nullptr, ImGuiWindowFlags_NoDecoration | 
+                                                ImGuiWindowFlags_NoMove | 
+                                                ImGuiWindowFlags_Tooltip | 
+                                                ImGuiWindowFlags_NoScrollbar | 
+                                                ImGuiWindowFlags_NoScrollWithMouse |
+                                                ImGuiWindowFlags_NoResize))
+        {
+            ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 1));
+            ImGui::PushStyleVar(ImGuiStyleVar_ItemInnerSpacing, ImVec2(0, 0));
+            ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
+            auto &colors = ImGui::GetStyle().Colors;
+            const auto &buttonHovered = colors[ImGuiCol_ButtonHovered];
+            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(buttonHovered.x, buttonHovered.y, buttonHovered.z, 0.5f));
+            const auto &buttonActive = colors[ImGuiCol_ButtonActive];
+            ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(buttonActive.x, buttonActive.y, buttonActive.z, 0.5f));
+
+            ImVec4 tintColor = ImVec4(1, 1, 1, 1);
+
+            float size = ImGui::GetContentRegionAvail().y * 1.25;
+            ImGui::SetCursorPosX((ImGui::GetContentRegionAvail().x * 0.5f) - (size * 3 / 2));
+
+            static opengl::render::OpenGLTexture play_btn{"../icon/editor/PlayButton.png"};
+            if (ImGui::ImageButton((ImTextureID)(uint64_t)play_btn.meta.texture_id, ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
+            {
+            }
+
+            ImGui::SameLine();
+            static opengl::render::OpenGLTexture pause_btn{"../icon/editor/PauseButton.png"};
+            if (ImGui::ImageButton((ImTextureID)(uint64_t)pause_btn.meta.texture_id, ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
+            {
+            }
+            ImGui::SameLine();
+            static opengl::render::OpenGLTexture stop_btn{"../icon/editor/StopButton.png"};
+            if (ImGui::ImageButton((ImTextureID)(uint64_t)stop_btn.meta.texture_id, ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
+            {
+            }
+
+            ImGui::PopStyleVar(2);
+            ImGui::PopStyleColor(3);
+        }
+        ImGui::End();
+
         // Start the "Scene" window
         if (ImGui::Begin("Scene"))
         {
@@ -397,7 +447,7 @@ namespace Recursion::platforms::imgui::window
             ImGui::EndChild();
         }
         ImGui::End();
-     }
+    }
 
     uint32_t ImguiLayer_glfw_opengl_impl::create_dockspace()
     {
@@ -419,17 +469,16 @@ namespace Recursion::platforms::imgui::window
             create_menu_select();
             create_menu_actor();
             create_menu_help();
-            create_submenu();
+            ImGui::EndMainMenuBar();
         }
         ImGui::GetStyle().FramePadding.y = original_padding;
-        ImGui::EndMainMenuBar();
     }
 
     void ImguiLayer_glfw_opengl_impl::create_menu_icon()
     {
         static opengl::render::OpenGLTexture icon{"../icon/icon.png"};
         static ImVec2 imageSize(82, 82);
-        ImGui::Image((void *)icon.meta.texture_id, imageSize,ImVec2(0,1),ImVec2(1,0));
+        ImGui::Image((void *)icon.meta.texture_id, imageSize, ImVec2(0, 1), ImVec2(1, 0));
     }
 
     void ImguiLayer_glfw_opengl_impl::create_menu_file()
@@ -760,7 +809,4 @@ namespace Recursion::platforms::imgui::window
         }
     }
 
-    void ImguiLayer_glfw_opengl_impl::create_submenu()
-    {
-    }
 }
