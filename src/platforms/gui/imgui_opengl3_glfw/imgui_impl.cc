@@ -287,7 +287,7 @@ namespace Recursion::platforms::imgui::window
             ImGui::DockBuilderSplitNode(scene_node_id, ImGuiDir_Right, 0.25f, &inspector_node_id, &scene_node_id);
             ImGui::DockBuilderSplitNode(scene_node_id, ImGuiDir_Down, 0.35f, &log_node_id, &scene_node_id);
             ImGui::DockBuilderSplitNode(scene_node_id, ImGuiDir_Left, 0.25f, &game_object_node_id, &scene_node_id);
-            ImGui::DockBuilderDockWindow("###toolbar", toolbar_node_id);
+            ImGui::DockBuilderDockWindow("##toolbar", toolbar_node_id);
             ImGui::DockBuilderDockWindow("Scene", scene_node_id);
             ImGui::DockBuilderDockWindow("Inspector Window", inspector_node_id);
             ImGui::DockBuilderDockWindow("Object Window", game_object_node_id);
@@ -300,7 +300,7 @@ namespace Recursion::platforms::imgui::window
 
         }
 
-        if (ImGui::Begin("###toolbar", nullptr, ImGuiWindowFlags_NoDecoration | 
+        if (ImGui::Begin("##toolbar", nullptr, ImGuiWindowFlags_NoDecoration | 
                                                 ImGuiWindowFlags_NoMove | 
                                                 ImGuiWindowFlags_Tooltip | 
                                                 ImGuiWindowFlags_NoScrollbar | 
@@ -315,10 +315,9 @@ namespace Recursion::platforms::imgui::window
             ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(buttonHovered.x, buttonHovered.y, buttonHovered.z, 0.5f));
             const auto &buttonActive = colors[ImGuiCol_ButtonActive];
             ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(buttonActive.x, buttonActive.y, buttonActive.z, 0.5f));
-
             ImVec4 tintColor = ImVec4(1, 1, 1, 1);
 
-            float size = ImGui::GetContentRegionAvail().y * 1.25;
+            static float size = ImGui::GetContentRegionAvail().y * 1.25;
             ImGui::SetCursorPosX((ImGui::GetContentRegionAvail().x * 0.5f) - (size * 3 / 2));
 
             static opengl::render::OpenGLTexture play_btn{"../icon/editor/PlayButton.png"};
