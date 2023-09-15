@@ -294,18 +294,12 @@ namespace Recursion::platforms::imgui::window
             ImGui::DockBuilderDockWindow("Log Window", log_node_id);
             ImGui::DockBuilderDockWindow("Project Window", log_node_id);
             ImGui::DockBuilderFinish(dockspace_node_id->ID);
-            
-            ImGuiDockNode* toolbar_node = ImGui::DockBuilderGetNode(toolbar_node_id);
-            toolbar_node->LocalFlags |=  ImGuiDockNodeFlags_NoTabBar | ImGuiDockNodeFlags_NoSplit | ImGuiDockNodeFlags_NoResize;
 
+            ImGuiDockNode *toolbar_node = ImGui::DockBuilderGetNode(toolbar_node_id);
+            toolbar_node->LocalFlags |= ImGuiDockNodeFlags_NoTabBar | ImGuiDockNodeFlags_NoSplit | ImGuiDockNodeFlags_NoResize;
         }
 
-        if (ImGui::Begin("##toolbar", nullptr, ImGuiWindowFlags_NoDecoration | 
-                                                ImGuiWindowFlags_NoMove | 
-                                                ImGuiWindowFlags_Tooltip | 
-                                                ImGuiWindowFlags_NoScrollbar | 
-                                                ImGuiWindowFlags_NoScrollWithMouse |
-                                                ImGuiWindowFlags_NoResize))
+        if (ImGui::Begin("##toolbar", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_Tooltip | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoResize))
         {
             ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 1));
             ImGui::PushStyleVar(ImGuiStyleVar_ItemInnerSpacing, ImVec2(0, 0));
@@ -316,23 +310,48 @@ namespace Recursion::platforms::imgui::window
             const auto &buttonActive = colors[ImGuiCol_ButtonActive];
             ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(buttonActive.x, buttonActive.y, buttonActive.z, 0.5f));
             ImVec4 tintColor = ImVec4(1, 1, 1, 1);
-
             static float size = ImGui::GetContentRegionAvail().y * 1.25;
-            ImGui::SetCursorPosX((ImGui::GetContentRegionAvail().x * 0.5f) - (size * 3 / 2));
 
-            static opengl::render::OpenGLTexture play_btn{"../icon/editor/PlayButton.png"};
-            if (ImGui::ImageButton((ImTextureID)(uint64_t)play_btn.meta.texture_id, ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
-            {
-            }
-
-            ImGui::SameLine();
-            static opengl::render::OpenGLTexture pause_btn{"../icon/editor/PauseButton.png"};
-            if (ImGui::ImageButton((ImTextureID)(uint64_t)pause_btn.meta.texture_id, ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
+            static opengl::render::OpenGLTexture hand_btn{"../icon/editor/hand.png"};
+            if (ImGui::ImageButton((ImTextureID)(uint64_t)hand_btn.meta.texture_id, ImVec2(size, size), ImVec2(0, 1), ImVec2(1, 0), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
             {
             }
             ImGui::SameLine();
-            static opengl::render::OpenGLTexture stop_btn{"../icon/editor/StopButton.png"};
-            if (ImGui::ImageButton((ImTextureID)(uint64_t)stop_btn.meta.texture_id, ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
+            static opengl::render::OpenGLTexture drag_btn{"../icon/editor/drag.png"};
+            if (ImGui::ImageButton((ImTextureID)(uint64_t)drag_btn.meta.texture_id, ImVec2(size, size), ImVec2(0, 1), ImVec2(1, 0), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
+            {
+            }
+            ImGui::SameLine();
+            static opengl::render::OpenGLTexture rotate_btn{"../icon/editor/rotate.png"};
+            if (ImGui::ImageButton((ImTextureID)(uint64_t)rotate_btn.meta.texture_id, ImVec2(size, size), ImVec2(0, 1), ImVec2(1, 0), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
+            {
+            }
+            ImGui::SameLine();
+
+            auto button_count = 5.8f;
+            ImGui::SetCursorPosX((ImGui::GetMainViewport()->Size.x * 0.5f) - (size * button_count / 2.0f));
+            static opengl::render::OpenGLTexture left_step{"../icon/editor/left_step.png"};
+            if (ImGui::ImageButton((ImTextureID)(uint64_t)left_step.meta.texture_id, ImVec2(size, size), ImVec2(0, 1), ImVec2(1, 0), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
+            {
+            }
+            ImGui::SameLine();
+            static opengl::render::OpenGLTexture pause_btn{"../icon/editor/pause.png"};
+            if (ImGui::ImageButton((ImTextureID)(uint64_t)pause_btn.meta.texture_id, ImVec2(size, size), ImVec2(0, 1), ImVec2(1, 0), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
+            {
+            }
+            ImGui::SameLine();
+            static opengl::render::OpenGLTexture play_btn{"../icon/editor/play.png"};
+            if (ImGui::ImageButton((ImTextureID)(uint64_t)play_btn.meta.texture_id, ImVec2(size, size), ImVec2(0, 1), ImVec2(1, 0), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
+            {
+            }
+            ImGui::SameLine();
+            static opengl::render::OpenGLTexture stop_btn{"../icon/editor/stop.png"};
+            if (ImGui::ImageButton((ImTextureID)(uint64_t)stop_btn.meta.texture_id, ImVec2(size, size), ImVec2(0, 1), ImVec2(1, 0), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
+            {
+            }
+            ImGui::SameLine();
+            static opengl::render::OpenGLTexture right_step{"../icon/editor/right_step.png"};
+            if (ImGui::ImageButton((ImTextureID)(uint64_t)right_step.meta.texture_id, ImVec2(size, size), ImVec2(0, 1), ImVec2(1, 0), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor))
             {
             }
 
