@@ -37,6 +37,8 @@ namespace Recursion::platforms::imgui::window
         void end_loop();
         void set_dark_theme_colors();
         void set_white_theme_colors();
+ 
+    private:
 
         // GLFW _call_backs (individual _call_backs to call yourself if you didn't install _call_backs)
         bool on_window_focus_call_back(core::events::WindowFocusEvent &event);
@@ -52,7 +54,6 @@ namespace Recursion::platforms::imgui::window
         bool on_monitor_resized_call_back(core::events::WindowResizedEvent &event);
         bool on_monitor_moved_call_back(core::events::WindowMovedEvent &event);
 
-    private:
         void create_default_layout(uint32_t layout_id = 0);
         uint32_t create_dockspace();
         void create_menu();

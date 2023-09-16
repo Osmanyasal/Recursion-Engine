@@ -49,7 +49,7 @@ namespace Recursion::core::events
             return res.str();
         }
 
-    private:
+    public:
         bool is_repeat;
     };
 

@@ -17,13 +17,14 @@ Proj1::~Proj1() {}
 
 void Proj1::application(float delta_time)
 {
+
     if (Input->is_key_pressed(REC_KEY_A))
     {
-        container.translation().x -= 1 * delta_time;
+        container.translation().x -= press_left_count * delta_time;
     }
     if (Input->is_key_pressed(REC_KEY_D))
     {
-        container.translation().x += 1 * delta_time;
+        container.translation().x += press_right_count * delta_time;
     }
     if (Input->is_key_pressed(REC_KEY_W))
     {
@@ -36,4 +37,31 @@ void Proj1::application(float delta_time)
     renderer.submit(tile_map);
     renderer.submit(container);
     // renderer.submit(container_specular);
+}
+
+void Proj1::application_event(core::events::Event &event)
+{
+    // REC_INFO("{}",((core::events::KeyPressEvent &)event).to_string());
+
+    if ((event.get_event_type() == core::events::EventType::KeyPressed) && !((core::events::KeyPressEvent &)event).is_repeat )
+    {
+        if (((core::events::KeyPressEvent &)event).get_keycode() == REC_KEY_A)
+        {
+            press_right_count = 0;
+            press_left_count = (press_left_count == 2) ? 2 : ++press_left_count;
+            REC_ERROR("Left clicked is here val is -> {}",press_left_count);
+        }
+        if (((core::events::KeyPressEvent &)event).get_keycode() == REC_KEY_D)
+        {
+            press_left_count = 0;
+            press_right_count = (press_right_count == 2) ? 2 : ++press_right_count;
+            REC_ERROR("Right clicked is here val is -> {}",press_right_count);
+        }
+    }
+    // if (event.get_event_type() == core::events::EventType::KeyReleased)
+    // {
+    //         REC_INFO("Released !!!!!!!!!!!");
+    //         press_left_count = 0;
+    //         press_right_count = 0;
+    // }
 }

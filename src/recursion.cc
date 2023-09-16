@@ -66,7 +66,7 @@ namespace Recursion::core
             imgui_layer->begin_loop();
             application->framebuffer.bind();
 
-            REC_CORE_TRACE("FPS {}", GET_FPS());
+            // REC_CORE_TRACE("FPS {}", GET_FPS());
             application->on_update(delta_time);
 
             application->framebuffer.unbind();

@@ -23,7 +23,7 @@ namespace Recursion::platforms::linux::window
                            {
                 if(action == GLFW_PRESS || action == GLFW_REPEAT){
                     core::window::WindowProps &retrievedData = *(core::window::WindowProps *)(glfwGetWindowUserPointer(window));
-                    core::events::KeyPressEvent keypress{(int16_t)key, (bool)mods};
+                    core::events::KeyPressEvent keypress{(int16_t)key, action == GLFW_REPEAT};
                     core::events::EventBinder event_binder{keypress};
                     event_binder.bind<core::events::KeyPressEvent>(retrievedData.engine_callback_func); 
                 }

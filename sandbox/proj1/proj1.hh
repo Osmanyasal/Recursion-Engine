@@ -10,11 +10,16 @@ public:
     Proj1();
     ~Proj1();
     virtual void application(float delta_time) override;
+    virtual void application_event(core::events::Event &event) override;
 
-private: 
+private:
     GameObject container;
     GameObject container_specular;
     GameObject tile_map;
+
+private:
+    int8_t press_right_count = 0;
+    int8_t press_left_count = 0;
 };
 
 #endif

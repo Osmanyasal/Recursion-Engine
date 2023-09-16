@@ -25,5 +25,6 @@ namespace Recursion::core
     {
         REC_PROFILE_FUNCTION();
         renderer.begin_scene(cam.on_event(event).update(last_delta_time));
+        application_event(event);
     }
 }
