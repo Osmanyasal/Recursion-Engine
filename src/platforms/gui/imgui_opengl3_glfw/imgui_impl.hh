@@ -1,8 +1,8 @@
 #ifndef RECURSION_ENGINE__SRC__PLATFORMS__IMGUI_LAYER_GLFW_OPENGL_IMPL_HH
 #define RECURSION_ENGINE__SRC__PLATFORMS__IMGUI_LAYER_GLFW_OPENGL_IMPL_HH
 
-#define IMGUI_DEFINE_MATH_OPERATORS 
- 
+#define IMGUI_DEFINE_MATH_OPERATORS
+
 #include <utils.hh>
 #include <gui_config.hh>
 #include <imgui.h>
@@ -37,9 +37,8 @@ namespace Recursion::platforms::imgui::window
         void end_loop();
         void set_dark_theme_colors();
         void set_white_theme_colors();
- 
-    private:
 
+    private:
         // GLFW _call_backs (individual _call_backs to call yourself if you didn't install _call_backs)
         bool on_window_focus_call_back(core::events::WindowFocusEvent &event);
         bool on_window_lost_focus_call_back(core::events::WindowLostFocusEvent &event);
@@ -67,10 +66,70 @@ namespace Recursion::platforms::imgui::window
         void create_menu_actor();
         void create_menu_help();
 
-        
     private:
         GLFWwindow *m_window;
         opengl::render::OpenGLFrameBuffer *fb;
+    };
+
+    struct ExampleAppLog
+    {
+        ImGuiTextBuffer Buf;
+        ImGuiTextFilter Filter;
+        ImVector<int> LineOffsets; // Index to lines offset
+        bool ScrollToBottom;
+
+        void Clear() { Buf.clear(); }
+
+        void AddLog(const char *fmt, ...) IM_FMTARGS(2)
+        {
+            int old_size = Buf.size();
+            va_list args;
+            va_start(args, fmt);
+            Buf.appendfv(fmt, args);
+            va_end(args);
+            for (int new_size = Buf.size(); old_size < new_size; old_size++)
+                if (Buf[old_size] == '\n')
+                    LineOffsets.push_back(old_size);
+            ScrollToBottom = true;
+        }
+
+        void Draw()
+        {
+            if (ImGui::Button("Clear"))
+                Clear();
+            ImGui::SameLine();
+            bool copy = ImGui::Button("Copy");
+            ImGui::SameLine();
+            Filter.Draw("Filter", -100.0f);
+            ImGui::Separator();
+            ImGui::BeginChild("scrolling");
+            ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(0, 1));
+            if (copy)
+                ImGui::LogToClipboard();
+
+            if (Filter.IsActive())
+            {
+                const char *buf_begin = Buf.begin();
+                const char *line = buf_begin;
+                for (int line_no = 0; line != NULL; line_no++)
+                {
+                    const char *line_end = (line_no < LineOffsets.Size) ? buf_begin + LineOffsets[line_no] : NULL;
+                    if (Filter.PassFilter(line, line_end))
+                        ImGui::TextUnformatted(line, line_end);
+                    line = line_end && line_end[1] ? line_end + 1 : NULL;
+                }
+            }
+            else
+            {
+                ImGui::TextUnformatted(Buf.begin());
+            }
+
+            if (ScrollToBottom)
+                ImGui::SetScrollHereY(1.0f);
+            ScrollToBottom = false;
+            ImGui::PopStyleVar();
+            ImGui::EndChild();
+        }
     };
 } // namespace Recursion::core::window
 
