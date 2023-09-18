@@ -13,7 +13,7 @@ namespace Recursion::platforms::imgui::window
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls
         io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;     // Enable Docking
-        io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // Enable Multi-Viewport / Platform Windows
+        // io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // Enable Multi-Viewport / Platform Windows
         // io.ConfigFlags |= ImGuiWindowFlags_AlwaysAutoResize;
         // io.ConfigFlags |= ImGuiConfigFlags_DpiEnableScaleViewports;
         // io.ConfigFlags |= ImGuiConfigFlags_DpiEnableScaleFonts;
@@ -271,11 +271,10 @@ namespace Recursion::platforms::imgui::window
         static ImGuiDockNode *dockspace_node_id = ImGui::DockBuilderGetCentralNode(dockspace_id);
         create_menu();
 
-        // Retrieve the dockspace's node ID
-        // Use DockBuilderSplitNode to create a simple layout
- 
-        if (dockspace_node_id == nullptr)
+        static bool sFirstFrame = true;
+        if (sFirstFrame)
         {
+            sFirstFrame = false;
             ImGuiID toolbar_node_id;
             ImGuiID scene_node_id;
             ImGuiID inspector_node_id;
@@ -393,15 +392,12 @@ namespace Recursion::platforms::imgui::window
         if (ImGui::Begin("Project Window"))
         {
         }
-        ImGui::End();  
- 
+        ImGui::End();
+
         if (ImGui::Begin("Log Window"))
         {
-            static ExampleAppLog log_app;
-            static uint32_t counter = 0;
-            log_app.AddLog("hello there %d\n", counter);
-            counter += 1;
-            log_app.Draw();
+            // TODO: Move this to spdlog.
+            ImGuiLogger::Draw();
         }
         ImGui::End();
     }

@@ -1,4 +1,5 @@
 #include <recursion.hh>
+#include <cstdio>
 
 namespace Recursion::core
 {
@@ -19,6 +20,16 @@ namespace Recursion::core
         engine_ptr = this;
         CREATE_WINDOW(); // GENERIC CREATE_WINDOW MACRO. DEFINE YOURS IN CONFIG.HH
         REC_CORE_INFO("Engine Created!");
+
+        // delete this to makesure imgui draws successfully
+        if (std::remove("imgui.ini") != 0)
+        {
+            REC_CORE_INFO("imgui.ini file succesfully deleted!");
+        }
+        else
+        {
+            REC_CORE_INFO("imgui.ini file deletion failed!");
+        }
     }
 
     void Engine::add_application(Application *application)

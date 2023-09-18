@@ -7,6 +7,7 @@
 #include <memory>
 #include <spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
+#include <imgui_logger.hh>
 namespace Recursion::utils::logger
 {
     class BaseLogger final
@@ -24,6 +25,7 @@ namespace Recursion::utils::logger
         ~BaseLogger() {}
     };
 }
+#define STRINGIFY(...) #__VA_ARGS__
 
 // ENGINE CORE LOGGERS
 #define REC_CORE_DEBUG(...)                                                                                                              \
@@ -57,7 +59,8 @@ namespace Recursion::utils::logger
     Recursion::utils::logger::BaseLogger::get_client_logger()->warn(__VA_ARGS__)
 #define REC_ERROR(...)                                                                                                              \
     spdlog::set_pattern("[%n][%^%l%$][%Y-%m-%d %H:%M:%S.%f][" + std::string(__FILE__) + ":" + std::to_string(__LINE__) + "] [%v]"); \
-    Recursion::utils::logger::BaseLogger::get_client_logger()->error(__VA_ARGS__)
+    Recursion::utils::logger::BaseLogger::get_client_logger()->error(__VA_ARGS__);\
+    ImGuiLogger::AddLog(__VA_ARGS__);
 
 // Get rid of things that shouldn't be on production..
 #if CONF__PORTING__IS_PRODUCTION || !CONF__LOG__ENABLE_TRACE
