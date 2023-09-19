@@ -32,7 +32,7 @@
                 &nbsp;&nbsp; 
                  <img align="center" title="ENTT" alt="ENTT" width="80px" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/ca8c3279-3ca3-4c7f-ab77-5aa61bd0aaa9" />
                 &nbsp;&nbsp; 
-                <!-- <img align="center" alt="Windows" width="60px" src="https://github.com/Osmanyasal/Recursion-Engine/assets/22853419/c1717d00-63d2-426f-a648-18a2d618f849" /> -->
+                 <img align="center" title="Doxygen" alt="Doxygen" width="150px" src="https://www.doxygen.nl/images/doxygen.png" /> 
 </div>
 
 ## About <br>
