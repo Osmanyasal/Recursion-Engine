@@ -12,7 +12,7 @@ namespace Recursion::platforms::opengl::render
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, size_in_bytes, data, draw_method);
 
-        REC_TRACE("IndexBuffer Created {} in bytes {} draw methods",size_in_bytes,draw_method);
+        REC_CORE_TRACE("IndexBuffer Created {} in bytes {} draw methods",size_in_bytes,draw_method);
     }
 
     IndexBuffer::~IndexBuffer()
