@@ -20,19 +20,19 @@ void Proj1::application(float delta_time)
 
     if (Input->is_key_pressed(REC_KEY_A))
     {
-        container.translation().x -= press_left_count * delta_time;
+        container.translation().x -= speed * delta_time;
     }
     if (Input->is_key_pressed(REC_KEY_D))
     {
-        container.translation().x += press_right_count * delta_time;
+        container.translation().x += speed * delta_time;
     }
     if (Input->is_key_pressed(REC_KEY_W))
     {
-        container.translation().y += 1 * delta_time;
+        container.translation().y += speed * delta_time;
     }
     if (Input->is_key_pressed(REC_KEY_S))
     {
-        container.translation().y -= 1 * delta_time;
+        container.translation().y -= speed * delta_time;
     }
     renderer.submit(tile_map);
     renderer.submit(container);
@@ -43,25 +43,37 @@ void Proj1::application_event(core::events::Event &event)
 {
     // REC_INFO("{}",((core::events::KeyPressEvent &)event).to_string());
 
-    if ((event.get_event_type() == core::events::EventType::KeyPressed) && !((core::events::KeyPressEvent &)event).is_repeat )
+    if (is_repeat && event.get_event_type() == core::events::EventType::KeyReleased)
     {
-        if (((core::events::KeyPressEvent &)event).get_keycode() == REC_KEY_A)
+        speed = 0;
+        REC_INFO("Key Released {}", speed);
+    }
+    if ((event.get_event_type() == core::events::EventType::KeyPressed))
+    {
+        is_repeat = ((core::events::KeyPressEvent &)event).is_repeat;
+        REC_INFO("Key repeat? {}", is_repeat);
+        if (!is_repeat)
         {
-            press_right_count = 0;
-            press_left_count = (press_left_count == 2) ? 2 : ++press_left_count;
-            REC_ERROR("Left clicked is here val is -> {}",press_left_count);
-        }
-        if (((core::events::KeyPressEvent &)event).get_keycode() == REC_KEY_D)
-        {
-            press_left_count = 0;
-            press_right_count = (press_right_count == 2) ? 2 : ++press_right_count;
-            REC_ERROR("Right clicked is here val is -> {}",press_right_count);
+            if (((core::events::KeyPressEvent &)event).get_keycode() == REC_KEY_A)
+            {
+                speed = (speed == 2) ? 2 : ++speed;
+                REC_INFO("Left clicked is here val is -> {}", speed);
+            }
+            if (((core::events::KeyPressEvent &)event).get_keycode() == REC_KEY_D)
+            {
+                speed = (speed == 2) ? 2 : ++speed;
+                REC_INFO("Right clicked is here val is -> {}", speed);
+            }
+            if (((core::events::KeyPressEvent &)event).get_keycode() == REC_KEY_W)
+            {
+                speed = (speed == 2) ? 2 : ++speed;
+                REC_INFO("Up clicked is here val is -> {}", speed);
+            }
+            if (((core::events::KeyPressEvent &)event).get_keycode() == REC_KEY_S)
+            {
+                speed = (speed == 2) ? 2 : ++speed;
+                REC_INFO("Down clicked is here val is -> {}", speed);
+            }
         }
     }
-    // if (event.get_event_type() == core::events::EventType::KeyReleased)
-    // {
-    //         REC_INFO("Released !!!!!!!!!!!");
-    //         press_left_count = 0;
-    //         press_right_count = 0;
-    // }
 }

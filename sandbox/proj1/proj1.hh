@@ -18,8 +18,8 @@ private:
     GameObject tile_map;
 
 private:
-    int8_t press_right_count = 0;
-    int8_t press_left_count = 0;
+    int8_t speed = 0;
+    bool is_repeat = false;
 };
 
 #endif
