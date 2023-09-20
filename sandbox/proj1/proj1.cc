@@ -1,20 +1,25 @@
 #include <proj1.hh>
 
 Proj1::Proj1() : Application{"Project1"}
-{
-    container.set_drawable(platforms::opengl::scene::OpenGLShapes::rectangle2D({1, 1, 0}, "/home/rt7/Desktop/texture.png", core::render::SubTexture{2048, 548, 32, 1628, 0}, glm::vec4{1.0f}, 1).release()); //
-    container_specular.set_drawable(platforms::opengl::scene::OpenGLShapes::triangle2D({1, 1, 0}, "", {}, glm::vec4{1.0f}, 1).release());
+{ 
+    container.set_drawable(shapes::rectangle2D({10, 10, 0}, "/home/rt7/Desktop/"+atlas.get_texture_path(), atlas.get_subtexture("pixel_adventure/Background/Brown.png")).release()); //
+    container_specular.set_drawable(shapes::triangle2D({1, 1, 0}, "", {}, glm::vec4{1.0f}, 1).release());
 
     container.scale() = glm::vec3{.2, .2, 1};
     container_specular.scale() = glm::vec3{1, 1, 1};
     container_specular.translation() = glm::vec3{1, 0, 1};
 
-    tile_map.set_drawable(platforms::opengl::scene::OpenGLShapes::tilemap2D({10, 10, -0.9f}, glm::vec4{1.0f}, 10).release());
+    tile_map.set_drawable(shapes::tilemap2D({10, 10, -0.9f}, 10).release());
 
     // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 Proj1::~Proj1() {}
 
+/**
+ * @brief Executed each frame
+ *
+ * @param delta_time
+ */
 void Proj1::application(float delta_time)
 {
 
@@ -39,6 +44,11 @@ void Proj1::application(float delta_time)
     // renderer.submit(container_specular);
 }
 
+/**
+ * @brief Executed on event occurance
+ *
+ * @param event
+ */
 void Proj1::application_event(core::events::Event &event)
 {
     if (is_repeat && event.get_event_type() == core::events::EventType::KeyReleased)

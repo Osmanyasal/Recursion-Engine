@@ -2,7 +2,7 @@
 
 namespace Recursion::platforms::opengl::scene
 {
-    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::tilemap2D(const glm::vec3 &size, const glm::vec4 &color, float tile_factor)
+    std::unique_ptr<opengl::render::VertexArray> OpenGLShapes::tilemap2D(const glm::vec3 &size, float tile_factor, const glm::vec4 &color)
     {
         return OpenGLShapes::rectangle2D(size, "../src/core/scene_objects/tile_maps/brick.png", {}, color, tile_factor); // ../src/core/scene_objects/tile_maps/brick.png
     }
@@ -16,9 +16,10 @@ namespace Recursion::platforms::opengl::scene
         auto normals = core::scene::Rectangle2D::get_normals();
 
         std::vector<float> texture_position;
-        if(subtexture.is_active)
+        if (subtexture.is_active)
             texture_position = core::scene::Rectangle2D::get_texture_coordinates(subtexture);
-        else texture_position = core::scene::Rectangle2D::get_texture_coordinates(tile_factor);
+        else
+            texture_position = core::scene::Rectangle2D::get_texture_coordinates(tile_factor);
 
         render::VertexBuffer VBO{sizeof(float) * position.size() + sizeof(float) * colors.size() + sizeof(float) * normals.size() + sizeof(float) * texture_position.size()};
         VBO.add_positions(position.data(), position.size() * sizeof(float));

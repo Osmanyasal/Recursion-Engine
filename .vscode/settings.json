@@ -100,7 +100,10 @@
         "queue": "cpp",
         "stack": "cpp",
         "unordered_set": "cpp",
-        "platforms_gui": "cpp"
+        "platforms_gui": "cpp",
+        "any": "cpp",
+        "forward_list": "cpp",
+        "ranges": "cpp"
     },
     "cmake.sourceDirectory": "/home/rt7/Desktop/Recursion-Engine/lib/spdlog"
 }

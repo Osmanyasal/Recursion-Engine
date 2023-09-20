@@ -5,9 +5,16 @@
 #include <sstream>
 #include <bindable.hh>
 #include <unordered_map>
+#include <json.hh>
+#include <fstream>
+#include <cpu_opt.hh>
+#include <logger.hh>
+#include <stdexcept>
 
 namespace Recursion::core::render
 {
+
+    using json = nlohmann::json;
     struct TextureMetaData
     {
         std::string path;
@@ -52,12 +59,25 @@ namespace Recursion::core::render
         SubTexture() : is_active{false}
         {
         }
+
+        /**
+         * @brief Construct a new Sub Texture object \n
+         * used with @see Texture to fetch subtexture
+         *
+         * it will get from-to: (xloc,yloc -> xloc+subtext_size, yloc+subtext_size)
+         *
+         * @param atlas_width
+         * @param altas_height
+         * @param subtext_size size of the subtexture
+         * @param xloc starting point of the sub texture X axis
+         * @param yloc starting point of the sub texture Y axis
+         */
         SubTexture(uint32_t atlas_width, uint32_t altas_height, float subtext_size, float xloc, float yloc) : is_active{true},
-                                                                                                                       atlas_width{atlas_width},
-                                                                                                                       altas_height{altas_height},
-                                                                                                                       subtext_size{subtext_size},
-                                                                                                                       xloc{xloc},
-                                                                                                                       yloc{yloc}
+                                                                                                              atlas_width{atlas_width},
+                                                                                                              altas_height{altas_height},
+                                                                                                              subtext_size{subtext_size},
+                                                                                                              xloc{xloc},
+                                                                                                              yloc{yloc}
         {
         }
         bool is_active;
@@ -68,6 +88,18 @@ namespace Recursion::core::render
         float subtext_size;
         float xloc;
         float yloc;
+    };
+
+    class AtlasReader
+    {
+    public:
+        AtlasReader(const std::string &atlas_json);
+        std::string get_texture_path() const;
+        SubTexture get_subtexture(const std::string &name);
+ 
+    private:
+        json data;
+
     };
 
     extern std::unordered_map<std::string, TextureMetaData> CACHE_TEXTURE_METADATA;
