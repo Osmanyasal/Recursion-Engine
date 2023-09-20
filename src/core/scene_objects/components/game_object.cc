@@ -10,7 +10,7 @@ namespace Recursion::core::scene
     {
         add_component(std::make_shared<scene::TransformComponent>());
     }
-    void GameObject::set_drawable_object(core::render::Drawable *drawable_object)
+    void GameObject::set_drawable(core::render::Drawable *drawable_object)
     {
         this->drawable_obj.reset(drawable_object);
     }
@@ -40,8 +40,9 @@ namespace Recursion::core::scene
         throw std::runtime_error("Component not found or type mismatch");
     }
 
-    void GameObject::add_component(const std::shared_ptr<Component> &component)
+    GameObject& GameObject::add_component(const std::shared_ptr<Component> &component)
     {
         component_list[component->get_name()] = component;
+        return *this;
     }
 }

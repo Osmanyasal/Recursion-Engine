@@ -14,8 +14,9 @@ namespace Recursion::core
     void Application::on_update(float delta_time)
     {
         REC_PROFILE_FUNCTION();
-
         last_delta_time = delta_time;
+
+        renderer.begin_scene(cam.update(delta_time));
         application(delta_time);
         sh.set_uniformMatrix4fv("u_view_projection", GL_FALSE, glm::value_ptr(cam.get_view_projection_matrix()));
         renderer.draw_scene();

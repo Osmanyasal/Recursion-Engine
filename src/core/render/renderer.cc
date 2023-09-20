@@ -47,7 +47,6 @@ namespace Recursion::core::render
             draw_scene();
             submitted_objects = 0;
         }
-
         return *this;
     }
 

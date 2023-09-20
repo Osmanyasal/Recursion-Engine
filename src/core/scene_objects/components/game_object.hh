@@ -14,12 +14,12 @@ namespace Recursion::core::scene
         GameObject(core::render::Drawable *drawable_obj, const std::string name = "");
         virtual ~GameObject() {}
 
-        void set_drawable_object(core::render::Drawable *drawable_object);
+        void set_drawable(core::render::Drawable *drawable_object);
         virtual void bind() override;
         virtual void unbind() override;
         virtual void destroy() override;
         virtual void draw(core::render::Shader &shader) override;
-        void add_component(const std::shared_ptr<Component> &component);
+        GameObject& add_component(const std::shared_ptr<Component> &component);
 
         template <typename T>
         T &get_component();

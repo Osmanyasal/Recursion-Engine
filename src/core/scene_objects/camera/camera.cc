@@ -23,6 +23,7 @@ namespace Recursion::core::scene
             break;
 
         default:
+            // REC_CORE_WARN("Unhandled event {}",event.get_name());
             break;
         }
 
