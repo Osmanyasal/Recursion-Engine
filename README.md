@@ -34,9 +34,10 @@
 </div>
 
 ## About <br>
-* Cross Platform Game Engine mainly developed for Linux and Unix environments later will be ported to Windows. <br>
-* Developed with C++ and Make/Bash scripts, allows other scripting languages in development ``` C++, Python3 and Lua ``` <br>
-* The Engine itself contains many profiling tools ```(Perf, Valgrind, Intel Vtune, Advisor...)``` and binary instrumentations ```(chrome://tracing)``` allowing the user to write high-performant code and monitor and optimize the pre-written code.
+* Cross Platform Game Engine mainly developed for Linux and MacOS environments. Windows support will be added <br>
+* Developed with C++ and Make/Bash scripts.
+* You can write your scripts in ``` C++, Python3 and Lua ``` <br>
+* Performance monitoring support !!
 
 ## To run 🚀 <br>
 ```
@@ -62,6 +63,7 @@ mem_check
 ```
 
 ## PERFORMANCE MONITORING 🔎<br>
+The engine itself contains many profiling tools ```(Perf, Valgrind, Intel Vtune, Advisor...)``` and binary instrumentations ```(chrome://tracing)``` allowing the user to write high-performant code and monitor and optimize the pre-written code.
 You can use the following makefile targets to collect meaningful metrics <br>
 All targets use perf tool and Valgrind, so make sure they're installed<br>
 ```
