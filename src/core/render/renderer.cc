@@ -21,7 +21,7 @@ namespace Recursion::core::render
         return renderer2d;
     }
     // set up your scene
-    Renderer &Renderer2D::begin_scene(core::scene::Camera &camera)
+    Renderer &Renderer2D::begin_render(core::scene::Camera &camera)
     {
         REC_CORE_PROFILE_FUNCTION();
         this->camera = &camera;
@@ -44,13 +44,13 @@ namespace Recursion::core::render
 
         if (OPT_UNLIKELY(++submitted_objects > object_treshold))
         {
-            draw_scene();
+            render();
             submitted_objects = 0;
         }
         return *this;
     }
 
-    Renderer &Renderer2D::draw_scene()
+    Renderer &Renderer2D::render()
     {
         // DRAW OPAQUE
         for (core::scene::GameObject *iter : opaque)
@@ -62,7 +62,7 @@ namespace Recursion::core::render
         // DRAW TRANSPARENT
         for (const auto &entry : transparent)
         {
-            float transparency = entry.first;
+            // float transparency = entry.first;
             core::scene::GameObject *drawable = entry.second;
 
             drawable->bind();
@@ -76,7 +76,7 @@ namespace Recursion::core::render
     }
 
     // wrap up the scene (remember all these are in a loop)
-    void Renderer2D::end_scene()
+    void Renderer2D::end_render()
     {
         REC_CORE_PROFILE_FUNCTION();
     }
@@ -90,7 +90,7 @@ namespace Recursion::core::render
         return renderer3d;
     }
     // set up your scene
-    Renderer &Renderer3D::begin_scene(core::scene::Camera &camera)
+    Renderer &Renderer3D::begin_render(core::scene::Camera &camera)
     {
         REC_CORE_PROFILE_FUNCTION();
         return *this;
@@ -103,13 +103,13 @@ namespace Recursion::core::render
         return *this;
     }
 
-    Renderer &Renderer3D::draw_scene()
+    Renderer &Renderer3D::render()
     {
         return *this;
     }
 
     // wrap up the scene (remember all these are in a loop)
-    void Renderer3D::end_scene()
+    void Renderer3D::end_render()
     {
         REC_CORE_PROFILE_FUNCTION();
     }

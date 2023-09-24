@@ -21,8 +21,8 @@ namespace Recursion::core
         virtual void application(float delta_time) = 0;
         virtual void application_event(core::events::Event &event){}
         shader sh;
-        core::render::Renderer2D renderer;
-        OrthographicCamera cam{CONF__REC__WINDOW_WIDTH / CONF__REC__WINDOW_HEIGHT};
+        core::render::Renderer2D scene1;
+        OrthographicCamera scene_camera{CONF__REC__WINDOW_WIDTH / CONF__REC__WINDOW_HEIGHT};
 
     public:
         const std::string app_name;

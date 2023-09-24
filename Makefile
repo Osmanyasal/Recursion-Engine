@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 CXX := g++ 
-CXX_VERSION = -std=c++11
+CXX_VERSION = -std=c++17 ## c++11 is compatible but entt requires c++17
 CXX_DEBUG := -g
 CXX_WARNINGS := -Wall
 CXX_OPT_FLAGS := -Og -flto
@@ -20,7 +20,7 @@ EVENTS_DIR := $(CORE_DIR)/events
 LAYER_DIR := $(CORE_DIR)/layer
 RENDER_DIR := $(CORE_DIR)/render
 
-SCENE_DIR := $(CORE_DIR)/scene_objects
+SCENE_DIR := $(CORE_DIR)/scene
 COMPONENT_DIR := $(SCENE_DIR)/components
 CAMERA_DIR := $(SCENE_DIR)/camera
 SHAPE_DIR := $(SCENE_DIR)/shapes
@@ -50,7 +50,7 @@ SANDBOX_DIR := ./sandbox/proj1
 
 RENDER_IMPL_DIR := $(PLATFORMS_DIR)/render
 RENDER_OPENGL_DIR := $(RENDER_IMPL_DIR)/opengl
-OPENGL_SCENE_OBJECTS := $(RENDER_OPENGL_DIR)/scene_objects
+OPENGL_SCENE_OBJECTS := $(RENDER_OPENGL_DIR)/scene
 OPENGL_SCENE_SHAPES := $(OPENGL_SCENE_OBJECTS)/shapes
 OPENGL_SCENE_LIGHTS := $(OPENGL_SCENE_OBJECTS)/lights
 RENDER_VULKAN_DIR := $(RENDER_IMPL_DIR)/vulkan
@@ -59,6 +59,10 @@ GUI := $(PLATFORMS_DIR)/gui
 IMGUI_OPENGL_DIR := $(GUI)/imgui_opengl3_glfw
 
 # LIB Directories for source and header files
+
+LIB_ENTT_PATH := ./lib/entt
+LIB_ENTT := -I./lib/entt/single_include/entt
+
 LIB_SPD_PATH :=./lib/spdlog
 LIB_SPD := -I./lib/spdlog/include/  -I./lib/spdlog/include/spdlog 
 
@@ -117,6 +121,7 @@ INCLUDE := -I$(SRC_DIR)\
 		   -I$(OPENGL_SCENE_OBJECTS)\
 		   -I$(OPENGL_SCENE_SHAPES)\
 		   -I$(OPENGL_SCENE_LIGHTS)\
+		    $(LIB_ENTT)\
 			$(LIB_SPD)\
 			$(LIB_GLEW)\
 			$(LIB_GLFW)\
