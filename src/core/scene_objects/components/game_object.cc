@@ -2,9 +2,12 @@
 
 namespace Recursion::core::scene
 {
-    GameObject::GameObject(const entt::id_type entity_id, const std::string name) : entity_id{entity_id}, name{name}, drawable_obj{nullptr}
+    GameObject::GameObject(const std::string name) : id{generateGUID()}, name{name}, drawable_obj{nullptr}
     {
-        // TODO:: set id to entt:create...
+        add_component(std::make_shared<scene::TransformComponent>());
+    }
+    GameObject::GameObject(core::render::Drawable *drawable_obj, const std::string name) : id{generateGUID()}, name{name}, drawable_obj{drawable_obj}
+    {
         add_component(std::make_shared<scene::TransformComponent>());
     }
     void GameObject::set_drawable(core::render::Drawable *drawable_object)
@@ -37,7 +40,7 @@ namespace Recursion::core::scene
         throw std::runtime_error("Component not found or type mismatch");
     }
 
-    GameObject &GameObject::add_component(const std::shared_ptr<Component> &component)
+    GameObject& GameObject::add_component(const std::shared_ptr<Component> &component)
     {
         component_list[component->get_name()] = component;
         return *this;

@@ -11,7 +11,6 @@ namespace Recursion::platforms::opengl::render
     {
         glGenFramebuffers(1, &FBO);
         glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-        glBindTexture(GL_TEXTURE_2D, texture.meta.texture_id);
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture.meta.texture_id, 0);
 
         glGenRenderbuffers(1, &RBO);
@@ -51,7 +50,8 @@ namespace Recursion::platforms::opengl::render
 
     void OpenGLFrameBuffer::bind()
     {
-        glBindFramebuffer(GL_FRAMEBUFFER, FBO); 
+        glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+
         glClearColor(.6f, 0.2f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }

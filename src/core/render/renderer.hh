@@ -19,7 +19,7 @@ namespace Recursion::core::render
         inline virtual ~Renderer() {}
 
         // set up your scene
-        virtual Renderer &begin_render(core::scene::Camera &) = 0;
+        virtual Renderer &begin_scene(core::scene::Camera &) = 0;
 
         // submit items to your scene
         virtual Renderer &submit(core::scene::GameObject &) = 0;
@@ -30,10 +30,10 @@ namespace Recursion::core::render
             Sort all the transparent objects.
             Draw all the transparent objects in sorted order.
         */
-        virtual Renderer &render() = 0;
+        virtual Renderer &draw_scene() = 0;
 
         // wrap up the scene (remember all these are in a loop)
-        virtual void end_render() = 0;
+        virtual void end_scene() = 0;
 
         void set_shader_program(Shader *shader);
 
@@ -55,16 +55,16 @@ namespace Recursion::core::render
         const static Renderer2D &init(Shader &shader,uint32_t object_treshold);
 
         // set up your scene
-        virtual Renderer &begin_render(core::scene::Camera &) override;
+        virtual Renderer &begin_scene(core::scene::Camera &) override;
 
         // submit items to your scene
         virtual Renderer &submit(core::scene::GameObject &) override;
 
         // draw scene
-        virtual Renderer &render() override;
+        virtual Renderer &draw_scene() override;
 
         // wrap up the scene (remember all these are in a loop)
-        virtual void end_render() override;
+        virtual void end_scene() override;
     };
 
     class Renderer3D : public Renderer
@@ -76,16 +76,16 @@ namespace Recursion::core::render
         const static Renderer3D &init(Shader &shader,uint32_t object_treshold);
 
         // set up your scene
-        virtual Renderer &begin_render(core::scene::Camera &) override;
+        virtual Renderer &begin_scene(core::scene::Camera &) override;
 
         // submit items to your scene
         virtual Renderer &submit(core::scene::GameObject &) override;
 
         // draw scene
-        virtual Renderer &render() override;
+        virtual Renderer &draw_scene() override;
 
         // wrap up the scene (remember all these are in a loop)
-        virtual void end_render() override;
+        virtual void end_scene() override;
     };
 
 }

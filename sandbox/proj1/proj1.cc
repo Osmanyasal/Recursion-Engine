@@ -2,11 +2,10 @@
 
 Proj1::Proj1() : Application{"Project1"}
 { 
-    container.set_drawable(shapes::rectangle2D({2, 2, 0}, "/home/rt7/Desktop/"+atlas.get_texture_path(), atlas.get_subtexture("pixel_adventure/Background/Brown.png")).release()); //
+    container.set_drawable(shapes::rectangle2D({10, 10, 0}, "/home/rt7/Desktop/"+atlas.get_texture_path(), atlas.get_subtexture("pixel_adventure/Background/Brown.png")).release()); //
     container_specular.set_drawable(shapes::triangle2D({1, 1, 0}, "", {}, glm::vec4{1.0f}, 1).release());
 
     container.scale() = glm::vec3{.2, .2, 1};
-    container.rotate({0,0,1},45);
     container_specular.scale() = glm::vec3{1, 1, 1};
     container_specular.translation() = glm::vec3{1, 0, 1};
 
@@ -23,7 +22,7 @@ Proj1::~Proj1() {}
  */
 void Proj1::application(float delta_time)
 {
-    // UPDATE SCRIPTS
+
     if (Input->is_key_pressed(REC_KEY_A))
     {
         container.translation().x -= speed * delta_time;
@@ -40,8 +39,8 @@ void Proj1::application(float delta_time)
     {
         container.translation().y -= speed * delta_time;
     }
-    scene1.submit(tile_map);
-    scene1.submit(container);
+    renderer.submit(tile_map);
+    renderer.submit(container);
     // renderer.submit(container_specular);
 }
 
@@ -52,8 +51,6 @@ void Proj1::application(float delta_time)
  */
 void Proj1::application_event(core::events::Event &event)
 {
-    // UPDATE SCRIPTS
-    
     if (is_repeat && event.get_event_type() == core::events::EventType::KeyReleased)
     {
         speed = 0;
