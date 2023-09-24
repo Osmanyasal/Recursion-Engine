@@ -22,3 +22,6 @@
 [submodule "lib/pmu-tools"]
 	path = lib/pmu-tools
 	url = https://github.com/andikleen/pmu-tools
+[submodule "lib/entt"]
+	path = lib/entt
+	url = https://github.com/skypjack/entt.git

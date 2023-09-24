@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 CXX := g++ 
-CXX_VERSION = -std=c++11
+CXX_VERSION = -std=c++17
 CXX_DEBUG := -g
 CXX_WARNINGS := -Wall
 CXX_OPT_FLAGS := -Og -flto
@@ -62,6 +62,9 @@ IMGUI_OPENGL_DIR := $(GUI)/imgui_opengl3_glfw
 LIB_SPD_PATH :=./lib/spdlog
 LIB_SPD := -I./lib/spdlog/include/  -I./lib/spdlog/include/spdlog 
 
+LIB_ENTT_PATH :=./lib/entt
+LIB_ENTT := -I./lib/entt/single_include/entt/
+
 LIB_GLEW_PATH := ./lib/glew
 LIB_GLEW := -I./lib/glew/include/ -I./lib/spdlog/include/glew 
 
@@ -117,6 +120,7 @@ INCLUDE := -I$(SRC_DIR)\
 		   -I$(OPENGL_SCENE_OBJECTS)\
 		   -I$(OPENGL_SCENE_SHAPES)\
 		   -I$(OPENGL_SCENE_LIGHTS)\
+		   	$(LIB_ENTT)\
 			$(LIB_SPD)\
 			$(LIB_GLEW)\
 			$(LIB_GLFW)\
