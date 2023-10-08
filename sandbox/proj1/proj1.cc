@@ -1,11 +1,11 @@
 #include <proj1.hh>
 
 Proj1::Proj1() : Application{"Project1"}
-{ 
-    container.set_drawable(shapes::rectangle2D({10, 10, 0}, "/home/rt7/Desktop/"+atlas.get_texture_path(), atlas.get_subtexture("pixel_adventure/Background/Brown.png")).release()); //
+{
+    container.set_drawable(shapes::rectangle2D({10, 10, 0}, "/home/rt7/Desktop/" + atlas.get_texture_path(), atlas.get_subtexture("pixel_adventure/Main Characters/Mask Dude/Run (32x32).png")).release()); //
     container_specular.set_drawable(shapes::triangle2D({1, 1, 0}, "", {}, glm::vec4{1.0f}, 1).release());
 
-    container.scale() = glm::vec3{.2, .2, 1};
+    container.scale() = glm::vec3{.05, .05, 1};
     container_specular.scale() = glm::vec3{1, 1, 1};
     container_specular.translation() = glm::vec3{1, 0, 1};
 
