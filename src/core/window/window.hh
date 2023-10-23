@@ -47,12 +47,10 @@ namespace Recursion::core::window
         virtual ~Window()
         {
         }
-
         virtual std::string get_title() const final
         {
             return win_props.win_title;
         };
-
         virtual int32_t get_width() const final
         {
             return win_props.win_width;
@@ -61,7 +59,6 @@ namespace Recursion::core::window
         {
             return win_props.win_height;
         };
-
         virtual int32_t get_posx() const final
         {
             return win_props.win_posy;

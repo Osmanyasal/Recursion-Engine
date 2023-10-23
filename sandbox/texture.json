@@ -1,0 +1,4167 @@
+{
+  "frames": {
+    "pixel_adventure/Items/Checkpoints/Checkpoint/Checkpoint (Flag Out) (64x64).png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1628,
+        "h": 46
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 19,
+        "y": 18,
+        "w": 1628,
+        "h": 46
+      },
+      "sourceSize": {
+        "w": 1664,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Mask Dude/Run (32x32).png": {
+      "frame": {
+        "x": 1628,
+        "y": 0,
+        "w": 377,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 0,
+        "w": 377,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 384,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Spike Head/Idle.png": {
+      "frame": {
+        "x": 2005,
+        "y": 0,
+        "w": 43,
+        "h": 43
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 5,
+        "w": 43,
+        "h": 43
+      },
+      "sourceSize": {
+        "w": 54,
+        "h": 52
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Ninja Frog/Run (32x32).png": {
+      "frame": {
+        "x": 1628,
+        "y": 32,
+        "w": 376,
+        "h": 28
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 4,
+        "w": 376,
+        "h": 28
+      },
+      "sourceSize": {
+        "w": 384,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Other/Transition.png": {
+      "frame": {
+        "x": 2004,
+        "y": 43,
+        "w": 44,
+        "h": 44
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 44,
+        "h": 44
+      },
+      "sourceSize": {
+        "w": 44,
+        "h": 44
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Checkpoints/Start/Start (Moving) (64x64).png": {
+      "frame": {
+        "x": 0,
+        "y": 46,
+        "w": 1076,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 28,
+        "w": 1076,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 1088,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Fruits/Melon.png": {
+      "frame": {
+        "x": 1076,
+        "y": 46,
+        "w": 531,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 7,
+        "y": 8,
+        "w": 531,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 544,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Pink Man/Jump (32x32).png": {
+      "frame": {
+        "x": 1607,
+        "y": 46,
+        "w": 21,
+        "h": 29
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 3,
+        "w": 21,
+        "h": 29
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Virtual Guy/Run (32x32).png": {
+      "frame": {
+        "x": 1628,
+        "y": 60,
+        "w": 375,
+        "h": 28
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 375,
+        "h": 28
+      },
+      "sourceSize": {
+        "w": 384,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Boxes/Box1/Idle.png": {
+      "frame": {
+        "x": 1607,
+        "y": 75,
+        "w": 20,
+        "h": 20
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 28,
+        "h": 24
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Fruits/Orange.png": {
+      "frame": {
+        "x": 1076,
+        "y": 62,
+        "w": 529,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 8,
+        "w": 529,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 544,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Fruits/Bananas.png": {
+      "frame": {
+        "x": 1076,
+        "y": 78,
+        "w": 527,
+        "h": 19
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 5,
+        "w": 527,
+        "h": 19
+      },
+      "sourceSize": {
+        "w": 544,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Platforms/Chain.png": {
+      "frame": {
+        "x": 1603,
+        "y": 78,
+        "w": 4,
+        "h": 4
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2,
+        "w": 4,
+        "h": 4
+      },
+      "sourceSize": {
+        "w": 8,
+        "h": 8
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Saw/Chain.png": {
+      "frame": {
+        "x": 1603,
+        "y": 82,
+        "w": 4,
+        "h": 4
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2,
+        "w": 4,
+        "h": 4
+      },
+      "sourceSize": {
+        "w": 8,
+        "h": 8
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Saw/Off.png": {
+      "frame": {
+        "x": 2003,
+        "y": 87,
+        "w": 38,
+        "h": 38
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 38,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 38,
+        "h": 38
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Spiked Ball/Chain.png": {
+      "frame": {
+        "x": 2041,
+        "y": 88,
+        "w": 7,
+        "h": 7
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 7,
+        "h": 7
+      },
+      "sourceSize": {
+        "w": 8,
+        "h": 8
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Pink Man/Run (32x32).png": {
+      "frame": {
+        "x": 1627,
+        "y": 88,
+        "w": 374,
+        "h": 29
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 3,
+        "w": 374,
+        "h": 29
+      },
+      "sourceSize": {
+        "w": 384,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Mask Dude/Jump (32x32).png": {
+      "frame": {
+        "x": 1603,
+        "y": 95,
+        "w": 24,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 0,
+        "w": 24,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Terrain/Terrain (16x16).png": {
+      "frame": {
+        "x": 1627,
+        "y": 117,
+        "w": 352,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 352,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 352,
+        "h": 176
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Ninja Frog/Fall (32x32).png": {
+      "frame": {
+        "x": 1979,
+        "y": 117,
+        "w": 24,
+        "h": 26
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 6,
+        "w": 24,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Ninja Frog/Jump (32x32).png": {
+      "frame": {
+        "x": 1979,
+        "y": 143,
+        "w": 23,
+        "h": 28
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 4,
+        "w": 23,
+        "h": 28
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Checkpoints/End/End (Idle).png": {
+      "frame": {
+        "x": 2002,
+        "y": 143,
+        "w": 46,
+        "h": 44
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 20,
+        "w": 46,
+        "h": 44
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Pink Man/Fall (32x32).png": {
+      "frame": {
+        "x": 1979,
+        "y": 171,
+        "w": 23,
+        "h": 27
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 5,
+        "w": 23,
+        "h": 27
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Virtual Guy/Fall (32x32).png": {
+      "frame": {
+        "x": 1979,
+        "y": 198,
+        "w": 23,
+        "h": 26
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 6,
+        "w": 23,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Other/Shadow.png": {
+      "frame": {
+        "x": 2003,
+        "y": 125,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Blocks/Idle.png": {
+      "frame": {
+        "x": 2019,
+        "y": 125,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 3,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 22,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Buttons/Back.png": {
+      "frame": {
+        "x": 2035,
+        "y": 125,
+        "w": 13,
+        "h": 14
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 13,
+        "h": 14
+      },
+      "sourceSize": {
+        "w": 15,
+        "h": 16
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Background/Blue.png": {
+      "frame": {
+        "x": 1979,
+        "y": 224,
+        "w": 64,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Rock Head/Idle.png": {
+      "frame": {
+        "x": 2002,
+        "y": 187,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 5,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 42,
+        "h": 42
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Buttons/Close.png": {
+      "frame": {
+        "x": 2034,
+        "y": 187,
+        "w": 13,
+        "h": 14
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 13,
+        "h": 14
+      },
+      "sourceSize": {
+        "w": 15,
+        "h": 16
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Background/Brown.png": {
+      "frame": {
+        "x": 1979,
+        "y": 288,
+        "w": 64,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Other/Dust Particle.png": {
+      "frame": {
+        "x": 2034,
+        "y": 201,
+        "w": 8,
+        "h": 8
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 4,
+        "w": 8,
+        "h": 8
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Sand Mud Ice/Ice Particle.png": {
+      "frame": {
+        "x": 2034,
+        "y": 209,
+        "w": 8,
+        "h": 8
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 4,
+        "w": 8,
+        "h": 8
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Appearing (96x96).png": {
+      "frame": {
+        "x": 0,
+        "y": 82,
+        "w": 635,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 635,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 672,
+        "h": 96
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Mask Dude/Idle (32x32).png": {
+      "frame": {
+        "x": 635,
+        "y": 82,
+        "w": 344,
+        "h": 30
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 2,
+        "w": 344,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 352,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Other/Confetti (16x16).png": {
+      "frame": {
+        "x": 979,
+        "y": 82,
+        "w": 96,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 96,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 96,
+        "h": 16
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Fruits/Cherries.png": {
+      "frame": {
+        "x": 1075,
+        "y": 97,
+        "w": 527,
+        "h": 18
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 7,
+        "w": 527,
+        "h": 18
+      },
+      "sourceSize": {
+        "w": 544,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Boxes/Box3/Break.png": {
+      "frame": {
+        "x": 979,
+        "y": 98,
+        "w": 94,
+        "h": 12
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 5,
+        "w": 94,
+        "h": 12
+      },
+      "sourceSize": {
+        "w": 112,
+        "h": 24
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Boxes/Box2/Break.png": {
+      "frame": {
+        "x": 979,
+        "y": 110,
+        "w": 93,
+        "h": 12
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 6,
+        "w": 93,
+        "h": 12
+      },
+      "sourceSize": {
+        "w": 112,
+        "h": 24
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Ninja Frog/Idle (32x32).png": {
+      "frame": {
+        "x": 635,
+        "y": 112,
+        "w": 343,
+        "h": 26
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 6,
+        "w": 343,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 352,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Fruits/Kiwi.png": {
+      "frame": {
+        "x": 1072,
+        "y": 115,
+        "w": 526,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 8,
+        "w": 526,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 544,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Spiked Ball/Spiked Ball.png": {
+      "frame": {
+        "x": 1598,
+        "y": 127,
+        "w": 27,
+        "h": 27
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 27,
+        "h": 27
+      },
+      "sourceSize": {
+        "w": 28,
+        "h": 28
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Boxes/Box1/Break.png": {
+      "frame": {
+        "x": 978,
+        "y": 122,
+        "w": 92,
+        "h": 9
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 7,
+        "w": 92,
+        "h": 9
+      },
+      "sourceSize": {
+        "w": 112,
+        "h": 24
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Fan/On (24x8).png": {
+      "frame": {
+        "x": 978,
+        "y": 131,
+        "w": 91,
+        "h": 8
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 0,
+        "w": 91,
+        "h": 8
+      },
+      "sourceSize": {
+        "w": 96,
+        "h": 8
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Virtual Guy/Idle (32x32).png": {
+      "frame": {
+        "x": 635,
+        "y": 138,
+        "w": 342,
+        "h": 26
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 6,
+        "w": 342,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 352,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Fruits/Apple.png": {
+      "frame": {
+        "x": 1069,
+        "y": 131,
+        "w": 525,
+        "h": 18
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 5,
+        "w": 525,
+        "h": 18
+      },
+      "sourceSize": {
+        "w": 544,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Fruits/Pineapple.png": {
+      "frame": {
+        "x": 1069,
+        "y": 149,
+        "w": 524,
+        "h": 21
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 6,
+        "w": 524,
+        "h": 21
+      },
+      "sourceSize": {
+        "w": 544,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Falling Platforms/Off.png": {
+      "frame": {
+        "x": 1593,
+        "y": 154,
+        "w": 32,
+        "h": 10
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 10
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 10
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Platforms/Brown Off.png": {
+      "frame": {
+        "x": 1593,
+        "y": 164,
+        "w": 32,
+        "h": 7
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1,
+        "w": 32,
+        "h": 7
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 8
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Boxes/Box1/Hit (28x24).png": {
+      "frame": {
+        "x": 977,
+        "y": 139,
+        "w": 80,
+        "h": 18
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 3,
+        "w": 80,
+        "h": 18
+      },
+      "sourceSize": {
+        "w": 84,
+        "h": 24
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png": {
+      "frame": {
+        "x": 1057,
+        "y": 139,
+        "w": 9,
+        "h": 46
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 19,
+        "y": 18,
+        "w": 9,
+        "h": 46
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Text/Text (Black) (8x10).png": {
+      "frame": {
+        "x": 977,
+        "y": 157,
+        "w": 78,
+        "h": 48
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 78,
+        "h": 48
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 50
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Pink Man/Idle (32x32).png": {
+      "frame": {
+        "x": 635,
+        "y": 170,
+        "w": 341,
+        "h": 27
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 5,
+        "w": 341,
+        "h": 27
+      },
+      "sourceSize": {
+        "w": 352,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Desappearing (96x96).png": {
+      "frame": {
+        "x": 0,
+        "y": 176,
+        "w": 633,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 38,
+        "y": 1,
+        "w": 633,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 672,
+        "h": 96
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Fruits/Strawberry.png": {
+      "frame": {
+        "x": 1066,
+        "y": 170,
+        "w": 523,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 8,
+        "w": 523,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 544,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Sand Mud Ice/Mud Particle.png": {
+      "frame": {
+        "x": 1055,
+        "y": 185,
+        "w": 8,
+        "h": 8
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 4,
+        "w": 8,
+        "h": 8
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Sand Mud Ice/Sand Particle.png": {
+      "frame": {
+        "x": 1055,
+        "y": 193,
+        "w": 8,
+        "h": 8
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 4,
+        "w": 8,
+        "h": 8
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Platforms/Grey Off.png": {
+      "frame": {
+        "x": 1589,
+        "y": 171,
+        "w": 32,
+        "h": 7
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1,
+        "w": 32,
+        "h": 7
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 8
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Mask Dude/Fall (32x32).png": {
+      "frame": {
+        "x": 1589,
+        "y": 178,
+        "w": 25,
+        "h": 30
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 2,
+        "w": 25,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Checkpoints/End/End (Pressed) (64x64).png": {
+      "frame": {
+        "x": 1063,
+        "y": 186,
+        "w": 494,
+        "h": 45
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 19,
+        "w": 494,
+        "h": 45
+      },
+      "sourceSize": {
+        "w": 512,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Background/Gray.png": {
+      "frame": {
+        "x": 1557,
+        "y": 208,
+        "w": 64,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Boxes/Box2/Idle.png": {
+      "frame": {
+        "x": 1557,
+        "y": 186,
+        "w": 20,
+        "h": 20
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 28,
+        "h": 24
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Saw/On (38x38).png": {
+      "frame": {
+        "x": 633,
+        "y": 197,
+        "w": 304,
+        "h": 38
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 304,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 304,
+        "h": 38
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png": {
+      "frame": {
+        "x": 937,
+        "y": 231,
+        "w": 606,
+        "h": 46
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 19,
+        "y": 18,
+        "w": 606,
+        "h": 46
+      },
+      "sourceSize": {
+        "w": 640,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Boxes/Box2/Hit (28x24).png": {
+      "frame": {
+        "x": 937,
+        "y": 205,
+        "w": 106,
+        "h": 22
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 106,
+        "h": 22
+      },
+      "sourceSize": {
+        "w": 112,
+        "h": 24
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Boxes/Box3/Idle.png": {
+      "frame": {
+        "x": 1043,
+        "y": 205,
+        "w": 20,
+        "h": 20
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 28,
+        "h": 24
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Fan/Off.png": {
+      "frame": {
+        "x": 937,
+        "y": 197,
+        "w": 23,
+        "h": 8
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 0,
+        "w": 23,
+        "h": 8
+      },
+      "sourceSize": {
+        "w": 24,
+        "h": 8
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Spikes/Idle.png": {
+      "frame": {
+        "x": 960,
+        "y": 197,
+        "w": 15,
+        "h": 7
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 9,
+        "w": 15,
+        "h": 7
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Text/Text (White) (8x10).png": {
+      "frame": {
+        "x": 1543,
+        "y": 272,
+        "w": 78,
+        "h": 48
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 78,
+        "h": 48
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 50
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Platforms/Brown On (32x8).png": {
+      "frame": {
+        "x": 633,
+        "y": 235,
+        "w": 256,
+        "h": 7
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1,
+        "w": 256,
+        "h": 7
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 8
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Fire/On (16x32).png": {
+      "frame": {
+        "x": 889,
+        "y": 235,
+        "w": 48,
+        "h": 31
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1,
+        "w": 48,
+        "h": 31
+      },
+      "sourceSize": {
+        "w": 48,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Platforms/Grey On (32x8).png": {
+      "frame": {
+        "x": 633,
+        "y": 242,
+        "w": 256,
+        "h": 7
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1,
+        "w": 256,
+        "h": 7
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 8
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Trampoline/Jump (28x28).png": {
+      "frame": {
+        "x": 633,
+        "y": 249,
+        "w": 220,
+        "h": 27
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 220,
+        "h": 27
+      },
+      "sourceSize": {
+        "w": 224,
+        "h": 28
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Trampoline/Idle.png": {
+      "frame": {
+        "x": 853,
+        "y": 249,
+        "w": 23,
+        "h": 11
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 17,
+        "w": 23,
+        "h": 11
+      },
+      "sourceSize": {
+        "w": 28,
+        "h": 28
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Virtual Guy/Jump (32x32).png": {
+      "frame": {
+        "x": 853,
+        "y": 260,
+        "w": 22,
+        "h": 28
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 22,
+        "h": 28
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Blocks/Part 2 (22x22).png": {
+      "frame": {
+        "x": 875,
+        "y": 266,
+        "w": 60,
+        "h": 10
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 5,
+        "w": 60,
+        "h": 10
+      },
+      "sourceSize": {
+        "w": 66,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Blocks/Part 1 (22x22).png": {
+      "frame": {
+        "x": 875,
+        "y": 276,
+        "w": 60,
+        "h": 9
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 6,
+        "w": 60,
+        "h": 9
+      },
+      "sourceSize": {
+        "w": 66,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Mask Dude/Hit (32x32).png": {
+      "frame": {
+        "x": 1621,
+        "y": 293,
+        "w": 214,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 0,
+        "w": 214,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 224,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Falling Platforms/On (32x10).png": {
+      "frame": {
+        "x": 1835,
+        "y": 293,
+        "w": 128,
+        "h": 10
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 10
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 10
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Fire/Off.png": {
+      "frame": {
+        "x": 1963,
+        "y": 293,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Background/Green.png": {
+      "frame": {
+        "x": 1835,
+        "y": 303,
+        "w": 64,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Pink Man/Wall Jump (32x32).png": {
+      "frame": {
+        "x": 1899,
+        "y": 352,
+        "w": 149,
+        "h": 25
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 5,
+        "w": 149,
+        "h": 25
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Fire/Hit (16x32).png": {
+      "frame": {
+        "x": 1899,
+        "y": 303,
+        "w": 64,
+        "h": 17
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 15,
+        "w": 64,
+        "h": 17
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Blocks/HitSide (22x22).png": {
+      "frame": {
+        "x": 1899,
+        "y": 320,
+        "w": 56,
+        "h": 22
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 0,
+        "w": 56,
+        "h": 22
+      },
+      "sourceSize": {
+        "w": 66,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Buttons/Achievements.png": {
+      "frame": {
+        "x": 1955,
+        "y": 320,
+        "w": 19,
+        "h": 20
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 19,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 21,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Ninja Frog/Hit (32x32).png": {
+      "frame": {
+        "x": 935,
+        "y": 277,
+        "w": 214,
+        "h": 27
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 5,
+        "w": 214,
+        "h": 27
+      },
+      "sourceSize": {
+        "w": 224,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Checkpoints/Start/Start (Idle).png": {
+      "frame": {
+        "x": 875,
+        "y": 285,
+        "w": 54,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 28,
+        "w": 54,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Virtual Guy/Hit (32x32).png": {
+      "frame": {
+        "x": 1149,
+        "y": 277,
+        "w": 213,
+        "h": 27
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 7,
+        "y": 5,
+        "w": 213,
+        "h": 27
+      },
+      "sourceSize": {
+        "w": 224,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Sand Mud Ice/Sand Mud Ice (16x6).png": {
+      "frame": {
+        "x": 1362,
+        "y": 277,
+        "w": 176,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 80
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Background/Pink.png": {
+      "frame": {
+        "x": 1538,
+        "y": 320,
+        "w": 64,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Buttons/Leaderboard.png": {
+      "frame": {
+        "x": 1602,
+        "y": 320,
+        "w": 19,
+        "h": 20
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 19,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 21,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Pink Man/Hit (32x32).png": {
+      "frame": {
+        "x": 1621,
+        "y": 325,
+        "w": 212,
+        "h": 29
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 3,
+        "w": 212,
+        "h": 29
+      },
+      "sourceSize": {
+        "w": 224,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Buttons/Levels.png": {
+      "frame": {
+        "x": 1602,
+        "y": 340,
+        "w": 19,
+        "h": 20
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 19,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 21,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Spike Head/Bottom Hit (54x52).png": {
+      "frame": {
+        "x": 1621,
+        "y": 354,
+        "w": 211,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 6,
+        "w": 211,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 216,
+        "h": 52
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Buttons/Next.png": {
+      "frame": {
+        "x": 1602,
+        "y": 377,
+        "w": 19,
+        "h": 20
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 19,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 21,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/01.png": {
+      "frame": {
+        "x": 1602,
+        "y": 360,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Background/Purple.png": {
+      "frame": {
+        "x": 1832,
+        "y": 367,
+        "w": 64,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Spike Head/Top Hit (54x52).png": {
+      "frame": {
+        "x": 1621,
+        "y": 396,
+        "w": 211,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 5,
+        "w": 211,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 216,
+        "h": 52
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Mask Dude/Wall Jump (32x32).png": {
+      "frame": {
+        "x": 1896,
+        "y": 377,
+        "w": 152,
+        "h": 28
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 2,
+        "w": 152,
+        "h": 28
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Ninja Frog/Wall Jump (32x32).png": {
+      "frame": {
+        "x": 1896,
+        "y": 405,
+        "w": 151,
+        "h": 24
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 6,
+        "w": 151,
+        "h": 24
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Virtual Guy/Wall Jump (32x32).png": {
+      "frame": {
+        "x": 1896,
+        "y": 429,
+        "w": 150,
+        "h": 24
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 6,
+        "w": 150,
+        "h": 24
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Background/Yellow.png": {
+      "frame": {
+        "x": 1832,
+        "y": 431,
+        "w": 64,
+        "h": 64
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 64
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Arrow/Hit (18x18).png": {
+      "frame": {
+        "x": 1896,
+        "y": 453,
+        "w": 64,
+        "h": 14
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2,
+        "w": 64,
+        "h": 14
+      },
+      "sourceSize": {
+        "w": 72,
+        "h": 18
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Blocks/HitTop (22x22).png": {
+      "frame": {
+        "x": 1960,
+        "y": 453,
+        "w": 64,
+        "h": 14
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 4,
+        "w": 64,
+        "h": 14
+      },
+      "sourceSize": {
+        "w": 66,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Buttons/Play.png": {
+      "frame": {
+        "x": 2024,
+        "y": 453,
+        "w": 19,
+        "h": 20
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 19,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 21,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Boxes/Box3/Hit (28x24).png": {
+      "frame": {
+        "x": 1896,
+        "y": 467,
+        "w": 51,
+        "h": 18
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 3,
+        "w": 51,
+        "h": 18
+      },
+      "sourceSize": {
+        "w": 56,
+        "h": 24
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Buttons/Previous.png": {
+      "frame": {
+        "x": 1947,
+        "y": 467,
+        "w": 19,
+        "h": 20
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 19,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 21,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Buttons/Restart.png": {
+      "frame": {
+        "x": 1896,
+        "y": 485,
+        "w": 19,
+        "h": 20
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 19,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 21,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Buttons/Settings.png": {
+      "frame": {
+        "x": 1915,
+        "y": 485,
+        "w": 19,
+        "h": 20
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 19,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 21,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Buttons/Volume.png": {
+      "frame": {
+        "x": 1966,
+        "y": 467,
+        "w": 19,
+        "h": 20
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 19,
+        "h": 20
+      },
+      "sourceSize": {
+        "w": 21,
+        "h": 22
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/02.png": {
+      "frame": {
+        "x": 1985,
+        "y": 467,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/03.png": {
+      "frame": {
+        "x": 2002,
+        "y": 467,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/04.png": {
+      "frame": {
+        "x": 2019,
+        "y": 473,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/05.png": {
+      "frame": {
+        "x": 1985,
+        "y": 482,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/06.png": {
+      "frame": {
+        "x": 2002,
+        "y": 482,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/07.png": {
+      "frame": {
+        "x": 2019,
+        "y": 488,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/08.png": {
+      "frame": {
+        "x": 1934,
+        "y": 487,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/09.png": {
+      "frame": {
+        "x": 1951,
+        "y": 487,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/10.png": {
+      "frame": {
+        "x": 1968,
+        "y": 487,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/11.png": {
+      "frame": {
+        "x": 1968,
+        "y": 502,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/12.png": {
+      "frame": {
+        "x": 1934,
+        "y": 503,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/13.png": {
+      "frame": {
+        "x": 1951,
+        "y": 503,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/14.png": {
+      "frame": {
+        "x": 1985,
+        "y": 497,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/15.png": {
+      "frame": {
+        "x": 2002,
+        "y": 497,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/16.png": {
+      "frame": {
+        "x": 2019,
+        "y": 503,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/17.png": {
+      "frame": {
+        "x": 1985,
+        "y": 512,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/18.png": {
+      "frame": {
+        "x": 1968,
+        "y": 517,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/19.png": {
+      "frame": {
+        "x": 2002,
+        "y": 512,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/20.png": {
+      "frame": {
+        "x": 2019,
+        "y": 518,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/21.png": {
+      "frame": {
+        "x": 1985,
+        "y": 527,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/22.png": {
+      "frame": {
+        "x": 2002,
+        "y": 527,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/23.png": {
+      "frame": {
+        "x": 2019,
+        "y": 533,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Spike Head/Blink (54x52).png": {
+      "frame": {
+        "x": 929,
+        "y": 304,
+        "w": 205,
+        "h": 43
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 5,
+        "w": 205,
+        "h": 43
+      },
+      "sourceSize": {
+        "w": 216,
+        "h": 52
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Spike Head/Left Hit (54x52).png": {
+      "frame": {
+        "x": 1134,
+        "y": 304,
+        "w": 204,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 1,
+        "w": 204,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 216,
+        "h": 52
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/24.png": {
+      "frame": {
+        "x": 1338,
+        "y": 347,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Ninja Frog/Double Jump (32x32).png": {
+      "frame": {
+        "x": 1355,
+        "y": 357,
+        "w": 182,
+        "h": 28
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 2,
+        "w": 182,
+        "h": 28
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/25.png": {
+      "frame": {
+        "x": 1338,
+        "y": 304,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/26.png": {
+      "frame": {
+        "x": 1338,
+        "y": 319,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/27.png": {
+      "frame": {
+        "x": 1537,
+        "y": 384,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/28.png": {
+      "frame": {
+        "x": 1554,
+        "y": 384,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/29.png": {
+      "frame": {
+        "x": 1571,
+        "y": 384,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/30.png": {
+      "frame": {
+        "x": 1588,
+        "y": 397,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Spike Head/Right Hit (54x52).png": {
+      "frame": {
+        "x": 0,
+        "y": 270,
+        "w": 200,
+        "h": 51
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 1,
+        "w": 200,
+        "h": 51
+      },
+      "sourceSize": {
+        "w": 216,
+        "h": 52
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Mask Dude/Double Jump (32x32).png": {
+      "frame": {
+        "x": 200,
+        "y": 270,
+        "w": 186,
+        "h": 28
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 3,
+        "w": 186,
+        "h": 28
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Pink Man/Double Jump (32x32).png": {
+      "frame": {
+        "x": 386,
+        "y": 270,
+        "w": 182,
+        "h": 25
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 5,
+        "w": 182,
+        "h": 25
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/31.png": {
+      "frame": {
+        "x": 568,
+        "y": 270,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/32.png": {
+      "frame": {
+        "x": 585,
+        "y": 270,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/33.png": {
+      "frame": {
+        "x": 602,
+        "y": 270,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Main Characters/Virtual Guy/Double Jump (32x32).png": {
+      "frame": {
+        "x": 619,
+        "y": 276,
+        "w": 182,
+        "h": 25
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 182,
+        "h": 25
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/34.png": {
+      "frame": {
+        "x": 568,
+        "y": 288,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Arrow/Idle (18x18).png": {
+      "frame": {
+        "x": 386,
+        "y": 295,
+        "w": 175,
+        "h": 18
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 0,
+        "w": 175,
+        "h": 18
+      },
+      "sourceSize": {
+        "w": 180,
+        "h": 18
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Items/Fruits/Collected.png": {
+      "frame": {
+        "x": 200,
+        "y": 298,
+        "w": 172,
+        "h": 22
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 5,
+        "w": 172,
+        "h": 22
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/35.png": {
+      "frame": {
+        "x": 585,
+        "y": 285,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/36.png": {
+      "frame": {
+        "x": 602,
+        "y": 285,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/37.png": {
+      "frame": {
+        "x": 585,
+        "y": 300,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/38.png": {
+      "frame": {
+        "x": 602,
+        "y": 300,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/39.png": {
+      "frame": {
+        "x": 561,
+        "y": 303,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/40.png": {
+      "frame": {
+        "x": 561,
+        "y": 318,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Rock Head/Bottom Hit (42x42).png": {
+      "frame": {
+        "x": 372,
+        "y": 313,
+        "w": 164,
+        "h": 31
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 6,
+        "w": 164,
+        "h": 31
+      },
+      "sourceSize": {
+        "w": 168,
+        "h": 42
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Rock Head/Top Hit (42x42).png": {
+      "frame": {
+        "x": 200,
+        "y": 320,
+        "w": 164,
+        "h": 31
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 5,
+        "w": 164,
+        "h": 31
+      },
+      "sourceSize": {
+        "w": 168,
+        "h": 42
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/41.png": {
+      "frame": {
+        "x": 536,
+        "y": 313,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/42.png": {
+      "frame": {
+        "x": 536,
+        "y": 328,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/43.png": {
+      "frame": {
+        "x": 801,
+        "y": 276,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/44.png": {
+      "frame": {
+        "x": 818,
+        "y": 276,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/45.png": {
+      "frame": {
+        "x": 835,
+        "y": 276,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/46.png": {
+      "frame": {
+        "x": 852,
+        "y": 288,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/47.png": {
+      "frame": {
+        "x": 801,
+        "y": 291,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/48.png": {
+      "frame": {
+        "x": 818,
+        "y": 291,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/49.png": {
+      "frame": {
+        "x": 835,
+        "y": 291,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Menu/Levels/50.png": {
+      "frame": {
+        "x": 852,
+        "y": 303,
+        "w": 17,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 17,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 19,
+        "h": 17
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Rock Head/Blink (42x42).png": {
+      "frame": {
+        "x": 619,
+        "y": 301,
+        "w": 158,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 5,
+        "w": 158,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 168,
+        "h": 42
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Rock Head/Left Hit (42x42).png": {
+      "frame": {
+        "x": 0,
+        "y": 321,
+        "w": 157,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 0,
+        "w": 157,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 168,
+        "h": 42
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pixel_adventure/Traps/Rock Head/Right Hit (42x42).png": {
+      "frame": {
+        "x": 553,
+        "y": 333,
+        "w": 153,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 0,
+        "w": 153,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 168,
+        "h": 42
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "texture.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 2048,
+      "h": 548
+    },
+    "scale": 1
+  }
+}

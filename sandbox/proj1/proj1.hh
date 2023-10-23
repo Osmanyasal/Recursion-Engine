@@ -16,7 +16,7 @@ private:
     GameObject container;
     GameObject container_specular;
     GameObject tile_map;
-    core::render::AtlasReader atlas{"/home/rt7/Desktop/texture.json"}; // core::render::SubTexture{2048, 548, 32, 1628, 0}
+    core::render::AtlasReader atlas{"../sandbox/texture.json"}; // core::render::SubTexture{2048, 548, 32, 1628, 0}
 
 private:
     int8_t speed = 0;
