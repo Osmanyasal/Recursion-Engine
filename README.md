@@ -63,7 +63,7 @@ mem_check
 ```
 
 ## PERFORMANCE MONITORING 🔎<br>
-The engine itself contains many profiling tools ```(Perf, Valgrind, Intel Vtune, Advisor...)``` and binary instrumentations ```(chrome://tracing)``` allowing the user to write high-performant code and monitor and optimize the pre-written code.
+<!--The engine itself contains many profiling tools ```(Perf, Valgrind, Intel Vtune, Advisor...)``` and binary instrumentations ```(chrome://tracing)``` allowing the user to write high-performant code and monitor and optimize the pre-written code.-->
 You can use the following makefile targets to collect meaningful metrics <br>
 All targets use perf tool and Valgrind, so make sure they're installed<br>
 ```
